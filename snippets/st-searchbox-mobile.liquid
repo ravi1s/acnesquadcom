@@ -1,0 +1,58 @@
+<style>
+    @media only screen and (max-width: 834px) {
+
+      div#stDesktopSearchBox {
+      display: none !important;
+  }
+     div#stMobileSearchBox {
+      display: block;
+       margin: 0;
+  }
+       .st-search-bar.hidden-desktop {
+             padding: 0 10px;
+      }
+
+      .st-search-bar {
+          position: relative;
+          margin: 0 0 5px;
+      }
+
+      .st-search-bar input {
+          height: 40px !important;
+  /*        background-color: #f5f5f6;*/
+          border: 1px solid #707070 !important;
+             margin-top: 5px;
+          background-position-x: 15px !important;
+          padding-left: 40px !important;
+          background-repeat: no-repeat;
+          background-size: 12px;
+          background-position-y: center;
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIuOTA0IDE5Mi45MDQiPjxwYXRoIGQ9Ik0xOTAuNzA3IDE4MC4xMDFsLTQ3LjA3OC00Ny4wNzdjMTEuNzAyLTE0LjA3MiAxOC43NTItMzIuMTQyIDE4Ljc1Mi01MS44MzFDMTYyLjM4MSAzNi40MjMgMTI1Ljk1OSAwIDgxLjE5MSAwIDM2LjQyMiAwIDAgMzYuNDIzIDAgODEuMTkzYzAgNDQuNzY3IDM2LjQyMiA4MS4xODcgODEuMTkxIDgxLjE4NyAxOS42ODggMCAzNy43NTktNy4wNDkgNTEuODMxLTE4Ljc1MWw0Ny4wNzkgNDcuMDc4YTcuNDc0IDcuNDc0IDAgMDA1LjMwMyAyLjE5NyA3LjQ5OCA3LjQ5OCAwIDAwNS4zMDMtMTIuODAzek0xNSA4MS4xOTNDMTUgNDQuNjk0IDQ0LjY5MyAxNSA4MS4xOTEgMTVjMzYuNDk3IDAgNjYuMTg5IDI5LjY5NCA2Ni4xODkgNjYuMTkzIDAgMzYuNDk2LTI5LjY5MiA2Ni4xODctNjYuMTg5IDY2LjE4N0M0NC42OTMgMTQ3LjM4IDE1IDExNy42ODkgMTUgODEuMTkzeiIvPjwvc3ZnPg==) !important;
+          font-size: 16px !important;
+          color: #000;
+      }
+  .st-search-bar .input-close-btn {
+      width: 25px;
+      height: 15px!important;
+      background-size: 15px!important;
+      margin-right: 16px;
+
+    }
+
+  }
+</style>
+<div class="st-search-bar hidden-desktop" id="stMobileSearchBox">
+  <form>
+    <input
+      id="wizzyMobileSearchBox"
+      type="text"
+      name="q"
+      placeholder=""
+      value=""
+      autocapitalize="off"
+      autocomplete="off"
+      autocorrect="off"
+    >
+    <span class="input-close-btn" style="display: none;"></span>
+  </form>
+</div>

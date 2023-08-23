@@ -1,0 +1,108 @@
+<!-- =============imageGrid============================= -->
+<div class="imageGridSection brick--margin">
+  <h3 class="quizIntrobldttl textbtmMargin imageGridSTtl">{{ section.settings.title }}</h3>
+  <div class="mainimageGridcntnt flexWrap dflex {% if page.name == quiz-result %} quizeImgSlickSlider {% endif %}">
+    {% for block in section.blocks %}
+    <div class="imageGridcntnt">
+      <img class="lazyload" data-src="{{ block.settings.imagepic | img_url : 'master' }}" alt="{{ block.settings.titletext }}" title="" height="100%" width="100%" style="height:auto; width:auto;">
+    <h4 class="imageGridhead">{{ block.settings.titletext }}</h4>      
+      <p class="imageGridDes  {% if template contains 'index' and forloop.index == 1%}active{% endif %}">{{ block.settings.place_text }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  {% if page.handle == 'quiz-result' or 'quiz-stage1' or 'quiz-stage2' or 'quiz-stage3' or 'quiz-stage4' %}
+  <a class="exploreBtnLink" href="{{ section.settings.exploreBtnUrl }}">{{ section.settings.exploreBtn }}</a>
+  {% endif %}
+</div>
+{% schema %}
+  {
+    "class" : "image_grid-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Custom content"
+      },
+	  {
+        "type": "text",
+        "id": "exploreBtn",
+        "label": "Button Text"
+      },
+	  {
+        "type": "url",
+        "id": "exploreBtnUrl",
+        "label": "Button Url"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "imageGrid Block",
+        "settings": [
+ 		  {
+            "type":"image_picker",
+            "id":"imagepic",
+            "label":"image"
+          },
+          {
+            "type": "text",
+            "id": "titletext",
+            "label": "User Name"
+          },
+          {
+            "type": "text",
+            "id": "place_text",
+            "label": "Description"
+          }
+        ]
+      }  
+    ],
+    "presets": [
+      {
+        "name": "imageGrid",
+        "category": "imageGrid Section",
+        "blocks": [
+          
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<script type="text/javascript">
+  $(document).on('ready', function() {
+  {% if template contains 'index' %}
+    $('.imageGridcntnt').click(function(){
+      $('.imageGridDes').removeClass('active');
+    });
+  {% endif  %}
+    $(".template-page .quizeImgSlickSlider").slick({
+      infinite: false,
+      slidesToShow:4,
+      arrows:false,
+      dots:true,
+      autoplay:false,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow:3
+          }
+        },
+        {
+          infinite: false,
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+
+    });
+  });
+</script>
+

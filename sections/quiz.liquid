@@ -1,0 +1,106 @@
+<div>
+  <div>
+    <div class="quiz-first-div">
+    <h1 class="quiz-question">{{ section.settings.quiz-question }}</h1>
+    <h1 class="quiz-heading">{{ section.settings.quiz-heading }}</h1>
+    </div>
+    <p>{{ section.settings.quiz-text }}</p>
+  </div>
+  <div class="quiz-main">
+  {% for block in section.blocks %}
+  <div class="inner-quiz">
+  <img src="{{ block.settings.image | img_url:'300x' }}" >
+    <h2>{{ block.settings.quiz-inner-heading }}</h2>
+    <p>{{ block.settings.quiz-inner-text }}</p>
+  </div>
+  {% endfor %}
+  </div>
+</div>
+  
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+{
+	"type": "text",
+	"id": "quiz-question",
+	"label": "Enter Heading",
+	"default": "Enter Text"
+},
+{
+	"type": "text",
+	"id": "quiz-heading",
+	"label": "Enter Heading",
+	"default": "Enter Text"
+},
+{	
+	"type": "text",
+	"id": "quiz-text",
+	"label": "Enter Text",
+	"default": "Enter Text"
+}
+],
+"blocks": [
+		{
+			"type": "text",
+			"name": "quiz-block",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Select image"
+				},
+				{
+					"type": "radio",
+					"id": "radio-select",
+					"label": "Select Your Choice",
+					"options": [
+                          {
+                            "value": "left",
+                            "label": "Left"
+                          },
+                          {
+                            "value": "centered",
+                            "label": "Centered"
+                          }
+                        ],
+					"default": "left"
+				},
+				{
+					"type": "text",
+					"id": "quiz-inner-heading",
+					"label": "Enter Heading",
+					"default": "Enter Text"
+				},
+				{
+					"type": "text",
+					"id": "quiz-inner-text",
+					"label": "Enter Heading",
+					"default": "Enter Text"
+				}
+			]
+		}
+	]
+  }
+{% endschema %}
+
+{% style %}
+	.quiz-heading {
+		color: #f18021;	
+		width: 94%;
+	}
+	.quiz-main {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.inner-quiz {
+		width: 50%;
+	}
+	.quiz-question {
+		width: 6%;
+		border: 2px solid red;
+	}
+	.quiz-first-div {
+		display: flex;
+	}
+{% endstyle %}

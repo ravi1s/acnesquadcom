@@ -1,0 +1,572 @@
+
+<!-- section/QuizeSec2.liquid -->
+<div class="mainQuizeSection">
+  <div class="">
+    <form id="msform">
+      <!--    Start Question-one-conent -->
+      <fieldset class="Question-answer mainQuizeSec2 dflex flexWrap ">
+        
+        {% for block in section.blocks %}
+        {% if block.type == 'quiz-1' %}
+          <div class="mainquizIntrottl ">
+          <div class="mainQuizNmbr dflex">
+              <a href="/">
+                <div class="backArrowBtn" style="padding-bottom: 0;">
+                  <i class="fa fa-arrow-left"></i>
+                </div>
+              </a>
+              <div class="mainradiodisbtns dflex">
+                <input type="radio" checked>
+                <input type="radio" disabled>
+                <input type="radio" disabled>
+                <input type="radio" disabled>
+              </div>
+          </div>
+        <div class="FAQS_questions-Part dflex flexWrap mainQuizHead">
+         
+          <h1 class="QuestionNumber">{{block.settings.text_title1}} </h1>
+          <div class="mainQuesDesTTL">
+            <h3 class="mainQuesTTL">{{block.settings.text_title2}}</h3>
+            <p class="mainQuesTTL">{{block.settings.text_title3}}</p>
+          </div>
+        </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        <div class="QuizeSec2Question dflex flexWrap">
+          <div class="mainFaqConatiner">
+          {% for block in section.blocks %}
+          {% if block.type == 'question-1' %}
+          <div class="FAQS_container">
+            <div class="image-with-content-parent">
+              <div class="image-with-content"> 
+                <div class="img-sec" data-src="{{block.settings.dataImage1 |  img_url: 'master'}}">
+                  <img src="{{block.settings.image1 |  img_url: '100px'}}">
+                </div>
+                <div class="content_with-radio content_with_pro_tips" data-index="1" data-heading="{{ block.settings.dataHeading1 }}" data-content="{{ block.settings.datacontent1 }}">
+                  <input type="radio" id="html-{{block.id}}" name="fav_language" value="HTML">
+                  <label for="html-{{block.id}}">{{block.settings.text1}}</label>    
+                  <div class="question-content">
+                                
+                    <p class="content-1">{{block.settings.text2}}</p>
+                    <p class="content-2">{{block.settings.text3}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          </div>
+          <div class="mainQuesQuizBtn">
+            <a href="https://acnesquad.myshopify.com/pages/quiz-intro" class="action-button-previous">Back</a>
+            
+            <a class="cstmbeforearow"><input type="button" name="next" class="next disabled action-button" value="Next" /></a>
+          </div>
+        </div>
+      </fieldset>
+      <!--    End Question-one-conent -->
+      <fieldset class="Question-answer mainQuizeSec2 dflex flexWrap ">
+          <div class="mainquizIntrottl">
+            <div class="mainQuizNmbr dflex">
+              <div name="previous" value="Back" class="previous action-button-previous_1 backArrowBtn" style="padding-bottom: 0;">
+                <i class="fa fa-arrow-left"></i>
+              </div>
+              <div class="mainradiodisbtns dflex">
+                <input type="radio" checked="">
+                <input type="radio" checked="" disabled="">
+                <input type="radio" disabled="">
+                <input type="radio" disabled="">
+              </div>
+            </div>
+        
+        {% for block in section.blocks %}
+        {% if block.type == 'quiz-2' %}
+        <div class="FAQS_questions-Part dflex flexWrap mainQuizHead">
+          <h1 class="QuestionNumber">{{block.settings.text_title1}} </h1>
+          <div class="mainQuesDesTTL">
+            <h3 class="mainQuesTTL">{{block.settings.text_title2}}</h3>
+            <p class="mainQuesTTL">{{block.settings.text_title3}}</p>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+        <div class="QuizeSec2Question  dflex flexWrap">
+          <div class="mainFaqConatiner">
+          {% for block in section.blocks %}
+          {% if block.type == 'question-2' %}
+          <div class="FAQS_container">
+            <div class="image-with-content-parent">
+              <div class="image-with-content"> 
+                <div class="img-sec" data-src="{{block.settings.dataImage2 |  img_url: 'master'}}">
+                  <img src="{{block.settings.image1 |  img_url: '100px'}}">
+                </div>
+                <div class="content_with-radio content_with_pro_tips" data-index="2" data-heading="{{ block.settings.dataHeading2 }}" data-content="{{ block.settings.datacontent2 }}">
+                  <input type="radio" id="html-{{block.id}}" name="fav_language" value="HTML">
+                  <label for="html-{{block.id}}">{{block.settings.text1}}</label>
+                  <div class="question-content">
+                    <p class="content-1">{{block.settings.text2}}</p>
+                    <p class="content-2">{{block.settings.text3}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+          <div class="mainQuesQuizBtn">
+            <a class="cstmbeforearowLeft">
+            <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+            </a>
+             <a class="cstmbeforearow">
+            <input type="button" name="next" class="next disabled action-button" value="Next" /></a>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="Question-answer mainQuizeSec2 dflex flexWrap ">
+        <div class="mainquizIntrottl">
+          <div class="mainQuizNmbr dflex">
+            <div name="previous" value="Back" class="previous action-button-previous_1 backArrowBtn" style="padding-bottom: 0;">
+              <i class="fa fa-arrow-left"></i>
+            </div>
+            <div class="mainradiodisbtns dflex">
+              <input type="radio" checked="">
+              <input type="radio" checked="" disabled="">
+              <input type="radio" checked="" disabled="">
+              <input type="radio" disabled="">
+            </div>
+        </div>
+        {% for block in section.blocks %}
+        {% if block.type == 'quiz-3' %}
+        <div class="FAQS_questions-Part dflex flexWrap mainQuizHead">
+          <h1 class="QuestionNumber">{{block.settings.text_title1}} </h1>
+          <div class="mainQuesDesTTL">
+            <h3 class="mainQuesTTL">{{block.settings.text_title2}}</h3>
+            <p class="mainQuesTTL">{{block.settings.text_title3}}</p>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+        <div class="QuizeSec2Question  dflex flexWrap">
+          <div class="mainFaqConatiner">
+          {% for block in section.blocks %}
+          {% if block.type == 'question-3' %}
+          <div class="FAQS_container">
+            <div class="image-with-content-parent">
+              <div class="image-with-content"> 
+                <div class="img-sec" data-src="{{block.settings.dataImage3 |  img_url: 'master'}}">
+                  <img src="{{block.settings.image1 |  img_url: '100px'}}">
+                </div>
+                <div class="content_with-radio content_with_pro_tips" data-index="3" data-heading="{{ block.settings.dataHeading3 }}" data-content="{{ block.settings.datacontent3 }}">
+                  <input type="radio" id="html-{{block.id}}" name="fav_language" value="HTML">
+                  <label for="html-{{block.id}}">{{block.settings.text1}}</label>  
+                  <div class="question-content">
+                    <p class="content-1">{{block.settings.text2}}</p>
+                    <p class="content-2">{{block.settings.text3}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          </div>
+          <div class="mainQuesQuizBtn">
+            <a class="cstmbeforearowLeft">
+            <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+            </a>
+            <a class="cstmbeforearow">
+            <input type="button" name="next" class="next disabled action-button" value="Next" /></a>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="Question-answer mainQuizeSec2 dflex flexWrap mainQuizeSec4-flex">
+        <div class="mainquizIntrottl">
+          <div class="mainQuizNmbr dflex">
+            <div name="previous" value="Back" class="previous action-button-previous_1 backArrowBtn" style="padding-bottom: 0;">
+              <i class="fa fa-arrow-left"></i>
+            </div>
+             <div class="mainradiodisbtns dflex">
+              <input type="radio" checked="">
+              <input type="radio" checked="" disabled="">
+              <input type="radio" checked="" disabled="">
+              <input type="radio" checked="" disabled="">
+            </div>
+          </div>
+        {% for block in section.blocks %}
+        {% if block.type == 'quiz-4' %}
+        <div class="FAQS_questions-Part dflex flexWrap mainQuizHead">
+          <h1 class="QuestionNumber">{{block.settings.text_title1}} </h1>
+          <div class="mainQuesDesTTL">
+            <h3 class="mainQuesTTL">{{block.settings.text_title2}}</h3>
+            <p class="mainQuesTTL">{{block.settings.text_title3}}</p>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+        <div class="QuizeSec2Question last_step  dflex flexWrap">
+          <div class="mainFaqConatiner">
+          {% for block in section.blocks %}
+          {% if block.type == 'question-4' %}
+          <div class="FAQS_container">
+            <div class="image-with-content-parent">
+              <div class="image-with-content" data-index="{{ block.settings.dataIndex | times: 1 }}" data-url="{{ block.settings.dataUrl }}" data-heading="{{ block.settings.dataHeading4 }}" data-content="{{ block.settings.datacontent4 }}"> 
+                <div class="img-sec">
+                  <img src="{{block.settings.image1 |  img_url: '100px'}}">
+                </div>
+                <div class="content_with-radio finalquizeBlock" data-index="4" data-heading="{{ block.settings.dataHeading3 }}" data-content="{{ block.settings.datacontent3 }}">
+                  <input type="radio" id="html-{{block.id}}" name="fav_language" value="HTML">
+                  <label for="html-{{block.id}}">{{block.settings.text1}}</label>
+                  <div class="question-content">
+                    <p class="content-1">{{block.settings.text2}}</p>
+                    <p class="content-2">{{block.settings.text3}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          </div>
+          <div class="mainQuesQuizBtn">
+            <a class="cstmbeforearowLeft">
+              <input type="button" name="previous" class="previous action-button-previous" value="Back" />
+            </a>
+            <a href="javascript:void(0)" class="disabled next mainQuesQuizBtnSubMitBtn">NEXT</a>
+
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+{% schema %}
+{
+	"name": "Quiz Section",
+	"settings": [],
+
+	"blocks": [{
+			"type": "quiz-1",
+			"name": "Question-1",
+			"settings": [{
+					"type": "text",
+					"id": "text_title1",
+					"label": "Question",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title2",
+					"label": "Answer",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title3",
+					"label": "Answer",
+					"default": "Quick links"
+				}
+			]
+		},
+		{
+			"type": "quiz-2",
+			"name": "Question-2",
+			"settings": [{
+					"type": "text",
+					"id": "text_title1",
+					"label": "Question",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title2",
+					"label": "Answer",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title3",
+					"label": "Answer",
+					"default": "Quick links"
+				}
+			]
+		},
+		{
+			"type": "quiz-3",
+			"name": "Question-3",
+			"settings": [{
+					"type": "text",
+					"id": "text_title1",
+					"label": "Question",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title2",
+					"label": "Answer",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title3",
+					"label": "Answer",
+					"default": "Quick links"
+				} 
+			]
+		},
+		{
+			"type": "quiz-4",
+			"name": "Question-4",
+			"settings": [{
+					"type": "text",
+					"id": "text_title1",
+					"label": "Question",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title2",
+					"label": "Answer",
+					"default": "Quick links"
+				},
+				{
+					"type": "text",
+					"id": "text_title3",
+					"label": "Answer",
+					"default": "Quick links"
+				}
+			]
+		},
+		{
+			"type": "question-1",
+			"name": "question-1-content",
+			"settings": [{
+					"type": "image_picker",
+					"id": "image1",
+					"label": "Image"
+				},
+				{
+					"type": "text",
+					"id": "text1",
+					"label": "Heading "
+				},
+
+				{
+					"type": "text",
+					"id": "text2",
+					"label": "Sub Heading "
+
+				},
+				{
+					"type": "url",
+					"id": "preUrl",
+					"label": "Previous Url"
+
+				},
+
+				{
+					"type": "textarea",
+					"id": "text3",
+					"label": "Welcome message",
+					"default": "Welcome!"
+				},
+                {
+					"type": "image_picker",
+					"id": "dataImage1",
+					"label": "data Image"
+				},
+                 {
+					"type": "text",
+					"id": "dataHeading1",
+					"label": "data heading"
+				},
+                {
+					"type": "text",
+					"id": "datacontent1",
+					"label": "data content"
+				}
+
+			]
+		},
+		{
+			"type": "question-2",
+			"name": "question-2-content",
+			"settings": [{
+					"type": "image_picker",
+					"id": "image1",
+					"label": "Image"
+
+				},
+
+				{
+					"type": "text",
+					"id": "text1",
+					"label": "Heading "
+
+				},
+
+				{
+					"type": "text",
+					"id": "text2",
+					"label": "Sub Heading "
+
+				},
+				{
+					"type": "textarea",
+					"id": "text3",
+					"label": "Welcome message",
+					"default": "Welcome!"
+				},
+                {
+					"type": "image_picker",
+					"id": "dataImage2",
+					"label": "data Image"
+				},
+                {
+					"type": "text",
+					"id": "dataHeading2",
+					"label": "data heading"
+				},
+                {
+					"type": "html",
+					"id": "datacontent2",
+					"label": "data content"
+				}
+
+			]
+		},
+		{
+			"type": "question-3",
+			"name": "question-3-content",
+			"settings": [{
+					"type": "image_picker",
+					"id": "image1",
+					"label": "Image"
+
+				},
+
+				{
+					"type": "text",
+					"id": "text1",
+					"label": "Heading "
+
+				},
+
+				{
+					"type": "text",
+					"id": "text2",
+					"label": "Sub Heading "
+
+				},
+
+				{
+					"type": "textarea",
+					"id": "text3",
+					"label": "Welcome message",
+					"default": "Welcome!"
+				},
+                {
+					"type": "image_picker",
+					"id": "dataImage3",
+					"label": "data Image"
+				},
+                {
+					"type": "text",
+					"id": "dataHeading3",
+					"label": "data heading"
+				},
+                {
+					"type": "text",
+					"id": "datacontent3",
+					"label": "data content"
+				}
+			]
+		},
+		{
+			"type": "question-4",
+			"name": "question-4-content",
+			"settings": [{
+					"type": "image_picker",
+					"id": "image1",
+					"label": "Image"
+
+				},
+
+				{
+					"type": "text",
+					"id": "text1",
+					"label": "Heading "
+
+				},
+				{
+					"type": "text",
+					"id": "text2",
+					"label": "Sub Heading "
+
+				},
+				{
+					"type": "textarea",
+					"id": "text3",
+					"label": "Welcome message",
+					"default": "Welcome!"
+				},
+                 {
+					"type": "image_picker",
+					"id": "dataImage3",
+					"label": "data Image"
+				},
+                {
+					"type": "text",
+					"id": "dataHeading3",
+					"label": "data heading"
+				},
+                {
+					"type": "text",
+					"id": "datacontent3",
+					"label": "data content"
+				},
+                {
+					"type": "url",
+					"id": "dataUrl",
+					"label": "data Url"
+				},
+                {
+					"type": "text",
+					"id": "dataIndex",
+					"label": "data Index"
+				}
+			]
+		}
+	],
+	"presets": [{
+		"name": "Quiz Section ss"
+	}]
+}
+{% endschema %}
+
+<style>
+  #msform fieldset:not(:first-of-type) {
+    display: none
+  }
+div#shopify-section-template--16178507219181__16565778943edcc6e7 p.QuizDes.textbtmMargin:after{
+  height: 20px;
+  width: 20px;
+  background: red;
+  content: "\f10d";
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+@media (min-width: 768px) {
+.next.action-button {
+  padding-left: 50%;
+  padding-right: 50%;
+}
+  }
+
+</style>

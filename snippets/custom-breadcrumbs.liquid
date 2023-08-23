@@ -1,0 +1,50 @@
+{% assign breadcrumbs_modifier = breadcrumbs_modifier | default: '' %}
+
+{% capture divider_html %}
+ 
+{% endcapture %}
+
+<nav class="breadcrumbs {{ breadcrumbs_modifier }}">
+  <a href="{{ routes.root_url }}">{{ 'general.breadcrumbs.home' | t }}</a>
+  
+  <span class="breadcrumbs__arrow ff">&nbsp;</span>
+
+  {% if template contains 'product' %}
+    {%- if collection -%}
+      {{ collection.title | link_to: collection.url }}
+
+      {{ divider_html }}
+    {%- endif -%}
+  {%- elsif template.name == 'article' -%}
+    {{ blog.title | link_to: blog.url }}
+    
+    <span class="breadcrumbs__arrow ff">&nbsp;</span>
+  {% endif %}
+
+<!--   <span class="ee">{{- page_title -}}</span> -->
+  
+   {% if template contains 'product' %}
+    <a href="/collections/all"><span class="collection-all">All Products</span></a>
+   <span class="breadcrumbs__arrow" id="collection-arrow">&nbsp;</span>
+     {{ product.title | link_to: product.url }}
+     
+  {% endif %}
+  
+  {% if template contains 'collection' %}
+   <a href="/collections/all"><span class="product_all_hide">All Products</span></a>
+   <span class="breadcrumbs__arrow hide-for-all" id="collection-arrow">&nbsp;</span>
+     {{ collection.title | link_to: collection.url }}
+
+  {% endif %} 
+  {% if page.handle contains 'stage-' %}
+     <a href="#"><span class="collection-all">Shop by Stage of Acne</span></a>
+       <span class="breadcrumbs__arrow">&nbsp;</span>
+      {{ page.title | link_to: page.url }}
+    {% endif %}
+    
+</nav>
+<style>
+  {% if collection.handle contains 'all' %}
+    .product_all_hide,span.hide-for-all {display:none!important;}
+  {% endif %}
+</style>

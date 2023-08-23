@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+    {% if settings.favicon %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
+    {% endif %}
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ 'checkout.css' | asset_url | stylesheet_tag }}
+    {{ checkout_scripts }}
+    
+    <script src="{{ 'checkout-validation.js' | asset_url }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+     <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10868065516"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-10868065516'); </script>
+   <!-- end ETmedia script--->
+<!--     *********************Adobe-Analytics-implementation Start 20/10/22 ****************** -->
+    <script src="//assets.adobedtm.com/e6bd1902389a/0b667b5360d5/launch-ab7d6ca826cf.min.js" async></script>
+      {% render 'adobe-analytics' %}
+<!--     *********************Adobe-Analytics-implementation End****************** -->
+
+     <script>
+        if(navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1) { 
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+           if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+           n.queue=[];t=b.createElement(e);t.async=!0;
+           t.src=v;s=b.getElementsByTagName(e)[0];
+           s.parentNode.insertBefore(t,s)}(window,document,'script',
+                                           'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1031855264160827');
+          fbq('track', 'PageView');
+          
+        } 
+      </script>
+  
+    <script>
+    var product_id = [];
+var productName = [];
+var productCategory = [];
+var productPrice = [];
+var variantId = [];
+var productQuantity = [];
+var order_summary_contact_information = [];
+var order_summary_payment_method = [];
+     var date = new Date().toLocaleString();
+    // window.addEventListener("MOE_LIFECYCLE",function(e){
+    //   if(e.detail.name === "SDK_INITIALIZED"){
+    //     Moengage.track_event("page_view", {
+    //   "DateTime": date,
+    //   "page_type":'Checkout',
+    //   "page_name":'Checkout page'
+    // });
+    //   }
+    // })
+     $(document).ready(function(){
+  //       if($(".main .main__content .step").attr("data-step") === "contact_information"){
+  //   var cart_total = $('.order-summary__section--total-lines').find('.total-line-table .total-line-table__footer .total-line__price.payment-due').find('span.payment-due__price').attr('data-checkout-payment-due-target');
+  //   cart_total = parseInt(cart_total)/100;
+  //   console.log("cart_total>>" , cart_total)
+  //   $('button#continue_button').click(function(){
+  //     //e.preventDefault();
+  //     // console.log("cliked proceed button moe");
+  //     var address = $('#checkout_shipping_address_address1').val();
+  //     var city = $('#checkout_shipping_address_city').val();
+  //     var pin = $('#checkout_shipping_address_zip').val();
+  //     var brand = 'acnesquad';
+  //     var zipcode = parseInt(pin);
+  //     var date = new Date().toLocaleString();
+  //     $('.order-summary__sections .product-table .product').each(function(){
+  //       console.log("order summary moe");
+  //       var productId = $(this).attr('data-product-id');
+  //       var prodcutName = $(this).find('.product__description__name').text();
+  //       var prodcutPrice = $(this).find('.product__price').text().trim();
+  //       var product_price = parseFloat(prodcutPrice.replace( /[^\d\.]*/g, ''));
+  //       var prodcutCategory = $(this).attr('data-product-type');
+  //       var prodcutVariant = $(this).attr('data-variant-id');
+  //       var prodcutQuantity = $(this).find('.product__quantity').text().trim();
+  //       product_id.push(parseInt(productId));
+  //       productName.push(prodcutName);
+  //       productCategory.push(prodcutCategory);
+  //       productPrice.push(parseInt(product_price));
+  //       variantId.push(parseInt(prodcutVariant));
+  //       productQuantity.push(parseInt(prodcutQuantity));
+
+  //     });
+  //     Moengage.track_event("proceed_to_pay", {
+  //       "DateTime": date,
+  //       "product_id":product_id,
+  //       "product_name":productName,
+  //       "product_category":productCategory,
+  //       "product_total_price":productPrice,
+  //       "product_variant_id":variantId,
+  //       "product_Quantity":productQuantity,
+  //       "cart_total":cart_total,
+  //       "brand":brand,
+  //       "address":address,
+  //       "city":city,
+  //       "pin":zipcode
+  //     });
+  //   });
+  // }
+       if($(".main .main__content .step").attr("data-step") === "payment_method"){
+        var customer_id = "{{customer.id}}";
+        if(customer_id == ""){
+          var new_email_payment = "{{checkout.email}}";
+          if(new_email_payment == ""){
+            new_email_payment = localStorage.getItem('new_email');
+          }
+          var new_phone_payment = '{{checkout.shipping_address.phone |replace: " ",""}}';   
+          var store = "acne";   
+          var customer_id = '{{ checkout.customer.id }}';
+          $.ajax({
+            type : 'POST',
+            url : 'https://hulsecure.in/ensenterprises/checkoutPageAccountCreation.php?store='+store+'&uid='+customer_id+'&email='+new_email_payment+'&phone='+new_phone_payment,
+            dataType : 'json',
+            async : false,
+            success :  function(data){
+            // console.log("account created");
+            },
+            error : function(){
+            }
+          });
+        }
+        var cart_total = $('.order-summary__section--total-lines').find('.total-line-table .total-line-table__footer .total-line__price.payment-due').find('span.payment-due__price').attr('data-checkout-payment-due-target');
+        cart_total = parseInt(cart_total)/100;
+        $('button#continue_button').click(function(){
+          $('.order-summary__sections .product-table .product').each(function(){
+            // console.log("order summary moe");
+            var productId = $(this).attr('data-product-id');
+            var prodcutName = $(this).find('.product__description__name').text();
+            var prodcutPrice = $(this).find('.product__price').text().trim();
+            var product_price = parseFloat(prodcutPrice.replace( /[^\d\.]*/g, ''));
+            var prodcutCategory = $(this).attr('data-product-type');
+            var prodcutVariant = $(this).attr('data-variant-id');
+            var prodcutQuantity = $(this).find('.product__quantity').text().trim();
+            var date = new Date().toLocaleString();
+            product_id.push(parseInt(productId));
+            productName.push(prodcutName);
+            productCategory.push(prodcutCategory);
+            productPrice.push(parseInt(product_price));
+            variantId.push(parseInt(prodcutVariant));
+            productQuantity.push(parseInt(prodcutQuantity));
+          });
+          // Moengage.track_event("complete_order", {
+            //   "DateTime": date,
+            //   "product_id":product_id,
+            //   "product_name":productName,
+            //   "product_category":productCategory,
+            //   "product_total_price":productPrice,
+            //   "product_variant_id":variantId,
+            //   "product_Quantity":productQuantity,
+            //   "cart_total":cart_total
+          // });
+      });
+    }
+  });
+  </script>
+  <!-- gemini header script -->
+    <script type="text/javascript">
+    ci="0002336",gemErrList=[],gemp="index",window.addEventListener("error",function(r){if(r.error){var e={};try{e.m=r.message,e.f=r.filename.replace(/(\r\n|\n|\r)/gm,""),e.l=r.lineno,e.c=r.colno,e.s=r.error.stack,gemErrList.push(e)}catch(r){}}});
+  </script>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1KL70NW4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C1KL70NW4X');
+</script>
+  </head>
+  <body {{ checkout.total_price }}>
+    {% if content_for_layout contains 'data-step="payment_method"'%}
+      <script>
+        $(document).ready(function(){
+          let total__price = $('.total-recap .total-recap__final-price').text().replace('₹','');
+          fbq('track', 'AddPaymentInfo',{
+            value: total__price,
+            currency:'INR'
+          });
+        });
+      </script>
+    {% endif %}
+    <div class="loaderChekout"></div>
+    <div class="loaderChekout-overlay"></div>
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header> 
+     
+    {% assign free_gift_added_fraud = 'false' %}
+    {% for item in checkout.line_items %}
+    {% assign item_quantity = item.quantity | times: 1 %}   
+    {% assign item_variant_id = item.variant_id %} 
+      {%if item_variant_id == 43324853485805 and item_quantity > 1%}
+        {% assign free_gift_added_fraud = 'true' %}
+        {% break %}
+      {%endif%}
+      {%if item_variant_id == 43324857975021 and item_quantity > 1 %}
+         {% assign free_gift_added_fraud = 'true' %}
+         {% break %}
+      {%endif%}
+    {% endfor %}
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {% comment %}{{ content_for_layout }} {% endcomment %}
+            {% if checkout_html_classes contains 'page--thank-you' %}
+              {{ content_for_layout }}
+             {% else %} 
+             {% if customer %}
+               {{ content_for_layout }}
+            {% else %}
+            {{ content_for_layout |  replace:'Shipping address','Shipping address 
+                  <!--div class="fieldset_custom">
+                      <div class="field field--required" style="padding:5px 0;">
+                        <div class="field__input-wrapper">
+                          <label class="field__label field__label--visible custom_email_l1" for="checkout_shipping_address_zip">
+                          Email
+                          </label>
+                          <input placeholder="Email" autocomplete="none" class="field__input" aria-required="true"  type="email" id="checkout_email_l1">
+                        </div>
+                       </div>
+                     </div-->'
+               }}
+               {% endif %}
+              {% endif %}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    {{ tracking_code }}
+<script>
+  // (function($){
+  //   $(document).on("page:load page:change", function() {
+  //     if (Shopify.Checkout.step === "contact_information"){
+  //       $('body').on('click','#continue_button', function(e){
+  //       let submitBtn = $(this);
+  //       let checkFillInputField = true;
+  //       $('.step__sections .field.field--required input').each(function(){
+  //         var inputVal = $(this).val();
+  //         if(inputVal == '' ){
+  //           checkFillInputField = false;
+  //         }
+  //       });
+  //       if(checkFillInputField){
+  //         let crnt_url = window.location.href.split('?')[0],
+  //         // updt_crnt_url = crnt_url.replace('step=contact_information',"previous_step=contact_information&step=shipping_method");
+  //         updt_crnt_url = crnt_url+'?previous_step=contact_information&step=shipping_method';
+  //         e.preventDefault();
+  //         //console.log("crnt_url>>",updt_crnt_url);
+  //         let infoForm = $("form[data-customer-information-form]");
+  //         let infoFormActionUrl = infoForm.attr('action');
+  //         submitBtn.addClass('btn--loading');
+  //         $.ajax({
+  //           type: "POST",
+  //           url: infoFormActionUrl,
+  //           data: infoForm.serialize(),
+  //           success: function(data) {
+  //             skipShippingStep(infoForm,updt_crnt_url);
+  //             //moe_proceed_to_pay_checkout();
+  //           }
+  //         });
+  //       }
+  //     });
+  //   }
+  // });
+  // })(Checkout.$);
+  function skipShippingStep(formSelector, updt_crnt_url){
+    let elSelect = document.querySelector('form input[name="previous_step"]');
+    elSelect.value = "shipping_method";
+    document.querySelector('form input[name="step"]').value = "payment_method";
+    fetch(updt_crnt_url)
+    .then(data => data.text())
+    .then((html) => {
+      i = document.createElement("div");
+      i.innerHTML = html;
+      let aas = i.querySelector("[data-checkout-shipping-rate]");
+      //console.log('request succeeded with JSON response>>', aas);
+      if(aas){
+        aas.checked = true;
+        aas.style.display = "none";
+        elSelect.parentNode.insertBefore(aas, elSelect.nextSibling);
+        formSelector.submit();
+      }
+    }).catch(function (error) {
+      //console.log('request failed', error)
+    });
+  }
+</script>
+<script>
+  $('#checkout_shipping_address_phone').parents('.section__content').append('<div style="display: inline-flex; margin-top: 0px; font-size:12px;"><div style="padding-right: 5px;"><input type="checkbox" class="input-checkbox"></div><div>Yes, I want to receive offers and updates from trusted Unilever brands via Email and SMS, Whatsapp and online advertising tailored to my interests and preferences * . Please read our <a href="https://www.unilevernotices.com/privacy-notices/india-english.html" target="_blank"><b>Privacy</b></a> and <a href="https://www.unilevernotices.com/cookie-notices/india-english.html" target="_blank"><b>Cookie Notice</b></a> to understand how we use your Personal Data. I confirm I am over 18 years old.</div></div>');
+  var free_gift_added_fraud = "{{ free_gift_added_fraud }}";
+  (function ($){
+    $(document).on("page:load page:change", function() {
+      if(free_gift_added_fraud == "true"){
+      $("#continue_button").remove();
+      $(".step__footer").html('<h2>This purchase cannot be processed</h2>');
+      }
+      var checkOutTotal = '{{ checkout.total_price }}';
+      // if(checkOutTotal < 1){
+        //   location.href = '/';
+      // }
+      {% for item in checkout.line_items %}
+      {% assign itemId = item.variant_id %}
+        {% if itemId == '43324857975021' or itemId == 43324857975021 %}
+          $.ajax({
+            type: 'POST',
+            url: '/cart/update.js',
+            data: {
+              updates:{ "43324857975021"  : 1 }
+            },
+            dataType: 'json',
+            async:false,  
+          });
+        {% endif %}
+        {% if itemId == '43324853485805' or itemId == 43324853485805 %}
+          $.ajax({
+            type: 'POST',
+            url: '/cart/update.js',
+            data: {
+              updates:{ "43324853485805" : 0 }
+            },
+            dataType: 'json',
+            async:false,  
+          });
+        {% endif %}
+      {% endfor %}
+    });
+  })(Checkout.$)
+</script>
+<div class="loader" style="display: none;"></div>
+{% assign pageurlv = checkout_scripts | split: 'pageurl":"' | last | split: '",'| first %}
+  {%- if pageurlv contains 'utm_medium=limechat_checkout' -%}
+    <script>
+      sessionStorage.setItem("utm_medium", "limechat_checkout");
+    </script>
+    {%- else -%}
+      {% comment %} {% render 'discount-on-prepaid' %} {% endcomment %}
+    {%- endif -%}
+    <script src="{{ 'checkout-script.js' | asset_url }}"  defer="defer"></script>
+    {% if content_for_layout contains 'data-step="contact_information"' %}
+
+    {% elsif content_for_layout contains 'data-step="shipping_method"' %}
+
+    {% elsif content_for_layout contains 'data-step="payment_method"' %}
+    <script>
+    // For gtag ATC >> 22/09/2022
+    $(document).on("click",'#continue_button',function(){
+      let gtag_atc_price = $('.total-recap__final-price').text().replace('₹','').trim();
+      gtag('event', 'add_payment_info', {
+        'send_to': 'G-C1KL70NW4X',
+        'value': gtag_atc_price,
+        'currency': 'INR'
+      });
+    });
+    </script>
+  {% elsif content_for_layout contains 'data-step="review"' %}
+      
+  {% endif %}
+    
+  {% assign days1 = settings.date_txt1 | times: 86400 %}
+  {% assign newDate1 = 'now' | date: '%s'| plus: days1 %} 
+  {% assign date1 =  newDate1 | date: '%b %d' %}
+  
+  {% assign days2 = settings.date_txt2 | times: 86400 %}
+  {% assign newDate2 = 'now' | date: '%s'| plus: days2 %} 
+  {% assign date2 =  newDate2 | date: '%b %d' %}
+  
+  {% assign days3 = settings.date_txt3 | times: 86400 %}
+  {% assign newDate3 = 'now' | date: '%s'| plus: days3 %} 
+  {% assign date3 =  newDate3 | date: '%b %d' %}
+  
+  {% assign days4 = settings.date_txt4 | times: 86400 %}
+  {% assign newDate4 = 'now' | date: '%s'| plus: days4 %}
+  {% assign date4 =  newDate4 | date: '%b %d' %}
+  <script>
+    $(document).ready(function(){
+      var pin_list_1 = "{{settings.pincode_list_1}}";
+      pin_list_1 = pin_list_1.split(',');
+      var pin_list_2 = "{{settings.pincode_list_2}}";
+      pin_list_2 = pin_list_2.split(',');
+      var pin_list_3 = "{{settings.pincode_list_3}}";
+      pin_list_3 = pin_list_3.split(',');
+      var pin_list_4 = "{{settings.pincode_list_4}}";
+      pin_list_4 = pin_list_4.split(',');
+      var date1 = '{{ date1 }}';
+      var date2 = '{{ date2 }}';
+      var date3 = '{{ date3 }}';
+      var date4 = '{{ date4 }}';
+      function displayMessage(pincode) {
+      $('.delivery-msg, .delivery-error').remove();
+      if (/^(\d{6})$/.test(pincode)) {
+        if ($.inArray(pincode, pin_list_1) > -1) {
+          $('#checkout_shipping_address_zip').after('<p class="delivery-msg" style="font-size: 12px; color: #AC9EFD; margin-top: 5px;">' + 'Delivery by ' + date1 + '</p>');
+        } else if ($.inArray(pincode, pin_list_2) > -1){
+          $('#checkout_shipping_address_zip').after('<p class="delivery-msg" style="font-size: 12px; color: #AC9EFD; margin-top: 5px;">' + 'Delivery by ' + date2 + '</p>');
+        } else if ($.inArray(pincode, pin_list_3) > -1){
+          $('#checkout_shipping_address_zip').after('<p class="delivery-msg" style="font-size: 12px; color: #AC9EFD; margin-top: 5px;">' + 'Delivery by ' + date3 + '</p>');
+        } else if ($.inArray(pincode, pin_list_4) > -1){
+          $('#checkout_shipping_address_zip').after('<p class="delivery-msg" style="font-size: 12px; color: #AC9EFD; margin-top: 5px;">' + 'Delivery by ' + date4 + '</p>');
+        } else{
+          $('#checkout_shipping_address_zip').after('<p class="delivery-error" style="font-size: 12px; color: red; margin-top: 5px; line-height: 1.2;">' + 'Apologies, we do not currently service your location. We will be there soon!' + '</p>');
+        }
+      }
+    }
+      setTimeout(function() {var pincodeValue = $('#checkout_shipping_address_zip').val(); displayMessage(pincodeValue);}, 2000);
+      $('#checkout_shipping_address_zip').on('input', function() { var pincode = $(this).val(); displayMessage(pincode); });
+    });
+  </script>
+  <script type="text/javascript">
+  (function(){var geminiJs=document.createElement('script');geminiJs.type='text/javascript';geminiJs.async=!0;geminiJs.src='https://cdn.epsilondelta.co/static/gemGen.js';var s1=document.getElementsByTagName('script')[0];s1.parentNode.insertBefore(geminiJs,s1)})();
+  </script>
+  <!--  Gemini footer script    -->
+  {% include 'gigya-register' %}
+  </body>
+</html>
+
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "dnblggj25u");
+  (function ($){
+    // $(document).on("page:load page:change", function() {
+    //   if(Shopify.Checkout.step === "payment_method"){
+    //     $('.section--payment-method .section__text').after('<p class="section__text" style="color: red;">WE ARE FACING TEMPORARY PAYMENT ISSUES. PLEASE USE "Cash on Delivery (COD)" OPTION. THANK YOU!</p>');
+    //     // $('.section--payment-method [data-gateway-name="manual"] input').attr('checked','checked');
+    //   }
+    // })
+  })(Checkout.$)
+</script>
+
+{% style %}
+  .loader {position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999;background:url('https://cdn.shopify.com/s/files/1/0014/3514/0183/t/268/assets/giphy.gif') 50% 50% no-repeat #fff;opacity: 1;} .section--reductions {display: none!important;}#error-for-reduction_code{display:block!important;} .field__message--error {display: none!important;} a,.link{text-decoration:underline!important;} .js .sidebar .btn--disabled {background: #AC9EFD !important;} .page--no-banner .main, .page--no-banner .sidebar {padding-top: 1.2em;} .disabled_checout, .disabled_checout-new, .disabled_checout-pin {pointer-events: none;opacity: 0.7;} .checkout_error_address, .checkout_error_address2 {color:red;} .main__header {padding-bottom: 0.5em;} .section {padding-top: 1.5em;} .anyflexbox .step__footer {margin-top: 0.5em;} .checkbox-wrapper:last-child {margin-bottom: 0;display: none;} .field.field--optional[data-address-field="first_name"] {display: none;} .field.field--optional[data-address-field="last_name"] {width: 100%;} .section__title {color: #ae9efc;} .content-box__row--secondary {display: none!important;} .section--billing-address {display: none!important;}
+  @media (min-width: 1000px) {.page--logo-main .breadcrumb {margin-top: 0em;} .logo__image--medium {max-height: 3.285714em;}}
+  @media (min-width: 750px) {.main__content {padding-bottom: 4em;} .section__header {margin-bottom: 0.5em;} #checkout_shipping_address_phone {margin-bottom: 0;} .content-box .content-box__row .review-block:nth-child(3) {display: none;}}
+{% endstyle %}

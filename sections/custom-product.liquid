@@ -1,0 +1,56 @@
+<!-- =============================custom-product section ================================== -->
+<div class="brick--margin">
+  <div class="maincstmProdcut">
+    {% for block in section.blocks %}
+    <div class="maincstmproContnt"></div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "product Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "titletext",
+            "label": "Title Text"
+          },
+          {
+            "type": "text",
+            "id": "place_text",
+            "label": "Titlt Sub title"
+          },
+          {
+            "type": "text",  
+            "id": "review_text",
+            "label": "Title description"
+          },
+          {
+          "type":"image_picker",
+          "id":"imagepic",
+          "label":"image"
+          }
+        ]
+      }  
+    ],
+    "presets": [
+      {
+        "name": "custom-product",
+        "category": "custom-product Section",
+        "blocks": [
+          
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

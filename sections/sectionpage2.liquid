@@ -1,0 +1,123 @@
+<div class="parent box">
+  <div class="header box">
+    <div class="quiz-symbol-box">
+      <div class="symbol"></div>
+        <div class="number"></div>
+    </div>
+    <div class="quiz-heading-box">
+      <h2> ydyrfgcxgf</h2>{{ section.settings.quiz-heading-box }}</h1>
+      <h3> dtdtdt </h3>{{ section.settings.quiz-heading-box }}</h1>
+      <p> dtrdt </p>
+    </div>
+      
+    <div class="image text">
+    <div class="image">
+      
+      </div>
+    <div class="text"></div>
+    </div>  
+    
+    <div class="btn-box"></div>
+    <div class="btn-box"></div>
+    
+      
+    <div class="question-box">
+    <h2 class="quiz-question">{{section.settings.quiz-question}}
+    <h1 class="quiz-number">{{section.setting.quiz-number}}
+     </div>
+     <div>
+       
+       <p>{{ section.settings.question-heading }}</p>
+       </div>
+     {% for block in section.blocks %}
+     <div class="inner-quiz">
+  	<img src="{{ block.settings.image | img_url:'300x' }}" >
+    <h2>{{ block.settings.quiz-inner-heading }}</h2>
+    <p>{{ block.settings.quiz-inner-text }}</p>
+     </div>
+     {% endfor %}
+     </div>
+     </div>
+          
+          
+ {% schema %}
+  {
+    "name": "Section name",
+    "settings": [
+{
+  "type": "text",
+  "id": "quiz-question",
+  "label": "Enter symbol",
+  "default": "Enter text"
+},
+ {
+  "type": "text",
+  "id": "quiz-number",
+  "label": "Enter number",
+  "default": "Enter text"
+},
+ {	
+	"type": "text",
+	"id": "question-heading",
+	"label": "Enter heading",
+	"default": "Enter Text"
+},
+  {
+  "type": "text",
+  "id": "question-answer",
+  "label": "Enter subheading",
+  "default": "Enter text"
+},
+ {
+  "type": "text",
+  "id": "quiz-numbers",
+  "label": "Enter number",
+  "default": "Enter text"
+}
+],
+
+        "blocks": [
+		{
+			"type": "text",
+			"name": "quiz-block",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Select image"
+				},
+				{
+					"type": "radio",
+					"id": "radio-select",
+					"label": "Select Your Choice",
+					"options": [
+                          {
+                            "value": "left",
+                            "label": "Left"
+                          },
+                          {
+                            "value": "centered",
+                            "label": "Centered"
+                          }
+                        ],
+					"default": "left"
+				},
+				{
+					"type": "text",
+					"id": "quiz-inner-heading",
+					"label": "Enter Heading",
+					"default": "Enter Text"
+				},
+				{
+					"type": "text",
+					"id": "quiz-inner-text",
+					"label": "Enter Heading",
+					"default": "Enter Text"
+				}
+			]
+		  }
+	]
+   } 
+
+{% endschema %}
+

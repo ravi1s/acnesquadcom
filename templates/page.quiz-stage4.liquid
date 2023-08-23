@@ -1,0 +1,114 @@
+<div class="custom_breadcrumb">
+  {% render 'custom-breadcrumbs' %} 
+</div>
+{{ 'quizResult.css' | asset_url | stylesheet_tag }}
+<div class="quizeresultpage">
+ 
+
+      <div class="rte">
+        {{ page.content }} 
+      </div>
+      {% section 'quizeResult4' %}
+       <div class="grid">
+        <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+          {% section 'section-collection-carousel-result4' %}
+        </div>
+       </div>
+      {% section 'quizebonusSlide4' %}     
+   <div class="grid mainregisterNow4">
+        <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      {% section 'registerNow4' %}
+        </div>
+   </div>
+   <div class="grid">
+        <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      {% comment %}
+      {% section 'rsult-page-4' %}
+      {% endcomment %}
+      {% section 'imageGrid' %}
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+
+    var _tipsHeading_1 = localStorage.getItem('tipHeading_1');
+    var _tipsHeading_2 = localStorage.getItem('tipHeading_2');
+    var _tipsHeading_3 = localStorage.getItem('tipHeading_3');
+    var _tipsContent_1 = localStorage.getItem('tipContent_1');
+    var _tipsContent_2 = localStorage.getItem('tipContent_2');
+    var _tipsContent_3 = localStorage.getItem('tipContent_3');
+    var _tipsImage_1 = localStorage.getItem('tipImage_1');
+    var _tipsImage_2 = localStorage.getItem('tipImage_2');
+    var _tipsImage_3 = localStorage.getItem('tipImage_3');
+    $('.tipHeading_1').text(_tipsHeading_1);
+    $('.tipHeading_2').text(_tipsHeading_2);
+    $('.tipHeading_3').text(_tipsHeading_3);
+    $('.tipContent_1').html(_tipsContent_1);
+    $('.tipContent_2').html(_tipsContent_2);
+    $('.tipContent_3').html(_tipsContent_3);
+    $('.quizebonusSlideImg_1').attr("src", _tipsImage_1);
+    $('.quizebonusSlideImg_2').attr("src", _tipsImage_2);
+    $('.quizebonusSlideImg_3').attr("src", _tipsImage_3);
+    
+    $("#closeregiterBtnId").click(function(){
+      $(".registerNowcontnt").toggleClass("toggleCls");
+    });
+      // code for show stage section on quiz result page 
+  var _pageDataUrl = sessionStorage.getItem('pageDataIndex');
+  if(_pageDataUrl == null || _pageDataUrl == 'null'){
+    $('#shopify-section-quizebonusSlide4').css('display','none');
+    $('.mainregisterNow4').css('display','none');
+  }
+  });
+</script>
+<style>
+  div#slick-slide00 {
+    position: relative;
+  }
+  .backArrowBtn.quizeresultBacBtn,main#MainContent .mainProdctPricBtn,
+  .mainquizebonusSlideSec,.registerNowcontnt,a.exploreBtnLink{
+     background: #FFB25B;
+  }
+  .mainhmcllctnttlds,.slick-dots li button {
+    border: 1px solid #FFB25B;
+  }
+  .hmcltnbtmbrdr{
+    border-bottom: 1px solid #FFB25B;
+  }
+  .slick-dots li.slick-active button:before {
+    background: #FFB25B;
+    border: 1px solid #FFB25B;
+  }
+  
+  h1.sectinTTlText,a.registerNowUrl,h3.quizIntrobldttl,a.registerNowUrl:hover, .backBtnUrl:hover{
+    color: #FFB25B;
+  }
+  div#slick-slide00:after,.index-products .slick-slide:first-child:after {
+    font-family: BebasNeue;
+    position: absolute;
+    content: "STAGE 4";
+    left: 8px;
+    top: 16px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
+    height:76px;
+    width: 147px;
+    background: #fff;
+    color:#FFB25B;
+    line-height:40px;
+    font-size:30px;
+    padding-left:9px;
+  }
+  a.exploreBtnLink:hover {
+    color: #FFB25B;
+  }
+  @media(max-width:749px){
+    div#slick-slide00:after,.index-products .slick-slide:first-child:after {
+      left: 11px;
+      border:1px solid #b2dce9;
+      top: 11px;
+    }
+  }
+</style>

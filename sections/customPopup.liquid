@@ -1,0 +1,45 @@
+<!-- ==========================customPopup========================== -->
+<div class="popupSection">
+  <div class="maincstmpopup">
+    <p class="closeBtn"><i class="fa-solid fa-xmark"></i></p>
+    <img class="popupImg" src="{{ section.settings.popupImg | img_url : 'master'}}">
+    <h1 class="cstmPopupHead">{{ section.settings.title }}</h1>  
+    <p class="cstmPopupDes">{{ section.settings.description }}</p>
+  </div>
+</div>
+<button class="popupShowBtn">Show Now</button>
+{% schema %}
+  {
+    
+    "settings": [
+      {
+         "type" :"image_picker",
+         "id" : "popupImg",
+         "label" : "popup image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "popup Heading"
+      },
+	  {
+         "type" :"text",
+         "id" : "description",
+         "label" : "popup Description"
+      }
+
+    ]
+  }
+{% endschema %}
+
+<script>
+  $(document).ready(function(){
+    $(".popupShowBtn").click(function(){
+      $('.popupSection').addClass('popupSecToggle');
+      $(".closeBtn").removeClass("popupSecToggle");
+    });
+     $(".closeBtn").click(function(){
+      $(".popupSection").removeClass("popupSecToggle");
+    });
+  });
+</script>

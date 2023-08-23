@@ -1,0 +1,203 @@
+<!-- ======================originStroy section ======================-->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<div class="mainOrginStorySection">
+  <div class="bannerImg mainBannerImg">
+    <img class="originBannerImg DesktopBannrOriginImg" data-aos="fade-right"
+     data-aos-duration="1000"  src="{{ section.settings.bannerDeskImg | img_url : 'master' }}">
+    <img class="originBannerImg  mobilBannrOriginImg" data-aos="fade-right"
+     data-aos-duration="1000"  src="{{ section.settings.bannerMobilImg | img_url : 'master' }}">
+     <div class="mainBannerContent" data-aos="fade-right"
+     data-aos-duration="1000" data-aos-delay="500">
+       <p class="bannertoodes bannerDes">Ever wondered why Acne feels like a never ending cycle of</p>
+       <p class="mainBannerTTl">BREAKOUT, TREAT, HEAL, REPEAT?</p>
+       <p class="subTittle">THE REASON</p>
+       <p class="botomDes bannerDes">Acne has a Lifecycle of its own!</p>
+     </div>
+  </div>
+  <div class="paddingGap origHeading bottomgap breaklineBorder">
+    <p class="origHeadingContent headingWidth">{{ section.settings.heading1 }}</p>
+    <p class="origHeadingDes">{{ section.settings.headingDes }}</p>
+  </div>
+  <div class="bannerImg">
+    <img class="mainoriginBannerImg DesktopBannrOriginImg"  src="{{ section.settings.bannerImageDesktop | img_url : 'master' }}">
+    <img class="mainoriginBannerImg  mobilBannrOriginImg"  src="{{ section.settings.bannerImageMobil | img_url : 'master' }}">
+  </div>
+<!--   <div class="paddingGap bottomgappad origHeading">
+    <p class="orginimgHeading">{{ section.settings.heading2 }}</p>
+    <img class="logoImg"  src="{{ section.settings.logoImg | img_url : 'master' }}">
+    <p class="faqPointsHead">{{ section.settings.miniheading }}</p>
+    <p class="faqPointsContent">{{ section.settings.points1 }}</p>
+    <p class="faqPointsContent">{{ section.settings.points2 }}</p>
+    <p class="faqPointsContent">{{ section.settings.points3 }}</p>
+  </div> -->
+ <div class="paddingGap origHeading breaklineBorder">
+    <p class="origHeadingContent headingWidth">{{ section.settings.heading2 }}</p>
+    <p class="origHeadingDes">{{ section.settings.headingDes2 }}</p>
+  </div>
+  <div class="paddingGap sctmfaqoptionslid breaklineBorder">
+    {% for block in section.blocks %}
+    <div class="faq-list">
+      <div class="faq-list__item-description origineSecSlid">
+        <img class="origineSecSlidImg" src="{{ block.settings.imagepic | img_url : 'master' }}">
+        <h6 class="origineSecSlidTitle">{{ block.settings.imgTitle }} </h6>
+        <p class="origineSecSlidTTLDes">{{ block.settings.imgTitleDes }} </p>
+        <p class="origineSecSlidDes">{{ block.settings.secDesc }} </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "originStroy",
+    "settings": [
+      {
+        "id":"bannerDeskImg",
+        "type":"image_picker",
+        "label":"baner desktop image"
+      },
+      {
+        "id":"bannerMobilImg",
+        "type":"image_picker",
+        "label":"baner mobile image"
+      },
+      {
+        "id":"heading1",
+        "type":"text",
+        "label":"heading1"
+      },
+        {
+        "id":"heading2",
+        "type":"text",
+        "label":"heading2"
+      },
+      {
+        "id":"headingDes",
+        "type":"text",
+        "label":"headingDes"
+      },
+      {
+        "id":"headingDes2",
+        "type":"text",
+        "label":"headingDes 2"
+      },
+      {
+        "id":"logoImg",
+        "type":"image_picker",
+        "label":"logo image"
+      },
+      {
+        "id":"miniheading",
+        "type":"text",
+        "label":"min heading"
+      },
+      {
+        "id":"points1",
+        "type":"text",
+        "label":"points text"
+      },
+      {
+        "id":"points2",
+        "type":"text",
+        "label":"points text"
+      },
+      {
+        "id":"points3",
+        "type":"text",
+        "label":"points text"
+      },
+      {
+        "id":"bannerImageDesktop",
+        "type":"image_picker",
+        "label":"desktop image"
+      },
+      {
+        "id":"bannerImageMobil",
+        "type":"image_picker",
+        "label":"mobile image"
+      }
+    ],
+     "blocks": [
+      {
+        "type": "text",
+        "name": "ThymolT Block",
+        "settings": [
+          {
+            "type":"image_picker",
+            "id":"imagepic",
+            "label":"image"
+          },
+          {
+            "type": "text",  
+            "id": "imgTitle",
+            "label": "Title"
+          },
+          {
+            "type": "text",  
+            "id": "imgTitleDes",
+            "label": "title des"
+          },
+          {
+            "type": "text",  
+            "id": "secDesc",
+            "label": "Description des"
+          }
+        ]
+      }  
+    ]
+  }
+{% endschema %}
+
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".sctmfaqoptionslid").slick({
+      infinite: false,
+      slidesToShow:4,
+      arrows:true,
+      dots:true,
+      autoplay:false,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow:2
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+
+    });
+  });
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<style>
+  button.slick-prev.slick-arrow{
+    left:7px;
+    z-index:99;
+  }
+  button.slick-next.slick-arrow{
+    right:7px;
+    z-index:99;
+  }
+  button.slick-prev.slick-arrow::before,
+  button.slick-next.slick-arrow::before{
+    font-size: 15px;
+    color: #fff;
+    background: #a99ef6;
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    line-height: 25px;
+    font-family: fontawesome;
+    border-radius: 50%;
+    }
+</style>

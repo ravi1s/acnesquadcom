@@ -1,0 +1,150 @@
+<!-- /snippets/products-recently-viewed.liquid -->
+{% comment %}
+    Renders list of recently viewed products in grid layout
+
+    Accepts:
+    - product: {Object} product (required)
+    - grid_strings: {String} contains a string of grid classes
+    - heading_title: {String} contains a string from section settings
+
+    Usage:
+    {% render 'products-recently-viewed', product: product, grid_strings: grid_strings, heading_title: section.settings.product_recently_heading %}
+{% endcomment %}
+
+{%- assign mobile_class = 'small--one-whole' -%}
+{%- if section.settings.product_recently_grid_mobile == '2' -%}
+  {%- assign mobile_class = 'small--one-half' -%}
+{%- endif -%}
+
+{%- assign grid_strings = 'large-up--one-quarter medium--one-quarter small--one-whole' -%}
+
+{% assign border_class = '' -%}
+{%- if settings.product_grid_outline == false -%}
+  {% assign border_class = 'product-item--borderless' -%}
+{%- endif -%}
+
+{% assign alignment_class = '' -%}
+{%- if settings.product_grid_center == true -%}
+  {% assign alignment_class = 'product-item--centered' -%}
+{%- endif -%}
+
+{%- assign animation_anchor = 'RecentlyViewed' -%}
+
+<script>
+  Shopify.recentlyViewed = {
+    gridStrings_1: {{ grid_strings | json }},
+    gridStrings_2: {{ grid_strings | json }},
+    gridStrings_3: {{ grid_strings | json }},
+    gridStrings_4: {{ grid_strings | json }},
+    gridStrings_5: {{ grid_strings | json }},
+    gridStrings_6: {{ grid_strings | json }},
+    gridStrings: {{ grid_strings | json }},
+  }
+</script>
+
+{%- assign limit = limit | default: 4 -%}
+
+<div class="recent__wrapper" id="RecentlyViewed-{{ section.id }}" data-recent-wrapper data-limit="{{ limit }}" data-minimum="{{ product_recently_minimum }}">
+  <div class="product-grid-outer">
+    <div class="recent__content product-grid{% unless settings.product_grid_outline %} product-grid--borderless{% endunless %} flickity-button-circle product-grid--mobile-slider" id="recently-viewed-products-{{ section.id }}" style="display:none" data-slider data-watch-css="true" data-cell-align="left" data-adaptive-height="false" data-dots="hidden" data-arrows="true" data-arrow-position-middle data-equalize-height="true" data-infinite="false">
+    </div>
+  </div>
+</div>
+
+<script id="recently-viewed-product-template-{{ section.id }}" type="text/template">
+  <div class="product-item {{ grid_strings }} {{ border_class }} {{ alignment_class }}" data-product-grid-item data-slide="{% raw %}||itemIndex||{% endraw %}" data-slide-index="{% raw %}||itemIndex||{% endraw %}">
+    <div class="product-item__image {% raw %}||itemDoubleImageClass||{% endraw %}" data-product-image>
+      <a class="product-link is-not-relative" href="{% raw %}||itemUrl||{% endraw %}" data-grid-link>
+        <div class="product-item__bg"
+          data-grid-slide
+          data-aos="img-in"
+          data-aos-anchor="{{ animation_anchor }}"
+          data-aos-delay="{% raw %}||itemAosDelay||{% endraw %}"
+          data-aos-duration="{% raw %}||itemAosImageDuration||{% endraw %}"
+          data-aos-easing="ease-out-quart"
+          style="background-image:url({% raw %}||itemTopImage||{% endraw %});">
+        </div>
+
+        <div class="product-item__bg__under {% raw %}||itemBottomImageClass||{% endraw %}"
+          style="background-image:url({% raw %}||itemBottomImage||{% endraw %});">
+        </div>
+
+        <span class="badge-box {% raw %}||itemCustomBadgeClass||{% endraw %}">{% raw %}||itemCustomBadgeVal||{% endraw %}</span>
+        <span class="preorder-box {% raw %}||itemPreorderClass||{% endraw %}">{{ 'products.product.pre_order' | t }}</span>
+        <span class="sale-box {% raw %}||itemSaleClass||{% endraw %}">{{ 'products.product.on_sale' | t }}</span>
+      </a>
+
+      {% if settings.quickview_enable %}
+        <button type="button" class="quick-add-button" tabindex="-1" data-button-quick-add-mobile {% raw %}||itemHasOnlyDefault||{% endraw %}>
+          <span class="visually-hidden">{{ 'products.general.quick_view' | t }}</span>
+
+          <svg height="18" width="18" class="svg-loader">
+            <circle r="7" cx="9" cy="9" />
+            <circle stroke-dasharray="87.96459430051421 87.96459430051421" r="7" cx="9" cy="9" />
+          </svg>
+        </button>
+
+        <div class="slideup is-not-relative" data-quick-add-holder>
+          <button type="button" class="caps is-disable" data-focus-element tabindex="0" data-quick-add-label="{% raw %}||itemHandle||{% endraw %}" data-collection-handle="recently"  
+          {% raw %}||itemHasOnlyDefault||{% endraw %}>
+            <span>{{ 'products.general.quick_view' | t }}</span>
+
+            <span>{{ 'products.general.quick_view_added' | t }}</span>
+
+            <svg height="18" width="18" class="svg-loader">
+              <circle r="7" cx="9" cy="9" />
+              <circle stroke-dasharray="87.96459430051421 87.96459430051421" r="7" cx="9" cy="9" />
+            </svg>
+
+            <span class="caps__error" data-message-error>&nbsp;</span>
+          </button>
+
+          <div data-quick-add-form-holder>&nbsp;</div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="product-information" 
+      data-aos="fade"
+      data-aos-anchor="{{ animation_anchor }}"
+      data-aos-delay="{% raw %}||itemAosDelay||{% endraw %}"
+      data-aos-duration="{% raw %}||itemAosTextDuration||{% endraw %}"
+      data-product-information>
+      <a class="product-link" href="{% raw %}||itemUrl||{% endraw %}" data-grid-link>
+        <p class="product__grid__title">{% raw %}||itemTitle||{% endraw %}</p>
+
+        <span class="price {% raw %}||itemPriceClass||{% endraw %}">
+          <span class="new-price">
+            <small class="{% raw %}||itemFromClass||{% endraw %}">{{ 'products.general.from' | t }}</small>
+
+            <span class="money">{% raw %}||itemPrice||{% endraw %}</span>
+          </span>
+
+          <span class="old-price {% raw %}||itemSalePriceClass||{% endraw %}">
+            {% raw %}||itemComparedPrice||{% endraw %}
+          </span>
+        </span>
+        
+        <span class="price {% raw %}||itemSoldClass||{% endraw %}">
+          <span class="sold-out">{{ 'products.product.sold_out' | t }}</span>
+        </span>
+
+        {% if settings.quickview_enable == false and settings.color_swatches %}
+          <span class="grid__product-swatches-count {% raw %}||itemSwatchesHidden||{% endraw %}" data-swatch-count>&nbsp;</span> 
+
+          <form class="radio__fieldset radio__fieldset--swatches radio__fieldset--small {% raw %}||itemSwatchesHidden||{% endraw %}">
+            <div class="selector-wrapper__scrollbar" data-scrollbar data-grid-swatches data-swatch-handle="{% raw %}||itemHandle||{% endraw %}" data-swatch-label="{% raw %}||itemColorLabel||{% endraw %}"></div>
+
+            <button type="button" class="radio__fieldset-arrow radio__fieldset-arrow--prev is-hidden is-not-relative" data-scrollbar-arrow-prev>
+              <span class="visually-hidden">{{ 'products.general.see_all' | t }}</span>
+            </button>
+
+            <button type="button" class="radio__fieldset-arrow radio__fieldset-arrow--next is-hidden is-not-relative" data-scrollbar-arrow-next>
+              <span class="visually-hidden">{{ 'products.general.see_all' | t }}</span>
+            </button>
+          </form>
+        {% endif %}
+      </a>
+    </div>
+  </div>
+</script>

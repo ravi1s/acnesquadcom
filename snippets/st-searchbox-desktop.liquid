@@ -1,0 +1,71 @@
+<style>
+    .header__mobile .header__mobile__right div#stDesktopSearchBox {
+        margin: 0 50px 0 0;
+      width: 50%;
+  }
+    div#stMobileSearchBox {
+      display: none;
+  }
+  .st-search-bar {
+      width: 100%;
+      position: relative;
+  }
+  .st-search-bar input {
+      font-family: inherit;
+      border: 1px solid #707070!important;
+      padding-left: 35px!important;
+      margin-top: 5px;
+    margin-bottom: 0;
+      width: 100%;
+      height: 35px!important;
+      font-size: 13px!important;
+      min-width: 180px;
+      font-weight: 300;
+      background-color: transparent;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNNTA4LjkgNDc4LjdMMzYwLjEgMzMwYzI4LjItMzQuOCA0NS4yLTc5LjEgNDUuMi0xMjcuM0M0MDUuMyA5MC45IDMxNC40IDAgMjAyLjcgMFMwIDkwLjkgMCAyMDIuN3M5MC45IDIwMi43IDIwMi43IDIwMi43YzQ4LjIgMCA5Mi41LTE3IDEyNy4zLTQ1LjJsMTQ4LjcgMTQ4LjdjNC4yIDQuMiAxMC45IDQuMiAxNS4xIDBsMTUuMS0xNS4xYzQuMS00LjIgNC4xLTEwLjkgMC0xNS4xem0tMzA2LjItMTE2Yy04OC4yIDAtMTYwLTcxLjgtMTYwLTE2MHM3MS44LTE2MCAxNjAtMTYwIDE2MCA3MS44IDE2MCAxNjAtNzEuOCAxNjAtMTYwIDE2MHoiIGZpbGw9IiMzNDNmNDkiLz48L3N2Zz4=)!important;
+      background-size: 20px!important;
+      background-position-x: 12px!important;
+      background-position-y: center!important;
+      background-repeat: no-repeat!important;
+      color: #000;
+      line-height: normal;
+      padding: 8px 30px 8px 14px;
+  }
+  .st-search-bar .input-close-btn {
+      width: 20px;
+      height: 10px!important;
+      display: block;
+      font-family: inherit;
+      cursor: pointer;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MTIiIGhlaWdodD0iNjEyIj48cGF0aCBkPSJNNjEyIDM2LjAwNEw1NzYuNTIxLjYwMyAzMDYgMjcwLjYwOCAzNS40NzguNjAzIDAgMzYuMDA0bDI3MC41MjIgMjcwLjAwN0wwIDU3NS45OTdsMzUuNDc4IDM1LjRMMzA2IDM0MS40MTFsMjcwLjUyMSAyNjkuOTg2IDM1LjQ3OS0zNS40LTI3MC41NDEtMjY5Ljk4NnoiLz48L3N2Zz4=)!important;
+      background-position-y: center!important;
+      background-position-x: center;
+      background-repeat: no-repeat!important;
+      background-size: 11px!important;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 10px;
+     margin-top: 18px;
+      z-index: 6;
+      color: #3c3c3c;
+  }
+</style>
+<div class="st-search-bar st-hidden-sm" id="stDesktopSearchBox">
+  <form class="wz-search-from" action="/pages/search">
+    <input
+      id="wizzyDesktopSearchBox"
+      type="text"
+      name="q"
+      placeholder=""
+      value=""
+      autocapitalize="off"
+      autocomplete="off"
+      autocorrect="off"
+    >
+    <span
+      class="input-close-btn"
+      style="display: none;"
+    ></span>
+  </form>
+</div>

@@ -1,0 +1,91 @@
+<!--======================quizebonusSlide1 section=====================  -->
+
+<div class="mainquizebonusSlide">
+  <h1 class="sectinTTlText">{{ section.settings.slideTtl }}</h1>    
+  <div class="mainquizebonusSlideSec">
+    <div class="sectionttldes">
+      <p class="sectinDesText whiteColor">{{ section.settings.slideDes }}</p>
+    </div>
+    <div class="quizebonusSlideer">
+      {% for block in section.blocks %} 
+      <div class="mainquizebonusSlideContnt">
+        <img class="quizebonusSlideImg quizebonusSlideImg_{{ forloop.index }}" src="{{ block.settings.imageSlid | img_url : 'master' }}">
+        <div class="mainQuizeslideTTlDes">
+          <h2 class="quizebonusSlideTtl tipHeading_{{ forloop.index }}">{{ block.settings.text1 }}</h2>
+          <p class="quizebonusSlideDes tipContent_{{ forloop.index }}">{{ block.settings.text3 }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "quizebonusSlide1 name",
+    "settings": [
+ 	{
+		"type":"text",
+		"id":"slideTtl",
+		"label":"slider Title"
+	},
+	{
+		"type":"text",
+		"id":"slideDes",
+		"label":"slider sub Title"
+	}
+  ],
+  "blocks": [
+      {
+        "type": "Quiz",
+        "name": "Quiz Block",
+        "settings": [
+           {
+            "type": "image_picker",
+            "id": "imageSlid",
+            "label": " image "
+
+          },
+          {
+            "type": "text",
+            "id": "text1",
+            "label": " Title "
+
+          },
+          {
+            "type": "text",
+            "id": "text3",
+            "label": "Description"
+          }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".quizebonusSlideer").slick({
+      infinite: true,
+      slidesToShow: 3,
+      infinite : false,
+      arrows:false,
+      autoplay:true,
+      responsive: [
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow:2
+          }
+        },
+                {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+
+    });
+  });
+</script>

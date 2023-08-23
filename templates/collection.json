@@ -1,0 +1,162 @@
+{
+  "sections": {
+    "1657859531b28aca5b": {
+      "type": "section-custom-content",
+      "disabled": true,
+      "blocks": {
+        "1657859531f957bf03-1": {
+          "type": "text",
+          "settings": {
+            "subheading": "",
+            "title": "Equip your Skin",
+            "text": "<p>We’ve broken down the acne lifecycle into 4 key stages, developing the ultimate toolkit to defeat every stage of acne<\/p>",
+            "text_size": 2,
+            "text_columns": 1,
+            "align_text": "text-left",
+            "text_color": "text-dark",
+            "bg_color": "#ffffff",
+            "button_text": "",
+            "button_url": "",
+            "button_color": "btn--neutral",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "8f1b42b1-7373-4254-be6f-89b915adfc8c": {
+          "type": "product",
+          "disabled": true,
+          "settings": {
+            "title": "Product Feature",
+            "product": "asq-breakout-blocker-serum-with-2-salicylic-acid-30ml",
+            "text_color": "text-dark",
+            "bg_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "1657859531f957bf03-1",
+        "8f1b42b1-7373-4254-be6f-89b915adfc8c"
+      ],
+      "settings": {
+        "height": "screen-height-one-half",
+        "padding": false,
+        "borders": false,
+        "wrapper": false
+      }
+    },
+    "hero": {
+      "type": "collection-image-with-title",
+      "disabled": true,
+      "settings": {
+        "show_title": false,
+        "show_description": false,
+        "text_color": "text-dark",
+        "flex_align": "align--middle-center",
+        "transparent": true,
+        "show_image": false,
+        "banner_layout": "inline",
+        "height": "screen-height-one-third",
+        "overlay_opacity": 0,
+        "overlay_color": "#000000"
+      }
+    },
+    "subcollections": {
+      "type": "subcollection",
+      "disabled": true,
+      "settings": {
+        "subcollection_layout": "grid",
+        "subcollection_description": false,
+        "select_image": "collection"
+      }
+    },
+    "1657768831b48baec2": {
+      "type": "section-collection",
+      "settings": {
+        "enable_section": false,
+        "heading": "ACNE REGIME KITS",
+        "description": "",
+        "text_alignment": "inline",
+        "link_text": "",
+        "link_url": "",
+        "button_color": "btn--black",
+        "button_style": "hero__btn btn btn--input btn--outline caps",
+        "featured_collection": "regime-kit",
+        "grid": 4,
+        "rows": 3,
+        "enable_reviews": false,
+        "layout_mobile": "1"
+      }
+    },
+    "main": {
+      "type": "collection",
+      "settings": {
+        "specific_collection": "best-seller",
+        "enable_sort": true,
+        "enable_filters": true,
+        "filter_layout": "inline-open",
+        "grid": 3,
+        "grid_mobile": "2",
+        "product_limit": 25,
+        "enable_reviews": false
+      }
+    },
+    "16577684624c5ad748": {
+      "type": "new-collection",
+      "disabled": true,
+      "blocks": {
+        "16577684623789c9a3-0": {
+          "type": "collection",
+          "settings": {
+            "title": "First collection",
+            "collectio_ttl": "",
+            "collectio_Des": "",
+            "featured_collection": "{{ collection }}",
+            "show_image": false,
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "description": "",
+            "text_color": "text-light",
+            "link_text": "View products",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "16577684623789c9a3-1": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "title": "Second collection",
+            "collectio_ttl": "",
+            "collectio_Des": "",
+            "featured_collection": "",
+            "show_image": false,
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "description": "",
+            "text_color": "text-light",
+            "link_text": "View products",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        }
+      },
+      "block_order": [
+        "16577684623789c9a3-0",
+        "16577684623789c9a3-1"
+      ],
+      "settings": {
+        "title": "SHOP PRODUCTS",
+        "enable_reviews": false
+      }
+    }
+  },
+  "order": [
+    "1657859531b28aca5b",
+    "hero",
+    "subcollections",
+    "1657768831b48baec2",
+    "main",
+    "16577684624c5ad748"
+  ]
+}

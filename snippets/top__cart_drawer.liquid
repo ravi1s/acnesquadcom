@@ -1,0 +1,62 @@
+<!-- top__cart_drawer.liquid  -->
+{{ 'top__cart_drawer.css' | asset_url | stylesheet_tag}}
+{% assign discount_5_price = 0 %}
+{% assign discount_5_price_round = discount_5_price | divided_by :100.00 %}
+{% if settings.enable_cart_top == true %}
+{% assign total_saving = 0 %}
+
+{% for item in cart.items %}
+{% if item.variant.compare_at_price > item.variant.price %}
+{% capture saving %}{{ item.variant.compare_at_price | minus: item.variant.price | times:item.quantity | divided_by :100.00 |round  | abs }}{% endcapture %}
+{% assign total_saving = saving | plus: total_saving %}
+{% endif %} 
+ {% assign discount_5 = item.discounts | where: 'title', 'Additional 5% discount on online payment mode.' %}
+  {% assign free_gift = item.discounts | where: 'title', 'free gift' %}
+ {% for disct in discount_5 %}
+  {% assign discount_5_price = discount_5_price | plus: disct.amount %}
+  {% endfor %}
+  {% for tag in item.product.tags %}
+  {%  if tag == 'Free_Gift' %}
+    {% assign free_gift_price = item.variant.price | divided_by: 100 %}
+    {% endif %}
+  {% assign free_subtotal = cart.original_total_price | divided_by: 100 %}
+   {%  assign free_total =  free_subtotal | minus:free_gift_price %}
+  {% assign free_ship_val =  499 | minus: free_total %}
+{% endfor %}
+{% endfor %}
+  
+  
+<div class="top__cart_drawer">  
+  <div class="top__cart__inner">
+  <span class="custom_ship_text newcartmsg new_ship_text"{{ free_ship_val }} {{ free_total }}>
+    <div class="custom_ship_text newcartmsg_text1" ></div>
+     {% if free_total <= 499 %}
+     Shop for ₹<span>{{ free_ship_val }}</span> more to unlock free shipping
+      {% else %}
+        Hurray! You have Free shipping
+       </span>
+       {% endif %}
+
+  </div>
+  <div class="you_save_txt">
+    <span>You Save</span>
+    <span class="item__save" style="color:#707070;">
+  {% assign discount_5_round = discount_5_price | divided_by :100.00 | round %}
+    {% assign total_cart_sav = total_saving | plus: discount_5_round %}
+      <span>₹{{ total_cart_sav}}</span>
+    </span> 
+    <span cartSaving style="display:none">₹{{ total_cart_sav }}</span>
+  </div>
+<!--   <button type="button" name="checkout_top" class="checkout__top btn btn--full btn--large cart__checkout">Checkout</button> -->
+</div>
+{% endif %}    
+<style>
+  .newcartmsg.new_ship_text {
+    padding: 0px;
+    margin-bottom: 2px;
+    width: 100%;
+    text-align: left;
+    background: none;
+    color: #707070;
+  }
+</style>

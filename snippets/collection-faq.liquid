@@ -1,0 +1,83 @@
+{% if collection.metafields.custom.my_fields_collection_content != blank %}
+<div class="accorbelow_content">
+  <p>{{ collection.metafields.custom.my_fields_collection_content }}</p>
+  <span class="more-content " onclick="onMoreClick()">Read More...</span>
+  <div class="morebtn_content">
+  <p class="more-collection-content">{{collection.metafields.custom.my_fields_collection_more_content}}</p>
+  </div>
+  <span class="less-content" onclick="onlessClick()" >Read Less...</span><br><br>
+</div>
+
+   
+
+<script>
+	  function onMoreClick (){
+    	document.querySelector('.morebtn_content').style.display="block";
+      	document.querySelector('.more-content').style.display="none";
+      	document.querySelector('.less-content').style.display="block";
+        
+    }
+    function onlessClick (){
+    	document.querySelector('.morebtn_content').style.display="none";
+      	document.querySelector('.more-content').style.display="block";
+      	document.querySelector('.less-content').style.display="none";
+    }
+  
+      {% endif %}
+ 
+</script>
+  
+<style>   
+  
+  .more-content{
+  cursor: pointer;
+  padding: 6px 10px;
+    background-color: #a99ef6;
+    margin: auto;
+    display: block;
+    width: 18%;
+    color: #fff;
+    text-align: center;
+    border-radius:6px;
+ }
+  .less-content{
+    cursor: pointer;
+    background-color:#a99ef6;
+    color:#fff;
+    width:18%;
+    text-align:center;
+    padding:6px 10px;
+    margin:auto;
+    display: none;
+    border-radius:6px;
+    text-align: center;
+  }
+  
+  .morebtn_content{
+  	display:none;
+
+  }
+  .accorbelow_content{
+    width:90%;
+    margin:auto;
+  }
+  
+  .ques-and-ans{
+  	color: #efa3b1 !important;
+  }
+  .meta-containercs{
+    margin-top:20px;
+  }
+  .heading-accor{
+    margin-bottom:20px;
+  }
+  .cc-tabs.cc-tabs--accordion-mode {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: auto;
+    width: 90%;
+  }
+   
+  </style>
+
+

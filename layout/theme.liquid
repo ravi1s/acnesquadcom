@@ -1,0 +1,505 @@
+{% if template contains 'article' and blog.metafields.blogfeeder.use_canonical == 'yes' -%}
+  {%- assign canonical_url = article.metafields.blogfeeder.canonical -%}
+{%- endif %}
+<!doctype html>
+
+<html class="no-js no-touch supports-no-cookies" lang="{{ request.locale.iso_code }}">
+  <head>
+ 
+     <meta name="google-site-verification" content="wRbnRQKhgD2NBgBHUcjhdjN-i6Ai243cfyJab1f5uvg">
+    <meta name="facebook-domain-verification" content="41f791faczt5gpntqdn7bwb9z6nqbk">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="3X_siptZ6Hc1XW1aIx_W8dqicDwc7NOqOLNEXypU21U" />
+    <meta name="theme-color" content="{{ settings.accent_secondary }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!-- ======================= Broadcast Theme V3.0.0 ========================= -->
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://monorail-edge.shopifysvc.com" crossorigin>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+   
+  
+
+    
+    {% if settings.favicon %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    <!-- Title and description ================================================ -->
+    {% capture seo_title %}
+    {% assign title_content = page_title %}
+    {% if template == 'password' %}
+    {% assign title_content = shop.name %}
+    {%- endif -%}
+    {{ title_content }}
+    {% if current_tags %}
+    {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {% endif %}
+    {% if current_page != 1 %}
+    &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {% endif %}
+    {% unless page_title contains shop.name %}
+    &ndash; {{ shop.name }}
+    {% endunless %}
+    {% endcapture %}
+    <title>{{ seo_title }}</title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% else %}
+      <meta name="description" content="{{ shop.description | escape }}">
+    {% endif %}
+
+    {% render 'social-meta' %}
+
+    <!-- CSS ================================================================== -->
+    <link rel="preload" as="style" href="https://cdn.shopify.com/s/files/1/0615/4253/1259/files/slick.css?v=1655818640">
+    <link
+      rel="preload"
+      as="style"
+      href="https://cdn.shopify.com/s/files/1/0615/4253/1259/files/slick-theme.css?v=1655818640"
+    >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.shopify.com/s/files/1/0615/4253/1259/files/slick.css?v=1655818640"
+    >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.shopify.com/s/files/1/0615/4253/1259/files/slick-theme.css?v=1655818640"
+    >
+    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
+
+    {% render 'css-variables' %}
+
+    <link rel="preload" as="style" href=" {{ 'theme.css' | asset_url }}">
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <link rel="preload" as="style" href=" {{ 'custom.min.css' | asset_url }}">
+    {{ 'custom.min.css' | asset_url | stylesheet_tag }}
+    {% if template contains 'collection' %}
+      {{ 'custom-collection.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+    {% if template contains 'product' %}
+      <link rel="preload" as="style" href=" {{ 'product.css' | asset_url }}">
+      {{ 'product.css' | asset_url | stylesheet_tag }}
+    {% endif %}
+    <link rel="preload" as="style" href=" {{ 'header.css' | asset_url }}">
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      
+      
+      if (window.navigator.userAgent.indexOf('MSIE ') > 0 || window.navigator.userAgent.indexOf('Trident/') > 0) {
+        document.documentElement.className = document.documentElement.className + ' ie';
+
+        var scripts = document.getElementsByTagName('script')[0];
+        var polyfill = document.createElement("script");
+        polyfill.defer = true;
+        polyfill.src = "{{ 'ie11.js' | asset_url }}";
+
+        scripts.parentNode.insertBefore(polyfill, scripts);
+      } else {
+        document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+      }
+
+      window.lazySizesConfig = window.lazySizesConfig || {};
+      window.lazySizesConfig.preloadAfterLoad = true;
+
+      {% assign swatch_translation = 'general.swatches.color' | t %}
+      {% assign swatch_labels = swatch_translation | append: ',' | split: ',' %}
+
+      {% assign show_first_swatch = false %}
+
+      {% if settings.show_first_swatch and settings.quickview_enable == false %}
+      {% assign show_first_swatch = true %}
+      {% endif %}
+
+      let root = '{{ routes.root_url }}';
+      if (root[root.length - 1] !== '/') {
+        root = `${root}/`;
+      }
+
+      {%- assign pincode_list_1 = settings.pincode_list_1 | strip_newlines | strip | split: ',' -%}
+      {%- assign pincode_list_2 = settings.pincode_list_2 | strip_newlines | strip | split: ',' -%}
+      {%- assign pincode_list_3 = settings.pincode_list_3 | strip_newlines | strip | split: ',' -%}
+      {%- assign pincode_list_4 = settings.pincode_list_4 | strip_newlines | strip | split: ',' -%}
+
+      window.theme = {
+        pincodeValidatorEnable: {{ settings.enable_pincode | default: false }},
+        pincodeList_1: {{ pincode_list_1 | json }},
+        pincodeList_2: {{ pincode_list_2 |json }},
+        pincodeList_3: {{ pincode_list_3 | json }},
+        pincodeList_4: {{ pincode_list_4 |json }},
+      
+         showMaxLimit:{{settings.enable_max_limit  }},
+        MaxLimit:{{settings.max_limit|json }},
+        error_MaxLimit:{{ settings.error_max_limit|json }},
+        routes: {
+          root: root,
+          cart: '{{ routes.cart_url }}',
+          cart_add_url: '{{ routes.cart_add_url }}',
+          product_recommendations_url: '{{ routes.product_recommendations_url }}',
+          search_url: '{{ routes.search_url }}'
+        },
+        assets: {
+          photoswipe: '{{ "photoswipe.js" | asset_url }}',
+          smoothscroll: '{{ "smoothscroll.js" | asset_url }}',
+          swatches: '{{ "swatches.json" | asset_url }}',
+          base: "{{ 'nothing.jpg' | asset_url | split: 'nothing.jpg' | first }}",
+          no_image: "{{ image | img_url: '1024x' }}",
+        },
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+          soldOut: {{ 'products.product.sold_out' | t | json }},
+          from: {{ 'products.general.from' | t | json }},
+          preOrder: {{ 'products.product.pre_order' | t | json }},
+          unavailable: {{ 'products.product.unavailable' | t | json }},
+          unitPrice: {{ 'products.product.unit_price_label' | t | json }},
+          unitPriceSeparator: {{ 'general.accessibility.unit_price_separator' | t | json }},
+          resultsFor: {{ 'general.search.results_for' | t | json }},
+          noResultsFor: {{ 'general.search.no_results_for' | t | json }},
+          shippingCalcSubmitButton: {{ 'cart.shipping_calculator.calculate_shipping' | t | json }},
+          shippingCalcSubmitButtonDisabled: {{ 'cart.shipping_calculator.calculating' | t | json }},
+          selectValue: {{ 'products.product.select_value' | t | json }},
+          oneColor: {{ 'collections.general.colors_with_count.one' | t | json }},
+          otherColor: {{ 'collections.general.colors_with_count.other' | t | json }},
+          upsellAddToCart: {{ 'products.general.upsell_add_to_cart' | t | json }}
+        },
+        customerLoggedIn: {% if customer %}true{% else %}false{% endif %},
+        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
+        moneyFormat: {{ shop.money_format | json }},
+        cartDrawerEnabled: {{- settings.enable_cart_dropdown | json -}},
+        enableQuickAdd: {{ settings.quickview_enable | json }},
+        swatchLabels: {{ swatch_labels | json }},
+        showFirstSwatch: {{ show_first_swatch | json }},
+        transparentHeader: false,
+        info: {
+        name: 'broadcast'
+      },
+        version: '3.0.0'
+      };
+
+
+    </script>
+    
+    {% capture header_script %}
+<!--     *********************Adobe-Analytics-implementation Start 20/10/22 ********************* -->
+    <script src="//assets.adobedtm.com/e6bd1902389a/0b667b5360d5/launch-ab7d6ca826cf.min.js" async></script>
+      {% render 'adobe-analytics' %}
+<!--     *********************Adobe-Analytics-implementation End********************* -->
+    
+     
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "f4dtp4d0x4");
+  </script>
+    
+
+    <script>
+      if(navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1) {
+       !function(f,b,e,v,n,t,s)
+       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+       n.queue=[];t=b.createElement(e);t.async=!0;
+       t.src=v;s=b.getElementsByTagName(e)[0];
+       s.parentNode.insertBefore(t,s)}(window, document,'script',
+       'https://connect.facebook.net/en_US/fbevents.js');
+       fbq('init', '1031855264160827');
+       fbq('track', 'PageView');
+      }
+    </script>
+      <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10868065516"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-10868065516'); </script>
+   <!-- end ETmedia script--->
+       {% endcapture %}
+    <script>
+      document.open();
+      if(navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1){
+      document.write({{header_script | json}});}
+      document.close();
+    </script>
+    <!-- Shopify app scripts =========================================================== -->
+    {% assign url_to_remove = 0 %}
+    {% assign lines = content_for_header | newline_to_br | split: '<br />' %}
+    {% for line in lines %}
+      {% if line contains 'var urls' %}
+        {% if url_to_remove == 0 %}
+          {% capture new_line %}
+    {% endcapture %}
+          {% assign empty_array = new_line | append: 'var urls = [];' %}
+          {% assign content_for_header = content_for_header | replace: line, empty_array %}
+
+          {% assign url_string = line | remove: 'var urls = [' | remove: '];' | strip %}
+        {% else %}
+          {% assign url_string = line | remove: 'var urls = [' | remove: '];' | strip %}
+          {% assign url_array = url_string | split: ',' | uniq %}
+          {% for url in url_array %}
+            {% if forloop.index == url_to_remove %}
+              {% assign content_for_header = content_for_header | replace: url, '""' %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {{ content_for_header }}
+
+    {% capture themejs %}
+      {% if template.directory == 'customers' or settings.enable_cart_dropdown or template contains 'cart' %}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+      {% endif %}
+      
+      <!-- Theme Javascript ============================================================== -->
+      <script src="{{ 'custom.js' | asset_url }}"  defer="defer"></script>
+      <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
+      <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'theme-bkp.js' | asset_url }}" defer="defer"></script>
+<!--       <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script> -->
+        <script src="{{ 'jquery.js' | asset_url }}"></script>
+      <script src="https://cdn.shopify.com/s/files/1/0615/4253/1259/files/slick.js?v=1655818581" type="text/javascript" charset="utf-8"></script>
+
+    
+  {% endcapture %}
+  
+    <script>
+      document.open();
+      if(navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1){
+      document.write({{themejs | json}});}
+      document.close();
+    </script>
+    <!--  (cashkaro_pixel Script) -->
+   <script language="javascript" type="text/javascript">function sc(v){var dateAf=new Date();dateAf.setTime(dateAf.getTime()+(7*24*60*60*1000));document.cookie="affclick="+v+";"+"expires="+dateAf.toUTCString()+";path=/";localStorage.setItem('affclick',v)}if(new URLSearchParams(window.location.search).get("clickid")){sc((new URLSearchParams(window.location.search)).get("clickid"))}</script>
+    <!-- End (cashkaro_pixel Script) -->
+    
+    {% comment %}
+     {% include 'moe.liquid' %}
+     {% include 'moengage-event' %}
+     {% endcomment %}
+    {% render 'wizzy.search.filters.styles' %}
+    {% include 'gtag-analytics' %}
+    
+    <!-- gemini header script -->
+    <script type="text/javascript">
+    ci="0002336",gemErrList=[],gemp="index",window.addEventListener("error",function(r){if(r.error){var e={};try{e.m=r.message,e.f=r.filename.replace(/(\r\n|\n|\r)/gm,""),e.l=r.lineno,e.c=r.colno,e.s=r.error.stack,gemErrList.push(e)}catch(r){}}});
+    </script>
+    <script>
+         localStorage.setItem('checkoutL1_phone',"");
+	     localStorage.setItem('checkoutL1_email',"");
+     </script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1KL70NW4X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C1KL70NW4X');
+</script>
+
+  </head>
+  <body
+    id="{% if template.name == 'index' %}cstmHomePageId{% else %}{{ page_title | handle }}{% endif %}"
+    class="template-{{ template.name | handle }}{% if customer %} customer-logged-in{% endif %}{% if settings.show_button_animation %} show-button-animation{% endif %}{% if settings.animations_enable %} aos-initialized{% endif %}"
+    data-animations="{{ settings.animations_enable }}"
+  >{% unless page.handle contains 'quiz-intro' or page.handle contains 'quiz-acne' or page.handle contains 'stage-1-acne-prone' or page.handle contains 'stage-2-clogged-pores' or page.handle contains 'stage-3-breakout' or page.handle contains 'stage-4-post-breakout' %}
+     {% include 'quiz-popup' %}
+    {% endunless %}
+    {% if page.handle contains 'stage-1-acne-prone' or page.handle contains 'stage-2-clogged-pores' or page.handle contains 'stage-3-breakout' or page.handle contains 'stage-4-post-breakout' %}
+     {% include 'quiz-discount-popup' %}
+    {% endif %}
+    
+    <div class="loaderChekout"></div>
+    <div class="loaderChekout-overlay"></div>
+
+    <a class="in-page-link visually-hidden skip-link is-not-relative" data-skip-content href="#MainContent">
+      {{- 'general.accessibility.skip_to_content' | t -}}
+    </a>
+
+    <div class="container" data-site-container>
+      {% section 'announcement' %}
+      {% section 'header' %}
+
+      <!-- CONTENT -->
+      <main role="main" id="MainContent" class="main-content">
+        {{ content_for_layout }}
+      </main>
+    </div>
+
+    {% section 'footer' %}
+
+    {% section 'popups' %}
+
+    {% render 'header-search-popdown' %}
+
+    {% render 'template-swatch' %}
+
+    {%- if template.name == 'article' or template.name == 'blog' -%}
+      {% if settings.enable_disqus %}
+        <!-- /partials/disqus.liquid -->
+
+        <script>
+          var disqus_config = function () {
+            this.page.url = '{{ shop.url }}{{ article.url }}';
+            this.page.identifier = '{{ article.id }}';
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+
+            s.src = 'https://{{ settings.disqus_shortname }}.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <script id="dsq-count-scr" src="//{{ settings.disqus_shortname }}.disqus.com/count.js" async></script>
+      {% endif %}
+    {%- endif -%}
+
+    {% if settings.quickview_enable %}
+      <div data-quickview-modal-global></div>
+    {% endif %}
+
+    {% render 'zoom-pswp' %}
+
+    {%- render 'cart-templates' -%}
+    {%- if settings.enable_cart_dropdown and template != 'cart' -%}
+      {%- render 'cart-drawer', cart: cart -%}
+    {%- endif -%}
+
+    {%- if template != 'product' and settings.show_scroll_top_button -%}
+      <button type="button" class="btn btn--scroll-top btn--neutral" data-scroll-top-button></button>
+    {%- endif -%}
+
+    {%- comment -%}
+      In order to use your custom javascript file at assets/custom.js
+      just cut this next line and paste it outside this comment:
+      <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
+    {%- endcomment -%}
+    <!-- Paste marketing code or third party scripts below this comment line ============== -->
+    {% capture limechat %}
+<!-- <script>
+(function(d,t) {
+        var BASE_URL="https://app.limechat.ai";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src="https://s3.ap-south-1.amazonaws.com/cdn.limechat.ai/packs/js/LC_sdk/v1/sdk.js";
+        g.defer = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'RbkHw9umQ9nPZ5sU3iNzW7Hs',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+</script> -->
+      
+  <script>
+var url =
+  "https://s3.ap-south-1.amazonaws.com/cdn.limechat.ai/packs/js/whatsapp_widget/LC_whatsapp_widget.js";
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.async = true;
+s.src = url;
+s.onload = function () {
+  var whatsAppBtn = new LimeChatWhatsapp({
+    phone: "919029010760",
+    prefill_text: "Hey, Let’s chat about AcneSquad.",
+    button_message_mobile: "Chat with us",
+    button_message_desktop: "Chat with us",
+    display_on: "both",
+    widget_type_desktop: "icon",
+    widget_type_mobile: "icon",
+    display_size_desktop: 44,
+    position_desktop: "right",
+    bottom_margin_desktop: 48,
+    left_margin_desktop: 48,
+    right_margin_desktop: 48,
+    display_size_mobile: 44,
+    position_mobile: "right",
+    bottom_margin_mobile: 75,
+    left_margin_mobile: 24,
+    right_margin_mobile: 15,
+    show_pop_up: true,
+    pop_up_message_position: "side",
+    pop_up_message_text: "Hey, Let's chat!",
+    pop_up_image: " ",
+    pop_up_delay: 3,
+    pdp_prefill_text: "Hey! I would like to know about ",
+    pages_to_display:["homepage","cart","blogs","products","collections","checkout","pages"],
+    isShopify: true  
+});
+  whatsAppBtn.renderButton();
+};
+var x = document.getElementsByTagName("script")[0];
+x.parentNode.insertBefore(s, x);
+ </script>
+
+<!-- new addon -->
+  <script>     
+if(navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1) {
+(function() {
+function asyncLoad() {
+var urls = [{{url_string }}];
+for (var i = 0; i <urls.length; i++) {
+var s = document.createElement('script');
+s.type = 'text/javascript';
+s.async = true;
+s.src = urls[i];
+var x = document.getElementsByTagName('script')[0];
+x.parentNode.insertBefore(s, x);
+}
+};
+if(window.attachEvent) {
+window.attachEvent('onload', asyncLoad);
+} else {
+window.addEventListener('load', asyncLoad, false);
+}
+})();
+}
+    // lime chat script
+     let utm_medium = sessionStorage.getItem("utm_medium");
+    if(utm_medium && utm_medium == 'limechat_checkout'){
+      sessionStorage.removeItem("utm_medium");
+    }
+  </script>
+    
+    {% include 'cookie-script-loader' %}
+   <!-- OneTrust Cookies Settings button start -->
+   <button id="ot-sdk-btn" class="ot-sdk-show-settings">Cookie Settings</button>
+   <!-- OneTrust Cookies Settings button end -->
+    
+      {% render 'wizzy.search.filters.scripts' %}
+
+      {% unless template contains 'index' or template contains 'collection' or template contains 'product' %}
+       <link rel="preload" href="{{ 'track-order.css' | asset_url }}" as="style">
+       <link rel="preload" href="{{ 'font-settings.css' | asset_url }}" as="style">
+       {{ 'track-order.css' | asset_url | stylesheet_tag }}
+       {{ 'font-settings.css' | asset_url | stylesheet_tag }}
+      {% endunless %}
+{% endcapture %}
+    <script>
+      document.open();
+      if (navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1) {
+      document.write({{limechat | json}});}
+      document.close();
+    </script>
+
+    <!--  Gemini footer script    -->
+    <script type="text/javascript">
+    (function(){var geminiJs=document.createElement('script');geminiJs.type='text/javascript';geminiJs.async=!0;geminiJs.src='https://cdn.epsilondelta.co/static/gemGen.js';var s1=document.getElementsByTagName('script')[0];s1.parentNode.insertBefore(geminiJs,s1)})();
+    </script>
+    <!--  Gemini footer script    -->    
+  </body>
+</html>

@@ -1,0 +1,75 @@
+
+<script>
+  $(document).ready(function () {
+const d = new Date();
+      const options = { hour12: false };
+      const dateAndTime = d.toLocaleString('en-US', options);
+    // $('body').on('click', '.quiz_btn', function () {
+    //   gtag('event', 'Popup-Quiz Click', {
+    //         'send_to': 'G-C1KL70NW4X',
+    //         "page_name": 'Home Page',
+    //          "Date":dateAndTime
+    //       });
+    // })
+    // let tgt_quiz_start = document.querySelector(".QuizstartBtn");
+    // if (tgt_quiz_start) {
+      
+    //     tgt_quiz_start.addEventListener('click', function () {
+    //             let input_val_arr = []
+    //         let tgt_input = document.querySelectorAll(".quizIntroInput")
+    //         tgt_input.forEach((item) => {
+    //             let item_value = item.value;
+    //             if (item_value) {
+    //                 input_val_arr.push(item_value);
+    //             }
+
+    //         })
+    //           localStorage.setItem("QuizEmail", input_val_arr[1]);
+    //           if (input_val_arr.length !=0)
+    //           {
+
+    //       gtag('event', 'Quiz-Start', {
+    //             "Name": input_val_arr[0],
+    //             "Email": input_val_arr[1],
+    //             "Date":dateAndTime
+    //       });
+    //           }
+          
+    //     })
+    // }
+  let submit_quiz = document.querySelector(".mainQuesQuizBtnSubMitBtn");
+if (submit_quiz) {
+  submit_quiz.addEventListener('click', function () {
+    let quiz_submit_arr = [];
+     var name = localStorage.getItem("name");
+    var email = localStorage.getItem("QuizEmail");
+    var text1 = localStorage.getItem("tipHeading_1");
+    quiz_submit_arr.push(text1)
+    var text2 = localStorage.getItem("tipHeading_2");
+    quiz_submit_arr.push(text2)
+    var text3 = localStorage.getItem("tipHeading_3");
+    quiz_submit_arr.push(text3)
+    var text4 = localStorage.getItem("tipHeading_4");
+    quiz_submit_arr.push(text4)
+    let tgt_quiz_question = document.querySelectorAll(".mainQuesDesTTL h3");
+    let quiz_question_arr = []
+    tgt_quiz_question.forEach((item, index) => {
+      let quiz_question_text = item.innerText;
+      quiz_question_arr.push(quiz_question_text);
+    })
+    let result = quiz_submit_arr.map((submit, index) => ({
+      question: quiz_question_arr[index],
+      Answer: submit   
+    }));
+       
+    // gtag('event', 'Quiz-Submit', {
+    //             "Name":name,
+    //             "Email":email,
+    //             "Quiz-Data":JSON.stringify(result),
+    //             "Date":dateAndTime
+    //       });
+  })
+}
+
+});
+</script>

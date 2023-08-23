@@ -1,0 +1,134 @@
+<!-- snippets/quiz-discount-popup.liquid -->
+<div class="popup-discount" id="popup-discount">
+  <div class="popup">
+    <div class="btn-close_discount">x</div>
+    <div class="popup-img">
+    <img src="https://cdn.shopify.com/s/files/1/0647/2368/1517/files/400_x_400-1.png?v=1681285912"/>
+     </div>
+    
+    <p style="color:#a99ef6;">Use Code: <span style="color:#707070;"></span><span id="mycode">NEW5</span></p>
+    <div class="quiz_text_content">
+    <button id="copybtn" href="javascript:void(0);">TAP TO COPY</button>
+   </div> 
+   </div> 
+  </div>
+</div>
+
+
+<!-- quiz-discount-popup css -->
+<style>
+  .popup-discount {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    z-index:999;
+    padding:10px;
+  }
+ .popup{
+    position: fixed;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 265px;
+    max-width: 600px;
+    height: auto;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 5px;
+}
+  .btn-close_discount {
+    background-color: #a99ef6;
+    color:#E1FFEF;
+    font-weight:bold;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 22px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border-radius: 50%;
+  }
+  .btn-close_discount:hover {
+    transform: rotate(360deg);
+  }
+  .popup img{width:100%;height:100%;padding:0}
+  .popup p {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+    margin: 3px;
+  }
+  .quiz_text_content {
+    text-align: center;
+    padding: 0 0 15px 0;
+  }
+  #copybtn {
+    font-size: 18px;
+    color: #fff;
+    background: #a99ef6;
+    padding: 3px 20px;
+    border: 2px solid #a99ef6;
+    transition: .3s;
+    width: 160px;
+  }
+  #copybtn:hover {
+    color: #707070;
+    background: #fff;
+    border: 2px solid #707070;    
+   }
+  #mycode {
+    color:#707070;
+  }
+  @media (max-width: 767px){
+    .popup{
+      transform: translate(-50%, -50%);
+      top: 58%;
+      left: 50%;
+      padding: 5px;
+    }
+    .btn-close_discount {
+      width: 20px;
+      height: 20px;
+      line-height: 18px;
+      font-size: 14px;
+    }
+   .popup p {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 600;
+  }
+  #copybtn {
+    padding: 3px 20px;
+    font-size: 14px;
+    width: 130px;
+}
+  }
+</style>
+
+<script>
+    $(window).load(function(){
+        if(sessionStorage.getItem('pageDataIndex') != 'null'){
+        $('.popup-discount').delay(100).fadeIn(200);
+    }
+    $('.btn-close_discount').click(function() 
+    {
+        $('.popup-discount').fadeOut(200);
+        localStorage.setItem('quiz-discount-popup','true');
+        sessionStorage.setItem('pageDataIndex','null')
+    });
+ });
+  
+document.getElementById("copybtn").addEventListener("click",function(){
+var copyText = document.getElementById("mycode").innerText;
+navigator.clipboard.writeText(copyText);
+document.getElementById("copybtn").innerHTML = "COPIED";
+});  
+</script>
+
+

@@ -1,0 +1,90 @@
+<div class="custom_breadcrumb">
+  {% render 'custom-breadcrumbs' %} 
+</div>
+{{ 'quizResult.css' | asset_url | stylesheet_tag }}
+<div class="quizeresultpage">
+
+      <div class="rte">
+        {{ page.content }} 
+      </div>
+      {% section 'quizeResult1' %}
+        <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      {% section 'section-collection-carousel-result1' %}
+    </div>
+        </div>
+      {% section 'quizebonusSlide1' %}  
+    <div class="grid mainregisterNow1">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      {% section 'registerNow1' %}
+    </div>
+    </div>
+      {% comment %}
+      {% section 'rsult-page-1' %}
+      {% endcomment %}
+         <div class="grid">
+    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+      {% section 'imageGrid' %}
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    var _tipsHeading_1 = localStorage.getItem('tipHeading_1');
+    var _tipsHeading_2 = localStorage.getItem('tipHeading_2');
+    var _tipsHeading_3 = localStorage.getItem('tipHeading_3');
+    var _tipsContent_1 = localStorage.getItem('tipContent_1');
+    var _tipsContent_2 = localStorage.getItem('tipContent_2');
+    var _tipsContent_3 = localStorage.getItem('tipContent_3');
+    var _tipsImage_1 = localStorage.getItem('tipImage_1');
+    var _tipsImage_2 = localStorage.getItem('tipImage_2');
+    var _tipsImage_3 = localStorage.getItem('tipImage_3');
+    $('.tipHeading_1').text(_tipsHeading_1);
+    $('.tipHeading_2').text(_tipsHeading_2);
+    $('.tipHeading_3').text(_tipsHeading_3);
+    $('.tipContent_1').html(_tipsContent_1);
+    $('.tipContent_2').html(_tipsContent_2);
+    $('.tipContent_3').html(_tipsContent_3);
+    $('.quizebonusSlideImg_1').attr("src", _tipsImage_1);
+    $('.quizebonusSlideImg_2').attr("src", _tipsImage_2);
+    $('.quizebonusSlideImg_3').attr("src", _tipsImage_3);
+    $("#closeregiterBtnId").click(function(){
+      $(".registerNowcontnt").toggleClass("toggleCls");
+    });
+    var _pageDataUrl = sessionStorage.getItem('pageDataIndex');
+   if(_pageDataUrl == null || _pageDataUrl == 'null'){
+    $('#shopify-section-quizebonusSlide1').css('display','none');
+    $('.mainregisterNow1').css('display','none');
+  }
+  });
+</script>
+<style>
+  div#slick-slide00,.slick-track .slick-slide:first-child {
+    position: relative;
+  }
+  div#slick-slide00:after,.index-products .slick-track .slick-slide:first-child:after {
+    font-family: BebasNeue;
+    position: absolute;
+    content: "STAGE 1";
+    left: 8px;
+    top: 16px;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    -webkit-clip-path: polygon(100% 0, 0 0, 0 100%);
+    height:76px;
+    width: 147px;
+    background: #fff;
+    color:#6ACBDF;
+/*     border:1px solid #b2dce9; */
+    line-height:40px;
+    font-size:30px;
+    padding-left:9px;
+  }
+  @media(max-width:749px){
+    div#slick-slide00:after {
+      left: 11px;
+      border:1px solid #b2dce9;
+      top: 11px;
+    }
+  }
+</style>

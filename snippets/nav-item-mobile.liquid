@@ -1,0 +1,114 @@
+{%- liquid
+
+  assign expands = false
+  assign block_count = 0
+
+  if section
+    assign index = index | append: ""
+    for block in section.blocks
+      if block.settings.position == index
+        if block.type == 'collection'
+          assign block_count = block_count | plus: block.settings.limit
+        else
+          assign block_count = block_count | plus: 1
+        endif
+      endif
+    endfor
+  endif
+
+  if link.levels > 0 or block_count > 0
+    assign expands = true
+    assign key = link.url | append: link.title | append: link.levels | append: index | md5
+  endif
+
+  if secondary_menu
+    assign expands = false
+  endif
+
+-%}
+
+{%- capture link_markup -%}
+  {%- if link.url == "#" -%} 
+    <p class="sliderow__title sub-menu-nav{% if secondary_menu %} sliderow__title--secondary{% endif %}" >{{ link.title }}</p>
+  {%- else -%}
+    <a class="sliderow__title sub-menu-nav{% if secondary_menu %}   sliderow__title--secondary{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+  {%- endif -%}
+{%- endcapture -%}
+
+<div class="sliderule__wrapper {{ link.title | handleize  | split: '-br' | first }} {% if secondary_menu %} sliderule__wrapper--secondary{% endif %}">
+  {%- if expands -%}
+    <button class="sliderow sliderow_main_button active sliderow_{{index}}"
+      data-animates
+      data-sliderule-open="sliderule-{{ key }}">
+      <span class="sliderow__title sliderow__title_cstm{% if secondary_menu %} sliderow__title--secondary{% endif %}">
+        {{ link.title | strip_html | escape }}
+        <span class="sliderule__chevron--right">
+          <span class="visually-hidden">{{ 'general.accessibility.show_menu' | t }}</span>
+        </span>
+      </span>
+    </button>
+
+    <div class="mobile__menu__dropdown_11 sliderule__panel1"
+      id="sliderule-{{ key }}">
+
+      <div class="sliderow sliderow__back">
+        <button class="sliderow__back__button"
+          data-sliderule-close="sliderule-{{ key }}">
+          <span class="sliderule__chevron--left">
+            <span class="visually-hidden">{{ 'general.accessibility.exit_menu' | t }}</span>
+          </span>
+        </button>
+        {{link_markup}}
+      </div>
+      <div class="sliderow__links sliderow__links_parent-{{index}}" data-links>
+        {% for link in link.links %}
+          {% comment %}
+            Handle case where multiple child menus
+            have an item called 'sale' in position 1
+          {% endcomment %}
+          {% assign indexRecursive = index | append: 'x' | append: forloop.index %}
+          {% render 'nav-item-mobile', link: link, index: indexRecursive %}
+        {% endfor %}
+
+        {%- if section -%}
+          <div class="sliderule-grid blocks-{{ block_count }}">
+            {% for block in section.blocks %}
+              {% comment %} Render block content {% endcomment %}
+              {%- if block.settings.position == index -%}
+                {% render 'header-block', block: block %}
+              {%- endif -%}
+            {% endfor %}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- else -%}
+    {% comment %} Single menu item, no nesting {% endcomment %}
+    <div class="sliderow {% if link.links.size == 0 %} subMenu_header {% endif %} sub-content" data-animates>
+      {{ link_markup }}
+    </div>
+  {%- endif -%}
+</div>
+
+
+<!--add  -->
+<style>
+  
+div#sliderule-4affdd134abd4edae1a72d4dea4dd662 .sliderule__wrapper {
+    margin: 1rem;
+      height: 100px;
+    padding: 16px 5px;
+    border: 2px solid black;
+    margin-top: 30px;
+    display: inline-block;
+    width: 40%;
+    max-width: 171px;
+  
+}
+  #sliderule-4affdd134abd4edae1a72d4dea4dd662 .sub-menu-nav{
+      margin: 0;
+    width: 100%;
+    
+  }
+
+  </style>

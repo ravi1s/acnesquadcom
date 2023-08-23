@@ -1,0 +1,158 @@
+
+body#contact h2.h4.standard__heading.aos-init.aos-animate,
+body#contact .globo-form-id-87331 .globo-form-app .globo-description,
+body#contact .globo-form-id-87331 .globo-form-app .header .globo-description {
+    display: none;
+}
+
+.template-page h3.title.globo-heading {
+    font-size: 30px;
+    font-family: BebasNeue;
+    font-weight: 500;
+}
+
+main#MainContent label.classic-label.globo-label span.label-content {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: BebasNeue;
+}
+
+main#MainContent .globo-form-id-87331 .globo-form-app .footer button.submit {
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+main#MainContent .globo-form-app .globo-form-control .globo-form-input .globo-form-icon,
+main#MainContent .globo-form-app .globo-form-control .flat-input {
+    box-shadow: 0 0 2px #707070;
+}
+
+main#MainContent .globo-form-app.boxed-layout span.label-content {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+main#MainContent .globo-form-app .globo-form-control .text-smaller {
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+main#MainContent .has-error {
+    background: transparent;
+}
+
+main#MainContent .globo-form-app .globo-form-control .help-block.error {
+    color: #ac9efd;
+    text-align: left;
+}
+#MainContent .globo-form-app .globo-form-control input, 
+#MainContent .globo-form-app .globo-form-control textarea, 
+#MainContent .globo-form-app .globo-form-control select{
+  background-color: #fff;
+  color: #707070;
+}
+.globo-form-app .content {
+    max-width: 100%;
+}
+.text__standard.text-center .standard__rte_cstm form.g-container>p {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+  @media (min-width: 641px){
+.TextWrapper {
+    display: inline-table;
+    width: 60%;
+}
+  }
+ 
+  .msg-sec .msg-text label {
+    padding-left: 16px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 13px;
+}
+ .red-check, .second-check {
+   display: none;
+ }
+  .mainTrackDiv{
+    width:100%;
+    margin-top: 40px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .track_you_order {
+    text-align: center;
+    border: 1px solid #000;
+    position: relative;
+    padding: 20px 25px 30px 25px;
+    min-height: 320px;
+    width: 100%;
+    max-width: 49%;
+     float: left; 
+     margin-left: 3px; 
+}
+  .track_you_order .disc-contact {
+    border: 1px solid #000;
+    margin-bottom: 10px!important;
+    padding: 7px 0!important;
+    box-shadow: 0 0 3px;
+    cursor: pointer;
+}
+  .track_you_order .Heading-contact {
+    color: rgb(172 158 253);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+  .track_you_order a {
+    color: #454545;
+    text-decoration: none;
+    font-size: 14px;
+}
+  .disc-contact i{
+    color: rgb(172 158 253);
+  }
+  .track_you_order .track {
+    background-color: rgb(172 158 253);
+    
+}
+  .track_you_order .track {
+    position: absolute;
+    height: 55px;
+    width: 55px;
+    display: inline-block;
+    padding: 15px 0;
+    border-radius: 50%;
+    box-shadow: 0 0 14px -5px rgb(0 0 0 / 20%);
+    text-align: center!important;
+    left: 50%;
+    top: -27px;
+    padding-bottom: 11px!important;
+    padding: 17px;
+    transform: translateX(-50%);
+}
+  .track_you_order .track i {
+    color: #fff;
+    font-size: 20px;
+}
+.track_you_order .head{
+  border-bottom: 1px solid #707070;
+  min-height: 40px;
+  font-size: 16px;
+  padding-bottom: 20px;
+  margin: 30px 0;
+}
+ @media (max-width: 640px){
+.track_you_order  {
+   
+  float: none;
+   max-width: 100%;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  
+}
+  }

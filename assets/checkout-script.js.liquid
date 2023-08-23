@@ -1,0 +1,84 @@
+(function ($){
+  $(document).on("page:load page:change", function() {
+    $('.address-fields [data-address-field="last_name"]').removeClass('field--half');
+    $('[data-step-footer] .step__footer__previous-link').remove(); //removed return to cart link
+    $('.address-fields [data-address-field="last_name"]').removeClass('field--half');
+    $('#checkout_shipping_address_address1').attr('placeholder','Flat, House no., Building, Company, Apartment*');
+    $("label[for='checkout_shipping_address_address1']").text("Flat, House no., Building, Company, Apartment*");
+    $('#checkout_shipping_address_address2').attr('placeholder','Area, Street, Sector, Village*');
+    $("label[for='checkout_shipping_address_address2']").text("Area, Street, Sector, Village*");
+    if( $('.breadcrumb .breadcrumb__item').length == 4 ){
+      $('.breadcrumb').addClass('breadcrumb_count_4');
+    }
+    if( $('.breadcrumb .breadcrumb__item').length == 3 ){
+      $('.breadcrumb').addClass('breadcrumb_count_3');
+    }
+    if (Shopify.Checkout.step === "contact_information") {
+      $("#continue_button span").html("Proceed to pay");
+      $('.address-fields [data-address-field="last_name"]').removeClass('field--half');
+      $('[data-address-field="first_name"]').remove();
+      var _zipInput = $('[data-address-field="zip"]').remove();
+      $('[data-address-field="country"]').before(_zipInput);
+      $('.address-fields [data-address-field="city"]').removeClass('field--third').addClass('field--half');
+      $('.address-fields [data-address-field="province"]').removeClass('field--third').addClass('field--half');
+      $('.address-fields [data-address-field="zip"]').removeClass('field--third');
+      $('body').on('blur', '#checkout_shipping_address_zip', function(){
+        var pincode_list_1 = "{{settings.all_pincode_list }}";
+        var pincode_array = pincode_list_1.split(",");
+        $(".new_zip_error").remove();
+        var _t = $("#checkout_shipping_address_zip");
+        var _pincode = _t.val();
+        //  autofillCity(_pincode);
+        if (pincode_array.includes(_pincode)) {
+          _t.parent().parent().find('.new_zip_error').html('');
+        }
+        else {
+        // _t.parent().parent().prepend('<p class="new_zip_error" style="color:red;">Please enter your Delivery Pincode</p>');
+        }
+      });
+      // checkout field validation
+      // $("input").attr("autocomplete","none");
+    }
+    if (Shopify.Checkout.step === "shipping_method") {
+      $(".loaderChekout").show();
+      $(".loaderChekout-overlay").show();
+      $('.section--shipping-method input').first().trigger("click");
+      $('.step__footer__continue-btn').trigger('click');
+    }
+    if (Shopify.Checkout.step === "payment_method") {
+      $(".loaderChekout").hide();
+      $(".loaderChekout-overlay").hide();
+    }
+    $('.edit_checkout').on('keyup keypress', function(e) {
+    var keyCode = e.keyCode || e.which;
+     if (keyCode === 13) { 
+      e.preventDefault();
+       return false;
+      }
+    });
+    // checkout_errors address //
+    $( document ).ready(function() {
+      $('.address-fields [data-address-field="last_name"]').removeClass('field--half');
+      $('.address-fields [data-address-field="first_name"]').css('display','none');
+      $('#checkout_billing_address_zip').attr('maxlength','6');
+      $('#checkout_billing_address_zip, #checkout_shipping_address_phone').attr('onkeyup',"this.value=this.value.replace(/[^0-9]/g, '')");
+      // Add sach
+      $('#checkout_different_billing_address_false').change(function(){
+        $(this).parents('.edit_checkout.animate-floating-labels').find('.step__footer__continue-btn').removeAttr('disabled');
+      });
+    });
+  // End checkout_errors address //
+  });
+})(Checkout.$)
+
+$(document).ready(function(){
+  $('.address-fields [data-address-field="last_name"]').removeClass('field--half');
+  $('#checkout_shipping_address_address1').attr('placeholder','Flat, House no., Building, Company, Apartment*');
+  $("label[for='checkout_shipping_address_address1']").text("Flat, House no., Building, Company, Apartment*");
+  $('#checkout_shipping_address_address2').attr('placeholder','Area, Street, Sector, Village*');
+  $("label[for='checkout_shipping_address_address2']").text("Area, Street, Sector, Village*");
+  $(".order-summary").addClass("order-summary-toggle--hide");
+  $(".order-summary-toggle").attr("aria-expanded","true");
+  $("#order-summary").removeClass("order-summary--is-collapsed");
+  $("#order-summary").addClass("order-summary--is-expanded");
+});

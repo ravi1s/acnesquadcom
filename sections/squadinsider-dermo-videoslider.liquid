@@ -1,0 +1,322 @@
+<!-- ===============section/squadinsider-dermo-videoslider======================-->
+
+ {% capture videos %}
+  <div class="custom_dermo_space customer-review brick--margin mainimageGridcntnt imageGridSection">
+  <div class="review-title">
+    <h3 class="influencer-video standard__heading textbtmMargin grid__heading">
+<!--       <span style="justify-content:center;">
+        <a href="{{section.settings.url_1}}" style="text-decoration:none"> 
+           {% if section.settings.image_icon != blank %}
+           <img class="insta_icon lazyload" data-src="{{ section.settings.image_icon | img_url: '20x'}}" alt="instagram-icon"> 
+           {% endif %}
+        </a>
+       </span> -->
+        {{section.settings.review-title}}</h3>
+    <p class="custom_dermo_head">Dermatologist, Dr. Rashmi Shetty breaks down everything you need to know about acne</p>
+    <hr class="dermo-hr"/>
+  </div> 
+  <div class="customer" id="dermo_video_slider">
+    {% for block in section.blocks %}
+    <div class="dermo_video_conatiner customer-review-section">
+       <div class="dermo_text_div"><p class="dermo_numbers">{{ block.settings.dermo_number_count }}</p><p class="">{{ block.settings.dermo_text }}</div>
+		<video preload="none" width="100%" height="462px" playsinline class="dermo_video-id"  poster="{{ block.settings.image_poster | img_url: 'master'}}">
+          <source type="video/mp4" src="{{block.settings.url_1}}">
+        </video>
+    </div>
+    {% endfor %}
+  </div>
+  {% endcapture %}
+  <script>
+document.open();
+if (navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1) {
+document.write({{videos | json}});}
+else{
+document.write("<html><p>.</p></html>");}
+document.close();
+</script>
+</div>
+
+<style>
+  video::-webkit-media-controls-panel {
+    display: none !important;
+    opacity: 1 !important;}
+  .custom_dermo_head {
+    font-size: 18px;
+    color: #707070;
+    line-height: 18px;
+    font-family: inherit;
+    margin: 0 0 20px 0;
+    text-align: -webkit-left;
+    text-align: left;
+  }
+  .dermo-hr {
+    display: none;
+  }
+  .dermo_text_div {
+    display: flex;
+    margin-bottom: 5px;
+    
+  }
+  .dermo_text_div p {
+    font-family: inherit;
+    font-size: 18px;
+  }
+  .dermo_numbers {
+    font-size: 18px;
+    color: #a99ef6;
+    font-weight: bold;
+    padding: 5px 12px;
+    border: 2px solid #A99EF6;
+    margin: 0 10px 0 5px;
+  }
+  .insta_icon{
+  vertical-align: middle;
+  }
+  #dermo_video_slider:not(.slick-initialized) {
+    display: flex;
+    overflow: hidden;
+}
+  .insta_reel_icon{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .dermo_video_conatiner video{
+    object-fit: cover;
+    width:100%;
+    height:462px;
+    padding:5px;
+    border-radius:0;
+  }
+  .review-title h3 {
+    font-style: normal;
+    color: #a99ef6;
+
+  }
+  .customer {
+    padding-bottom: 20px;
+    padding-top: 0;
+    width:100%;
+    margin: 0 auto;
+}
+  
+  .customer-review-section {
+    background: #fff;
+    position:relative;
+  }
+  .review-content {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2E33;
+    text-align: justify;
+  }
+  .customer-details {
+    padding-top: 20px;
+    display: flex;
+    min-height: 80px;
+  }
+  .influencer-video {
+    font-family: inherit;
+    margin-bottom: 10px !important;
+}
+  .cus-img img {
+    border-radius: 50%;
+    background: #E7DBCD;
+  }
+  .cus-name {padding: 10px;}
+  .cus-name p {margin: 0;}
+  .name, .des {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+  }
+  .name {
+    font-size: 14px;
+    line-height: 17px;
+    color: #3E4827;
+  }
+  .des {
+    font-size: 12px;
+    line-height: 15px;
+    color: #2A2E33;
+  }
+  #dermo_video_slider li button {
+    background: #fff;
+    border: 1px solid #AC9EFD;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+}
+  #dermo_video_slider li.slick-active button {
+    background: #ac9efd;
+}
+ #dermo_video_slider:after {
+    position: absolute;
+    left: 50%;
+    bottom: -41px;
+    content: "";
+    border-bottom: 1px solid #D5D5D5;
+    height: 2px;
+    max-width: 800px;
+    transform: translate(-50%);
+    width: calc(100% - 60px);
+}
+  @media screen and (max-width: 1024px) {
+    .custom_dermo_space {
+      padding-top: 10px;
+    }
+  }
+  @media (min-width: 768px) {
+    .custom_dermo_head {
+      text-align: center!important;
+    } 
+  .custom_dermo_space:after {
+    bottom: -35px;
+  }
+ }
+  
+ @media screen and (max-width: 768px) {
+  .custom_dermo_head {
+    max-width: 88%;
+  }
+  .dermo-hr {
+    display: block;
+    width: 70%;
+    height: 2px;
+    background-color: #A99EF6;
+    border: none;
+  }
+/*   .dermo_video_conatiner {
+     margin-left:7%!important;
+   }
+   .customer {
+     padding-bottom: 0px;
+     margin-left: 7%;
+   } */
+
+   .dermo_video_conatiner video{
+     object-fit: cover;
+     width:100%;
+     height:462px;
+  }
+}
+
+</style>
+<script>
+  $(document).ready(function(){
+      $('#dermo_video_slider').slick({
+        dots: true,
+        infinite: false,
+        arrow:false,
+        slidesToShow: 4,
+        
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1.08,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+     });
+
+
+  // document.querySelectorAll(".dermo_video-id").forEach((item) => {
+  //       item.addEventListener("click", function () {
+  //         if (item.paused) {
+  //           document.querySelectorAll(".dermo_video-id").forEach((video) => {
+  //             video.pause();
+  //           });
+  //           item.play();
+  //         } else {
+  //           item.pause();
+  //         }
+  //       });
+  //     });
+ 
+</script>
+
+{% schema %}
+  {
+    "name": "Dermo video slider",
+    "settings": [
+		{
+			"type": "text",
+			"id": "review-title",
+			"label": "Intagram Title"
+		},
+  
+          {
+                  "type": "image_picker",
+                  "id": "image_icon",
+                  "label": "Insta Icon Image"
+          },
+			{
+                  "type": "url",
+                  "id": "url_1",
+                  "label": "Instagram URL"
+              }
+	],
+    
+	"blocks": [
+		{
+			"type": "gallery",
+			"name": "Video",
+			"settings": [
+              {
+			"type": "text",
+			"id": "dermo_number_count",
+			"label": "Video Number"
+		   },
+           {
+			"type": "text",
+			"id": "dermo_text",
+			"label": "Title"
+		   },
+              {
+                  "type": "url",
+                  "id": "url_1",
+                  "label": "Video URL"
+              },	
+              {
+                  "type": "image_picker",
+                  "id": "image_poster",
+                  "label": "Poster image"
+              }
+             
+             
+			]
+		}
+	],
+"presets": [
+{
+"category":"insta-video",
+"name":"Dermo video slider"
+}
+]
+  }
+{% endschema %}

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% if settings.enable_pincode %}
+  <div class="pincode-validation product-pins"> 
+    <div class="pin-btn-hide">
+      <span class="eta-msg">Check Estimated Delivery Time</span>
+      <div class="pincode-validator">  
+        <input type="text" class="{{class}} pin pincode pincode-1" placeholder="Enter Your Shipping Pincode" maxlength="6" pattern="[1-9][0-9]{5}" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')"/>
+        <button class="pincode-validate-btn" type="button"> 
+          <span><strong>CHECK</strong></span>
+        </button>
+      </div>
+    </div>
+    <i class="fa fa-spinner fa-spin waiting-content" style="display: none; color: #AA9CF7; font-size: 24px"></i>
+    <div class="pin_err_msg" style="display: none;">
+      <i class="fas fa-map-marker-alt" aria-hidden="true" style="color: #AA9CF7; font-size: 20px;"></i>
+      <span class="wrong-pin"></span>
+      <button class="change-btn">Change</button><br>
+      <span style="color: red; line-height: 1.2;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12px" height="12px"><title>cross</title><path d="M3 0L0 3l9 9-9 9 3 3 9-9 9 9 3-3-9-9 9-9-3-3-9 9z" fill="#fc0006"></path></svg>
+        Apologies, we do not currently service your location. We will be there soon!
+      </span>
+    </div>
+  </div>
+
+  {% assign days1 = settings.date_txt1 | times: 86400 %}
+  {% assign newDate1 = 'now' | date: '%s'| plus: days1 %}   
+
+  {% assign days2 = settings.date_txt2 | times: 86400 %}
+  {% assign newDate2 = 'now' | date: '%s'| plus: days2 %} 
+
+  {% assign days3 = settings.date_txt3 | times: 86400 %}
+  {% assign newDate3 = 'now' | date: '%s'| plus: days3 %} 
+  
+  {% assign days4 = settings.date_txt4 | times: 86400 %}
+  {% assign newDate4 = 'now' | date: '%s'| plus: days4 %} 
+
+  <p class="cstm-msg cstm-msg1" style="display: none;">
+    <i class="fas fa-map-marker-alt" aria-hidden="true" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span class="display-pincode"></span>
+    <button class="change-btn">Change</button><br>
+    <span class="city-country"></span><br>
+    <i class="fa fa-check" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span style="color: #AA9CF7; font-weight: normal;">{{ settings.pin_msg1 }} <span style="font-weight: bold;">{{ newDate1 | date: format: 'date' }}</span></span>
+  </p>
+  
+  <p class="cstm-msg cstm-msg2" style="display: none;">
+    <i class="fas fa-map-marker-alt" aria-hidden="true" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span class="display-pincode"></span>
+    <button class="change-btn">Change</button><br>
+    <span class="city-country"></span><br>
+    <i class="fa fa-check" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span style="color: #AA9CF7; font-weight: normal;">{{ settings.pin_msg2 }} <span style="font-weight: bold;">{{ newDate2 | date: format: 'date' }}</span></span>
+  </p>
+  
+  <p class="cstm-msg cstm-msg3" style="display: none;">
+    <i class="fas fa-map-marker-alt" aria-hidden="true" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span class="display-pincode"></span>
+    <button class="change-btn">Change</button><br>
+    <span class="city-country"></span><br>
+    <i class="fa fa-check" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span style="color: #AA9CF7; font-weight: normal;">{{ settings.pin_msg3 }} <span style="font-weight: bold;">{{ newDate3 | date: format: 'date' }}</span></span>
+  </p>
+  
+  <p class="cstm-msg cstm-msg4" style="display: none;">
+    <i class="fas fa-map-marker-alt" aria-hidden="true" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span class="display-pincode"></span>
+    <button class="change-btn">Change</button><br>
+    <span class="city-country"></span><br>
+    <i class="fa fa-check" style="color: #AA9CF7; font-size: 20px;"></i>
+    <span style="color: #AA9CF7; font-weight: normal;">{{ settings.pin_msg4 }} <span style="font-weight: bold;">{{ newDate4 | date: format: 'date' }}</span></span>
+  </p>
+{% endif %}

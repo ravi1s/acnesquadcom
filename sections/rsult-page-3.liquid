@@ -1,0 +1,100 @@
+<!-- section/rsult-page-3.liquid -->
+
+<div class="result-Part">
+  <div class="result-section-part">
+    <h1 class="sectinTTlText rsultsectionttl">{{section.settings.text_title1}}</h1>
+  </div>
+  <div class="result-Part-container rsultsection flexWrap dflex">
+    {% for block in section.blocks %}
+    <div class="rsultsectioncntnt">
+      <img class="rsultsecImg" src="{{block.settings.image1 |  img_url: 'master'}}" class="images-result">
+      <h4 class="rsultseccntnthead">{{block.settings.text1}}</h4>
+      <a href="{{block.settings.BtnUrl2}}" class="rsultseccBtnUrl">{{block.settings.text2}}</a>
+      <p class="contents">{{block.settings.text3}}</p>
+      <a href="{{block.settings.BtnUrl1}}" class="rsultseccBtnUrl">{{block.settings.text4}}</a>
+      <p class="contents">{{block.settings.text5}}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "rsult-page-3 name",
+    "settings": [
+                  {
+        "type": "text",
+        "id": "text_title1",
+        "label": "heading",
+        "default": "Quick links" 
+        }
+
+],
+
+ 
+"blocks": [
+       {
+      "type": "text",
+      "name": "result-block-1",
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+         
+        },
+
+        {
+        "type": "text",
+        "id": "text1",
+        "label": "heading",
+        "default": "Quick links" 
+        },
+
+
+        {
+        "type": "text",
+        "id": "text2",
+        "label": "btn-content",
+        "default": "Quick links" 
+        },
+ 		{
+        "type": "url",
+        "id": "BtnUrl1",
+        "label": "Button Url 1"
+        },
+        {
+          "type": "text",
+          "id": "text3",
+          "label": "paragraph"
+         
+        },
+		{
+          "type": "text",
+          "id": "text4",
+          "label": "btn-content"
+         
+        },
+		{
+        "type": "url",
+        "id": "BtnUrl2",
+        "label": "Button Url 2"
+        },
+           {
+          "type": "text",
+          "id": "text5",
+          "label": "paragraph"
+         
+        }
+
+]
+}
+],
+"presets": [
+{
+"name": "result-part-1"
+}
+]
+  }
+{% endschema %}

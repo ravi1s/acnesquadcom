@@ -1,0 +1,290 @@
+<!-- ===============section/squad-insider-video-slider======================-->
+
+ {% capture videos %}
+  <div class="custom_insider_top customer-review brick--margin mainimageGridcntnt imageGridSection">
+  <div class="review-title">
+    <h3 class="influencer-video standard__heading textbtmMargin grid__heading">
+<!--       <span style="justify-content:center;">
+        <a href="{{section.settings.url_1}}" style="text-decoration:none"> 
+           {% if section.settings.image_icon != blank %}
+           <img class="insta_icon lazyload" data-src="{{ section.settings.image_icon | img_url: '20x'}}" alt="instagram-icon"> 
+           {% endif %}
+        </a>
+       </span> -->
+        {{section.settings.review-title}}</h3>
+  </div> 
+  <div class="insider_video_size customer_div" id="insider_video_slider">
+    {% for block in section.blocks %}
+    <div class="insider_video_div customer-review-section ">
+		<video  preload="none" width="100%" height="100%" playsinline class="s-insider_video-id"  poster="{{ block.settings.image_poster | img_url: '300x'}}">
+          <source type="video/mp4" src="{{block.settings.url_1}}">
+        </video>
+    </div>
+    {% endfor %}
+  </div>
+  {% endcapture %}
+  <script>
+document.open();
+if (navigator.userAgent.indexOf("(Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari") == -1) {
+document.write({{videos | json}});}
+else{
+document.write("<html><p>.</p></html>");}
+document.close();
+</script>
+</div>
+
+<style>
+ .video::-webkit-media-controls-panel {
+   display: none !important;
+   opacity: 1 !important;}
+ .customer-review {
+   padding-bottom:0;
+ }
+.custom_insider_top {
+  padding-top: 15px;
+}
+ .insta_icon{
+  vertical-align: middle;
+  }
+  #insider_video_slider:not(.slick-initialized) {
+    display: flex;
+    overflow: hidden;
+}
+  .insta_reel_icon{
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .insider_video_div video{
+    object-fit: cover;
+    width:100%;
+    padding:5px;
+    border-radius:0;
+  }
+  .review-title h3 {
+    font-style: normal;
+    color: #a99ef6;
+
+  }
+  .customer_div {
+    padding-bottom: 20px;
+    padding-top: 0;
+    width:100%;
+    margin: 0 auto;
+}
+  
+  .customer-review-section {
+    background: #fff;
+    position:relative;
+  }
+  .review-content {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #2A2E33;
+    text-align: justify;
+  }
+  .customer-details {
+    padding-top: 20px;
+    display: flex;
+    min-height: 80px;
+  }
+  .influencer-video {
+    font-family: BebasNeue;
+    margin-bottom: 10px !important;
+}
+  .cus-img img {
+    border-radius: 50%;
+    background: #E7DBCD;
+  }
+  .cus-name {padding: 10px;}
+  .cus-name p {margin: 0;}
+  .name, .des {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+  }
+  .name {
+    font-size: 14px;
+    line-height: 17px;
+    color: #3E4827;
+  }
+  .des {
+    font-size: 12px;
+    line-height: 15px;
+    color: #2A2E33;
+  }
+/* slick arrow btn css */
+/*    button.slick-prev.slick-arrow{
+    left:7px;
+    z-index:99;
+  }
+  button.slick-next.slick-arrow{
+    right:7px;
+    z-index:99;
+  }
+  button.slick-prev.slick-arrow::before,
+  button.slick-next.slick-arrow::before{
+    font-size: 15px;
+    color: #fff;
+    background: #a99ef6;
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    line-height: 25px;
+    font-family: fontawesome;
+    border-radius: 50%;
+    } */
+  #insider_video_slider li button {
+    background: #fff;
+    border: 1px solid #AC9EFD;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+}
+  #insider_video_slider li.slick-active button {
+    background: #ac9efd;
+}
+  #insider_video_slider:after {
+    position: absolute;
+    left: 50%;
+    bottom: -41px;
+    content: "";
+    border-bottom: 1px solid #D5D5D5;
+    height: 2px;
+    max-width: 800px;
+    transform: translate(-50%);
+    width: calc(100% - 60px);
+}
+  @media screen and (max-width: 1024px) {
+    .custom_insider_top {
+      padding-top: 40px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+   .custom_insider_top {
+      padding-top: 40px;
+  }
+   .customer_div {
+     padding-bottom: 0px;
+  }
+   .insider_video_div video{
+     object-fit: cover;
+     width:100%;
+     height:462px;
+  }
+}
+</style>
+
+<script>
+  $(document).ready(function(){
+      $('#insider_video_slider').slick({
+        dots: true,
+        infinite: false,
+        arrow:false,
+        slidesToShow: 5,
+        
+      slidesToScroll: 1,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1.05,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+  });
+// $('.s-insider_video-id').click(function(){
+//     // $('.s-insider_video-id').trigger('pause');
+//     this.paused ? this.play() : this.pause();
+//   });
+
+
+    // document.querySelectorAll(".s-insider_video-id").forEach((item) => {
+    //     item.addEventListener("click", function () {
+    //       if (item.paused) {
+    //         document.querySelectorAll(".s-insider_video-id").forEach((video) => {
+    //           video.pause();
+    //         });
+    //         item.play();
+    //       } else {
+    //         item.pause();
+    //       }
+    //     });
+    //   });
+</script>
+
+{% schema %}
+  {
+    "name": "S-Insider video slider",
+    "settings": [
+		{
+			"type": "text",
+			"id": "review-title",
+			"label": "Intagram Title"
+		},
+          {
+                  "type": "image_picker",
+                  "id": "image_icon",
+                  "label": "Insta Icon Image"
+          },
+			{
+                  "type": "url",
+                  "id": "url_1",
+                  "label": "Instagram URL"
+              }
+	],
+    
+	"blocks": [
+		{
+			"type": "gallery",
+			"name": "Video",
+			"settings": [
+             
+              {
+                  "type": "url",
+                  "id": "url_1",
+                  "label": "Video URL"
+              },	
+              {
+                  "type": "image_picker",
+                  "id": "image_poster",
+                  "label": "Poster image"
+              }
+             
+             
+			]
+		}
+	],
+"presets": [
+{
+"category":"insta-video",
+"name":"S-Insider video slider"
+}
+]
+  }
+{% endschema %}
+
+

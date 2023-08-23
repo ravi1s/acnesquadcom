@@ -1,0 +1,14 @@
+.user_logout {
+    display: flex;
+    justify-content: flex-end;
+}
+.user_logout a {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0.05em;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: #a79ff3;
+}

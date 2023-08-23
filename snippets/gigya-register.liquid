@@ -1,0 +1,178 @@
+{% comment %}
+  //gigya_code function is calling this file only
+  //this file is include in checkout and /templates/customers/register.liquid
+
+  // below variables need to changed for all brand
+  {% endcomment %}
+  <script>
+  var x_api_key = "085ec352-ddc9-4142-a2d9-11c346ee4444";
+  var url_post = "https://forms-sg.unileversolutions.com/v3";
+  var brandCode = "BHA955";
+  var campaignId = "PN004420";
+  var origin = "https://www.acnesquad.com/";
+  
+  var header_value = {"isoLanguage":"EN","isoCountry":"IN","brandCode":brandCode,"campaignId":campaignId,"campaignDescription":"Always On","origin":origin,"formType":"signUp","entity":"PRM2.6"};
+  $('body').on('click','form#create_customer .btn', function(e){
+        console.log("dddd");
+        e.preventDefault();
+        gigya_code(header_value);
+        //gigya_code("mohit.sineone@gmail.com");
+      
+  });
+  function createCookie(id) {
+    console.log('Success:', id);
+    const d = new Date();
+    d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+    let expires = 'expires=' + d.toUTCString();
+    document.cookie = 'UnileverId=' + id['UnileverId'] + ';' + expires + ';path=/';
+  }
+
+  // this function is used for registration
+  //function gigya_code(header_value,site_url,getData){// this is not using as no otp login in acne
+  function gigya_code(header_value){  
+      var input_email = $('#email').val();
+      //var input_phone = $('#register_phone').val();
+      var input_fn = $('#last_name').val();
+      //var input_ln = $('#register_lastName').val();
+      //var input_checked = $('#agree').is(':checked');
+      
+      if((input_email == "") ||
+       (input_fn == "")){
+          return false;
+       }
+       // if((input_email == "") ||
+       // (input_phone == "") ||
+       // (input_fn == "") ||
+       // (input_ln == "")){
+       //    return false;
+       // }
+       // if((!input_checked) || (!input_checked_2)){
+       //   console.log("checked box both");
+       //   return false;
+       // }
+      // if(!input_checked){
+      //    console.log("checked box both");
+      //    return false;
+      //  }    
+    
+    //var data_value = JSON.stringify({"profile":{"header":header_value,"consumerIdentity":{"firstName": input_fn,"lastName": input_ln},"contactDetail":{"email":input_email},"optInStatus":{"legalAgeConsent":true,"unileverEmailConsent":true,"unileverSMSConsent":true}}});
+    var data_value = JSON.stringify({"profile":{"header":header_value,"consumerIdentity":{"firstName": input_fn},"contactDetail":{"email":input_email},"optInStatus":{"legalAgeConsent":true,"unileverEmailConsent":true,"unileverSMSConsent":true}}});
+    console.log(data_value);
+    var settings = {
+        "url": url_post,
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+        "x-api-key": x_api_key,
+          "Content-Type": "application/json"
+    },
+    "data": data_value,
+    };
+    
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      createCookie(response)
+      $("#create_customer").submit();
+      //window.location.href = site_url+ getData;// this is not using as no otp login in acne
+      
+    });
+  }
+
+  var pay_steps = $('.step').attr('data-step');
+  if(pay_steps == 'contact_information'){
+    document.getElementById("continue_button").onclick = function(){
+      console.log("clicked continue_button");
+      //gigya_checkout(header_value);
+      session_storage_function();
+    }
+  }
+  if(pay_steps == 'payment_method'){
+      
+      gigya_checkout(header_value);
+  }
+  // these tow function are used for checkout
+  function session_storage_function(){
+      //var input_email = $('#checkout_email_or_phone').val(); //email field 
+      var input_email = $('#checkout_email').val(); //email field 
+      //var input_fn = $('#checkout_shipping_address_first_name').val(); //first name field not allow in LBP
+     
+      var input_ln = $('#checkout_shipping_address_last_name').val(); //last name field
+      var input_fn = input_ln;
+      var input_address = $('#checkout_shipping_address_address1').val(); //address field
+      var input_city = $('#checkout_shipping_address_city').val(); //city field
+      var input_state = $('#checkout_shipping_address_province').val(); //state field
+      var input_zip = $('#checkout_shipping_address_zip').val(); //zip code field
+      var input_phone = $('#checkout_shipping_address_phone').val(); //addess phone number field
+       console.log(input_phone);
+      input_phone = input_phone.replace(/ +/g, "");
+      //input_phone = input_phone.trim(); 
+      if((input_email == "") ||
+       (input_fn == "") ||  
+       (input_ln == "") ||
+       (input_address == "") ||
+       (input_city == "") ||
+       (input_state == "") ||  
+       (input_zip == "") ||
+       (input_phone == "")){
+          return false;
+       }
+       sessionStorage.setItem("input_email", input_email);
+       sessionStorage.setItem("input_fn", input_fn);
+       sessionStorage.setItem("input_ln", input_ln);
+       sessionStorage.setItem("input_address", input_address);
+       sessionStorage.setItem("input_city", input_city);
+       sessionStorage.setItem("input_state", input_state);
+       sessionStorage.setItem("input_zip", input_zip);
+       sessionStorage.setItem("input_phone", input_phone);
+  }
+  function gigya_checkout(header_value){
+      console.log("*******gigya_checkout****");
+      var input_email = sessionStorage.getItem("input_email");
+      //var input_fn =  sessionStorage.getItem("input_fn");
+      var input_ln =  sessionStorage.getItem("input_ln");
+      var input_fn = input_ln;
+      var input_address = sessionStorage.getItem("input_address");
+      var input_city =  sessionStorage.getItem("input_city");
+      var input_state = sessionStorage.getItem("input_state");
+      var input_zip =  sessionStorage.getItem("input_zip");
+      var input_phone = sessionStorage.getItem("input_phone");
+      input_phone = input_phone.replace(/ +/g, "");
+    //input_phone = input_phone.trim();
+    console.log(input_phone);
+      if((input_email == "") ||
+       (input_fn == "") ||  
+       (input_ln == "") ||
+       (input_address == "") ||
+       (input_city == "") ||
+       (input_state == "") ||  
+       (input_zip == "") ||
+       (input_phone == "")){
+          return false;
+       }
+    //var consumerIdentity ={"firstName": input_fn,"lastName":input_ln};
+    var consumerIdentity ={"firstName": input_fn};
+    var address = {"addressLine1":input_address,"cityName":input_city,"postalCode":input_zip,"stateOrProvince":input_state,"addressCountry":"GB"};
+    var contactDetail = {"email":input_email,"mobileNumber":"+91"+input_phone,"address":address};
+    var optInStatus ={"legalAgeConsent":true,"unileverEmailConsent":true,"unileverSMSConsent":true};   
+    var data_value = JSON.stringify({"profile":{"header":header_value,"consumerIdentity":consumerIdentity,"contactDetail":contactDetail,"optInStatus":optInStatus}});
+    console.log(data_value);
+    var settings = {
+        "url": url_post,
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+        "x-api-key": x_api_key,
+          "Content-Type": "application/json"
+    },
+    "data": data_value,
+    };
+    console.log(settings);
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      createCookie(response)
+      //$("#RegisterForm").submit();
+    });
+  }
+  
+  
+</script>

@@ -1,0 +1,182 @@
+<!-- ===============QuizSec======================-->
+<div class="container-fluid">
+  <form id="msform">
+    <a href="{{ section.settings.backBtnUrl}}">
+      <div class="backArrowBtn">
+        <i class="fa fa-arrow-left"></i>
+      </div>
+    </a>
+    <div class="dflex flexWrap mainQuizHead">
+      <h1 class="QuestionNumber">{{ section.settings.question }}</h1>
+      <div class="mainQuesDesTTL">
+        <h3 class="mainQuesTTL">{{ section.settings.questionTtl }}</h3>      
+        <p class="mainQuesTTL">{{ section.settings.questionDesl }}</p>
+      </div>
+    </div>
+    <div class="mainQuizSecContent flexWrap dflex">
+      {% for block in section.blocks %}
+      <div class="QuizSecContent">
+        <img class="QuizImg" src="{{ block.settings.image1 | img_url : 'master'}}">
+        <div class="mainQuizInputLabel">
+          <input type="radio" name="QuizRadio">
+          <label class="QuizinputLabel">{{ block.settings.text1}}</label>
+        </div>
+        <h4 class="QuizTtl">{{ block.settings.text2}}</h4>
+        <p class="QuizDes">{{ block.settings.text3}}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mainpreNxtBtn dflex">
+      <input type="button" name="back" class="next nextBtn action-button QuizBtn" value="Back" /> 
+      <input type="button" name="next" class="previous previousBtn action-button-previous QuizBtn" value="Next" />
+    </div>
+  </form>
+</div>
+
+{% schema %}
+  {
+    "name": "QuizSec",
+    "settings": [
+	{
+		"type":"url",
+		"id":"backBtnUrl",
+		"label":"Back Button Url"
+	},
+	{
+		"type":"text",
+		"id":"question",
+		"label":"Question Number"
+	},
+	{
+		"type":"text",
+		"id":"questionTtl",
+		"label":"Question"
+	},
+	{
+		"type":"text",
+		"id":"questionDesl",
+		"label":"Question Description"
+	}
+],
+ 
+"blocks": [
+    {
+      "type": "Quiz",
+      "name": "Quiz Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text1",
+          "label": "input Title "
+         
+        },
+        {
+          "type": "text",
+          "id": "text2",
+          "label": "Sub Heading "
+         
+        },
+        {
+          "type": "text",
+          "id": "text3",
+          "label": "Description"
+        }
+    ]
+   }
+  ],
+  "presets": [
+     {
+    	"name": "QuizSec"
+     }
+  ]
+}
+{% endschema %}
+
+<!-- <style>
+  #msform fieldset:not(:first-of-type) {
+    display: none
+  }
+</style> -->
+<!-- <script>
+  $(document).ready(function(){
+
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var opacity;
+    var current = 1;
+    var steps = $("fieldset").length;
+
+    setProgressBar(current);
+
+    $(".next").click(function(){
+
+      current_fs = $(this).parent();
+      next_fs = $(this).parent().next();
+
+      //Add Class Active
+      $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+      //show the next fieldset
+      next_fs.show();
+      //hide the current fieldset with style
+      current_fs.animate({opacity: 0}, {
+        step: function(now) {
+          // for making fielset appear animation
+          opacity = 1 - now;
+
+          current_fs.css({
+            'display': 'none',
+            'position': 'relative'
+          });
+          next_fs.css({'opacity': opacity});
+        },
+        duration: 500
+      });
+      setProgressBar(++current);
+    });
+
+    $(".previous").click(function(){
+
+      current_fs = $(this).parent();
+      previous_fs = $(this).parent().prev();
+
+      //Remove class active
+      $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+      //show the previous fieldset
+      previous_fs.show();
+
+      //hide the current fieldset with style
+      current_fs.animate({opacity: 0}, {
+        step: function(now) {
+          // for making fielset appear animation
+          opacity = 1 - now;
+
+          current_fs.css({
+            'display': 'none',
+            'position': 'relative'
+          });
+          previous_fs.css({'opacity': opacity});
+        },
+        duration: 500
+      });
+      setProgressBar(--current);
+    });
+
+    function setProgressBar(curStep){
+      var percent = parseFloat(100 / steps) * curStep;
+      percent = percent.toFixed();
+      $(".progress-bar")
+      .css("width",percent+"%")
+    }
+
+    $(".submit").click(function(){
+      return false;
+    })
+
+  });
+</script> -->

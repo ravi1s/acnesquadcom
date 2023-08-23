@@ -1,0 +1,230 @@
+<!--<p>templates/page.track-order.liquid</p>-->
+{{ 'track-order.css' | asset_url | stylesheet_tag }}
+<script>
+  function updateIframe() {
+  var awbNumber = document.getElementById('awbInput').value;
+  var url = 'https://myindiabazar.com/ensenterprises/shiprocketpbbu/shiprocket_acnesquad.php?awbid='+awbNumber;
+  var orderUrl = 'https://myindiabazar.com/ensenterprises/shiprocketpbbu/order_shiprocket.php?store=acnesquad&ordername='+awbNumber;
+ $('.before_loader-gif').css('display','block');
+   $('.track-order-update').css('display','none');
+   $('.no-track-order-discription').text(''); 
+   $('.unfullfilled-text').html(''); 
+   document.getElementById("trackingIframe").style.display = "none";
+  document.getElementById('trackingIframe').src = "";
+  if(awbNumber == ''){
+            $('.before_loader-gif').css('display','none');
+          $('.no-track-order-discription').css('display','block');
+            $('.no-track-order-discription').text('Please Enter the correct Order Id or Awb Number'); 
+  }
+  else if (awbNumber.length > 8) {
+  $.ajax({
+        type : 'GET',
+        url : url,
+        dataType : 'json',
+        success : function(result){
+        if(result.status_code == '404'){
+        $('.before_loader-gif').css('display','none');
+          $('.no-track-order-discription').css('display','block');
+            $('.no-track-order-discription').text('Please Enter the correct Order Id or Awb Number');            
+          } else {
+           var tracking_data = result.tracking_data;
+          if(tracking_data.track_status == 1 ){
+          $('.no-track-order-discription').css('display','none');
+            $('.before_loader-gif').css('display','none');
+            var current_status = tracking_data.shipment_track[0].awb_code;
+            console.log(result,'result12311', awbNumber, current_status);
+            if(awbNumber === current_status){
+              var trackingUrl = 'https://shiprocket.co/tracking/' + awbNumber;
+              document.getElementById("trackingIframe").style.display = "block";
+              document.getElementById('trackingIframe').src = trackingUrl;
+          } 
+          } else {
+          $('.before_loader-gif').css('display','none');
+          $('.no-track-order-discription').css('display','block');
+            $('.no-track-order-discription').text('Please Enter the correct Order Id or Awb Number');   
+          }
+          }
+          }
+        });
+        } else {
+         $.ajax({
+        type : 'GET',
+        url : orderUrl,
+        dataType : 'json',
+        success : function(result){
+        var tracking_data = result.orders;
+        console.log(tracking_data);
+          if (awbNumber.length > 4) {
+        if(tracking_data.length !== 1){
+        $('.before_loader-gif').css('display','none');
+          $('.no-track-order-discription').css('display','block');
+            $('.no-track-order-discription').text('Please Enter the correct Order Id or Awb Number');            
+          } else if(!tracking_data[0].fulfillment_status) {
+          $('.unfullfilled-text').html('<div class="tracking-text">Thank you for placing your order with Acnesquad. Your order is yet to be dispatched from the warehouse. <br><br>The Acnesquad Team is diligently working to prepare and ship your order at the earliest. Once the order dispatches, you will receive the tracking details. For any questions, our customer support team is always happy to help.</div>');
+          $('.before_loader-gif').css('display','none');
+          $('.track-order-update').css('display','block');
+         
+          }
+          else if(tracking_data && tracking_data[0].id ){
+          $('.no-track-order-discription').css('display','none');
+            $('.before_loader-gif').css('display','none');
+            var current_status1 = tracking_data[0].name;
+            console.log(tracking_data[0].fulfillments.length);
+            if (tracking_data[0].fulfillments !== 1) {
+            var current_status2 = tracking_data[0].fulfillments[0].tracking_number;
+             if (awbNumber == current_status1) {
+            var trackingUrl = 'https://shiprocket.co/tracking/' + current_status2;
+              document.getElementById("trackingIframe").style.display = "block";
+              document.getElementById('trackingIframe').src = trackingUrl;
+          } else {
+               $('.before_loader-gif').css('display','none');
+          $('.no-track-order-discription').css('display','block');
+            $('.no-track-order-discription').text('Please Enter the correct Order Id or Awb Number');  
+          }
+          } else {
+          $('.before_loader-gif').css('display','none');
+          $('.no-track-order-discription').css('display','block');
+            $('.no-track-order-discription').text('Please Enter the correct Order Id or Awb Number');
+            
+          }
+          }
+          }else {
+          $('.before_loader-gif').css('display','none');
+          $('.no-track-order-discription').css('display','block');
+            $('.no-track-order-discription').text('Please Enter the correct Order Id or Awb Number');
+        }
+        } 
+          
+        });
+        }
+}
+
+
+</script>
+<div class="Container">
+  <header class="PageHeader">
+    <div class="SectionHeader SectionHeader--center">
+      <p class="SectionHeader__Heading Heading u-h1">Track Your Order</p>
+    </div>
+  </header>
+
+   <div class="PageContent PageContent--track ">
+    <div class="Rte">
+      <div class="PageContent--narrow track-head-form">
+        <p class="track-topic">Use Order Id or AWB Number :</p>
+        <div class="track-form">
+          <div class="Form__Item_track">
+            <input type="text" class="Form__Input" id="awbInput"  placeholder="Enter Tracking Id">
+          </div>
+          <div class="Form__Item_track-btn">
+            <button type="button" onclick="updateIframe()" class=" Button Button--primary Button--full click-btn track_order_btn">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="before_loader-gif">
+        <img width="70" src="https://cdn.shopify.com/s/files/1/0562/2068/0362/files/loder.gif?v=1648015877" alt="loader" />
+      </div>
+    <div class="unfullfilled-text track-head-form"></div>
+    <div class="no-track-order-discription"></div>
+  </div>
+</div>
+<iframe id="trackingIframe"></iframe>
+{% schema %}
+{
+"name": "Track Order Page",
+"settings": [
+{
+"type" : "header",
+"content" : "Track Order Page"
+},
+{
+"type" : "html",
+"id" : "icon_1",
+"label" : "Icons "
+},
+{
+"type" : "text",
+"id" : "heading",
+"label" : "Heading "
+},
+{
+"type" : "html",
+"id" : "icon_2",
+"label" : "Icons "
+},
+{
+"type" : "text",
+"id" : "heading_2",
+"label" : "Heading "
+},
+{
+"type" : "html",
+"id" : "icon_3",
+"label" : "Icons "
+},
+{
+"type" : "text",
+"id" : "heading_3",
+"label" : "Heading "
+},
+{
+"type" : "html",
+"id" : "icon_4",
+"label" : "Icons "
+},
+{
+"type" : "text",
+"id" : "heading_4",
+"label" : "Heading "
+},
+{
+"type" : "html",
+"id" : "icon_5",
+"label" : "Icons "
+},
+{
+"type" : "text",
+"id" : "heading_5",
+"label" : "Heading "
+},
+{
+"type" : "html",
+"id" : "icon_6",
+"label" : "Icons "
+},
+{
+"type" : "text",
+"id" : "heading_6",
+"label" : "Heading "
+}
+]
+}
+{% endschema %}
+ <style>
+  .track-order-update{
+display:none;
+}
+  .tracking-text{
+    margin: 0 auto;
+    max-width: 620px;
+    font-size: 16px;
+  }
+#trackingIframe{
+width:100%;
+min-height:1000px;
+height:100%;
+margin:0;
+border: 0px;
+display:none;
+}
+@media(max-width: 767px){
+#trackingIframe{
+min-height:500px;
+}
+
+}
+</style> 
+
+

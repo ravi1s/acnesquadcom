@@ -1,0 +1,192 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page-contact",
+      "settings": {
+        "subheading": "",
+        "show_title": true,
+        "show_content": true,
+        "text_size": 2,
+        "align_text": "text-center",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#f7f7f7"
+      }
+    },
+    "contact": {
+      "type": "contact-form",
+      "disabled": true,
+      "blocks": {
+        "4cf0946d-5abb-4613-968c-40a81728104e": {
+          "type": "spacer",
+          "settings": {
+            "line": false
+          }
+        },
+        "84a654a2-3b4b-4b01-a0e4-d0649f07485b": {
+          "type": "formHeading",
+          "settings": {
+            "title": "If you have any questions or comments please contact us via the form below. We would love to hear from you !"
+          }
+        },
+        "Name": {
+          "type": "text",
+          "settings": {
+            "title": "Full Name"
+          }
+        },
+        "Email": {
+          "type": "email",
+          "settings": {
+            "title": "Email"
+          }
+        },
+        "bcf1a005-392b-410a-89e1-ff682d64db8f": {
+          "type": "telephone",
+          "settings": {
+            "title": "Phone Number"
+          }
+        },
+        "Message": {
+          "type": "body",
+          "settings": {
+            "title": "Message"
+          }
+        },
+        "Optional-text": {
+          "type": "formHeading",
+          "settings": {
+            "title": "Optional"
+          }
+        },
+        "3a0e84ff-eb78-4592-8334-4db1e79c9698": {
+          "type": "formHeading",
+          "settings": {
+            "title": "Contact us and be the first to know about exciting offers, product updates and more from Pond's and other Unilever brands. For Further information, please refer to our<a href=\"https:\/\/pondsindia.myshopify.com\/pages\/shipping-return-policy\"> Privacy Policy<\/a>."
+          }
+        },
+        "d797778b-b0fa-4cbc-92b1-e023a2c5f1ac": {
+          "type": "checkbox",
+          "settings": {
+            "title": "*Yes - I confirm that I am over 18 years old or older."
+          }
+        },
+        "96eba4a9-9d29-4c8c-b2d6-b3fab03f8849": {
+          "type": "checkbox",
+          "settings": {
+            "title": "*Yes - I want to receive information from Pond's on new products and services."
+          }
+        },
+        "bf73572e-0869-45f6-a248-3263222081b1": {
+          "type": "checkbox",
+          "settings": {
+            "title": "Yes - I consent to receiving marketing communications from other Unilever brands and services."
+          }
+        }
+      },
+      "block_order": [
+        "4cf0946d-5abb-4613-968c-40a81728104e",
+        "84a654a2-3b4b-4b01-a0e4-d0649f07485b",
+        "Name",
+        "Email",
+        "bcf1a005-392b-410a-89e1-ff682d64db8f",
+        "Message",
+        "Optional-text",
+        "3a0e84ff-eb78-4592-8334-4db1e79c9698",
+        "d797778b-b0fa-4cbc-92b1-e023a2c5f1ac",
+        "96eba4a9-9d29-4c8c-b2d6-b3fab03f8849",
+        "bf73572e-0869-45f6-a248-3263222081b1"
+      ],
+      "settings": {
+        "title": "",
+        "terms": false,
+        "height": "margin--small",
+        "width": "wrapper--narrow",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff",
+        "heading": "Toll Free Number",
+        "heading-2": "Track Order",
+        "phone": "1800-8330-506",
+        "phone_text": "10 am to 7 pm, Monday - Saturday",
+        "email_text": "Email Us",
+        "email": "orders@ponds.in",
+        "trackorder": "Click here to track your order",
+        "enable_book_1": true
+      }
+    },
+    "faq": {
+      "type": "page-faq",
+      "disabled": true,
+      "blocks": {
+        "heading-0": {
+          "type": "heading",
+          "settings": {
+            "title": "FAQ"
+          }
+        },
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Frequently asked question",
+            "content": "<p>Share details about your shipping policies, item returns, or customer service.<\/p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Frequently asked question",
+            "content": "<p>Share details about your shipping policies, item returns, or customer service.<\/p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Frequently asked question",
+            "content": "<p>Share details about your shipping policies, item returns, or customer service.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading-0",
+        "question-1",
+        "question-2",
+        "question-3"
+      ],
+      "settings": {
+        "check_tabs": "",
+        "width": "wrapper--narrow",
+        "height": "margin--small",
+        "text_color": "text-dark",
+        "bg_color": "#fafafa"
+      }
+    },
+    "1659101746cf8a671d": {
+      "type": "apps",
+      "blocks": {
+        "e4685faa-1c44-4b44-8d8b-a4d6b8d27e01": {
+          "type": "shopify:\/\/apps\/powerful-contact-form-builder\/blocks\/app-block\/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "disabled": true,
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"ODczMzE=\"><\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "e4685faa-1c44-4b44-8d8b-a4d6b8d27e01"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact",
+    "faq",
+    "1659101746cf8a671d"
+  ]
+}

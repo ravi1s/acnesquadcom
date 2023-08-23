@@ -1,0 +1,188 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "subheading": "",
+        "show_title": true,
+        "show_content": true,
+        "text_size": 2,
+        "align_text": "text-left",
+        "height": "margin--medium",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "c2e7f784-23cf-4879-a550-6fff3d2da4a5": {
+      "type": "section-slideshow",
+      "blocks": {
+        "template--16559944663277__c2e7f784-23cf-4879-a550-6fff3d2da4a5-16678203059afac1d1-0": {
+          "type": "image",
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/b4.jpg",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "",
+            "description": "",
+            "flex_align": "align--middle-center",
+            "text_color": "text-light",
+            "transparent": true,
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        }
+      },
+      "block_order": [
+        "template--16559944663277__c2e7f784-23cf-4879-a550-6fff3d2da4a5-16678203059afac1d1-0"
+      ],
+      "settings": {
+        "height": "screen-height-three-quarters",
+        "transition": "fade",
+        "arrows_style": true,
+        "dots_style": "hidden",
+        "autoplay": false,
+        "autoplay_speed": 4
+      }
+    },
+    "d03362f5-387c-4a0f-9dc7-7f907d6c72af": {
+      "type": "section-rich-text",
+      "settings": {
+        "rich_text_class": "",
+        "subheading": "",
+        "title": "THE BREAKOUT BREAKDOWN",
+        "text": "<p>Dermatologist, Dr. Rashmi Shetty breaks down everything you need to know about acne<\/p>",
+        "text_size": 5,
+        "text_columns": 1,
+        "align_text": "text-left",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--large",
+        "height": "margin--medium",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "d5bd56a6-5d23-417a-b94c-be2214c329ee": {
+      "type": "squad-insider-slick",
+      "disabled": true,
+      "blocks": {
+        "3d2d9676-41e1-42fd-9e7d-00b0348f40ed": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/its-time-rescus.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        },
+        "9e221e5a-0e8d-4f8a-ba31-db088bc93433": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/be-honest.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        },
+        "66b0251d-c9ff-414a-babf-29e7962be699": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/hits-the-spot.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        },
+        "a5e32971-c108-4746-a2ec-41e01741bb01": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Its_really_good.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        }
+      },
+      "block_order": [
+        "3d2d9676-41e1-42fd-9e7d-00b0348f40ed",
+        "9e221e5a-0e8d-4f8a-ba31-db088bc93433",
+        "66b0251d-c9ff-414a-babf-29e7962be699",
+        "a5e32971-c108-4746-a2ec-41e01741bb01"
+      ],
+      "settings": {
+      }
+    },
+    "b90751d8-89ce-40e3-bc08-f599b8fa557f": {
+      "type": "Instagram-video",
+      "blocks": {
+        "d398a210-88ef-43d9-8f37-af67cb956dd1": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "",
+            "url_2": "",
+            "image_reels": "shopify:\/\/shop_images\/be-honest.jpg",
+            "image_poster": "shopify:\/\/shop_images\/we_re-obsessed.jpg"
+          }
+        },
+        "db8d3dfb-283f-417e-a3c7-e3efd0d89536": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "",
+            "url_2": "",
+            "image_reels": "shopify:\/\/shop_images\/hits-the-spot.jpg",
+            "image_poster": "shopify:\/\/shop_images\/hits-the-spot.jpg"
+          }
+        },
+        "fb00a92f-d6fb-4a9e-9ba3-04ce911bb37a": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "",
+            "url_2": "",
+            "image_reels": "shopify:\/\/shop_images\/b5.jpg",
+            "image_poster": "shopify:\/\/shop_images\/acne_negativity.jpg"
+          }
+        },
+        "4fb407f2-d7de-4287-8ea5-9e216dfa4b63": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "",
+            "url_2": "",
+            "image_reels": "shopify:\/\/shop_images\/hits-the-spot.jpg",
+            "image_poster": "shopify:\/\/shop_images\/acne_negativity.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "d398a210-88ef-43d9-8f37-af67cb956dd1",
+        "db8d3dfb-283f-417e-a3c7-e3efd0d89536",
+        "fb00a92f-d6fb-4a9e-9ba3-04ce911bb37a",
+        "4fb407f2-d7de-4287-8ea5-9e216dfa4b63"
+      ],
+      "settings": {
+        "review-title": "",
+        "url_1": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "c2e7f784-23cf-4879-a550-6fff3d2da4a5",
+    "d03362f5-387c-4a0f-9dc7-7f907d6c72af",
+    "d5bd56a6-5d23-417a-b94c-be2214c329ee",
+    "b90751d8-89ce-40e3-bc08-f599b8fa557f"
+  ]
+}

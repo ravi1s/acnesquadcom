@@ -1,0 +1,23 @@
+{% comment %}
+<!------------- /snippets/product_recommendation.liquid ------------->
+{% if product.metafields.custom.product_recommendation != blank %}
+{% assign r_product = all_products[product.metafields.custom.product_recommendation] %}
+{% assign r_price = r_product.price %}
+{% assign r_compprice = r_product.compare_at_price %}
+{% assign r_save = r_compprice | minus:r_price | money_without_trailing_zeros %}
+{% assign r_off = r_compprice | minus:r_price | times: 100 | divided_by: r_compprice %}
+<div class="product_recommendation-outer">
+  <div class="product_recommendation-inner">
+    <div class="r_image">
+      <img src="{{ r_product.featured_image | img_url: 'master' }}" alt="" />
+    </div>
+    <div class="r_description">
+      <div class="r_title">Even better value! Save {{r_save}} when you  buy our <a href="{{r_product.url}}">{{ r_product.title }}</a></div>
+    </div>
+  </div>
+  <div class="r_off-inner">
+    <span class="save">- {{ r_off }}%</span><span>Buy the combo and save {{r_save}}</span>
+  </div>
+</div>
+{% endif %}
+{% endcomment %}

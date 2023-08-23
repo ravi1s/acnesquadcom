@@ -1,0 +1,542 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "subheading": "",
+        "show_title": true,
+        "show_content": true,
+        "text_size": 2,
+        "align_text": "text-center",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#f7f7f7"
+      }
+    },
+    "faq-first": {
+      "type": "page-faq",
+      "blocks": {
+        "faq-heading": {
+          "type": "heading",
+          "settings": {
+            "title": "<p>Got questions? Let's clear up your doubts; here are the most frequently asked questions to solve your queries.<\/p>"
+          }
+        },
+        "faq-0": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How long will it take to see results?",
+            "content": "<p> The outcome is entirely dependent on the stage of your acne and the skin type you possess. Take our quiz to evaluate your acne stage &amp; the best regime to win the battle against it, <a href=\"\/pages\/quiz-intro\">Click Here<\/a> <\/p>"
+          }
+        },
+        "faq-1": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: When should I use these products?",
+            "content": "<p>If you have acne-prone skin, generally sensitive skin or any other skin type that aspires to have clear and healthy skin, Acne Squad range is perfect for you. We recommend you take our quiz to understand your skin and its needs better.   <a href=\"\/pages\/quiz-intro\">Click Here<\/a><\/p>"
+          }
+        },
+        "faq-2": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Will this suit my sensitive skin?",
+            "content": "<p> Yes, our products have been co-created with dermatologists  and are non-comedogenic (don't block\/clog pores). They will be kind to your skin but not to your acne.<\/p>"
+          }
+        },
+        "44e9cafa-1e14-44d1-a0cd-b5018e2f1f61": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Are these products suitable for daily use?",
+            "content": "<p> Yes, whether you’re currently fighting a battle with acne or seeking acne-free and healthy skin, we recommend using our products on a daily basis. This range has been curated for maintaining healthy skin all throughout - no matter what stage you are in.<\/p>"
+          }
+        },
+        "745356f2-3f43-4a79-a1b2-e653b7d4da23": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How do I identify my acne stage?",
+            "content": "<p> We've created a quiz that helps you identify the stage of your acne's lifecycle. Check it out and unleash the power of your personalised acne care regime. <a href=\"\/pages\/quiz-intro\">Click Here<\/a><\/p>"
+          }
+        },
+        "7cb3bf95-dd25-46be-a8b0-4f9754b474cc": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What kind of differences will I see?",
+            "content": "<p> Using our products &amp; following the regime diligently will lead to your skin becoming acne-free. It will look and feel healthy inside-out and your battle with acne will soon be history.<\/p>"
+          }
+        },
+        "9cfd9074-4d58-4d19-87d8-f8325156afa8": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Why do I need to know my stage of acne?",
+            "content": "<p> Acne feels like a never-ending cycle of breakout, treatment, damage, repeat. So, we’ve broken it down into 4 key stages to help break this cycle for good. By identifying the stage your skin is in, you can take more precise and targeted actions.<\/p>"
+          }
+        },
+        "2a0295ef-29b6-4704-8b25-5aa63773a324": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How should I make these products a part of my routine?",
+            "content": "<p> We recommend using these in the morning and night time:<br> ⚡Kick-Start Cleanser<br> ⚡Wonder Toner<br> ⚡Multi-Tasker Moisturiser + SPF<br>This is the foundation of your routine. You can then consider using our additional, stage-specific products for the ultimate attack against all acne troubles.<\/p>"
+          }
+        },
+        "2b27049c-a50c-4f03-b210-321d1f4e9bbc": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How do I know I have acne-prone skin?",
+            "content": "<p>If you get frequent breakouts (or ones that just never seem to go away), you probably have acne-prone skin. This means that your pores tend to clog easily, making you more susceptible to whiteheads, blackheads or pustules as compared to other skin types. You can have oily or dry skin and still be prone to acne. Acne has a way of appearing differently depending on the stage of acne you are in. Find out the lifecycle stage of your acne and targeted solutions for the same by taking our quiz. <a href=\"\/pages\/quiz-intro\">Click Here.<\/a><\/p>"
+          }
+        },
+        "bbbbc410-ad08-4024-9353-daa9843a4933": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: I get some pimples once in a while. Do I need specialised products?",
+            "content": "<p> No matter what the frequency of acne may be, your skin is probably susceptible to acne making it acne-prone by nature. A preventive measure would be to use products recommended for stage 1. We suggest you take our quiz to understand what products will suit your various needs. <a href=\"\/pages\/quiz-intro\">Click Here<\/a><\/p>"
+          }
+        },
+        "300c96af-1296-40a2-a9b8-da1be2feeddd": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How should I take care of my skin to keep it acne-free?",
+            "content": "<p> Cleanse your face everyday and make sure you use a toner and moisturising sunscreen to maintain acne-free skin. Adopt a healthy life with a balanced diet, getting enough sleep, curbing your stress and include a daily workout. Making these healthy choices will keep your hormones in-check and in turn keep all kinds of acne at bay.<\/p>"
+          }
+        },
+        "08bf36a3-7b12-4a96-bfb9-573bcc83848d": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Can a person's skin type change by age\/season, etc?",
+            "content": "<p> Your skin is an organ. It is constantly changing, reacting and adapting to various influences, as it tries to maintain a healthy balance. Skin types can and do change with age - Like how sebum production is observed maximum during the teenage years &amp; gradually decreases with age. Seasonal impacts on skin types are also visible depending on the humidity &amp; temperature in the environment.<\/p>"
+          }
+        },
+        "92895614-87a2-4b67-b9ca-b565c22d7cf8": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Does the stage of your acne lifecycle coincide with your period cycle?",
+            "content": "<p> An acne lifecycle stage does not necessarily coincide with a period cycle. However, your hormones fluctuate throughout your menstrual cycle. Just before your period starts, estrogen and progesterone levels drop. This can trigger your sebaceous glands to secrete more sebum, an oily substance that lubricates your skin. Too much can result in clogged pores which then mostly lead to breakouts.<\/p>"
+          }
+        },
+        "f7c022db-dbba-4af1-b65d-850414fbbe11": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What is the difference between hyperpigmentation & freckles?",
+            "content": "<p>Hyperpigmentation is the darkening of a skin area caused by increased production of melanin. Skin can produce excess pigments in response to sun exposure, hormonal fluctuations or injuries such as acne, cuts or burns. On the other hand, freckles are flat, tanned spots that may develop on sun-exposed skin after repeated exposure to sunlight.<\/p>"
+          }
+        },
+        "83bca520-2022-4696-bf4a-34f4cf149231": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How does menstrual cycle, water cycle and sleep cycle impact acne cycle?",
+            "content": "<p> Water, sleep &amp; hormones are all in some form or another related to acne. Water has the power of hydration. Sleep encourages rest and curbs stress &amp; periods are known to maintain your hormones. Disturbances in any of these cycles will eventually cause acne.<\/p>"
+          }
+        },
+        "595352d7-ab01-42c6-98fa-c993015182b4": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Do I need sunscreen for acne-prone skin? Won't it make my skin more oily?",
+            "content": "<p>Yes, wearing sunscreen is a must, even if you have acne-prone skin. Infact, no matter what your skin type is, protection against sun damage is of key importance. A sunscreen that’s designed for acne-prone skin is exactly what you need to manage all your concerns. Find out your stage of the acne lifecycle and its targeted solutions by taking our quiz. <a href=\"\/pages\/quiz-intro\">Click Here<\/a><\/p>"
+          }
+        },
+        "a6b5826d-911b-4823-aa4a-101b22a17e04": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What is a peeling tonic and how does it work?",
+            "content": "<p>A peeling tonic can be soothing for your skin and has an exfoliating (peeling) effect. Infused with natural derivatives, the formula leaves your skin feeling soft, nourished and rested with a healthy, glowing complexion<\/p>"
+          }
+        },
+        "051682de-1932-4dd6-a938-037b3df68728": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How fast does the Acne Squad serum work?",
+            "content": "<p> Acne Squad serums are supercharged with clinically proven skin care ingredients. The serums are advised for AM\/PM use along with a daily regimen for better results.<br>The Acne Squad Breakout Terminator Serum starts showing results in 1 week on inflamed acne; whereas the Acne Squad Super Saviour Serum starts showing results in 2 weeks on dark spots &amp; shows promising improvement if used diligently for 6-8 weeks.<\/p>"
+          }
+        },
+        "2ec71b6a-a2b4-4f9a-a55c-64c14417ae12": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Will wearing a mask give me acne?",
+            "content": "<p> Wearing a mask when you have acne prone skin can lead to a breakout but, there are ways to prevent it. By using our gentle on skin products that help keep acne at bay, you can wear a mask while protecting your skin from a breakout. <\/p>"
+          }
+        },
+        "7b8eca28-f6df-48dc-8c5d-11b13354bfdf": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Can I use Acne Squad products with makeup?",
+            "content": "<p> Yes, you can. Our products won’t come in the way of your makeup routine.<\/p>"
+          }
+        },
+        "654a4514-2b09-4207-82b0-65da6808174d": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Is there any particular season\/weather condition that triggers acne?",
+            "content": "<p>Acne can be experienced any time of the year depending on your skin type, diet, health condition &amp; lifestyle choices. There are seasonal impacts on acne too - like your acne can aggravate with increased humidity and temperature. Acne trouble is seen more during the Monsoons &amp; Summers seasons. However, proper skin hygiene throughout the year and in all seasons is essential to minimise breakouts &amp; keep all your acne troubles away.<\/p>"
+          }
+        },
+        "90e41bd3-b203-4ca7-bf02-47b90212168b": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What does % in an active ingredient mean? Does higher % of an ingredient mean better efficacy?",
+            "content": "<p> The % in an active ingredient indicates the level of it that is present in a product. This can be subjective though. The right % levels of ingredients at which they deliver benefits and are safe for your skin is equally important. A higher % level does not necessarily indicate or promise better efficacy. It all depends on the type of ingredients &amp; end benefits.<\/p>"
+          }
+        },
+        "468a4e5d-76e1-4175-939f-edba1303a0a6": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Why is there no moisturiser in this range?",
+            "content": "<p> We actually have a power-packed sunscreen that doubles up as a moisturiser. That’s why it’s called the Multi-Tasker Moisturiser + SPF 25. It protects your skin against sun damage and hydrates it inside out - without leaving any white cast. It also helps improve your skin’s overall texture &amp; controls excess sebum.<\/p>"
+          }
+        },
+        "d656cec6-4ce6-414e-9ba8-bf817e173a93": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: I have different acne in different stages so what products should I be using for these phases?",
+            "content": "<p> It's fascinating how every stage of acne in its various stages can be different for different people. This could be due to an array of varied triggers like stress, dietary preferences and habits, weather conditions, etc and of course - skin types. Find out your stage of the acne lifecycle and its targeted solutions by taking our quiz. <a href=\"\/pages\/quiz-intro\">Click Here<\/a><\/p>"
+          }
+        },
+        "c70b01d1-7014-4542-8692-ca05219642f0": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: I am already seeing a dermatologist for my acne. Can I use Acne Squad products with my dermat products?",
+            "content": "<p>Yes, you can use Acne Squad products. If required, you can also show the products you are using from our range to your dermatologist too.<\/p>"
+          }
+        },
+        "8f53757a-54b1-4253-b7f6-1be5917adde5": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How soon can I see the results of Acne Squad products?",
+            "content": "<p>When it comes to Acne Squad serums, they are supercharged with clinically proven skin care ingredients. Our serums and always-on products are advised for AM\/PM as part of a daily regimen to boost better results. The Acne Squad cleanser starts showing results within 3 days. The Acne Squad Breakout Terminator Serum starts showing results in 1 week on inflamed acne, whereas the Acne Squad Super Saviour Serum starts showing results in 2 weeks on dark spots &amp; shows promising improvement if used diligently for 6-8 weeks.<\/p>"
+          }
+        },
+        "c3a7567e-8f64-47cf-b896-f71936d332a1": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Are Acne Squad products suitable for all skin types?",
+            "content": "<p> Yes, Acne Squad products are safe and suitable for use on all skin types.<\/p>"
+          }
+        },
+        "5e5a4982-d0ba-4cd6-b297-9bc1ad6b4523": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Shipping & Refund",
+            "title": "Q. Payment Policy",
+            "content": "<p> We accept online orders through COD or Prepaid. For Prepaid orders, we accept Visa, Master Card &amp; American Express Debit and Credit Cards. We also have payment wallets integrated.<\/p>\n<p>Please note for Visa and Master Card, you will be required to submit your 16 digit card number, card expiry date, and a 3 digit CVV Number (on the back of your card) when you make an online transaction using your Credit or Debit Card. For American Express cards, you will be required to submit your 15-digit card number and 4 digit code.<\/p>\n<p>If the amount has been deducted from your account, but you haven’t received a confirmation from us, you can reach out to our customer care team on1800-203-5544 and provide the following information:<\/p>\n<p>1. Transaction Ref Number<\/p>\n<p>2. Registered Email ID and Phone Number from which order was placed<\/p>\n<p>3. Date &amp; Time of Transaction<\/p>"
+          }
+        },
+        "0b77e32f-a807-41a8-b159-2a050922b06d": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Shipping & Refund",
+            "title": "Q. What is out shipping policy?",
+            "content": "<p>The shipping charges are mentioned at the time of checkout.<\/p>\n<p>Once your order has been confirmed, you will receive an email and SMS regarding order confirmation.<\/p>\n<p>Once your order is dispatched, you will receive the tracking number and tracking link.<\/p>\n<p>The estimated time of delivery may vary from state to state. Working days are Monday – Friday and we will try our best to furnish all orders within 4-7 working days.<\/p>\n<p>If you are ordering products during a sale event, delivery may be delayed.<\/p>\n<p>Partially Shipped orders are completely normal. Rest assured you will have to pay for the order in parts your received if opted for COD.<\/p>\n<p>You can also track the status of your order on the Track My Order Page or by logging into your account.<\/p>"
+          }
+        },
+        "6654ef37-c0d2-42cb-9f3d-d69035115fbf": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Shipping & Refund",
+            "title": "Q. What is our delivery policy?",
+            "content": "<p> To ensure safety and hygiene of all our customers and our staff, there may be delays in delivery. We take extreme precaution on the safety of the products, while manufacturing, packing, and dispatching them.<\/p>\n<p>COD option is available for all orders subject to promotions and offers.<\/p>\n<p>If the shipments is damaged or tampered with, please do not accept it and inform our customer care immediately.<\/p>\n<p>If the order is marked as delivered and you haven’t received the order, please inform our customer care team within 24hrs. We request you to give us 3 working days to investigate and resolve your query.<\/p>\n<p>For all claims regarding shortage, damage, wrong product received, please inform our customer care team within 24hrs of receiving the order and we will resolve your query in 2-3 working days.<\/p>\n<p>We are not responsible for damages and misplacement post-delivery.<\/p>\n<p>We reserve the right to pause deliveries to any part of the country at any time and will inform you of the same. We advise you to enter your Pin Code correctly at the time of placing the order.<\/p>\n<p>You can also track the status of your order on the Track My Order Page or by logging into your account.<\/p>"
+          }
+        },
+        "d1b25369-bd80-47f4-a9d3-32b6b07c11b9": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Shipping & Refund",
+            "title": "Q. What is our cancellation policy?",
+            "content": "<p> Orders once ‘fulfilled’ or dispatched are not eligible for cancellation.<\/p>\n<p>If you wish to cancel your order before it is ‘fulfilled’, please log in to your account to check the status of the same and action cancellation if available. You can also contact our customer care if you have difficulty in the same.<\/p>"
+          }
+        },
+        "529f1d7f-b733-4fda-98d7-a95dc2073cad": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Shipping & Refund",
+            "title": "Q. What is our return & exchange policy?",
+            "content": "<p> Our Products are non-returnable and non-exchangeable due to hygiene reasons.<\/p>\n<p>In case you would want a refund \/ replacement of your product, please contact our customer care within 24hrs of receiving the order. The agent may ask for subsequent proof such as images of the product, packaging, and invoice. We request you to provide us 3 working days to investigate the matter.<\/p>\n<p>You will be eligible for a full refund or replacement without incurring any charges if:<\/p>\n<p>Products are missing from your order<\/p>\n<p>Products are Damaged \/ Leaking<\/p>\n<p>Wrong Product Received<\/p>\n<p>Expired Product Received<\/p>\n<p>Replacement \/ Refund will not be processed if:<\/p>\n<p>The product is tampered with.<\/p>\n<p>Invoice copy is missing.<\/p>\n<p>Batch Number, Manufacturing Date, MRP is tampered with.<\/p>\n<p>If it’s without original packaging.<\/p>\n<p>If query is not raised within 24hrs of receiving the product.<\/p>\n<p>Allergic reactions due to product usage – we recommend you do a small patch test before usage and go through the ingredient list on the product page in detail before placing an order.<\/p>"
+          }
+        },
+        "12a2f7c6-15f9-4ee8-996f-e91b5a6bedf4": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Shipping & Refund",
+            "title": "Q. What is our refund policy?",
+            "content": "<p> We may ask for some proof before initiating a refund.<\/p>\n<p>Prepaid orders will take 5-7 business days for the refund to reflect in your account. You will receive a SMS and Email when the refund has been initiated and you may follow the link on the email to track your refund status.<\/p>\n<p>COD orders will be refunded via bank transfers and may take 15 business days to reflect in your account.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-heading",
+        "faq-0",
+        "faq-1",
+        "faq-2",
+        "44e9cafa-1e14-44d1-a0cd-b5018e2f1f61",
+        "745356f2-3f43-4a79-a1b2-e653b7d4da23",
+        "7cb3bf95-dd25-46be-a8b0-4f9754b474cc",
+        "9cfd9074-4d58-4d19-87d8-f8325156afa8",
+        "2a0295ef-29b6-4704-8b25-5aa63773a324",
+        "2b27049c-a50c-4f03-b210-321d1f4e9bbc",
+        "bbbbc410-ad08-4024-9353-daa9843a4933",
+        "300c96af-1296-40a2-a9b8-da1be2feeddd",
+        "08bf36a3-7b12-4a96-bfb9-573bcc83848d",
+        "92895614-87a2-4b67-b9ca-b565c22d7cf8",
+        "f7c022db-dbba-4af1-b65d-850414fbbe11",
+        "83bca520-2022-4696-bf4a-34f4cf149231",
+        "595352d7-ab01-42c6-98fa-c993015182b4",
+        "a6b5826d-911b-4823-aa4a-101b22a17e04",
+        "051682de-1932-4dd6-a938-037b3df68728",
+        "2ec71b6a-a2b4-4f9a-a55c-64c14417ae12",
+        "7b8eca28-f6df-48dc-8c5d-11b13354bfdf",
+        "654a4514-2b09-4207-82b0-65da6808174d",
+        "90e41bd3-b203-4ca7-bf02-47b90212168b",
+        "468a4e5d-76e1-4175-939f-edba1303a0a6",
+        "d656cec6-4ce6-414e-9ba8-bf817e173a93",
+        "c70b01d1-7014-4542-8692-ca05219642f0",
+        "8f53757a-54b1-4253-b7f6-1be5917adde5",
+        "c3a7567e-8f64-47cf-b896-f71936d332a1",
+        "5e5a4982-d0ba-4cd6-b297-9bc1ad6b4523",
+        "0b77e32f-a807-41a8-b159-2a050922b06d",
+        "6654ef37-c0d2-42cb-9f3d-d69035115fbf",
+        "d1b25369-bd80-47f4-a9d3-32b6b07c11b9",
+        "529f1d7f-b733-4fda-98d7-a95dc2073cad",
+        "12a2f7c6-15f9-4ee8-996f-e91b5a6bedf4"
+      ],
+      "settings": {
+        "check_tabs": "True",
+        "width": "wrapper",
+        "height": "margin--small",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "faq-second": {
+      "type": "page-faq",
+      "blocks": {
+        "heading-0": {
+          "type": "heading",
+          "settings": {
+            "title": "EXTRA QUESTIONS"
+          }
+        },
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Any diet restrictions to follow while using Acne Squad products?",
+            "content": "<p> You do not need to restrict or follow any particular diet while using Acne Squad products. But we do recommend choosing healthy food options and drinking a lot of water.<\/p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Are hyperpigmentation and dark spots the same?",
+            "content": "<p> Hyperpigmentation is when your skin produces higher melanin pigment than usual. This very phenomena occurring on targeted spots or a particular area are called dark spots <\/p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How do I ensure I don't get another pimple in the same spot?",
+            "content": "<p> We recommend you do the daily AM\/PM routine by using Acne Squad products.<\/p>"
+          }
+        },
+        "c5bdeab0-b4cd-4d4b-b5e5-8f8585623c53": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What precautions should I take with makeup to avoid breakouts?",
+            "content": "<p> We recommend you opt for non-comedogenic makeup products. Avoid wearing heavy makeup on active or healing acne areas. Use our cleanser once you’ve removed the makeup and follow it up with our toner and moisturiser.<\/p>"
+          }
+        },
+        "12f4792a-23da-4bb2-a601-87cd43008e9e": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What is salicylic acid? How does it work? What are its benefits?",
+            "content": "<p> Salicylic acid penetrates into your skin and works towards dissolving dead skin cells that are clogging your pores. When applied to the skin, salicylic acid helps shed off these dead cells from the top layer of your skin and simultaneously reduces the inflammation\/swelling and redness. This in turn decreases the number of pimples that form and speeds up the healing process.<\/p>"
+          }
+        },
+        "de9c6695-3769-4946-b682-9ee38c0c903d": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How long does salicylic acid take to work?",
+            "content": "<p> Salicylic acid when applied correctly and diligently to your skin, can take several weeks of use for you to see its full effect.<\/p>"
+          }
+        },
+        "331721a9-bcef-45e2-a35a-ec501fa83a9e": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Will salicylic acid harm me in the long run?",
+            "content": "<p> Salicylic acid is overall considered safe. It may cause some skin irritation in the initial days of usage. It can also sometimes remove too much oil from your skin which may result in feeling dryness and potential irritation.<\/p>"
+          }
+        },
+        "f2354f83-1c35-4b01-a076-093ad1eb97bb": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What is Thymol Terpineol (TT)? How does it work? What are its benefits?",
+            "content": "<p> Thymol Terpineol (TT) works with a unique antimicrobial mechanism to attack &amp; burst the cell membrane of acne-causing bacteria. The patented technology is proven to better balance the ratio of good bacteria, which is generally not the case in other popular actives.<\/p>"
+          }
+        },
+        "e763e0d3-181d-404e-92df-ae05bfc129af": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Are there any side effects to using TT infused Acne Squad products?",
+            "content": "<p> No, there are no side effects to using TT infused products from Acne Squad.<\/p>"
+          }
+        },
+        "d3249a86-12b3-4455-865b-6826c5a065ea": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What is ‘triple complex’? What does it contain? How does it work? What are its benefits?",
+            "content": "<p>‘Triple complex’ is our specially designed &amp; patented blend of Niacinamide, Hexylresorcinol and Pro Retinol. This complex blend works on melanin (skin pigments) synthesis &amp; transfer that works towards reducing dark spots. This ‘triple complex’ is proven to show visible results on dark spots &amp; gives skin an even-toned look.<\/p>"
+          }
+        },
+        "4ceeec1b-06b4-4691-8e78-5494b2266b41": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What are the side effects of the ‘triple complex’?",
+            "content": "<p> There are no side effects to be worried about. The ‘triple complex’ is overall safe for use.<\/p>"
+          }
+        },
+        "44e6bdf5-f8a2-451d-ae4a-e90d72d9a309": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How is body acne different from face acne and what causes it?",
+            "content": "<p> Body acne tends to be slightly different from facial acne. It actually is more difficult to treat, as the skin is thicker on the rest of the body than it is on the face. It is often technically referred to as folliculitis - which is a condition in which the skin's hair follicles become infected causing breakouts.<\/p>"
+          }
+        },
+        "d07e8624-805b-4309-a2c0-b4a51b26b296": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Can Acne Squad products work on body acne?",
+            "content": "<p> Yes, Acne Squad products are equipped to treat body acne too.<\/p>"
+          }
+        },
+        "77dacca1-7434-4e86-bf54-bca549276176": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Will Acne Squad products work on men's acne?",
+            "content": "<p> Yes, Acne Squad products can be used to treat men’s acne too.<\/p>"
+          }
+        },
+        "f51a2177-efde-4860-864a-6d9c189411fe": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: What causes men’s acne and how to take care of acne-prone skin seen in men?",
+            "content": "<p> There could be various factors due to which acne occurs in men. Sweating while exercising or doing other physical activities is one of them. Some men tend to get shaving bumps that look like acne, but ingrown hair or shaving mistakes are a major cause. Other factors include their skin type, hormonal imbalance and dietary choices.<\/p>"
+          }
+        },
+        "7373be26-3c28-4164-bea4-67e0865789ce": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: How do I deal with adult acne?",
+            "content": "<p> We recommend you do the daily AM\/PM routine by using Acne Squad products.<\/p>"
+          }
+        },
+        "bbe26289-8b85-4aa6-a013-f803b9136bb3": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Do Acne Squad products work on other kinds of injury scars?",
+            "content": "<p>No, Acne squad products are not designed to tackle other kinds of injury scars.<\/p>"
+          }
+        },
+        "0d4558e0-ede1-4fdb-ae1b-04a1a368ab99": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Why did I get into stage 2 even when I used Acne Squad products in stage 1?",
+            "content": "<p> Acne &amp; early signs of acne get triggered with several internal as well as external factors like lifestyle, diet, hormonal changes, etc. At times, multiple changes in environmental conditions like erratic temperature differences can also cause a shift internally and may introduce a few blackheads and whiteheads despite using our products in stage 1.<\/p>"
+          }
+        },
+        "c8d58fa7-77a6-4082-8410-4640568758f8": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Will my acne aggravate if I test positive for Covid?",
+            "content": "<p> No, not specifically acne, but Covid can cause skin reactions like rashes. In such cases, we recommend you consult a dermatologist.<\/p>"
+          }
+        },
+        "c9fcbda6-4669-42af-a807-b741db1c488c": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q: Which whitehead or blackhead will convert into a pimple?",
+            "content": "<p> Any blackhead or whitehead can turn into acne if proper action isn’t taken at the right time and with the right set of products.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading-0",
+        "question-1",
+        "question-2",
+        "question-3",
+        "c5bdeab0-b4cd-4d4b-b5e5-8f8585623c53",
+        "12f4792a-23da-4bb2-a601-87cd43008e9e",
+        "de9c6695-3769-4946-b682-9ee38c0c903d",
+        "331721a9-bcef-45e2-a35a-ec501fa83a9e",
+        "f2354f83-1c35-4b01-a076-093ad1eb97bb",
+        "e763e0d3-181d-404e-92df-ae05bfc129af",
+        "d3249a86-12b3-4455-865b-6826c5a065ea",
+        "4ceeec1b-06b4-4691-8e78-5494b2266b41",
+        "44e6bdf5-f8a2-451d-ae4a-e90d72d9a309",
+        "d07e8624-805b-4309-a2c0-b4a51b26b296",
+        "77dacca1-7434-4e86-bf54-bca549276176",
+        "f51a2177-efde-4860-864a-6d9c189411fe",
+        "7373be26-3c28-4164-bea4-67e0865789ce",
+        "bbe26289-8b85-4aa6-a013-f803b9136bb3",
+        "0d4558e0-ede1-4fdb-ae1b-04a1a368ab99",
+        "c8d58fa7-77a6-4082-8410-4640568758f8",
+        "c9fcbda6-4669-42af-a807-b741db1c488c"
+      ],
+      "settings": {
+        "check_tabs": "",
+        "width": "wrapper",
+        "height": "margin--small",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq-first",
+    "faq-second"
+  ]
+}

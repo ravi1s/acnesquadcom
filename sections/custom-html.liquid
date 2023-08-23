@@ -1,0 +1,90 @@
+<!-- /sections/custom-html.liquid -->
+{{ 'custom-video-sec.css' | asset_url | stylesheet_tag }}
+{%- assign html = section.settings.html -%}
+{%- assign show_padding = section.settings.show_padding -%}
+
+<section class="custom-html-section home-video {% if show_padding %}wrapper custom-html-section--padding {% endif %}" data-section-id="{{ section.id }}" data-section-type="custom-html">
+  {% comment %}
+  HTML added through the Theme Editor renders on the next line. You can also add code before/after this comment.
+  {% endcomment %}
+  <div style="text-align:center;">
+    <div class="video-sec">
+    <video class="video video-player" loading="lazy" fetchpriority="low" loop="loop" muted autoplay="true" width="100%">
+      <source src="{{ section.settings.video }}" >
+    </video>
+    </div>
+<!--      <div class="video-sec">
+    <video class="video_for-mobile" loop="loop" playsinline="" muted="" controls width="100%">
+      <source src="{{ section.settings.mob_video }}" >
+    </video>
+    <div class="playpause"></div>
+    </div> -->
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom HTML",
+  "settings": [
+    {
+      "type": "html",
+      "id": "html",
+      "label": "Custom HTML",
+      "default": "<p>Once you write some HTML, it will render right here.</p>"
+    },
+	{
+      "type": "text",
+      "id": "video",
+      "label": "Video Link"
+    },
+	{
+      "type": "text",
+      "id": "mob_video",
+      "label": "Mobile Video Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_padding",
+      "label": "Show padding",
+      "default": true
+    },
+    {
+  "type": "text",
+  "id": "heading1",
+  "label": "Container width",
+  "default": "Quick links"
+   },
+   {
+  "type": "text",
+  "id": "heading2",
+  "label": "vertical alignment",
+  "default": "Quick links"
+   }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Custom HTML"
+    }
+  ]
+}
+{% endschema %}
+
+<!-- <script>
+  $('.video-player').parent().click(function () {
+  if($(this).children(".video-player").get(0).paused){        $(this).children(".video-player").get(0).play();   $(this).children(".playpause").fadeOut();
+    }else{       $(this).children(".video-player").get(0).pause();
+  $(this).children(".playpause").fadeIn();
+    }
+});
+</script> -->
+<!-- <style>
+  audio::-webkit-media-controls-overlay-play-button, video::-webkit-media-controls-play-button {
+    display: block!important;
+}
+
+
+  video::-webkit-media-controls {
+    display:none !important;
+}
+</style> -->

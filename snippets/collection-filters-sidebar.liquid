@@ -1,0 +1,69 @@
+<!-- /snippets/collection-filters-sidebar.liquid -->
+{% comment %}
+  The collection sidebar containing tag filering and link-based navigation
+
+  * collection {object} - The current collection
+  * section {object} - The current section
+
+  {% render 'collection-filters-sidebar', section: section, collection: collection %}
+{% endcomment %}
+
+{%- assign collection_handle = 'all' -%}
+{%- if collection.handle -%}
+  {%- assign collection_handle = collection.handle -%}
+{%- endif -%}
+
+{%- assign filter_count = 0 -%}
+{%- capture filter_clears -%}
+  {%- for filter in collection.filters -%}
+    {% if filter.type == "price_range"  %}
+      {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+        {%- assign filter_count = filter_count | plus: 1 -%}
+        <a class="active__filters__remove" href="{{ filter.url_to_remove }}">
+          {%- assign min_value = filter.min_value.value | default: 0 -%}
+          {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+          {{ min_value | money_without_trailing_zeros }} - {{ max_value | money_without_trailing_zeros }}
+          <span class="filter__x">✕</span>
+        </a>
+      {%- endif -%}
+    {% else %}
+      {%- for filter_value in filter.active_values -%}
+        {%- assign filter_count = filter_count | plus: 1 -%}
+        <a class="active__filters__remove" href="{{ filter_value.url_to_remove }}">
+          {{ filter_value.label }} <span class="filter__x">✕</span>
+        </a>
+      {%- endfor -%}
+    {% endif %}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if section.settings.filter_layout == 'slide-out' -%}
+  <div class="collection__sidebar__head">
+    <h3>{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</h3>
+
+    <a href="#filters-group" class="collection__sidebar__close is-not-relative" data-collection-sidebar-close aria-label="{{ 'general.accessibility.close' | t }} {{ 'collections.general.filter' | t }}">
+      {%- render 'icon-close' -%}
+    </a>
+  </div>
+{%- endif -%}
+
+<div class="collection__sidebar{% if filter_count > 1 %} collection__sidebar--has-buttons{% endif %}" {% if section.settings.filter_layout == 'slide-out' %}data-collection-sidebar-slide-out{% else %}data-collection-sidebar-slider{% endif %}>
+  {%- if filter_count > 0 -%}
+    <div class="collection__active__filters">
+      {%- if filter_count > 1 -%}
+        <a href="{{ collection.url }}" class="active__filters__clear">{{ 'collections.general.clear_filters' | t }}</a>
+      {%- endif -%}
+      {{ filter_clears }}
+    </div>
+  {%- endif -%}
+  
+  {% render 'filters', collection: collection %}
+</div>
+
+{%- if filter_count > 0 -%}
+  <div class="collection__sidebar__buttons">
+    <a class="btn btn--outline btn--full" href="{{ routes.collections_url }}/{{ collection.handle }}/">
+      <span>{{ 'collections.general.reset' | t }}</span>
+    </a>
+  </div>
+{%- endif -%}

@@ -1,0 +1,360 @@
+.mainQuizeSec4-flex.show{
+  display: flex !important;
+  opacity: 1 !important;
+}
+.mainquizIntrottl {
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+  z-index: 1;
+  max-width: 100%;
+}
+.mainQuizNmbr {
+  align-items: center;
+  padding: 1rem 0 0;
+}
+.mainQuizHead {
+  padding: 2rem 1rem;
+}
+h3.mainQuesTTL, p.mainQuesTTL {
+  text-align: left;
+}
+h3.mainQuesTTL{
+  font-size:25px;
+}
+p.mainQuesTTL{
+  font-size:15px;
+}
+h1.QuestionNumber {
+  margin: 0 35px 0 1rem;
+  font-size: 53px;
+  font-family: BebasNeue;
+}
+.mainquizIntrottl input[type=radio] {
+  display: inline-block;
+  margin: 0 calc(13% - 15px);
+}
+.mainradiodisbtns.dflex {
+  width: calc(100% - 60px);
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: relative;
+}
+.mainradiodisbtns.dflex:after {
+  position: absolute;
+  left: 50%;
+  height: 2px;
+  width: calc(74% - 30px);
+  background: #707070;
+  content: "";
+  transform: translate(-50%,-50%);
+  top: 50%;
+  z-index: -1;
+}
+.image-with-content-parent .image-with-content {
+  display: flex;
+  align-items: center;
+}
+
+.backArrowBtn{
+  position:static;
+  padding-top:0;
+}
+.QuizeSec2Question.dflex.flexWrap {
+  position: relative;
+  z-index: 99;
+  width: 50%;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0px 3px 16px #2b2a2a50;
+}
+.content_with-radio {
+  padding: 10px 10px 10px 5rem;
+  margin-left: -3rem;
+  width: calc(100% - 110px);
+  background: #0000;
+  box-shadow: 0 0;
+}
+.image-with-content-parent .image-with-content:hover .content_with-radio,
+.FAQS_container.active .content_with-radio{
+  background: #A99EF6 0% 0% no-repeat padding-box;
+  box-shadow: 0 3px 15px #0000005c;
+}
+.img-sec {
+  transition: .1s;
+  width:100%;
+  max-width: 110px;
+  line-height: 0;
+}
+.image-with-content-parent .image-with-content:hover .img-sec,
+.FAQS_container.active .img-sec{
+  z-index: 1;
+}
+.img-sec img {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 102px;
+  transition:.2s;
+  padding:1rem;
+  border: 1px solid #0000;
+  heigh:102px;
+  width:102px;
+}
+.image-with-content-parent .image-with-content:hover .img-sec img,
+.FAQS_container.active .img-sec img{
+  border: 1px solid #978fe4;
+  padding:0;
+}
+.content_with-radio label {
+  font-size: 18px;
+  transition: .2s;
+}
+.image-with-content-parent .image-with-content:hover .content_with-radio label,
+.FAQS_container.active .content_with-radio label,
+.image-with-content-parent .image-with-content:hover  p.content-1,
+.FAQS_container.active p.content-1,
+.image-with-content-parent .image-with-content:hover p.content-2,
+.FAQS_container.active p.content-2{
+  color:#fff;
+}
+p.content-1, p.content-2 {
+  font-size: 13px;
+  transition: .2s;
+  margin: 0;
+  line-height:16px;
+}
+p.content-1 {
+  font-weight:500;
+  font-family: Europa-Bold; 
+}
+.mainquizIntrottl input[type=radio]{
+  visibility:hidden;
+}
+.mainquizIntrottl input[type='radio']:checked:after {
+  background-color: #707070;
+  border:2px solid #fff;
+  outline:1px solid #707070;
+}
+.mainquizIntrottl  input[type='radio']:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #707070;
+  background:#fff;
+}
+.question-content {
+  border-top: 1px solid rgba(0,0,0,.29);
+  margin-top: 5px;
+  padding-top: 10px;
+}
+.image-with-content-parent .image-with-content:hover  .question-content,
+.FAQS_container.active .question-content{
+  border-top:1px solid rgba(255,255,255,.29);;
+}
+.content_with-radio input, .content_with-radio label{
+  height:0;
+  width:0;
+  margin:0;
+  padding:0;
+  font-zise:0;
+  overflow:hidden;
+}
+.FAQS_container{
+  margin-bottom:1rem;
+  cursor:pointer;
+}
+.mainQuesQuizBtn {
+  width: calc(100% + 4rem);
+  text-align: center;
+  display: flex;
+  margin: 0 -2rem 0 -2rem;
+  padding:10px 0;
+  background:#A99EF6;
+  position: sticky;
+  bottom: 0;
+  z-index:99;
+  height:max-content;
+}
+a.action-button-previous, .next.action-button,input.previous.action-button-previous {
+  font-size:18px;
+  line-height:20px;
+  font-family:Europa-Bold;
+  margin: 0;
+  background: #0000;
+  border: 0;
+  padding: 10px;
+  width:50%;
+  position:relative;
+}
+a.action-button-previous,input.previous.action-button-previous{
+  border-right:1px solid #fff;
+}
+a.cstmbeforearow,a.cstmbeforearowLeft {
+  width: 50%;
+  position: relative;
+  color:#fff;
+}
+a.cstmbeforearowLeft input.previous.action-button-previous {
+  width: 100%;
+}
+a.action-button-previous:after,.cstmbeforearow:before,
+input.previous.action-button-previous:after,a.cstmbeforearowLeft:after{
+  font-weight: 600;
+  font-family: fontawesome;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+a.action-button-previous:after,input.previous.action-button-previous:after,
+a.cstmbeforearowLeft:after{
+  content: "\f104";
+  left: 18%;
+}
+.cstmbeforearow:before{
+  right:18%;
+  content: "\f105";
+  color:#fff;
+}
+.mainQuesQuizBtn .next.disabled{
+  background:#fff0;
+}
+a.next.mainQuesQuizBtnSubMitBtn {
+  margin: 0;
+  background: transparent;
+  border: 0;
+  width: 50%;
+  padding: 8px;
+  font-size: 18px;
+  font-family: Europa-Bold;
+}
+.content_with-radio.finalquizeBlock {
+  padding: 1rem 1rem 1rem 3rem;
+}
+input.next.disabled.action-button,a.disabled.next.mainQuesQuizBtnSubMitBtn {
+  opacity: .4;
+}
+@media(min-width:750px){
+  .QuizeSec2Question.dflex.flexWrap{
+    padding-bottom: 0;
+    padding-top:10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+  }
+  .QuizeSec2Question.dflex.flexWrap ::-webkit-scrollbar {
+    width: 10px;
+  }
+  .mainradiodisbtns.dflex:after {
+    width: calc(87% - 30px);
+  }
+  .mainquizIntrottl input[type=radio] {
+    margin: unset;
+  }
+  .mainradiodisbtns.dflex {
+    width: calc(70% - 60px);
+    padding:0 2rem;
+  }
+  a.action-button-previous:after, input.previous.action-button-previous:after, a.cstmbeforearowLeft:after {
+    content: "\f104";
+    left: 15%;
+  }
+  .cstmbeforearow:before{
+    right:15%;
+  }
+  .FAQS_container{
+    margin-bottom:0;
+  }
+  .mainFaqConatiner {
+    height: calc(100vh - 118px);
+    overflow: auto;
+  }
+}
+@media(max-width:991px){
+  .content_with-radio {
+    padding: 10px 0px 10px 3rem;
+    margin-left: -3rem;
+    width: calc(100% - 50px);
+  }
+  .mainradiodisbtns.dflex {
+    width: calc(85% - 60px);
+  }
+}
+@media(max-width:749px){
+  main#MainContent {
+    padding-top: 73px;
+  }
+  .mainquizIntrottl:before {
+    content: "";
+    height: 142%;
+    background: url(https://cdn.shopify.com/s/files/1/0647/2368/1517/files/quiz_1.jpg?v=1660713748) center center no-repeat;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    background-size: cover;
+  }
+  .mainradiodisbtns.dflex:after {
+    background: #fff;
+  }
+  .backArrowBtn,h3.mainQuesTTL,p.mainQuesTTL,h1.QuestionNumber {
+    color:#fff;
+  }
+  .mainquizIntrottl {
+    width: 100%;
+  }
+  .QuizeSec2Question.dflex.flexWrap {
+    width: calc(100% - 3rem);
+    padding: 2rem 1.5rem 0 1.5rem;
+  }
+  .mainQuesDesTTL {
+    width: calc(100% - 96px);
+    max-width: 280px;
+  }
+  .content_with-radio {
+    padding: 10px 0px 10px 3rem;
+    margin-left: -2rem;
+    width: calc(100% - 78px);
+    max-width: unset;
+    margin-left: -3rem;
+  }
+  .mainquizIntrottl  input[type='radio']:after {
+    border: 2px solid #fff;
+    background:#A99EF6;
+  }
+  .mainQuizHead {
+    padding: 1rem;
+  }
+  .mainquizIntrottl input[type=radio]:checked:after {
+    background-color: #fff;
+    border: 2px solid #a99ef6;
+    outline: 1px solid #fff;
+  }
+   a.action-button-previous, .next.action-button {
+    padding: 9px;
+    min-width: 140px;
+    flex: 1;
+    border-radius: 0;
+    background:#0000 !important; 
+    border-radius:0;
+  }
+  a.action-button-previous{
+    border-right:1px solid #fff;
+  }
+  .mainQuesQuizBtn {
+    width: calc(100% + 3rem);
+    margin: 0 -1.5rem 0 -1.5rem;
+  }
+  .content_with-radio.finalquizeBlock {
+    padding: 1rem 1rem 1rem 3rem;
+  }
+  .content_with-radio.finalquizeBlock input {
+    display: none;
+  }
+}

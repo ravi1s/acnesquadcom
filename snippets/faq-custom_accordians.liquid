@@ -1,0 +1,589 @@
+{%- assign animation_anchor = '#faq--' | append: section.id -%}
+
+<section class="section-faq accordion" id="faq--{{ section.id }}" data-accordion>
+  {%- if product.metafields.custom.product_des != blank -%}
+    <div class="mainProDesBor cstmdesbotmBrodr">
+    <h2 data class="section-faq__title acc-head active" data-focus-element tabindex="0" data-accordion-toggle element-name="product-description">Product Description </h2>
+    <p class="faqImgDes acc-content" style="display: block;" >
+    {{ product.metafields.custom.product_des }}
+        
+    </p>
+    </div>
+    {% endif %}
+  <div class="faq-list__item-content custmPRoductfaq cstmflxproprty">
+    <h2 data class="section-faq__title acc-head active" data-focus-element tabindex="0" data-accordion-toggle> {{ product.metafields.custom.benifithead }}</h2>
+    <div class="section__body accordion__body acc-content cstmpddingbtmaccBody" data-accordion-body style="display:block;">
+      <div class="faq-list-holder">      
+        <div class="faq-list">
+          <div class="faq-list__item-description boldFontText">
+    {%- if  product.metafields.custom.benifitsubhead != blank -%}
+            <p class="faqPoints">{{ product.metafields.custom.benifitsubhead }}</p>
+      {% endif %}
+    {%- if product.metafields.custom.benifitsubheadtwo != blank -%}
+            <p class="faqPoints">{{ product.metafields.custom.benifitsubheadtwo }}</p>
+      {% endif %}
+    {%- if product.metafields.custom.benifitsubheadthree != blank -%}
+            <p class="faqPoints ">{{ product.metafields.custom.benifitsubheadthree}}</p>
+      {% endif %}
+    {%- if product.metafields.custom.benifitsubheadfour != blank -%}
+            <p class="faqPoints">{{ product.metafields.custom.benifitsubheadfour}}</p>
+      {% endif %}
+    {%- if product.metafields.custom.benifitsubheadfifth != blank -%}
+            <p class="faqPoints">{{ product.metafields.custom.benifitsubheadfifth}}</p>
+      {% endif %}
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <div class="custom_flex flxwrap cstmflxproprty cstmdesbotmBrodr pdngbtmNone">
+    <h2 data="" class="section-faq__title fullWidthContnt active acc-head" data-focus-element="" tabindex="0" data-accordion-toggle="">EXPERT LEVEL ACNE CARE</h2>
+    <div class="acc-content" style="display: block;" >
+      <div class="custom_flex flxwrap cstmflxproprty">
+       {%- if product.metafields.custom.imagetextone != blank -%} 
+    <div class="faq-list ">
+      <div class="faq-list__item-description ssss">
+        
+        <img class="lazyload" data-src="{{ product.metafields.custom.imagetextone|img_url:"medium"}}" alt="" title="" width="" height="" >
+        
+        <p>{{ product.metafields.custom.imagetextonehead }}</p>
+      </div>
+    </div>
+         {%- endif -%}
+    {%- if product.metafields.custom.imagetexttwo != blank -%}
+    <div class="faq-list">
+      <div class="faq-list__item-description">
+        
+        <img class="lazyload" data-src="{{ product.metafields.custom.imagetexttwo|img_url:"medium"}}">
+        
+        <p>{{ product.metafields.custom.imagetexttwohead }}</p>
+      </div>
+    </div>
+      {%- endif -%}
+    {%- if product.metafields.custom.imagetextthree != blank -%}
+    <div class="faq-list">
+      <div class="faq-list__item-description">
+        
+        <img class="lazyload" data-src="{{ product.metafields.custom.imagetextthree|img_url:"medium"}}">
+        
+        <p>{{ product.metafields.custom.imagetextthreehead }}</p>
+      </div>
+    </div>
+      {%- endif -%}
+    {%- if product.metafields.custom.imagetextfourhead != blank -%}
+   <div class="faq-list">
+      <div class="faq-list__item-description">
+        
+        <img class="lazyload" data-src="{{ product.metafields.custom.imagetextfourhead|img_url:"medium"}}">
+        
+        <p>{{ product.metafields.custom.imagetextfour }}</p>
+      </div>
+    </div>
+      {%- endif -%}
+        </div>
+      </div>
+  </div>
+
+  {%- if product.metafields.custom.how_to_use_head != blank -%}
+  <div class="faq-list__item-content custmPRoductfaq cstmaddPdingTop">
+    <h2 data class="section-faq__title acc-head active" data-focus-element tabindex="0" data-accordion-toggle> {{ product.metafields.custom.how_to_use_head }}</h2>
+    <div class="section__body accordion acc-content" style="display: block;"  data-accordion-body>
+      <div class="faq-list-holder">      
+        <div class="faq-list">
+          <div class="faq-list__item-description maxWidthConetn">
+            {%- if product.metafields.custom.how_to_use_image_ != blank -%}
+              <img class="fullWidthImg lazyload" data-src="{{ product.metafields.custom.how_to_use_image_ | img_url : "master" }}">
+            {%- endif -%}
+            {%- if product.metafields.custom.how_to_use_image_ != blank -%}
+              <img class="mobileViewImg lazyload" data-src="{{ product.metafields.custom.mobile_how_to_use | img_url : "master" }}">
+            {%- endif -%}
+            {% if product.metafields.custom.how_to_use_text != blank %}
+            <p class="faqImgDes cstmfontdessize">{{ product.metafields.custom.how_to_use_text }}</p>
+              {% endif  %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
+
+  {%- if product.metafields.custom.key_ingredients_head != blank -%}
+  <div class="faq-list__item-content custmPRoductfaq faqbtmBordr addcstmpdingtp">
+    <h2 data class="section-faq__title acc-head active" data-focus-element tabindex="0" data-accordion-toggle> {{ product.metafields.custom.key_ingredients_head }}</h2>
+    <div class="section__body acc-content" style="display: block;" >
+      <div class="faq-list-holder">      
+        <div class="faq-listt">
+          <div class="faq-list__item-description">
+            <div class="sctmfaqoptionslid">
+              {%- if product.metafields.custom.key_inigrediants_text1_image_ != blank -%}
+              <div class="faq-list">
+                <div class="faq-list__item-description">
+
+                  <img class="lazyload" data-src="{{ product.metafields.custom.key_inigrediants_text1_image_|img_url:"medium"}}">
+                 
+                  <h6>{{ product.metafields.custom.key_inigrediants_head1 }}</h6>
+                  <p>{{ product.metafields.custom.key_inigrediants_text1 }}</p>
+                </div>
+              </div>
+               {%- endif -%}
+              {%- if product.metafields.custom.key_inigrediants_text2_image_ != blank -%}
+              <div class="faq-list">
+                <div class="faq-list__item-description">
+                  
+                  <img class="lazyload" data-src="{{ product.metafields.custom.key_inigrediants_text2_image_|img_url:"medium"}}">
+                  
+                  <h6>{{ product.metafields.custom.key_inigrediants_head2 }}</h6>
+                  <p>{{ product.metafields.custom.key_inigrediants_text2 }}</p>
+                </div>
+              </div>
+              {%- endif -%}
+            {%- if product.metafields.custom.key_inigrediants_text3_image_ != blank -%}
+              <div class="faq-list">
+                <div class="faq-list__item-description">
+                  
+                  <img class="lazyload" data-src="{{ product.metafields.custom.key_inigrediants_text3_image_|img_url:"medium"}}">
+                  
+                  <h6>{{ product.metafields.custom.key_inigrediants_head3 }}</h6>
+                  <p>{{ product.metafields.custom.key_inigrediants_text3 }}</p>
+                </div>
+              </div>
+              {%- endif -%}
+              {%- if product.metafields.custom.key_ingredients_img_4 != blank -%}
+              <div class="faq-list">
+                <div class="faq-list__item-description">
+                  
+                  <img class="lazyload" data-src="{{product.metafields.custom.key_ingredients_img_4 |img_url:"medium"}}">
+                  
+                  <h6>{{ product.metafields.custom.key_ingredients_head_4 }}</h6>
+                  <p>{{product.metafields.custom.key_ingredients_text_4 }}</p>
+                </div>
+              </div>
+              {%- endif -%}
+    
+              {%- if product.metafields.custom.key_ingredients_img_5 != blank -%}
+              <div class="faq-list">
+                <div class="faq-list__item-description">
+                  
+                  <img class="lazyload" data-src="{{ product.metafields.custom.key_ingredients_img_5 |img_url : "medium" }}">
+                  
+                  <h6>{{ product.metafields.custom.key_ingredients_head5 }}</h6>
+                  <p>{{ product.metafields.custom.key_ingredients_text_5 }}</p>
+                </div>
+              </div>
+              {%- endif -%}
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
+
+  {%- if product.metafields.custom.all_description_head -%}
+  <div class="faq-list__item-content acc custmPRoductfaq addCstmpddingtop">
+   
+
+    <h2 data class="section-faq__title acc-head active" data-focus-element tabindex="0" data-accordion-toggle> {{ product.metafields.custom.all_description_head }}</h2>
+    <div class="section__body accordion__body acc-content" style="display:block;" data-accordion-body>
+      <div class="faq-list-holder mrginBtmNne">      
+        <div class="faq-list">
+          <div class="faq-list__item-description">
+            <p>{{ product.metafields.custom.all_description_text }}</p>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+  {%- endif -%}
+  <div class="mainCstmFaqSec custmPRoductfaq cstmproduStages">
+    <h2 class="section-faq__title acc-head active">STAGES</h1>
+    <div class="acc-content" style="display: block;" >
+  {% if  product.metafields.custom.custom_product_title != blank -%}
+    <div class="faq-list__item-description faqPoints">
+      <p>{{ product.metafields.custom.custom_product_title }}</p>
+    </div>
+      {% endif %}
+    <div class="mainfaqpagbtns">
+    {% if  product.metafields.custom.stage_1 != blank -%}
+      <a class="mainfaqpagbtnsst1" href="#">{{ product.metafields.custom.stage_1 }}</a>
+      {% endif %}
+    {% if product.metafields.custom.stage_2 != blank -%}
+      <a class="mainfaqpagbtnsst2" href="#">{{ product.metafields.custom.stage_2 }}</a>
+      {% endif %}
+      {% if product.metafields.custom.stage_3 != blank -%}
+      <a class="mainfaqpagbtnsst3" href="#">{{ product.metafields.custom.stage_3 }}</a>
+        {% endif %}
+        {% if product.metafields.custom.stage_4 != blank -%}
+      <a class="mainfaqpagbtnsst4" href="#">{{ product.metafields.custom.stage_4 }}</a>
+          {% endif %}
+    </div>
+  </div>
+  </div>
+
+  {% if product.metafields.custom.ingred_big_image != blank -%}
+  <div class="faq-list__item-content custmPRoductfaq faqbtmBordr Maincstmnewproductdtls">
+    <h2 data class="section-faq__title acc-head active" data-focus-element tabindex="0" data-accordion-toggle>PRODUCT DETAILS</h2>
+    <div class="section__body acc-content" style="display: block;" data-accordion-body>
+      <div class="faq-list-holder">      
+        <div class="cstmnewproductdtls">
+         {{ product.metafields.custom.ingred_big_image }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <div class="faq-list__item-content custmPRoductfaq faqbtmBordr Maincstmnewproductdtls">
+    <h2 data class="section-faq__title acc-head" data-focus-element tabindex="0" data-accordion-toggle>CUSTOMER REVIEWS</h2>
+    <div class="section__body acc-content" data-accordion-body>
+      <div class="faq-list-holder">      
+        <div class="cstmnewproductdtls maincstomerReview">
+          <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .custom_flex{
+    display: flex;
+  }
+  .flxwrap{
+    flex-wrap:wrap;
+  }
+  .cstmflxproprty {
+    justify-content: space-between;
+    padding: 0 0 2rem;
+    margin-top: 1rem;
+    flex-wrap:wrap;
+  }
+  .custom_flex.flxwrap .faq-list {
+    width: calc(25% - 1rem);
+    margin-top:1.5rem;
+    text-align:center;
+  }
+  .tab-content.current,.faq-list__item-description p{
+    font-size:12px;
+    line-height:1.75;
+    font-weight:500;
+  }
+  .section-faq .accordion__body{
+    margin:0 auto;
+  }
+  .faq-list__item-description img {
+    width: 100%;
+    max-width:80px;
+  }
+  .faq-list__item-description img.fullWidthImg {
+    max-width: 100%;
+  }
+  .mobileViewImg{
+    display:none;
+  }
+  .cstmimgUrlPopup img{
+    width:100%;
+    max-width:400px;
+  }
+  .custmPRoductfaq h2.section-faq__title ,h2.section-faq__title{
+    font-weight: 500;
+    font-size: 25px;
+    font-family: BebasNeue;
+    margin-bottom:1.5rem;
+  }
+  .template-product .custmPRoductfaq {
+    border-bottom: 1px solid #707070;
+  }
+  .template-product .faq-list__item-content.custmPRoductfaq.cstmaddPdingTop {
+    padding-top: 1.5rem;
+  }
+  .faq-list__item-content.custmPRoductfaq.cstmaddPdingTop h2.section-faq__title {
+    margin-bottom: 1.5rem;
+  }
+  .faq-list__item-content.custmPRoductfaq.cstmaddPdingTop .section__body.accordion {
+    padding-bottom: 0;
+  }
+  p.faqImgDes.cstmfontdessize {
+    font-size: 15px;
+    font-weight: 600;
+    margin:1rem 0 0;
+  }
+  body#kick-start-cleanser p.faqImgDes.cstmfontdessize{
+    max-width: 260px;
+  }
+  .product-grid--mobile-slider:not(.flickity-slider--default) .product-item{
+    width:calc(100% - 100px);
+  }
+  .acc-container {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .acc {
+    margin-bottom: 10px;
+  }
+
+  .acc-head {
+    font-size: 1rem;
+    position: relative;
+    cursor: pointer;
+  }
+  .acc-head::after {
+    right: 21px;
+    position: absolute;
+    width: 20px;
+    height: 0;
+    content: "\f107";
+    transition: all .3s;
+    font-family: FontAwesome;
+    font-size: 1.3rem;
+    transform: rotate(-90deg);
+    top: 45%;
+  }
+
+  .acc-head p {
+    color: #707070;
+    font-weight: bold;
+  }
+
+  .acc-content {
+    display: none;
+  }
+  h2.section-faq__title.acc-head.active::after{
+    transform: rotate(0);
+    top:0;
+    right: 5px;
+  }
+  .tabs__head.product-tabs__head {
+    display: none;
+  }
+  p.faqPoints {
+    font-weight: 600;
+    margin: 0 0 1rem;
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .mainfaqpagbtns {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: BebasNeue;
+    padding-bottom: 1.5rem;
+/*     margin-bottom:1.5rem; */
+  }
+  .mainfaqpagbtns a {
+    display: inline-block;
+    padding: 10px 10px;
+    margin: 12px 6px 0 0;
+    width: calc(25% - 2rem);
+    color: #fff;
+    text-align: center;
+  }
+  a.mainfaqpagbtnsst1 {
+    background: #6ACBDF;
+  }
+  a.mainfaqpagbtnsst2 {
+    background: #FF767D;
+  }
+  a.mainfaqpagbtnsst3 {
+    background: #26DEA6;
+  }
+  a.mainfaqpagbtnsst4 {
+    background: #FFB25B;
+  }
+  .sctmfaqoptionslid {
+    justify-content: space-between;
+    width:100%;
+  }
+  .sctmfaqoptionslid::-webkit-scrollbar {
+    width: 0;
+  }
+  .template-product  .cstmflxproprty .faq-list__item-description.boldFontText p {
+    font-weight: 600;
+  }
+  .section__body.accordion{
+    border:0;
+    padding-bottom:1rem;
+    margin-bottom:1rem;
+  }
+  .faqbtmBordr .section__body {
+    padding-bottom: 1rem;
+  }
+  .custom_flex.flxwrap.cstmflxproprty.cstmdesbotmBrodr.pdngbtmNone h2.section-faq__title.fullWidthContnt.acc-head {
+    margin: 0;
+  }
+  h2.section-faq__title {
+    margin-top: 0;
+  }
+  .faq-list__item-description h6 {
+    font-weight: 600;
+    font-family: Europa_Regular;
+    font-size: 15px;
+  }
+  .section__body.accordion__body.acc-content .faq-list {
+    padding-bottom: 0;
+    margin-bottom: 5px;
+  }
+  .faq-list__item-content.custmPRoductfaq.cstmflxproprty {
+    margin-bottom: 1.5rem;
+  }
+ .template-product .custom_flex.flxwrap.cstmflxproprty .faq-list__item-description p{
+    font-size:12px;
+   line-height:1.2;
+  }
+  .faq-list__item-description p>strong{
+    padding:10px 0;
+  }
+  .cstmdesbotmBrodr {
+    border-bottom: 1px solid;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .mainProDesBor.cstmdesbotmBrodr {
+    padding-bottom: 0.5rem;
+  }
+  p.faqPoints.mrginBtmNne,.custmPRoductfaq h2.section-faq__title.fullWidthContnt {
+    margin: 0;
+  }
+  .pdngbtmNone {
+    margin-bottom: 0;
+  }
+  .faq-list__item-content.custmPRoductfaq.faqbtmBordr.addcstmpdingtp h2.section-faq__title {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .custom_flex.flxwrap .faq-list,
+  .template-product .faq-list__item-content.custmPRoductfaq.faqbtmBordr.addcstmpdingtp .faqbtmBordr .section__body,
+  .section__body.accordion__body.cstmpddingbtmaccBody {
+    padding-bottom: 1.5rem;
+  }
+  .custom_flex.sctmfaqoptionslid .faq-list {
+    padding-bottom: 0;
+    display: inline-block;
+  }
+  .faq-list__item-content.acc.custmPRoductfaq.addCstmpddingtop {
+    padding-top: 1.5rem;
+    border-bottom:0;
+  }
+  .sctmfaqoptionslid .faq-list img {
+    padding: 15px;
+  }
+  .template-product .mainCstmFaqSec.custmPRoductfaq.cstmproduStages .faq-list__item-description.faqPoints p{
+    font-size:12px;
+    margin-bottom:0;
+  }
+  .cstmnewproductdtls{
+    font-size:12px;
+    line-height:21px;
+    padding-bottom:.5rem;
+  }
+  p.mainPeodtlstext {
+    margin: 0;
+  }
+  .Maincstmnewproductdtls {
+    margin-top: 1.5rem;
+  }
+  .faq-list__item-content.acc.custmPRoductfaq.addCstmpddingtop {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid;
+  }
+  .maxWidthConetn {
+    max-width: 600px;
+  }
+  .faq-list__item-content.custmPRoductfaq.faqbtmBordr.addcstmpdingtp .faq-list__item-description {
+    padding: 0 1rem 0 0;
+  }
+  @media(min-width:749px){
+    div#template-product .form__width{
+      margin:1.5rem 0;
+    }
+    .tab-content__entry {
+      font-size: 1rem;
+      max-width: 430px;
+    }
+    .section-faq.accordion {
+      max-width: 1100px;
+      margin: 1rem auto 2rem;
+      width:calc(100% - 3rem);
+    }
+    .sctmfaqoptionslid p {
+      padding-bottom: 1rem;
+    }
+    .cstmflxproprty{
+      padding-bottom:1rem;
+      margin-top:1rem;
+    }
+    .sctmfaqoptionslid.slick-initialized.slick-slider .slick-track {
+      margin-left: 0;
+    }
+    .faq-list__item-description img{
+      max-width:130px;
+    }
+    .section_related__products {
+    max-width: 1130px;
+    margin: 1rem auto 1rem;
+    width: calc(100% - 3rem);
+  }
+  }
+  @media(max-width:749px){
+    .custom_flex.flxwrap .faq-list {
+      width: calc(50% - 1rem);
+    }
+    .mainfaqpagbtns a {
+      width: calc(33.33% - 10px);
+      padding:5px 10px;
+    }
+
+    .sctmfaqoptionslid .faq-list {
+      margin-right: 1rem;
+    }
+  .mainCstmFaqSec.custmPRoductfaq.cstmproduStages .slick-list {
+    padding: 0 100px 0 0;
+  }
+  .sctmfaqoptionslid .faq-list img {
+    padding: 0;
+  }
+  .mobileViewImg{
+    display:block;
+  }
+  .fullWidthImg{
+    display:none;
+  }
+  .template-product .faq-list__item-content.custmPRoductfaq.cstmaddPdingTop img.mobileViewImg {
+    max-width: 100%;
+  }
+}
+</style>
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".sctmfaqoptionslid").slick({
+      infinite: false,
+      slidesToShow:4,
+      arrows:false,
+      dots:true,
+      autoplay:false,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow:3
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+
+    });
+  });
+</script>
+

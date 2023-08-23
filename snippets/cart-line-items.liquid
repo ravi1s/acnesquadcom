@@ -1,0 +1,246 @@
+<div class="cart-dropdown__top {% if cart.item_count <= 0 %} is-hidden{% endif %}">
+      {% render 'top__cart_drawer' %}
+    </div>
+    
+{%- assign pair_products = ',' -%}
+{%- assign cart_products = '' -%}
+
+{% assign item_count = 0 %}
+ {% for line in cart.items %}
+   {% assign item_count = item_count | plus: '1' %}
+ {% endfor %}
+ <input type="hidden" name="id" id="cart_item_count" value="{{ item_count }}" />
+{%- for line_item in cart.items -%}
+  <div class="cart-item {% if forloop.last %} cart-item--no-border {% endif %}" test="{{ line_item.price  }}" data-item>
+    <div class="loader cart__loader"><div class="loader-indeterminate"></div></div>
+   {% unless line_item.price > 0 %} 
+    <div class="free_gift-item">
+     {% endunless %}
+    <div class="cart-item__image">
+      <a href="{% if line_item.price > 0 %}{{- line_item.url -}}{% else %}javascript:void(0);{% endif %}">
+        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{- line_item | img_url: '180x' -}}" alt="{{- line_item.title | strip_html | escape -}}" data-aspectratio="{{- line_item.image.aspect_ratio -}}"
+        data-sizes="auto">
+        <noscript>
+          <img src="{{- line_item | img_url: '180x' -}}" alt="{{- line_item.title | escape -}}">
+        </noscript>
+      </a>
+    </div>
+
+    <div class="cart-item__content">
+      <div class="cart-item__content-inner">
+        <h4 class="cart-item__title">
+          <a href="{% if line_item.price > 0 %}{{- line_item.url -}}{% else %}javascript:void(0);{% endif %}">
+            {{- line_item.product.title | strip_html -}}
+          </a>
+        </h4>
+  
+        <div class="cart-item__meta">
+          {%- unless line_item.product.has_only_default_variant -%}
+            {%- for option in line_item.options_with_values -%}
+              <p class="cart-item__selected-options">
+                <span>{{- option.name -}}:</span>
+          
+                <span>{{- option.value -}}</span>  
+              </p>
+            {%- endfor -%}
+          {%- endunless -%}
+
+          {%- if line_item.selling_plan_allocation -%}
+            <p class="cart-item__selling-plan">
+              <span>{{ line_item.selling_plan_allocation.selling_plan.name }}</span>
+            </p>
+          {%- endif -%}
+          
+          {%- assign property_size = line_item.properties | size -%}
+          {%- if property_size > 0 -%}
+            {%- for p in line_item.properties -%}
+              {%- assign property_first_char = p.first | slice: 0 -%}
+              {%- if p.last != blank and property_first_char != '_' -%} 
+                <p class="cart-item__property">
+                  <span>{{ p.first }}: </span>
+                  <span>
+                    {%- if p.last contains '/uploads/' -%}
+                      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                    {%- else -%}
+                      {{ p.last }}
+                    {%- endif -%}
+                  </span>
+                </p>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+<span class="loader1">
+ <i class="fa fa-spinner fa-spin" style="font-size:15px"></i>
+        </span>
+  {% if line_item.price > 0 %}
+        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart-item__remove is-not-relative" data-item-remove product_id="{{ line_item.product.id }}" data-id="{{- line_item.key -}}" title="{{- 'cart.general.remove' | t -}}">
+          {%- render 'icon-delete' -%}
+  
+          {{- 'cart.general.remove' | t -}}
+        </a>
+    {% endif %}
+      </div>    
+
+ <!--   new ui changes -->
+    <div class="price-qunt">
+        <p class="cart__price">
+    {% if line_item.price > 0 %}
+        {%- assign discounted = false -%}
+        {%- assign sale = false -%}
+
+        {%- if line_item.original_price > 0 -%}
+          {%- assign discounted = true -%}
+        {%- endif -%}
+        
+        {%- if line_item.variant.compare_at_price > line_item.price -%}
+          {%- assign sale = true -%}
+        {%- endif -%}
+        
+        {%- if sale or discounted -%}
+          <ins>{{- line_item.original_price | times: line_item.quantity | money_without_trailing_zeros -}}</ins>
+        {%- else -%}
+          {{- line_item.final_price | money_without_trailing_zeros -}}
+        {%- endif -%}
+        
+        {%- if sale -%}
+          <del>{{- line_item.variant.compare_at_price | times: line_item.quantity | money_without_trailing_zeros-}}</del>
+        {%- endif -%}
+      
+      {% comment %}
+        {%- if discounted -%}
+          <del>{{- line_item.original_price | money_without_trailing_zeros -}}</del>
+        {%- endif -%}
+        {% endcomment %}
+        {%- if line_item.unit_price -%}
+          {%- capture unit_price_separator -%}
+            <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+          {%- endcapture -%}
+  
+          {%- capture unit_price_base_unit -%}
+            {%- if line_item.unit_price_measurement.reference_value != 1 -%}
+              {{- line_item.unit_price_measurement.reference_value -}}
+            {%- endif -%}
+            {{- line_item.unit_price_measurement.reference_unit -}}
+          {%- endcapture -%}
+  
+          <span class="line__price">
+            <small class="visually-hidden">{{ 'products.product.unit_price_label' | t }}</small>
+            <small>{{ line_item.unit_price | money_without_trailing_zeros }} {{ unit_price_separator }} {{ unit_price_base_unit }}</small>
+          </span>
+        {%- endif -%}
+      {% else %}
+        <span>Free</span>
+      {% endif %}
+      </p>
+    
+      <div class="cart__quantity" data-quantity-holder {% if line_item.price < 1 %}style="display:none;"{% endif %}>
+        <button type="button" class="cart__quantity-minus is-not-relative" product_id="{{ line_item.product.id }}" data-quantity-minus data-quantity-button title="
+          {{- 'cart.general.decrease_quantity_label' | t }} - {{ line_item.product.title | strip_html -}}">
+          {%- render 'icon-minus' -%}
+        </button>
+
+        {%- assign quantity = line_item.quantity -%}
+
+        {%- if line_item.variant.inventory_policy == 'deny' and line_item.variant.inventory_management != nil and line_item.variant.inventory_quantity < quantity -%}
+          {%- assign quantity = line_item.variant.inventory_quantity -%}
+        {%- endif -%}
+
+        <input type="number" readonly name="updates[]" id="updates_{{ line_item.key }}" class="cart__quantity-field" data-quantity-field
+        data-id="{{- line_item.key -}}" value="{{- quantity -}}" 
+        title="{{- 'cart.general.quantity_field_label' | t }} - {{ line_item.product.title | strip_html -}}" pattern="[0-9]*">
+
+        <button type="button" class="cart__quantity-plus is-not-relative" data-quantity-plus data-quantity-button title="
+          {{- 'cart.general.increase_quantity_label' | t }} - {{ line_item.product.title | strip_html -}}">
+          {%- render 'icon-plus' -%}
+        </button>
+      </div>
+      </div>
+  <!--   end cart__price changes -->
+    </div>
+
+    {%- if line_item.original_price > line_item.final_price -%}
+      {%- for discount in line_item.line_level_discount_allocations -%}
+        <p class="cart__discount">
+          {%- render 'icon-tags' -%}
+          
+          {%- assign label = 'cart.general.discount_label' | t -%}
+          {%- assign discount_price = discount.amount | money -%}
+
+          <span>{{- label | replace: '||amount||', discount_price | replace: '||title||', discount.discount_application.title -}}</span>
+        </p>
+      {%- endfor -%}
+    {%- endif -%}
+      
+    {%- assign cart_products = cart_products | append: line_item.product.handle | append: ',' -%}
+    {%- assign _tags = line_item.product.tags | join: ',' -%}
+    {%- assign upsell_separator = '_upsell_' -%}
+
+    {%- if _tags contains upsell_separator -%}
+      {%- assign _handle = _tags | split: upsell_separator | last | split: ',' | first -%}
+      {%- assign handle_separtor = _handle | append: ',' | prepend: ',' -%}
+      
+      {%- unless pair_products contains handle_separtor -%}
+        {%- assign pair_products = pair_products | append: _handle | append: ',' -%}
+      {%- endunless -%}
+    {%- endif -%}
+  </div>
+  {% unless line_item.price > 0 %} 
+        </div>
+     {% endunless %}
+{%- endfor -%}
+
+{%- if pair_products != '' -%}
+  {%- assign uniq_pair_products = '' -%}
+  {%- assign pair_products = pair_products | split: ',' -%}
+  {%- assign cart_products = cart_products | prepend: ',' -%}
+
+  {%- for handle in pair_products -%}
+    {%- assign handle_separator = handle | prepend: ',' | append: ',' -%}
+
+    {%- if cart_products contains handle_separator -%}
+      {%- continue -%}
+    {%- endif -%}
+    
+    {%- assign uniq_pair_products = uniq_pair_products | append: handle | append: ',' -%}
+  {%- endfor -%}
+
+  {%- if uniq_pair_products != '' -%}
+    <script>
+      window.pairWithProducts = {{ uniq_pair_products | remove_first: ',' | split: ',' | json }};
+    </script>
+  {%- endif -%}
+{%- endif -%}
+<style>
+
+  /*   ux chnages */ 
+  .cart-item__remove{
+    bottom: 27px;
+    right: 0px;
+    top: 20px;
+  }
+  .price-qunt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  .cart-item__content {
+    padding: 0 20px;
+}
+  h4.cart-item__title {
+    margin: 0;
+}
+/* end ux chnages */
+  
+  .cart-item__remove .icon{
+    height:20px;
+    width:20px;
+  }
+  .cart-item {
+    border-left: 1px solid var(--border);
+  }
+  .cart__quantity .icon {
+    width: 13px;
+    height: 13px;
+  }
+</style>

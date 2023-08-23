@@ -1,0 +1,100 @@
+<!-- ===============homeslickslider======================-->
+<div class="mainquizIntrosec brick--margin">
+  <div class="mainquizIntrosntnt">
+    {% for block in section.blocks %}
+    <div class="mainquizIntrocntnt">
+      <div class="quizIntrocntnt">
+        <img class="QuizImg quizIntroImg lazyload" loading="lazy" data-src="{{ block.settings.image1 | img_url : 'master'}}" title="" alt="{{ block.settings.sllideTitle }}" width="100%" height="100%">
+       <h1 class="quizIntrottl ">{{ block.settings.sllideTitle }}</h1>
+        <h3 class="quizIntrobldttl textbtmMargin">{{ block.settings.slideHead }}</h3>   
+        <p class="QuizDes textbtmMargin">{{ block.settings.slideDes}}</p>
+      </div>
+      <a href="{{ block.settings.Button_Url}}">
+        <div class="mainQuizeIntroBtn homebtnslideDes">
+          <p>{{ block.settings.Button_des}}</p>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "slick",
+    "settings": [
+],
+ 
+"blocks": [
+    {
+      "type": "slickslider",
+      "name": "slick Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "sllideTitle",
+          "label": "sllide Title "
+         
+        },
+        {
+          "type": "text",
+          "id": "slideHead",
+          "label": "sllide Heading "
+         
+        },
+        {
+          "type": "text",
+          "id": "slideDes",
+          "label": "Description"
+        },
+		{
+          "type": "text",
+          "id": "Button_des",
+          "label": "button description"
+        },
+		{
+          "type": "url",
+          "id": "Button_Url",
+          "label": "button url"
+        }
+    ]
+   }
+  ],
+  "presets": [
+     {
+    	"name": "home slider"
+     }
+  ]
+}
+{% endschema %}
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".mainquizIntrosntnt").slick({
+      infinite: false,
+      slidesToShow:3,
+      arrows:false,
+      dots:true,
+      autoplay:false,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow:2
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+
+    });
+  });
+</script>

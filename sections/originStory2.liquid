@@ -1,0 +1,147 @@
+<!-- =========================originStory2 section  =========================================-->
+<div class="mainoriginStroySlidesec">
+  <div class="seprator_line"></div>
+   <div class="paddingGap origin_story_panel origHeading breaklineBorder">
+    <p class="origHeadingContent headingWidth">{{ section.settings.title }}</p>
+    <p class="origHeadingDes">{{ section.settings.titleDes }}</p>
+  </div>
+  <div class="mainquizIntrosecs paddingGap">
+      <div class="mainQuizWhiteBack">
+      <p class="quizIntrodes">{{ section.settings.description }}</p>
+      <div class="mainquizIntrosntnt1">
+        {% for block in section.blocks %}
+         <div class="mainvideoImagetiltdes">
+           <div class="originStrymainImgTtlDes dflex">
+          {% if block.settings.images != blank %}  <img class="originStrymainImg" src="{{ block.settings.images | img_url : 'master' }}">{% endif %}
+             <div class="originStrymainTtlDes">
+               <p class="originStrymainttl">{{ block.settings.sllideTitle }}</p>
+               <p class="originStrymainDes">{{ block.settings.slideDes }}</p>
+             </div>
+           </div>
+          {% if block.settings.backVideos != blank %}
+            <div class="mainVideo">
+              <video poster="{{ block.settings.poster | img_url: 'master' }}" preload="none" loop="loop" controls="" playsinline="" muted="" disablepictureinpicture controlslist="nodownload">
+                <source type="video/mp4" src="{{ block.settings.backVideos }}">
+              </video>
+            </div>
+          {% endif %}
+         </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="mainoriginBottomVideoText paddingGap">
+    <p class="originBottomVideodes">{{ section.settings.botomDes }}</p>
+    <a class="originBottomVideobtn" href="{{ section.settings.botomDesBtmUrl }}">{{ section.settings.botomDesBtm }}</a>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Origin Story Videos",
+    "settings": [
+	{
+		"type":"text",
+		"id":"title",
+		"label":"Title"
+	},
+	{
+		"type":"text",
+		"id":"titleDes",
+		"label":"description"
+	},
+    {
+		"type":"text",
+		"id":"botomDes",
+		"label":"bottom description"
+	},
+    {
+		"type":"text",
+		"id":"botomDesBtm",
+		"label":"bottom button text"
+	},
+    {
+		"type":"url",
+		"id":"botomDesBtmUrl",
+		"label":"bottom button url"
+	}
+  ],
+ 
+"blocks": [
+  {
+    "type":"video",
+    "name":"Video",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "images",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "sllideTitle",
+        "label": "sllide Title "
+       
+      },
+      {
+        "type": "text",
+        "id": "slideDes",
+        "label": "Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "poster",
+        "label": "Poster Image"
+      },
+      {
+        "type" : "text",
+        "label" : "video",
+        "id" : "backVideos"
+      }
+    ]
+  }
+  ],
+  "presets": [
+     {
+    	"name": "Origin Story Videos"
+     }
+  ]
+}
+
+{% endschema %}
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".mainquizIntrosntnt1").slick({
+      infinite: false,
+      slidesToShow:2,
+      slidesToscroll:2,
+      arrows:false,
+      dots:true,
+      autoplay:false,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 3,
+            infinite: false
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1,
+            infinite: false
+          }
+        }
+      ]
+
+    });
+  if( $(window).width() > 767){
+    $('video').mouseenter(function(){
+      this[this.paused ? 'play' : 'pause']();
+    });
+    $('video').mouseleave(function(){
+      this[this.play ? 'pause' : 'play']();
+    });
+  }
+});
+</script>

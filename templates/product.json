@@ -1,0 +1,102 @@
+{
+  "sections": {
+    "main": {
+      "type": "product",
+      "blocks": {
+        "price_and_title": {
+          "type": "price_and_title",
+          "settings": {
+            "subheading_option": "breadcrumb"
+          }
+        },
+        "tabs": {
+          "type": "tab_richtext",
+          "settings": {
+            "style": "tabs",
+            "title_1": "Tab",
+            "raw_content_1": "",
+            "title_2": "Info",
+            "raw_content_2": "",
+            "title_3": "",
+            "raw_content_3": "",
+            "title_4": "",
+            "raw_content_4": "",
+            "title_5": "",
+            "raw_content_5": ""
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "info_page": "",
+            "show_labels": false,
+            "show_quantity": true,
+            "show_payment_button": false,
+            "subscriptions_enable_selectors": true
+          }
+        },
+        "pickup": {
+          "type": "pickup",
+          "disabled": true,
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "price_and_title",
+        "tabs",
+        "form",
+        "pickup"
+      ],
+      "settings": {
+        "product_sticky_enable": false,
+        "image_layout": "stacked",
+        "image_size": "normal",
+        "show_cart_bar": false,
+        "enable_zoom": false,
+        "enable_video_looping": false
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "disabled": true,
+      "settings": {
+        "enable_accordion": true
+      }
+    },
+    "related": {
+      "type": "related",
+      "settings": {
+        "related_products_enable": true,
+        "limit": 3,
+        "product_recommendations_heading": "COMPLETE YOUR ROUTINE SQUAD",
+        "show_recently_viewed": false,
+        "product_recently_limit": 4,
+        "product_recently_heading": "Recently viewed"
+      }
+    },
+    "1659335561fad72223": {
+      "type": "apps",
+      "blocks": {
+        "0066eefe-5c3e-4660-835c-877410cd970f": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+          "disabled": true,
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "0066eefe-5c3e-4660-835c-877410cd970f"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "reviews",
+    "related",
+    "1659335561fad72223"
+  ]
+}

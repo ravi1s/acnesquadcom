@@ -1,0 +1,231 @@
+<!-- =============== Section/QuizeIntro ========================-->
+<div class="container-fluid mainquizIntrosec">
+  <div class=" flexWrap mainquizIntrottl">
+    <h1 class="quizIntrottl textbtmMargin">{{ section.settings.title }}</h1>
+    <h3 class="quizIntrobldttl textbtmMargin">{{ section.settings.mainTitle }}</h3>      
+  </div>
+  <div class="mainQuizWhiteBack">
+  <p class="quizIntrodes">{{ section.settings.description }}</p>
+
+<!--  Video section -->
+          <div class="mainVideo quiz-video">
+          <video preload="none" loop="loop" autoplay="autoplay" playsinline="" muted="" controls>
+          <source type="video/mp4" src="{{ section.settings.backVideo1 }}">
+          Your browser does not support HTML5 video.
+          </video>
+          </div>
+<!-- End Video section -->
+
+  <div class="mainquizIntrosntnt">
+    {% for block in section.blocks %}
+      {% if block.type == 'Quiz' %}
+    {%- liquid assign image = block.settings.image1 -%}
+    <div>
+    <div class="mainquizIntrocntnt">
+      <div class="quizIntrocntnt">
+        <img class="QuizImg quizIntroImg" src="{{ block.settings.image1 | img_url : 'master'}}">
+        
+        <h1 class="quizIntrottl ">{{ block.settings.sllideTitle }}</h1>
+<!--    <h1 class="quizIntrottl ">{{ block.settings.sllideTitle }}</h1>
+        <h3 class="quizIntrobldttl textbtmMargin">{{ block.settings.slideHead }}</h3>   
+        <p class="QuizDes textbtmMargin">{{ block.settings.slideDes}}</p> -->
+        </div>
+      <a href="{{ block.settings.Button_Url}}">
+<!--         <div class="mainQuizeIntroBtn dflex">
+          <h2>{{ block.settings.Button_Text}}</h2>
+          <p>{{ block.settings.Button_des}}</p>
+        </div> -->
+      </a>
+    </div>
+    </div>
+        {% endif %}
+      {% if block.type == 'video' and block.settings.backVideo != 'blank' %}
+        <div class="mainVideo">
+          <video preload="none" loop="loop" autoplay="autoplay" playsinline="" muted="">
+          <source type="video/mp4" src="{{ block.settings.backVideo }}">
+          Your browser does not support HTML5 video.
+        </video>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+      <div class="mainquizeintroBtmSlid">
+        <p class="QuizDes textbtmMargin">{{ section.settings.description_2 }}</p>
+        <div class="into-quiz-sec form-box">
+        <div><input class="quizname quizIntroInput textbtmMargin" type="text" placeholder="Enter your name" required><br>
+        <span class="quizerrors" id="qnameerror"></span>
+        </div>
+        <div> <input id="email_phone" class="quizphone quizIntroInput textbtmMargin" type="email" placeholder="Enter your Mobile No." required>
+        <span class="quizerrors" id="quizphoneerror"></span>
+        </div>
+        </div>
+        <div class="quizeintonxtback">
+          <a href="{{section.settings.laterButnUrl}}" class="takeLaterBtn QuizBtn">{{ section.settings.lateTex }}</a>
+          <input  type="submit" class="startBtn QuizstartBtn QuizBtn" value="Submit">
+<!--           <a href="{{section.settings.start_url}}" class="startBtn QuizstartBtn QuizBtn">
+            {{- section.settings.startText }}
+          </a> -->
+        </div>
+      </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "QuizSec",
+    "settings": [
+	{
+		"type":"text",
+		"id":"title",
+		"label":"Title"
+	},
+	{
+		"type":"text",
+		"id":"mainTitle",
+		"label":"main title"
+	},
+	{
+		"type":"text",
+		"id":"description",
+		"label":"title description"
+	},
+	{
+		"type":"text",
+		"id":"description_2",
+		"label":"bottom Description"
+	},
+	{
+		"type":"text",
+		"id":"startText",
+		"label":"start text button"
+	},
+	{
+		"type":"url",
+		"id":"start_url",
+		"label":"start text url"
+	},
+	{
+		"type":"text",
+		"id":"lateTex",
+		"label":"later button text"
+	},
+	{
+		"type":"url",
+		"id":"laterButnUrl",
+		"label":"later buton url"
+	},
+      {
+        "type" : "text",
+        "label" : "video1", 
+        "id" : "backVideo1"
+      }
+],
+ 
+"blocks": [
+    {
+      "type": "Quiz",
+      "name": "Quiz Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "sllideTitle",
+          "label": "sllide Title "
+         
+        },
+        {
+          "type": "text",
+          "id": "slideHead",
+          "label": "sllide Heading "
+         
+        },
+        {
+          "type": "text",
+          "id": "slideDes",
+          "label": "Description"
+        },
+		{
+          "type": "text",
+          "id": "Button_Text",
+          "label": "button title"
+        },
+		{
+          "type": "text",
+          "id": "Button_des",
+          "label": "button description"
+        },
+		{
+          "type": "url",
+          "id": "Button_Url",
+          "label": "button url"
+        }
+    ]
+   },
+  {
+    "type":"video",
+    "name":"Video",
+    "settings": [
+      {
+        "type" : "text",
+        "label" : "video",
+        "id" : "backVideo"
+      }
+    ]
+  }
+  ],
+  "presets": [
+     {
+    	"name": "QuizSec"
+     }
+  ]
+}
+{% endschema %}
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    $(".mainquizIntrosntnt").slick({
+      infinite: false,
+      slidesToShow:4,
+      arrows:true,
+      autoplay:true,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 3,
+            infinite: false
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1,
+            infinite: false
+          }
+        }
+      ]
+
+    });
+
+       if( $(window).width() > 767){  
+    $('video').mouseenter(function(){
+      this[this.paused ? 'play' : 'pause']();
+    });
+    $('video').mouseleave(function(){
+      this[this.play ? 'pause' : 'play']();
+    });
+   }
+    
+  });
+
+</script>
+<style>
+  .quizerrors {
+    color: red;
+    font-size: 12px;
+    display: block;
+  }
+</style>

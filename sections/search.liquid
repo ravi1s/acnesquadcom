@@ -1,0 +1,40 @@
+{% comment %}
+{%- assign grid_strings = 'large-up--one-quarter medium--one-half small--one-half' -%}
+
+<section class="page search-page" data-section-type="search" data-section-id="{{ section.id }}">
+
+    <div class="search-outer">
+      <form action="{{ routes.search_url }}" class="search-form">
+        <input type="hidden" name="type" value="product"/>
+        <input
+        type="text"
+        name="q"
+        class="search-box"
+        aria-label="{{ 'general.search.placeholder' | t }}"
+        placeholder="{{ 'general.search.title' | t }}"
+        value="{{ search.terms }}"/>
+        <button type="submit" class="btn search-submit">{{ 'general.search.submit' | t }}</button>
+      </form>
+    </div>
+
+    {% if search.performed %}
+      {% paginate search.results by 36 %}
+        {% if search.results == empty %}
+          <p class="search__caption caps">{{ 'general.search.no_results_for' | t }} <span class="strong">{{ search.terms | escape }}</span></p>
+        {% else %}
+          <p class="search__caption caps">{{ 'general.search.results_for' | t }} <span class="strong">{{ search.terms | escape }}</span></p>
+          <div class="product-grid product-grid--search{% unless settings.product_grid_outline %} product-grid--borderless{% endunless %}" id="SearchLoop">
+            {%- for product in search.results -%}
+              {%- if product.object_type == 'product' -%}
+               {% if product.price > 0 %}
+                {% render 'product-grid-item', product: product, grid_strings: grid_strings, index: forloop.index %}
+               {% endif %}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {% endif %}
+        {% render 'pagination', paginate: paginate %}
+      {% endpaginate %}
+    {% endif %}
+</section>
+{% endcomment %}

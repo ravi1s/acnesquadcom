@@ -1,0 +1,57 @@
+{% if linklists[collection.handle].links.size > 0 %}
+  <section class="collection collection-{{ collection.handle }}"
+    data-section-id="{{ section.id }}"
+    data-section-type="collection">
+    {% render 'subcollections', collection: collection, section: section %}
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Subcollection",
+  "templates": ["collection"],
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Create a [navigation list](/admin/menus) with the same name as this collection and link to other collections. [Learn more](https://invisiblethemes.com/link/broadcast/docs/subcollection)"
+    },
+    {
+      "type": "select",
+      "id": "subcollection_layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "checkbox",
+      "id": "subcollection_description",
+      "label": "Show description",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "select_image",
+      "label": "Select a photo to display",
+      "options": [
+        {
+          "value": "collection",
+          "label": "Collection image"
+        },
+        {
+          "value": "product",
+          "label": "Product image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

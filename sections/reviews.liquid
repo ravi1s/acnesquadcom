@@ -1,0 +1,52 @@
+{%- if settings.enable_product_reviews -%}
+
+  {%- capture reviews_markup -%}
+    <div class="product__reviews" id="reviews-scroll-{{ product.id }}">
+      <div id="shopify-product-reviews" data-id="{{ product.id }}">{{ product.metafields.spr.reviews }}</div>
+    </div>
+  {%- endcapture -%}
+
+  {%- if section.settings.enable_accordion -%}
+    <div class="reviews-holder" data-section-id="{{ section.id }}" data-section-type="reviews" id="reviews-{{ section.id }}">
+      <section class="accordion" data-accordion>
+        <h2 data class="accordion__title" data-focus-element tabindex="0" data-accordion-toggle>
+          {%- assign reviews_label = 'products.general.reviews' | t -%}
+          {%- assign review_label = 'products.general.review' | t -%}
+          {%- assign reviews_count = product.metafields.spr.reviews | split: '"reviewCount":' | last | split: ',' | first | remove: '"' | plus: 0 -%}
+
+          {%- if reviews_count > 0 -%}
+            {{ reviews_count }}
+          {%- endif -%}
+
+          {{ reviews_count | pluralize: review_label, reviews_label }}
+        </h2>
+
+        <div class="accordion__body" data-accordion-body>
+          {{ reviews_markup }}
+        </div>
+      </section>
+    </div>
+  {%- else -%}
+    {{ reviews_markup | replace: 'product__reviews', 'product__reviews product__reviews--alt' }}
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Reviews",
+    "class": "accordions-holder",
+    "templates": ["product"],
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "You should enable the reviews from the Theme Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_accordion",
+        "label": "Enable accordion",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

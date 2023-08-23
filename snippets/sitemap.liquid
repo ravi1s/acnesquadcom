@@ -1,0 +1,179 @@
+<!--  <script>
+  $.ajax({
+        type: "GET",                
+        url: "/pages.json",  
+        success: function(result) {
+          for(var i=0; result['pages'].length >= i; i++ ){                   
+             var html = '<li> <a href=/pages/' + result['pages'][i]['handle'] + '> ' + result['pages'][i]['title'] + ' </a> </li>';
+          	$('.pagelist').append(html);    
+          }      
+        },
+        error: function(e) {
+        }
+    });
+-->
+<script>
+  $.ajax({
+        type: "GET",                
+        url: "/pages.json",  
+        success: function(result) {
+          for(var i=0; result['pages'].length >= i; i++ ){                   
+             var html = '<li> <a href=/pages/' + result['pages'][i]['handle'] + '> ' + result['pages'][i]['title'] + ' </a> </li>';
+          	$('.pagelist').append(html);    
+          }      
+        },
+        error: function(e) {
+        }
+    });
+</script>
+{% assign brightness = section.settings.color_bg | color_brightness %}
+{% assign alpha = section.settings.color_bg | color_extract: 'alpha' %}
+
+<div id="section-id-{{ page }}" class="section-id-{{ page }} cf " data-cc-animate>
+ 
+
+  <div class="section-spacing wide-container">
+    <div class="container container--large">
+      <div class="product-list product-list--grid mob-two-col  mob-show-4 grid--uniform flexible-layout--columns-3 align-left">
+        
+      <div class="product-block column third text-column align-left">
+        <h2 class="feature-header align-left feature-header--visible" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.2s">
+         Product List
+        </h2>
+        <hr class="hrr">
+        <div class="text-column__text rte align-left" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.3s">
+          <ul class="tree blogList">
+            {% for product in collections.all.products %}
+            <li>
+              <a href="{{product.url}}">
+                {{product.title}}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="product-block column third text-column align-left ">
+        <h2 class="feature-header align-left feature-header--visible" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.2s">
+          Pages
+        </h2>
+        <hr class="hrr">
+        <div class="text-column__text rte align-left" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.3s">
+          <ul class="pagelist tree">
+            <div class="text-column__text rte align-left" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.3s">
+
+            {% for link in linklists.all-pages.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a>  
+            </li>
+            {% endfor %}
+            
+        </div>
+          </ul>
+        </div>
+      </div>
+
+            <div class="product-block column third text-column align-left">
+          <h2 class="feature-header align-left feature-header--visible" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.2s">
+            Navigations
+          </h2>
+              <hr class="hrr" style="">
+          <div class="text-column__text rte align-left" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.3s">
+			<ul>
+            {% for link in linklists.main-menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a>
+             {% if link.links != blank %}
+              <ul>
+                {% for child_link in link.links %}  
+                <li><a href= "{{ child_link.url }}">{{ child_link.title }}</a>
+                  {% if child_link.links != blank %}
+                <li>
+
+                  <ul>
+                    {% for grandchild_link in child_link.links %}  
+                    <li><a href= "{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+
+                </li>
+                {% endif %} 
+                {% endfor %}
+              </ul>
+              {% endif %}  
+            </li>
+            {% endfor %}
+            </ul>
+        </div>
+          <h2 class="feature-header align-left feature-header--visible" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.2s">
+          Blog List
+        </h2>
+  
+        <div class="text-column__text rte align-left" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.3s">
+          <ul class="tree blogList">
+            {% for article in blogs. .articles %}
+            <li>
+              <a href="{{article.url}}">
+                {{article.title}}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    
+    </div>
+</div>
+
+    <style>
+      .product-block{
+        padding:20px;
+        width:33%;
+      }
+      .product-list{
+        display:flex;
+      }
+      .product-block .feature-header {   
+       color: #a99ef6;
+       }
+       .hrr{
+          border: 1px solid;
+           color: #a99ef6;
+      }
+      .text-column__text ul{
+            list-style: none;
+      }
+      .section-id-PageDrop .rte a {
+        text-decoration: none;
+        text-transform: capitalize;
+        letter-spacing: 0.03rem;
+    }
+.text-column__text ul li {
+    padding-left: 30px;
+    position: relative;
+  list-style: none;
+}
+
+.text-column__text ul li:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 20px;
+    top: 10px;
+    left: 0;
+    background:#a99ef6;
+}
+.text-column__text ul {
+    list-style: none;
+    border-left: 2px solid #a99ef6;
+}
+@media (max-width: 1024px) {
+  .product-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-block {
+    padding: 20px;
+    width: 90%;
+  }
+}
+    </style>

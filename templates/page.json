@@ -1,0 +1,142 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "show_title": true,
+        "show_content": true,
+        "text_size": 2,
+        "align_text": "text-left",
+        "height": "margin--medium",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "16623834408ee0729a": {
+      "type": "page-faq",
+      "blocks": {
+        "16623834401f1fce5c-0": {
+          "type": "heading",
+          "settings": {
+            "title": "Shipping & Returns"
+          }
+        },
+        "16623834401f1fce5c-1": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Payment Policy",
+            "content": "<ol>\n<li class=\"Payment__policy\">We accept online orders through COD or Prepaid. For Prepaid orders, we accept Visa, Master Card &amp; American Express Debit and Credit Cards. We also have payment wallets integrated.<\/li>\n<li class=\"Payment__policy\">Please note for Visa and Master Card, you will be required to submit your 16 digit card number, card expiry date, and a 3 digit CVV Number (on the back of your card) when you make an online transaction using your Credit or Debit Card. For American Express cards, you will be required to submit your 15-digit card number and 4 digit code.<\/li>\n<li class=\"Payment__policy\">If the amount has been deducted from your account, but you haven’t received a confirmation from us, you can reach out to our customer care team at <span><a style=\"color: #a99ef6;border-bottom: 1px solid;\" href=\"mailto:support@acnesquad.in\">support@acnesquad.in<\/a><\/span> or on <a style=\"color: #a99ef6;border-bottom: 1px solid;\" href=\"tel:1800-20-35-544\">1800-20-35-544<\/a> and provide the following information:\n<ol>\n<li class=\"Payment__polic\">Transaction Ref Number<\/li>\n<li class=\"Payment__polic\">Registered Email ID and Phone Number from which order was placed<\/li>\n<li class=\"Payment__polic\">Date &amp; Time of Transaction<\/li>\n<\/ol>\n<\/li>\n<\/ol>"
+          }
+        },
+        "16623834401f1fce5c-2": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "What is out shipping policy?",
+            "content": "<ol>\n<li class=\"Payment__policy\">The shipping charges are mentioned at the time of checkout.<\/li>\n<li class=\"Payment__policy\">Once your order has been confirmed, you will receive an email and SMS regarding order confirmation.<\/li>\n<li class=\"Payment__policy\">Once your order is dispatched, you will receive the tracking number and tracking link.<\/li>\n<li class=\"Payment__policy\">The estimated time of delivery may vary from state to state. Working days are Monday – Friday and we will try our best to furnish all orders within 4-7 working days.<\/li>\n<li class=\"Payment__policy\">If you are ordering products during a sale event, delivery may be delayed.<\/li>\n<li class=\"Payment__policy\">Partially Shipped orders are completely normal. Rest assured you will have to pay for the order in parts your received if opted for COD.<\/li>\n<li class=\"Payment__policy\">You can also track the status of your order on the Track My Order Page &lt;embed link here&gt; or by logging into your account.<\/li>\n<\/ol>"
+          }
+        },
+        "16623834401f1fce5c-3": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "What is our delivery policy?",
+            "content": "<ol>\n<li class=\"Payment__policy\">To ensure safety and hygiene of all our customers and our staff, there may be delays in delivery. We take extreme precaution on the safety of the products, while manufacturing, packing, and dispatching them.<\/li>\n<li class=\"Payment__policy\">COD option is available for all orders subject to promotions and offers.<\/li>\n<li class=\"Payment__policy\">If the shipments is damaged or tampered with, please do not accept it and inform our customer care immediately.<\/li>\n<li class=\"Payment__policy\">If the order is marked as delivered and you haven’t received the order, please inform our customer care team within 24hrs. We request you to give us 3 working days to investigate and resolve your query.<\/li>\n<li class=\"Payment__policy\">For all claims regarding shortage, damage, wrong product received, please inform our customer care team within 24hrs of receiving the order and we will resolve your query in 2-3 working days.<\/li>\n<li class=\"Payment__policy\">We are not responsible for damages and misplacement post-delivery.<\/li>\n<li class=\"Payment__policy\">We reserve the right to pause deliveries to any part of the country at any time and will inform you of the same. We advise you to enter your Pin Code correctly at the time of placing the order.<\/li>\n<li class=\"Payment__policy\">You can also track the status of your order on the Track My Order Page &lt;embed link here&gt; or by logging into your account.<\/li>\n<\/ol>"
+          }
+        },
+        "8ba6b5d0-1db2-4d02-ad7a-5f6dffb56d62": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "What is our cancellation policy?",
+            "content": "<ol>\n<li class=\"Payment__policy\">Orders once ‘fulfilled’ or dispatched are not eligible for cancellation.<\/li>\n<li class=\"Payment__policy\">If you wish to cancel your order before it is ‘fulfilled’, please log in to your account to check the status of the same and action cancellation if available. You can also contact our customer care if you have difficulty in the same.<\/li>\n<\/ol>"
+          }
+        },
+        "51777ca8-ad37-46dd-875e-704c5f2d018c": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "What is our return & exchange policy?",
+            "content": "<ol>\n<li class=\"Payment__policy\">Our Products are non-returnable and non-exchangeable due to hygiene reasons.<\/li>\n<li class=\"Payment__policy\">In case you would want a refund \/ replacement of your product, please contact our customer care within 24hrs of receiving the order. The agent may ask for subsequent proof such as images of the product, packaging, and invoice. We request you to provide us 3 working days to investigate the matter.<\/li>\n<li class=\"Payment__policy\">You will be eligible for a full refund or replacement without incurring any charges if:\n<ol>\n<li class=\"Payment__polic\">Products are missing from your order<\/li>\n<li class=\"Payment__polic\">Products are Damaged \/ Leaking<\/li>\n<li class=\"Payment__polic\">Wrong Product Received<\/li>\n<li class=\"Payment__polic\">Expired Product Received<\/li>\n<\/ol>\n<\/li>\n<li class=\"Payment__policy\">Replacement \/ Refund will not be processed if:\n<ol>\n<li class=\"Payment__polic\">The product is tampered with.<\/li>\n<li class=\"Payment__polic\">Invoice copy is missing.<\/li>\n<li class=\"Payment__polic\">Batch Number, Manufacturing Date, MRP is tampered with.<\/li>\n<li class=\"Payment__polic\">If it’s without original packaging.<\/li>\n<li class=\"Payment__polic\">If query is not raised within 24hrs of receiving the product.<\/li>\n<li class=\"Payment__polic\">Allergic reactions due to product usage – we recommend you do a small patch test before usage and go through the ingredient list on the product page in detail before placing an order.<\/li>\n<\/ol>\n<\/li>\n<\/ol>"
+          }
+        },
+        "ce23741e-700c-4a85-b915-bd1fa9f17aec": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "What is our refund policy?",
+            "content": "<ol>\n<li class=\"Payment__policy\">We may ask for some proof before initiating a refund.<\/li>\n<li class=\"Payment__policy\">Prepaid orders will take 5-7 business days for the refund to reflect in your account. You will receive a SMS and Email when the refund has been initiated and you may follow the link on the email to track your refund status.<\/li>\n<li class=\"Payment__policy\">COD orders will be refunded via bank transfers and may take 15 business days to reflect in your account.<\/li>\n<\/ol>"
+          }
+        }
+      },
+      "block_order": [
+        "16623834401f1fce5c-0",
+        "16623834401f1fce5c-1",
+        "16623834401f1fce5c-2",
+        "16623834401f1fce5c-3",
+        "8ba6b5d0-1db2-4d02-ad7a-5f6dffb56d62",
+        "51777ca8-ad37-46dd-875e-704c5f2d018c",
+        "ce23741e-700c-4a85-b915-bd1fa9f17aec"
+      ],
+      "settings": {
+        "check_tabs": "",
+        "width": "wrapper",
+        "height": "margin--medium",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "16627909537ad7fcf1": {
+      "type": "section-accordion",
+      "disabled": true,
+      "blocks": {
+        "1662790953fbf4c84f-0": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this to answer some common questions you hear from your customers. You could discuss product details, size fit, shipping policies, or anything you think would help merchants make an informed decision about your products. This section will appear across all products.<\/p>"
+          }
+        },
+        "1662790953fbf4c84f-1": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this to answer some common questions you hear from your customers. You could discuss product details, size fit, shipping policies, or anything you think would help merchants make an informed decision about your products. This section will appear across all products.<\/p>"
+          }
+        },
+        "1662790953fbf4c84f-2": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this to answer some common questions you hear from your customers. You could discuss product details, size fit, shipping policies, or anything you think would help merchants make an informed decision about your products. This section will appear across all products.<\/p>"
+          }
+        },
+        "1662790953fbf4c84f-3": {
+          "type": "text",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this to answer some common questions you hear from your customers. You could discuss product details, size fit, shipping policies, or anything you think would help merchants make an informed decision about your products. This section will appear across all products.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1662790953fbf4c84f-0",
+        "1662790953fbf4c84f-1",
+        "1662790953fbf4c84f-2",
+        "1662790953fbf4c84f-3"
+      ],
+      "settings": {
+        "title": "FAQ"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16623834408ee0729a",
+    "16627909537ad7fcf1"
+  ]
+}

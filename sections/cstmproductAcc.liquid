@@ -1,0 +1,43 @@
+<div class="mainCstmFaqSec custmPRoductfaq">
+  <h1 class="section-faq__title">{{section.settings.title}}</h1>
+  <p>{{section.settings.des}}</p>
+  {% for block in section.blocks %}
+  <a href="{{block.settings.titletext}}">{{block.settings.title_url}}</a>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+         "type" :"text",
+         "id" : "des",
+         "label" : "description"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "faq_btn Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "titletext",
+            "label": "button text"
+          },
+ 		  {
+            "type": "url",
+            "id": "title_url",
+            "label": "Btn Url"
+          }
+        ]
+      }  
+    ]
+  }
+{% endschema %}

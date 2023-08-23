@@ -1,0 +1,842 @@
+{
+  "sections": {
+    "slideshow": {
+      "type": "section-slideshow",
+      "blocks": {
+        "c5c3cb48-c5b1-4674-80b8-c14ee32e06d7": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/Desktop-1512x558-Revised.png",
+            "mobile_image": "shopify:\/\/shop_images\/Mobile-562x840-Revised.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "",
+            "description": "",
+            "flex_align": "align--middle-center",
+            "text_color": "text-light",
+            "transparent": true,
+            "link_text": "",
+            "link": "shopify:\/\/collections\/all",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "1b4c47d0-2e28-4ee4-97e1-cc64210e55be": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/ASQ_No_Zit_November_Banner__Desktop-new.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/DTC-Top-Banner-whatsApp-Revised-new.png",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "",
+            "description": "",
+            "flex_align": "align--top-left",
+            "text_color": "text-light",
+            "transparent": true,
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "6a1c3c4b-7e45-4060-9f09-478ac1aac882": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/Homepage_banner2.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Homepage_banner1.jpg",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "",
+            "description": "",
+            "flex_align": "align--top-left",
+            "text_color": "text-light",
+            "transparent": true,
+            "link_text": "",
+            "link": "shopify:\/\/collections\/all",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "slideshow-0": {
+          "type": "image",
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/b1.webp",
+            "mobile_image": "shopify:\/\/shop_images\/b1-mob.webp",
+            "overlay_opacity": 0,
+            "overlay_color": "rgba(0,0,0,0)",
+            "title": "",
+            "description": "",
+            "flex_align": "align--top-left",
+            "text_color": "text-light",
+            "transparent": true,
+            "link_text": "",
+            "link": "shopify:\/\/collections\/all",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "slideshow-1": {
+          "type": "image",
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/imgpsh_fullsize_anim.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Quiz-Mobile-562x840.png",
+            "overlay_opacity": 0,
+            "overlay_color": "rgba(0,0,0,0)",
+            "title": "",
+            "description": "",
+            "flex_align": "align--top-right",
+            "text_color": "text-light",
+            "transparent": true,
+            "link_text": "",
+            "link": "shopify:\/\/pages\/quiz-intro",
+            "button_color": "btn--black",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "971a1a0f-37ed-4a97-9453-705fb80aaf51": {
+          "type": "image",
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/b4.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/img5_ec101302-ae72-47ad-99e5-4bfaab723251.jpg",
+            "overlay_opacity": 0,
+            "overlay_color": "rgba(0,0,0,0)",
+            "title": "",
+            "description": "",
+            "flex_align": "align--middle-left",
+            "text_color": "text-light",
+            "transparent": true,
+            "link_text": "",
+            "link": "https:\/\/www.acnesquad.com\/collections\/all",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        },
+        "41385047-6983-419e-b729-54d17c50724e": {
+          "type": "image",
+          "settings": {
+            "bg_position": "center-center",
+            "image": "shopify:\/\/shop_images\/b5.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/img6_a31996de-4662-4761-91e6-4a78c07712d4.jpg",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "",
+            "description": "",
+            "flex_align": "align--middle-center",
+            "text_color": "text-light",
+            "transparent": false,
+            "link_text": "",
+            "link": "shopify:\/\/collections\/serum-collection",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        }
+      },
+      "block_order": [
+        "c5c3cb48-c5b1-4674-80b8-c14ee32e06d7",
+        "1b4c47d0-2e28-4ee4-97e1-cc64210e55be",
+        "6a1c3c4b-7e45-4060-9f09-478ac1aac882",
+        "slideshow-0",
+        "slideshow-1",
+        "971a1a0f-37ed-4a97-9453-705fb80aaf51",
+        "41385047-6983-419e-b729-54d17c50724e"
+      ],
+      "settings": {
+        "height": "screen-height-three-quarters",
+        "transition": "slide",
+        "arrows_style": true,
+        "dots_style": "circle",
+        "autoplay": false,
+        "autoplay_speed": 8
+      }
+    },
+    "109833cb-99e8-4746-8261-0e529b987333": {
+      "type": "offer-card",
+      "blocks": {
+        "a3af9503-4e5a-4f77-b33a-5e7ac970fbac": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Flat_25__off_Desktop.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Flat_25__off_Mobile_41ec66f5-be38-4424-9ec8-77e3c85ee26e.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": "shopify:\/\/products\/kick-start-cleanser-with-salicylic-acid-thymol-t-essence"
+          }
+        },
+        "0e98779e-9ac9-424f-9cb1-a9bbe57f0437": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Upto_35__off_Desktop_1.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Upto_35__off_Mobile_1.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": "shopify:\/\/collections\/serums-spot-correctors"
+          }
+        },
+        "96efb2e7-e9ff-4d60-9e92-b887bcd13991": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Upto_35__off_Desktop.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Upto_35__off_Mobile_adcd573c-5ca7-4390-a1c5-9b4d9e9fa91b.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": "shopify:\/\/collections\/regime-kit"
+          }
+        },
+        "d764a297-507e-447d-bcd4-61aa2e805ee4": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Free_Gifts_Desktop_2344c149-267f-48ff-8f16-ee081dc5b6fc.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/Free_Gifts_Mobile_c2363439-d388-4c25-976a-ea06b15f7e9a.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": "shopify:\/\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "a3af9503-4e5a-4f77-b33a-5e7ac970fbac",
+        "0e98779e-9ac9-424f-9cb1-a9bbe57f0437",
+        "96efb2e7-e9ff-4d60-9e92-b887bcd13991",
+        "d764a297-507e-447d-bcd4-61aa2e805ee4"
+      ],
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "1656333380e95fdce3": {
+      "type": "section-custom-content",
+      "blocks": {
+        "b9ca2538-cd76-42cb-ae6a-112120c4517a": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/3.jpg",
+            "bg_position": "center-center",
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "title": "",
+            "description": "",
+            "flex_align": "align--middle-center",
+            "text_color": "text-light",
+            "transparent": false,
+            "link_text": "",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "caps--large"
+          }
+        }
+      },
+      "block_order": [
+        "b9ca2538-cd76-42cb-ae6a-112120c4517a"
+      ],
+      "disabled": true,
+      "settings": {
+        "height": "image-height",
+        "padding": false,
+        "borders": false,
+        "wrapper": false
+      }
+    },
+    "rich-text": {
+      "type": "section-rich-text",
+      "settings": {
+        "rich_text_class": "below_banner_section",
+        "subheading": "",
+        "title": "THE BREAKOUT BREAKDOWN",
+        "text": "Acne is complex, which is why our team of experts have broken down the acne lifecycle into 4 key, but simple stages",
+        "text_size": 4,
+        "text_columns": 1,
+        "align_text": "text-left",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--large",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "1657272205829ea048": {
+      "type": "homeslickslide2",
+      "blocks": {
+        "1fa13678-e193-40f7-a222-d2cd46758f6c": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/stage1_68fcf4d7-e9f5-4fff-be06-e63c081035d8.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        },
+        "efdda157-c4ec-4c60-88a4-ef7e82e680d1": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/stage2_8026ceef-3634-4579-90cb-b0a4b9af1920.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        },
+        "c2c15323-84ba-4279-bf6c-de3dfb318a85": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/stage3_6ce75fc0-8f11-4565-813c-60f465e8f11b.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        },
+        "f3a8ffd3-9360-4867-8795-c1248d434f75": {
+          "type": "slickslider",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/stage4_34d1614f-8215-49ff-8a09-adcf95f25893.jpg",
+            "sllideTitle": "",
+            "slideHead": "",
+            "slideDes": "",
+            "Button_des": "",
+            "Button_Url": ""
+          }
+        }
+      },
+      "block_order": [
+        "1fa13678-e193-40f7-a222-d2cd46758f6c",
+        "efdda157-c4ec-4c60-88a4-ef7e82e680d1",
+        "c2c15323-84ba-4279-bf6c-de3dfb318a85",
+        "f3a8ffd3-9360-4867-8795-c1248d434f75"
+      ],
+      "settings": {
+      }
+    },
+    "1656599451a4e9b25b": {
+      "type": "section-rich-text",
+      "settings": {
+        "rich_text_class": "our_mission_section",
+        "subheading": "End the battle against acne",
+        "title": "Our Mission",
+        "text": "Created by an expert team of scientists & dermatologists and armed with supercharged patented ingredients & technology - the ultimate Acne Care Squad is finally here!",
+        "text_size": 5,
+        "text_columns": 1,
+        "align_text": "text-center",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--primary",
+        "button_style": "hero__btn btn btn--input caps",
+        "height": "margin--small",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "1656659917af4b30b9": {
+      "type": "custom-html",
+      "settings": {
+        "html": "<div style=\"text-align:center;\" class=\"home-video\">\n <video autoplay=\"true\" mute=\"\" controls=\"true\" width=\"100%\">\n <source src=\"https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/c66837c257014545881d4ff8ca19329f.mp4\">\n<\/source><\/video>\n<\/div>",
+        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/c66837c257014545881d4ff8ca19329f.mp4",
+        "mob_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/c66837c257014545881d4ff8ca19329f.mp4",
+        "show_padding": true,
+        "heading1": "100%",
+        "heading2": "Top"
+      }
+    },
+    "1656506969ae98262c": {
+      "type": "section-video",
+      "disabled": true,
+      "settings": {
+        "video_link_bg": "",
+        "video_link": "https:\/\/youtu.be\/8qGYdGLbwpc",
+        "image": "shopify:\/\/shop_images\/o1_d0b1437c-3146-4ed0-b33d-61a9afab8165.webp",
+        "bg_position": "center-center",
+        "height": "screen-height-three-quarters",
+        "overlay_opacity": 0,
+        "overlay_color": "#000000",
+        "title": "MEET THE ACNE SQUAD",
+        "description": "Tell your brand's story through images.",
+        "flex_align": "align--middle-center",
+        "text_color": "text-light",
+        "transparent": true,
+        "link_text": "",
+        "link": "",
+        "button_color": "btn--white",
+        "button_style": "hero__btn btn btn--large btn--outline caps"
+      }
+    },
+    "1656506972aa778679": {
+      "type": "section-tab-collections",
+      "blocks": {
+        "1656506972639acdf7-0": {
+          "type": "collection",
+          "settings": {
+            "title": "BESTSELLERS",
+            "collectio_ttl": "",
+            "collectio_Des": "Claim victory over acne with our supercharged formulas",
+            "featured_collection": "best-sellers",
+            "show_image": false,
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "description": "<p><\/p>",
+            "text_color": "text-light",
+            "link_text": "View products",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--input btn--outline caps"
+          }
+        },
+        "1656506972639acdf7-1": {
+          "type": "collection",
+          "settings": {
+            "title": "REGIME KITS",
+            "collectio_ttl": "",
+            "collectio_Des": "Created by our experts to give you targeted solutions to battle acne at every stage of its lifecycle",
+            "featured_collection": "regime-kit",
+            "show_image": false,
+            "overlay_opacity": 0,
+            "overlay_color": "#000000",
+            "description": "<p><\/p>",
+            "text_color": "text-light",
+            "link_text": "View products",
+            "link": "",
+            "button_color": "btn--white",
+            "button_style": "hero__btn btn btn--large btn--outline caps"
+          }
+        }
+      },
+      "block_order": [
+        "1656506972639acdf7-0",
+        "1656506972639acdf7-1"
+      ],
+      "settings": {
+        "title": "SHOP OUR PRODUCTS",
+        "enable_reviews": true
+      }
+    },
+    "165657730407c2ca89": {
+      "type": "imageGrid",
+      "blocks": {
+        "1656577304868bb017-0": {
+          "type": "text",
+          "settings": {
+            "imagepic": "shopify:\/\/shop_images\/icon1.png",
+            "titletext": "Co-Created with Dermatologists",
+            "place_text": "Developed by a passionate team of scientists & dermatologists who are on a mission to create superior solutions  to end acne."
+          }
+        },
+        "4a2eba1e-1fe5-4940-b4cf-fd9d1d4ce052": {
+          "type": "text",
+          "settings": {
+            "imagepic": "shopify:\/\/shop_images\/icon2.png",
+            "titletext": "Non-Comedogenic",
+            "place_text": "Formulas which are specially designed to ensure pores do not get clogged or blocked & is suitable for all skin types"
+          }
+        },
+        "83304e31-99ba-4f4b-bf7f-1ed0a5070170": {
+          "type": "text",
+          "settings": {
+            "imagepic": "shopify:\/\/shop_images\/icon3.png",
+            "titletext": "Patented Technology",
+            "place_text": "Supercharged formulas packed with revolutionary patented ingredients & technologies"
+          }
+        },
+        "e9500c09-9769-4ab0-9a22-a94cffd795d3": {
+          "type": "text",
+          "settings": {
+            "imagepic": "shopify:\/\/shop_images\/icon4.png",
+            "titletext": "Touch-Free Packaging",
+            "place_text": "Our product packs are uniquely designed to ensure  zero contact with your skin or residual bacteria"
+          }
+        }
+      },
+      "block_order": [
+        "1656577304868bb017-0",
+        "4a2eba1e-1fe5-4940-b4cf-fd9d1d4ce052",
+        "83304e31-99ba-4f4b-bf7f-1ed0a5070170",
+        "e9500c09-9769-4ab0-9a22-a94cffd795d3"
+      ],
+      "settings": {
+        "title": "OUR FOUNDING PRINCIPLES",
+        "exploreBtn": "",
+        "exploreBtnUrl": ""
+      }
+    },
+    "ac0ae516-cfd3-47f4-80df-b5c7bfca4e8c": {
+      "type": "Instagram-video",
+      "blocks": {
+        "3bdd8e97-5a05-4842-9d08-9df954e6c7c7": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8ee3f8e2d325467ca2d22b1d66aa6ceb.mp4",
+            "url_2": "https:\/\/www.instagram.com\/p\/CkieNd3g4Zb\/",
+            "image_reels": "shopify:\/\/shop_images\/instagram-reelacq.png",
+            "image_poster": "shopify:\/\/shop_images\/vlcsnap-2022-11-16-17h33m31s781_1.png"
+          }
+        },
+        "ef7d7b3e-c812-49f0-9843-35d3df814ac5": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f181ceff0fca498e9f9d01f171c7c7fa.mp4",
+            "url_2": "https:\/\/www.instagram.com\/p\/CjpqT9wgtqJ\/",
+            "image_reels": "shopify:\/\/shop_images\/instagram-reelacq.png",
+            "image_poster": "shopify:\/\/shop_images\/vlcsnap-2022-11-16-17h34m35s044_2.png"
+          }
+        },
+        "c3c0102d-2936-4b9b-b7a2-a1fa371e0a08": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/64e382f6b63544558f838d05f024fcf0.mp4",
+            "url_2": "https:\/\/www.instagram.com\/p\/CjnV6ODA6NB\/",
+            "image_reels": "shopify:\/\/shop_images\/instagram-reelacq.png",
+            "image_poster": "shopify:\/\/shop_images\/vlcsnap-2022-11-16-17h36m48s744_3.png"
+          }
+        },
+        "13f1bebb-c299-49ee-b301-0656aacbe7b6": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/dd31132a4fa3444497978d8a0e7cae2a.mp4",
+            "url_2": "",
+            "image_reels": "shopify:\/\/shop_images\/instagram-reelacq.png",
+            "image_poster": "shopify:\/\/shop_images\/vlcsnap-2022-11-16-17h37m40s927_4.png"
+          }
+        },
+        "ee7c5744-0382-4264-badb-7aaf34d1889d": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/91b6f7e0ddda4177a3e38fb4fee7c154.mp4",
+            "url_2": "https:\/\/www.instagram.com\/p\/Cjacju9J4gC\/",
+            "image_reels": "shopify:\/\/shop_images\/instagram-reelacq.png",
+            "image_poster": "shopify:\/\/shop_images\/vlcsnap-2022-11-16-17h38m44s241_5.png"
+          }
+        },
+        "9c3055df-c81c-44fc-ab91-c8ee33e6d87b": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8f10cbd4686544c9ab240c353f3eff29.mp4",
+            "url_2": "https:\/\/www.instagram.com\/p\/CjQAQUhgVgR\/",
+            "image_reels": "shopify:\/\/shop_images\/instagram-reelacq.png",
+            "image_poster": "shopify:\/\/shop_images\/vlcsnap-2022-11-16-17h39m10s958_6.png"
+          }
+        },
+        "6242b1d5-018c-4df8-962e-1d2d6722e4d1": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/496e77bc00a540c6aec16ffe1851d61f.mp4",
+            "url_2": "https:\/\/www.instagram.com\/p\/CjAfx5jqy2w",
+            "image_reels": "shopify:\/\/shop_images\/instagram-reelacq.png",
+            "image_poster": "shopify:\/\/shop_images\/vlcsnap-2022-11-16-17h39m51s864_7.png"
+          }
+        }
+      },
+      "block_order": [
+        "3bdd8e97-5a05-4842-9d08-9df954e6c7c7",
+        "ef7d7b3e-c812-49f0-9843-35d3df814ac5",
+        "c3c0102d-2936-4b9b-b7a2-a1fa371e0a08",
+        "13f1bebb-c299-49ee-b301-0656aacbe7b6",
+        "ee7c5744-0382-4264-badb-7aaf34d1889d",
+        "9c3055df-c81c-44fc-ab91-c8ee33e6d87b",
+        "6242b1d5-018c-4df8-962e-1d2d6722e4d1"
+      ],
+      "settings": {
+        "review-title": "INFLUENCER PICKS",
+        "url_1": "https:\/\/www.instagram.com\/acne.squad\/"
+      }
+    },
+    "1656578302a9393699": {
+      "type": "page-faq",
+      "blocks": {
+        "9b23b664-d8f0-453d-8d1b-b9d1bc39642b": {
+          "type": "heading",
+          "settings": {
+            "title": "FAQS"
+          }
+        },
+        "00484b48-2d35-4486-b1f4-15de4ba704ee": {
+          "type": "heading",
+          "settings": {
+            "title": "<p>Got questions? Let's clear up your doubts; here are the most frequently asked questions to solve your queries.<\/p>"
+          }
+        },
+        "1656578302bca83598-1": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q. How long will it take to see results?",
+            "content": "<p> The outcome is entirely dependent on the stage of your acne and the skin type you possess. Take our quiz to evaluate your acne stage &amp; the best regime to win the battle against it, <a href=\"\/pages\/quiz-intro\">Click Here<\/a><\/p>"
+          }
+        },
+        "1656578302bca83598-2": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q. When should I use these products?",
+            "content": "<p> If you have acne-prone skin, generally sensitive skin or any other skin type that aspires to have clear and healthy skin, Acne Squad range is perfect for you. We recommend you take our quiz to understand your skin and its needs better. <a href=\"\/pages\/quiz-intro\">Click Here<\/a><\/p>"
+          }
+        },
+        "1656578302bca83598-3": {
+          "type": "question",
+          "settings": {
+            "faqs_title": "Product Queries",
+            "title": "Q. Will this suit my sensitive skin?",
+            "content": "<p> Yes, our products have been co-created with dermatologists  and are non-comedogenic (don't block\/clog pores). They will be kind to your skin but not to your acne.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "9b23b664-d8f0-453d-8d1b-b9d1bc39642b",
+        "00484b48-2d35-4486-b1f4-15de4ba704ee",
+        "1656578302bca83598-1",
+        "1656578302bca83598-2",
+        "1656578302bca83598-3"
+      ],
+      "settings": {
+        "check_tabs": "",
+        "width": "wrapper",
+        "height": "margin--small",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "0cd3daa9-426f-4028-bb0f-ba8f45a2b6df": {
+      "type": "show-more-less",
+      "settings": {
+        "see_more_text": "<style>h2{font-size:25px;font-family: 'BebasNeue';}<\/style>\n <h2 style=\"margin-bottom:0px;color:#a99ef6;'\">Acne Squad For Your Skin \n    <\/h2>\n    <p class=\"mois_para para_more\">Are you tired of battling those pesky pimples and annoying acne breakouts? Acne Squad is here for you. Acne Squad is not just your regular skincare brand; it's a comprehensive solution that covers all four stages of acne. From powerful face washes to soothing toners, targeted spot correctors, and nourishing serums, Acne Squad has got it all!<\/p>",
+        "see_less_text": "<style>\nh2{font-size:25px;font-family: 'BebasNeue';}\n.heading2{\n            font-size: 25px;\n    margin-bottom: 0px;\n    color: #a99ef6;\n        }\n        .para_more{\n            letter-spacing: 0.1px;\n    line-height: 1.4;\n        }\n.ul_margin{margin-bottom:0px;}\n.heading_margin_top{margin-top: -6px;}\n<\/style>\n\n\n      <h2 class=\"heading2\">Understanding Acne : The Four Stages<\/h2>\n    <p class=\"para_more\">It's essential to understand the four stages of acne. Each stage comes with its own set of challenges and requires targeted solutions. Check it out below. <\/p>\n          <ul class=\"ul_margin\">\n           <li>\n               <b style=\"color:#707070\">Stage 1 : Excess Sebum Production<\/b> <br>In the first stage, the skin starts producing excess sebum or oil. This oil mixes with dead skin cells, leading to clogged pores. The result? Blackheads and whiteheads start making their unwelcome appearance.\n           <\/li>\n   <br>\n           <li>\n               <b style=\"color:#707070\">Stage 2 : Clogged Pores and Inflammation<\/b><br> As the pores get clogged, the acne-causing bacteria find a perfect breeding ground. This triggers inflammation, leading to red, swollen, and painful pimples.\n           <\/li>\n   <br>\n           <li>\n               <b style=\"color:#707070\">Stage 3 : The Dreaded Acne Breakout<\/b><br> If left untreated, the inflammation worsens, and those painful pimples evolve into larger, more prominent bumps.\n           <\/li>\n   <br>\n           <li>\n               <b style=\"color:#707070\">Stage 4 : Post-Acne Scarring<\/b><br> Even after the acne itself subsides, it can leave behind reminders in the form of scars. Post-acne scarring is a common concern, but with the right skincare routine, it can be minimised.\n           <\/li>\n   <br>\n          <\/ul>\n    <h2 class=\"heading2 heading_margin_top\">Discover The Best Sellers From Acne Squad<\/h2>\n          <p class=\"para_more\">When it comes to battling acne and achieving radiant skin, Acne Squad is your cue. As you explore the website, you'll find an array of remarkable skincare products and solutions designed to address all stages of acne. To make your skincare journey even more rewarding, you can also take the <a style=\"color:#a99ef6;\" href=\"https:\/\/www.acnesquad.com\/pages\/quiz-intro\">acne-care quiz<\/a> on the website. <\/p>\n    <p class=\"para_more\">Let's dive into the bestseller products, from face serum to toner for face, and see why some of these have become favourites among skincare enthusiasts.<\/p>\n   \n   <ul class=\"ul_margin\">\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color:#a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/kick-start-cleanser-with-salicylic-acid-thymol-t-essence\">Face Wash With Salicylic Acid &amp; Thymol T Essence<\/a><\/b><br>This face wash comes with Salicylic acid and has patented ingredient Thymol-T Essence. The  salicylic acid cleanser is proven to reduce acne and soothes your skin in a matter of 3 days. This one also restores lost moisture.\n   \n       <\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color:#a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/asq-the-wonder-toner\">Face Toner With 4% PHA<\/a><\/b><br>This one is the best face toner for face. This face toner is a mild exfoliator as it helps minimise large pores and tightens them further with the 4X formula - Vitamin B3, Chlorantha Bark Extracts, Gluconolactone, Enantia and Allantoin with 4% PHA.<\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color: #a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/asq-multi-tasker-moisturiser-spf-25-pa-50ml\">Face Moisturiser With Niacinamide &amp; SPF 25 PA+++<\/a><\/b><br>This one is a multitasker as it’s designed to have the benefits of a moisturiser and sunscreen as well. This one protects your skin from harsh UV rays. The power of this moisturiser lies in its ability to combat oxidative stress caused by environmental factors such as sunrays, pollution, UV rays, and even blue light from electronic devices. With an arsenal of potent ingredients, it forms an invisible shield around your skin, defending it against the damaging effects of these external triggers.\n   <br><br>\n           The infusion of Vitamin E and Vitamin B3, also helps enhance your skin texture and controls excess sebum production. \n           <\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color:#a99ef6\" href=\"https:\/\/www.acnesquad.com\/products\/asq-breakout-blocker-serum-with-2-salicylic-acid-30ml\"> 2% Salicylic Acid Serum For Blackheads &amp; Whiteheads<\/a><\/b><br>Introducing The Breakout Blocker serum, a powerful solution that stops breakouts in their tracks. Infused with 2% Salicylic acid, this serum works wonders to unclog blocked pores and prevent future breakouts. Say goodbye to Stage 2 of the acne lifecycle - Clogged Pores, as this potent formula minimises sebum production, moisturises the skin, and reduces inflammation and redness caused by acne. Get clear skin now with The Breakout Blocker serum.<\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color: #a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/asq-breakout-terminator-serum-with-thymol-t-essence-salicylic-acid-30ml\">Serum for Active Acne With Thymol T Essence<\/a><\/b><br>With the revolutionary Thymol T Essence and Salicylic acid, this face serum is specially designed for Stage 3 of the acne lifecycle - Breakout. Say goodbye to inflamed pores and severe breakouts as this powerful serum works to reduce excess sebum production within a week and boost skin hydration within 2 weeks.<\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color: #a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/asq-super-shield-serum-with-10-niacinamide-30ml\">10% Niacinamide Serum For Acne Prone Skin<\/a><\/b><br>Presenting the Super Shield serum, enriched with a potent 10% Niacinamide for Stage 1 of the acne lifecycle - Acne Prone. This exceptional serum not only regulates excess sebum production but also provides effective moisture to your skin. Let Niacinamide shield your skin against environmental elements and oxidative stress, ensuring healthy skin. <\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color: #a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/asq-super-saviour-spot-corrector-with-triple-active-concentrate-20g\">Spot Corrector For Acne Scars With Triple Concentrate Formula<\/a><\/b><br>The Super Saviour Spot Corrector features a potent Triple Concentrate Formula - a unique blend of three actives, namely Hexylresorcinol, Niacinamide, and Retinyl Propionate, which contribute to a significant reduction in dark spots and pigmentation by 35%. The formula's efficacy is backed by clinical evidence, demonstrating a noticeable decrease in dark spot intensity within 4 weeks.<\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color: #a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/asq-breakout-terminator-spot-corrector-with-salicylic-acid-zinc-20g\">Spot Corrector For Active Acne With Salicylic Acid<\/a><\/b><br>The Breakout Terminator Spot Corrector is enriched with Salicylic acid and 85% natural ingredients, featuring a scientifically proven anti-acne technology that effectively minimises 99% of acne-causing bacteria, safeguarding against Stage 3 of the acne lifecycle: Breakout.\n           With a potent combination of active ingredients and a blend of hard-working natural components, this spot corrector eradicates 99% of acne-causing bacteria, lightens dark spots, and promotes blemish healing. Formulated with Salicylic acid, Niacinamide, Zinc Sebum, and Shatavari, its keratolytic properties unclog pores, while its anti-bacterial benefits combat acne-causing bacteria.\n           <\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color: #a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/the-x-foliating-scrub\">Exfoliating Scrub With Salicylic Acid<\/a><\/b><br>The X-Foliating Scrub with 2% Salicylic Acid provides a powerful reset for your skin, increasing cell turnover and keeping acne at bay. Its potent formula gently exfoliates the skin. Use twice a week for best results.<\/li>\n   <br>\n       <li>\n   <b style=\"color:#a99ef6;\"><a style=\"color: #a99ef6;\" href=\"https:\/\/www.acnesquad.com\/products\/asq-incredible-peeling-tonic-with-5-aha-1-bha-pha-30ml\">Incredible Peeling Tonic With 5% AHA &amp; 1% BHA &amp; PHA<\/a><\/b><br>Meet the Incredible Peeling Tonic! Your skin's superhero with a triple action formula. It gently exfoliates, fights acne, reverses sun damage, and hydrates. Say hello to superhero-level glow!<br><br>\n   \n           With its mighty triple action formula, this tonic swoops in to gently but deeply exfoliate your skin and keep pesky acne at bay. But wait, there's more! Formulated with PHA Poly Hydroxy Acid (the fruity sidekick), Alpha Hydroxy Acids (the daring heroes), and Beta Hydroxy Acids (the brave defenders), it's a dynamic team that will leave your skin feeling invincible!<br><br>\n           \n           Discover the ultimate skincare solutions with <a style=\"color:#a99ef6;\" href=\"https:\/\/www.acnesquad.com\/collections\/regime-kit\">Acne Squad's Regime Kits<\/a>. The regime kits is designed to cater to different skin types and address various stages of acne. Each kit contains a powerful combination of best-selling products, carefully chosen to work synergistically to provide optimal results. Whether you're dealing with occasional breakouts or persistent acne, our Regime Kits have got you covered.<br><br>\n           \n           From gentle cleansing and targeted treatments to deep hydration and protection, these kits offer a comprehensive approach to skincare.\n           <\/li>\n   <br>\n       <\/ul>\n   <h2 class=\"heading2 heading_margin_top\">The Significance Of Tailored Acne Products For Acne-Prone Skin<\/h2>\n       <p class=\"para_more\">Having acne-prone skin can be a challenging and frustrating experience. It requires specialised care and attention to effectively manage and prevent breakouts. Acne products that are specifically formulated for different stages of acne, play a crucial role in your skincare routine. <\/p>\n      \n       <ul class=\"ul_margin\">\n           <li>\n   <b style=\"color:#707070\">Targeted Treatment for Acne<\/b><br>Acne products designed for acne-prone skin contain active ingredients that specifically target the root causes of acne. Some skin-loving ingredients help unclog pores, reduce inflammation, and combat acne-causing bacteria. Using such products ensures a more focused and effective approach to tackling breakouts.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Balancing Excess Sebum Production<\/b><br>One of the primary concerns for those with acne-prone skin is excessive sebum production. Acne-specific products often include ingredients that regulate sebum production, preventing the skin from becoming excessively oily. By striking the right balance, these products help reduce the likelihood of clogged pores and breakouts.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Gentle and Non-Irritating Formulas<\/b><br>Acne-prone skin is often sensitive and easily irritated. Acne Squad products are formulated with gentleness in mind, ensuring that they do not cause further irritation or redness.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Preventing Future Breakouts<\/b><br>Consistent use of acne-specific products can help prevent future breakouts by maintaining healthy skin. These products work proactively to keep the skin balanced, preventing the formation of new acne lesions.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Alleviating Inflammation And Managing Acne<\/b><br>At Acne Squad, we understand the importance of soothing inflammation caused by acne-prone skin. The skincare products are designed are thoughtfully crafted with ingredients such as Vitamin E, Salicylic acid, etc. These powerful components also play an active role in managing acne, addressing its root causes. <\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Effectively Unclogging Pores<\/b><br>Clogged pores are a frequent trigger for acne breakouts. By using acne control products like the best face wash, dark spot removal cream etc, you can minimise the risk of acne formation. These products work to remove excess oil, dust, and impurities, preventing pore blockages as well. <\/li>\n   <br>\n       <\/ul>\n    <h2 class=\"heading2 heading_margin_top\">The Best Skincare Routine For Acne<\/h2>\n       <p class=\"para_more\">Dealing with acne can be a challenging journey, but having a well-rounded and effective skincare routine can make all the difference. A tailored skincare routine for acne-prone skin can help manage breakouts, reduce inflammation and clogged pores as well. Here’s the best skincare routine for acne.<\/p>\n       <ul class=\"ul_margin\">\n           <li>\n   <b style=\"color:#707070\">Gentle Cleansing<\/b><br>A crucial step in any acne skincare routine is gentle cleansing. Use a mild, non-comedogenic cleanser to remove dirt, oil, and impurities without stripping the skin of its natural moisture. Avoid harsh cleansers that may aggravate the skin and opt for products that are specifically designed for acne.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Focused Solutions for Acne<\/b><br>Look for products containing ingredients like Niacinamide, Salicylic acid, Hexylresorcinol etc. which can help unclog pores, reduce inflammation, and combat acne-causing bacteria.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Regular Exfoliation<\/b><br>Exfoliation is essential to remove dead skin cells that can clog pores and contribute to acne. However, it's crucial to choose a gentle exfoliator suitable for acne related woes and avoid over-exfoliating, as it can lead to irritation. Aim to exfoliate 1-2 times a week to maintain clear and smooth skin.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Moisturise Wisely<\/b><br>Acne-prone skin still needs hydration, so it's essential to use a lightweight, non-comedogenic moisturiser. Moisturising helps maintain a healthy skin barrier and can even reduce excessive sebum production.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Sun Protection<\/b><br>Never skip sun protection, even if you have acne-prone skin. Choose a sunscreen with at least SPF 30 to shield your skin from harmful UV rays. Sunscreen also helps prevent post-inflammatory hyperpigmentation, which can occur after acne breakouts.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Hands Off Approach<\/b><br>Avoid touching your face as much as possible, as it can transfer bacteria and dirt to your skin, exacerbating acne breakouts. Also, refrain from picking or squeezing acne lesions, as this can lead to scarring and further inflammation.<\/li>\n   <br>\n           \n       <\/ul>\n   \n       <h2 style=\"margin-bottom: 10px;\" class=\"heading2 heading_margin_top\">Bonus Tips For Acne-Prone Skin :<\/h2>\n       <ul class=\"ul_margin\">\n           <li>\n   <b style=\"color:#707070\">Avoid Heavy Makeup<\/b><br>Opt for non-comedogenic and oil-free makeup products to minimize pore clogging and potential breakouts.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Change Pillowcases Regularly<\/b><br>Dirty pillowcases can harbour bacteria and oil, so change them frequently to maintain cleaner skin.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Limit Dairy and Sugar Intake<\/b><br>Some studies suggest that dairy and high-sugar diets may contribute to acne, so consider moderating your consumption.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Stay Hydrated<\/b><br>Drinking plenty of water helps flush toxins from your body and keeps your skin hydrated and healthy.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Manage Stress<\/b><br>Stress can trigger hormonal imbalances that may worsen acne, so practice relaxation techniques to reduce stress levels.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Wash After Sweating<\/b><br>After exercising or sweating, cleanse your face to remove sweat, dirt, and bacteria that could lead to breakouts.<\/li>\n   <br>\n           <li>\n   <b style=\"color:#707070\">Practice Consistency<\/b><br>Stick to your skincare routine consistently to allow products to work effectively and see long-term improvements in your skin.<\/li>\n   <br>\n       <\/ul>\n    <h2 class=\"heading2 heading_margin_top\">Shop More Acne-Care Products At Acne Squad <\/h2>\n       <p class=\"para_more\">Acne doesn't have to hold you back any longer. Explore Acne Squad’s extensive collection of face serums, toners etc. each carefully formulated with potent ingredients like Niacinamide, Salicylic Acid, and Thymol T Essence.<\/p>\n   \n       <p class=\"para_more\">You can trust Acne Squad to analyse each stage of acne and provide you with the perfect product solutions for your skincare routine. Whether you need a gentle face cleanser or spot correctors, the entire range has just the right products to combat acne, no matter where you are in your skincare journey. <\/p>\n       <p class=\"para_more\">Want to know everything there’s about different stages of acne and the right solution? Quickly hit the follow button on <a style=\"color:#a99ef6;\" href=\"https:\/\/www.instagram.com\/acne.squad\/\">Instagram<\/a>. To get the best tips on acne and skincare, read the <a style=\"color:#a99ef6;\" href=\"https:\/\/www.acnesquad.com\/pages\/acne-knowledge\">blogs<\/a> and understand the entire breakout breakdown. <\/p>\n       <p class=\"para_more\">Acne Squad brings in the effectiveness of soothing ingredients to promote healthy skin. So, why wait? Shop your favourites now.<\/p>"
+      }
+    },
+    "1656910966035525c9": {
+      "type": "section-rich-text",
+      "disabled": true,
+      "settings": {
+        "rich_text_class": "",
+        "subheading": "Introducing",
+        "title": "Rich text",
+        "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "text_size": 2,
+        "text_columns": 1,
+        "align_text": "text-left",
+        "button_text": "Learn more",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--large",
+        "height": "margin--medium",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "165666743884274ddd": {
+      "type": "text-promo",
+      "blocks": {
+        "1656667438c338660c-0": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Text promo"
+          }
+        },
+        "1656667438c338660c-1": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "content": "Advertise a promotion or a sale"
+          }
+        },
+        "1656667438c338660c-2": {
+          "type": "button",
+          "settings": {
+            "button_text": "See more",
+            "button_url": "shopify:\/\/pages\/faqs",
+            "button_color": "btn--neutral",
+            "button_style": "hero__btn btn btn--input btn--outline caps"
+          }
+        }
+      },
+      "block_order": [
+        "1656667438c338660c-0",
+        "1656667438c338660c-1",
+        "1656667438c338660c-2"
+      ],
+      "settings": {
+        "border": false,
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "text-dark",
+        "width": "wrapper--narrow",
+        "bg_position": "center-center",
+        "overlay_opacity": 0,
+        "overlay_color": "rgba(0,0,0,0)"
+      }
+    },
+    "newsletter": {
+      "type": "section-newsletter",
+      "settings": {
+        "title": "",
+        "richtext": "<p>Register to create and save your skin profile and begin your battle against acne!<\/p>",
+        "enable_name": false,
+        "flex_align": "align--middle-center",
+        "text_color": "dark",
+        "button_color": "btn--neutral",
+        "height": "screen-height-one-third",
+        "width": "default",
+        "bg_position": "center-center",
+        "overlay_opacity": 0,
+        "overlay_color": "#000000"
+      }
+    },
+    "1656586666bfc6ea5b": {
+      "type": "rsult-page-1",
+      "blocks": {
+        "c4df019f-5fbc-4e75-b608-b66511d2d83a": {
+          "type": "text",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Capture.png",
+            "text1": "KICK STARTER CLEANSER",
+            "text2": "INGREDIENTS",
+            "BtnUrl1": "",
+            "text3": "with Salicylic Acid + Thymol T Essence",
+            "text4": "BENEFITS",
+            "BtnUrl2": "",
+            "text5": "Soothes Acne in 3 Days!"
+          }
+        },
+        "c9c589c7-3c70-442d-8416-a4f0c7b61833": {
+          "type": "text",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Capture.png",
+            "text1": "WONDER TONER",
+            "text2": "INGREDIENTS",
+            "BtnUrl1": "",
+            "text3": "with 4% PHA 100ml",
+            "text4": "BENEFITS",
+            "BtnUrl2": "",
+            "text5": "Mildly exfoliates skin & tightens pores"
+          }
+        },
+        "d6e66408-0b2a-4be7-bdbd-6b798e4767cd": {
+          "type": "text",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Capture.png",
+            "text1": "MULTI-TASKER MOISTURISER",
+            "text2": "INGREDIENTS",
+            "BtnUrl1": "",
+            "text3": "With SPF 25",
+            "text4": "BENEFITS",
+            "BtnUrl2": "",
+            "text5": "Keep your skin hydrated & protected from the sun with our dual action moisturiser"
+          }
+        },
+        "3ee3b69f-2ef1-4683-8fda-cfa070f44b5b": {
+          "type": "text",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Capture.png",
+            "text1": "SUPER SHIELD SERUM",
+            "text2": "INGREDIENTS",
+            "BtnUrl1": "",
+            "text3": "With 10% Niacinamide",
+            "text4": "BENEFITS",
+            "BtnUrl2": "",
+            "text5": "Reduces dsebum & excess oil production"
+          }
+        },
+        "9b40666c-cd69-4b08-bd30-bc7fefe13989": {
+          "type": "text",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Capture.png",
+            "text1": "THE X-FOLIATING SCRUB",
+            "text2": "INGREDIENTS",
+            "BtnUrl1": "",
+            "text3": "With Salicylic Acid",
+            "text4": "BENEFITS",
+            "BtnUrl2": "",
+            "text5": "Dual exfoliating action that removes dead skin"
+          }
+        },
+        "9723cb71-cdd2-4346-909c-73839fbae203": {
+          "type": "text",
+          "settings": {
+            "image1": "shopify:\/\/shop_images\/Capture.png",
+            "text1": "INCREDIBLE PEELING TONIC",
+            "text2": "INGREDIENTS",
+            "BtnUrl1": "",
+            "text3": "With 6% AHA & PHA",
+            "text4": "BENEFITS",
+            "BtnUrl2": "",
+            "text5": "Reduces breakouts in just 1 week"
+          }
+        }
+      },
+      "block_order": [
+        "c4df019f-5fbc-4e75-b608-b66511d2d83a",
+        "c9c589c7-3c70-442d-8416-a4f0c7b61833",
+        "d6e66408-0b2a-4be7-bdbd-6b798e4767cd",
+        "3ee3b69f-2ef1-4683-8fda-cfa070f44b5b",
+        "9b40666c-cd69-4b08-bd30-bc7fefe13989",
+        "9723cb71-cdd2-4346-909c-73839fbae203"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_title1": "WHAT'S IN STAGE 1 REGIME KIT"
+      }
+    },
+    "1656667351363da409": {
+      "type": "section-rich-text",
+      "disabled": true,
+      "settings": {
+        "rich_text_class": "",
+        "subheading": "",
+        "title": "Rich text",
+        "text": "",
+        "text_size": 2,
+        "text_columns": 1,
+        "align_text": "text-left",
+        "button_text": "",
+        "button_url": "",
+        "button_color": "btn--neutral",
+        "button_style": "caps--large",
+        "height": "margin--medium",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "109833cb-99e8-4746-8261-0e529b987333",
+    "1656333380e95fdce3",
+    "rich-text",
+    "1657272205829ea048",
+    "1656599451a4e9b25b",
+    "1656659917af4b30b9",
+    "1656506969ae98262c",
+    "1656506972aa778679",
+    "165657730407c2ca89",
+    "ac0ae516-cfd3-47f4-80df-b5c7bfca4e8c",
+    "1656578302a9393699",
+    "0cd3daa9-426f-4028-bb0f-ba8f45a2b6df",
+    "1656910966035525c9",
+    "165666743884274ddd",
+    "newsletter",
+    "1656586666bfc6ea5b",
+    "1656667351363da409"
+  ]
+}

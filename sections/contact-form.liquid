@@ -1,0 +1,680 @@
+<!-- /sections/contact-form.liquid -->
+
+<section class="index-contact {{ section.settings.text_color }} " style="background-color: {{ section.settings.bg_color }};" data-section-id="{{ section.id }}" data-section-type="contact">
+  <div class="{{ section.settings.width }}">
+    {%- if section.settings.title != blank -%}
+{% comment %}       <h2 class="contact__form__heading">{{ section.settings.title }}</h2> {% endcomment %}
+    {%- endif -%}
+
+<div class="mainTrackDiv ">
+     <div class="address-massage FeatureText__ImageWrappers   TextWrapper  page-masthead">
+        <div class="track_you_order talk-customer">
+          <div class="track"><i class="fa fa-users" aria-hidden="true"></i></div>
+          <div class="track-order"> 
+            <p class="Heading-contact">{{section.settings.heading}}</p> 
+            <p class="disc-contact"><i class="fa fa-phone" aria-hidden="true"></i> <a target="_blank" href="tel:{{section.settings.phone}}"> {{section.settings.phone}}</a><br></p> 
+            <p class="Heading-contact">{{section.settings.email_text}}</p> 
+            <p class="disc-contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> <a target="_blank" href="mailto:{{section.settings.email}}" rel="noopener noreferrer">{{section.settings.email}}</a></p>    
+          </div>
+        </div>
+       {% if section.settings.enable_book_1 %}
+        <div class="track_you_order talk-customer">
+          <div class="track"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+          <div class="track-order"> 
+            <p class="Heading-contact">{{section.settings.heading-2}}</p> 
+            <p class="disc-contact cstm-btn-ctn"><i class="fa fa-map-marker" aria-hidden="true"></i> <a target="_blank" href="https://ponds.shiprocket.co/"> {{section.settings.trackorder}}</a><br></p> 
+             </div>
+        </div>
+       {% endif %}
+      </div>
+    </div>
+    {% form 'contact', id: 'contact-us-page' %}
+      {% if form.posted_successfully? %}
+        <p class="form-success">
+          {{ 'contact.form.post_success' | t }}
+        </p>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+
+      {% for block in section.blocks %}
+
+        {% case block.type %}
+
+          {% when 'email' %}
+            <div class="custom-form__block form-field" {{ block.shopify_attributes }}>
+              <label for="Form-{{ section.id }}-{{ forloop.index0 }}">{{ block.settings.title }}</label>
+              <input type="email" required class="contactFormEmail" id="Form-{{ section.id }}-{{ forloop.index0 }}" name="contact[email]" placeholder="{{ block.settings.title }}" autocorrect="off" autocapitalize="off" />
+            </div>
+
+          {% when 'body' %}
+            <div class="custom-form__block form-field" {{ block.shopify_attributes }}>
+              <label for="Form-{{ section.id }}-{{ forloop.index0 }}">{{ block.settings.title }}</label>
+              <textarea rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[body]" placeholder="{{ block.settings.title }}"></textarea>
+            </div>
+
+          {% when 'text' %}
+            <div class="custom-form__block form-field" {{ block.shopify_attributes }}>
+              <label for="Form-{{ section.id }}-{{ forloop.index0 }}">{{ block.settings.title }}</label>
+              <input type="text" required class="contactFormText" id="Form-{{ section.id }}-{{ forloop.index0 }}" name="contact[{{ block.settings.title | handleize | default: 'text' }}]" placeholder="{{ block.settings.title }}" autocapitalize="words" value="" />
+            </div>
+
+          {% when 'textarea' %}
+            <div class="custom-form__block form-field" {{ block.shopify_attributes }}>
+              <label for="Form-{{ section.id }}-{{ forloop.index0 }}">{{ block.settings.title }}</label>
+              <textarea required rows="10" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormMessage" name="contact[{{ block.settings.title | handleize | default: 'textarea' }}]" placeholder="{{ block.settings.title }}"></textarea>
+            </div>
+
+          {% when 'telephone' %}
+            <div class="custom-form__block form-field" {{ block.shopify_attributes }}>
+              <label for="Form-{{ section.id }}-{{ forloop.index0 }}">{{ block.settings.title }}</label>
+              <input required type="tel" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormPhone" name="contact[telephone]" placeholder="{{ block.settings.title }}" value="" />
+            </div>
+
+          {% when 'name' %}
+            <div class="custom-form__block form-field" {{ block.shopify_attributes }}>
+              <label  for="Form-{{ section.id }}-{{ forloop.index0 }}" class="label--hidden">{{ block.settings.title }}</label>
+              <input required type="text" class="contactFormText" id="Form-{{ section.id }}-{{ forloop.index0 }}" name="contact[{{ block.settings.title | handleize | default: 'name' }}]" placeholder="{{ block.settings.title }}" autocapitalize="words" value="" />
+            </div>
+
+          {% when 'formHeading' %}
+            <div class="custom-form__block custom-form__block--heading form-item" {{ block.shopify_attributes }}>
+              <p class="strong">{{ block.settings.title }}</p>
+            </div>
+
+          {% when 'spacer' %}
+            {%- assign hr_class = 'hr--clear' -%}
+            {%- if block.settings.line -%}
+              {%- assign hr_class = '' -%}
+            {%- endif -%}
+            <div class="form-item" {{ block.shopify_attributes }}>
+              <hr class="{{ hr_class }}">
+            </div>
+
+          {% when 'checkbox' %}
+            <div class="custom-form__block form-item" {{ block.shopify_attributes }}>
+              <label for="Form-{{ section.id }}-{{ forloop.index0 }}">
+                <input required type="checkbox" id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormCheckbox" name="contact[{{ block.settings.title | handleize | default: 'checkbox' }}]" value="{{ block.settings.title }}">
+                {{ block.settings.title }}
+              </label>
+            </div>
+
+          {% when 'radio' %}
+            <fieldset class="custom-form__block custom-form__block--group form-item" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <legend class="custom-form__label">{{ block.settings.title }}</legend>
+              {% endif %}
+              {% if block.settings.label-one != blank %}
+                <div>
+                  <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}-1" class="contactFormRadio" name="contact[{{ block.settings.title | handleize | default: 'radio' }}]" value="{{ block.settings.label-one }}">
+                  <label for="Form-{{ section.id }}-{{ forloop.index0 }}-1">{{ block.settings.label-one }}</label>
+                </div>
+              {% endif %}
+              {% if block.settings.label-two != blank %}
+                <div>
+                  <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}-2" class="contactFormRadio" name="contact[{{ block.settings.title | handleize | default: 'radio' }}]" value="{{ block.settings.label-two }}">
+                  <label for="Form-{{ section.id }}-{{ forloop.index0 }}-2">{{ block.settings.label-two }}</label>
+                </div>
+              {% endif %}
+              {% if block.settings.label-three != blank %}
+                <div>
+                  <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}-3" class="contactFormRadio" name="contact[{{ block.settings.title | handleize | default: 'radio' }}]" value="{{ block.settings.label-three }}">
+                  <label for="Form-{{ section.id }}-{{ forloop.index0 }}-3">{{ block.settings.label-three }}</label>
+                </div>
+              {% endif %}
+              {% if block.settings.label-four != blank %}
+                <div>
+                  <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}-4" class="contactFormRadio" name="contact[{{ block.settings.title | handleize | default: 'radio' }}]" value="{{ block.settings.label-four }}">
+                  <label for="Form-{{ section.id }}-{{ forloop.index0 }}-4">{{ block.settings.label-four }}</label>
+                </div>
+              {% endif %}
+              {% if block.settings.label-five != blank %}
+                <div>
+                  <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}-5" class="contactFormRadio" name="contact[{{ block.settings.title | handleize | default: 'radio' }}]" value="{{ block.settings.label-five }}">
+                  <label for="Form-{{ section.id }}-{{ forloop.index0 }}-5">{{ block.settings.label-five }}</label>
+                </div>
+              {% endif %}
+              {% if block.settings.label-six != blank %}
+                <div>
+                  <input type="radio" id="Form-{{ section.id }}-{{ forloop.index0 }}-6" class="contactFormRadio" name="contact[{{ block.settings.title | handleize | default: 'radio' }}]" value="{{ block.settings.label-six }}">
+                  <label for="Form-{{ section.id }}-{{ forloop.index0 }}-6">{{ block.settings.label-six }}</label>
+                </div>
+              {% endif %}
+            </fieldset>
+
+          {% when 'select' %}
+            <fieldset class="custom-form__block custom-form__block--group form-item" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <label for="Form-{{ section.id }}-{{ forloop.index0 }}" class="custom-form__label label--block">{{ block.settings.title }}</label>
+              {% endif %}
+              <select id="Form-{{ section.id }}-{{ forloop.index0 }}" class="contactFormSelect" name="contact[{{ block.settings.title | handleize | default: 'select' }}]">
+                {% if block.settings.label-one != blank %}
+                  <option value="{{ block.settings.label-one }}">{{ block.settings.label-one }}</option>
+                {% endif %}
+                {% if block.settings.label-two != blank %}
+                  <option value="{{ block.settings.label-two }}">{{ block.settings.label-two }}</option>
+                {% endif %}
+                {% if block.settings.label-three != blank %}
+                  <option value="{{ block.settings.label-three }}">{{ block.settings.label-three }}</option>
+                {% endif %}
+                {% if block.settings.label-four != blank %}
+                  <option value="{{ block.settings.label-four }}">{{ block.settings.label-four }}</option>
+                {% endif %}
+                {% if block.settings.label-five != blank %}
+                  <option value="{{ block.settings.label-five }}">{{ block.settings.label-five }}</option>
+                {% endif %}
+                {% if block.settings.label-six != blank %}
+                  <option value="{{ block.settings.label-six }}">{{ block.settings.label-six }}</option>
+                {% endif %}
+
+              </select>
+            </fieldset>
+          {% else %}
+        {% endcase %}
+
+      {% endfor %}
+
+      {% assign types = '' %}
+      {% for block in section.blocks %}
+        {% assign types = types | append: block.type %}
+      {% endfor %}
+
+      {% unless types contains "email" %}
+      <div class="custom-form__block form-field">
+        <label for="contactFormEmail">{{ 'contact.form.email' | t }}</label>
+        <input type="email" id="contactFormEmail" class="contactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" >
+      </div>
+      {% endunless  %}
+
+      {% unless types contains "body" %}
+      <div class="custom-form__block form-field">
+        <label for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+        <textarea rows="10" id="ContactFormMessage" class="contactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}"></textarea>
+      </div>
+      {% endunless  %}
+
+      <div class="form-item">
+        <input type="submit" class="btn btn--large btn--full" value="{{ 'contact.form.send' | t }}">
+      </div>
+
+      {% if section.settings.terms %}
+        <div class="form-item form__legal">
+          {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
+        </div>
+      {% endif %}
+
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Contact form",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Form heading",
+        "default": "Contact us",
+        "info": "Email and Message are required."
+      },
+      {
+        "type": "checkbox",
+        "id": "terms",
+        "label": "Show reCAPTCHA terms",
+        "default": true,
+        "info": "Reccomended if your online store preferences have spam protection enabled."
+      },
+      {
+        "type": "header",
+        "content": "Style"
+      },
+      {
+        "type": "select",
+        "id": "height",
+        "label": "Height",
+        "default": "margin--medium",
+        "options": [
+          {"value": "margin--small", "label": "Small"},
+          {"value": "margin--medium", "label": "Medium"},
+          {"value": "margin--large", "label": "Large"}
+        ]
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "wrapper--narrow",
+        "options": [
+          {"value": "wrapper", "label": "Normal"},
+          {"value": "wrapper--narrow", "label": "Narrow"},
+          {"value": "wrapper--full", "label": "Wide"}
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "text-dark",
+        "options": [
+          { "value": "text-light", "label": "White"},
+          { "value": "text-dark", "label": "Dark"}
+        ]
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+{
+"type" : "text",
+"id" : "heading",
+"label" : "Heading",
+"default":"Toll Free Number"
+},
+{
+"type" : "text",
+"id" : "heading-2",
+"label" : "Heading-2",
+"default":"Track Order"
+},
+
+{
+"type" : "text",
+"id" : "phone",
+"label" : "phone",
+"default":"xxx-xxx-xxx"
+},
+{
+"type" : "text",
+"id" : "phone_text",
+"label" : "Additional Text",
+"default":"10 am to 7 pm, Monday - Sunday"
+},
+{
+"type" : "text",
+"id" : "email_text",
+"label" : "Email text",
+"default":"Email Us"
+},
+{
+"type" : "text",
+"id" : "email",
+"label" : "Email",
+"default":"order@xxxxxxxx.in"
+},
+{
+"type" : "html",
+"id" : "trackorder",
+"label" : "Track-msg"
+
+},
+{
+"type" : "checkbox",
+"id" : "enable_book_1",
+"label" : "Customer Services"
+}
+    ],
+    "blocks": [
+      {
+        "type": "email",
+        "name": "Email",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Label",
+            "default": "Email"
+          }
+        ]
+      },
+      {
+        "type": "body",
+        "name": "Message",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Label",
+            "default": "Message"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text line",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Label",
+            "default": "Full Name",
+            "info": "Example: Full Name"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "name": "Text area",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Label",
+            "default": "Enter your message",
+            "info": "Example: Enter your message"
+          }
+        ]
+      },
+      {
+        "type": "telephone",
+        "name": "Telephone",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Label",
+            "default": "Phone Number",
+            "info": "Example: Phone Number"
+          }
+        ]
+      },
+      {
+        "type": "formHeading",
+        "name": "Heading",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading",
+            "info": "Use to break up longer forms"
+          }
+        ]
+      },
+      {
+        "type": "spacer",
+        "name": "Spacer",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "line",
+            "label": "Show line",
+            "default": false
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "name": "Single checkbox",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Label",
+            "default": "Checkbox option",
+            "info": "Example: Subscribe to newsletter"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "name": "Select dropdown",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Select an option",
+            "info": "Example: Choose a delivery location"
+          },
+          {
+            "type": "header",
+            "content": "Include up to six options",
+            "info":  "Options with blank text will not appear."
+          },
+          {
+            "type": "text",
+            "id": "label-one",
+            "default": "Option one",
+            "label": "Option one"
+          },
+          {
+            "type": "text",
+            "id": "label-two",
+            "default": "Option two",
+            "label": "Option two"
+          },
+          {
+            "type": "text",
+            "id": "label-three",
+            "default": "Option three",
+            "label": "Option three"
+          },
+          {
+            "type": "text",
+            "id": "label-four",
+            "default": "Option four",
+            "label": "Option four"
+          },
+          {
+            "type": "text",
+            "id": "label-five",
+            "default": "Option five",
+            "label": "Option five"
+          },
+          {
+            "type": "text",
+            "id": "label-six",
+            "default": "Option six",
+            "label": "Option six"
+          }
+        ]
+      },
+      {
+        "type": "radio",
+        "name": "Radio buttons",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Pick an option"
+          },
+          {
+            "type": "header",
+            "content": "Include up to six options",
+            "info":  "Leave option text blank to exclude"
+          },
+          {
+            "type": "text",
+            "id": "label-one",
+            "default": "Option one",
+            "label": "Option one"
+          },
+          {
+            "type": "text",
+            "id": "label-two",
+            "default": "Option two",
+            "label": "Option two"
+          },
+          {
+            "type": "text",
+            "id": "label-three",
+            "label": "Option three"
+          },
+          {
+            "type": "text",
+            "id": "label-four",
+            "label": "Option four"
+          },
+          {
+            "type": "text",
+            "id": "label-five",
+            "label": "Option five"
+          },
+          {
+            "type": "text",
+            "id": "label-six",
+            "label": "Option six"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "category": "Text",
+        "name": "Contact form",
+        "blocks": [
+          {
+            "type": "text",
+            "settings": {
+              "title": "Full Name"
+            }
+          },
+          {
+            "type": "email",
+            "settings": {
+              "title": "Email"
+            }
+          },
+          {
+            "type": "body",
+            "settings": {
+              "title": "Message"
+            }
+          },
+          {
+            "type": "formHeading",
+            "settings": {
+              "title": "Optional:"
+            }
+          },
+          {
+            "type": "checkbox",
+            "settings": {
+              "title": "This is urgent"
+            }
+          },
+          {
+            "type": "select",
+            "settings": {
+              "title": "Select an option",
+              "label-one": "- Pick an option -",
+              "label-two": "Option one",
+              "label-three": "Option two",
+              "label-four": "Option three",
+              "label-five": "Option four",
+              "label-six": "Option five"
+            }
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  
+  .address-massage {
+    width:100%;
+    display: flex;
+    
+    /*margin-top: 40px;*/
+        /*display: inline-block;*/
+  }
+/*   .address-massage.FeatureText__ImageWrappers.TextWrapper {
+    width: 50%;
+    display: inline;
+    float: left;
+} */
+  .track_you_order {
+    text-align: center;
+    border: 1px solid #000;
+    position: relative;
+    padding: 20px;
+    padding-top: 35px;
+    min-height: 250px;
+    width: 100%;
+    /*max-width: 50%;
+    /*margin: 0 auto;*/
+    /* float: left; 
+    /* padding: 10px; */
+     margin-left: 3px;
+}
+ 
+  .track_you_order .head {
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+    margin:30px 0;
+    min-height: 75px;
+    font-size:1.2em;
+}
+  .cstm-btn-ctn {
+ background-color:#a99bf1;
+    color:#fff;
+    border:none !important;
+  }
+  .cstm-btn-ctn a {
+    color:#fff !important;
+  }
+  .track_you_order .disc-contact {
+    border: 1px solid #000;
+    margin-bottom: 10px!important;
+    padding: 8px!important;
+    box-shadow: 0 0 3px;
+    cursor: pointer;
+}
+/*   .track_you_order .disc-contact a{color:#454545;} */
+  .track_you_order ,.track_you_order a {
+    color: #000;
+    font-size: 15px;
+/*     font-weight: 600; */
+}
+  .Heading-contact{
+   color: #a99bf1;
+    font-weight: 600;
+  }
+  .track_you_order .track {
+    background-color: #a99bf1;
+    
+}
+  .track_you_order .track {
+    position: absolute;
+    height: 55px;
+    width: 55px;
+    display: inline-block;
+    padding: 15px 0;
+    border-radius: 50%;
+    box-shadow: 0 0 14px -5px rgb(0 0 0 / 20%);
+    text-align: center!important;
+    left: 50%;
+    top: -27px;
+    padding-bottom: 11px!important;
+    padding: 17px;
+    transform: translateX(-50%);
+}
+  .track_you_order .track i {
+    color: #fff;
+    font-size: 20px;
+}
+ @media (max-width: 640px){
+.track_you_order  {
+   
+  float: none;
+   max-width: 100%;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  
+}
+   .address-massage{
+     display:block;
+   }
+  }
+  .form-field .popout__toggle, .form-field input[type=email], .form-field input[type=number], .form-field input[type=password], .form-field input[type=tel], .form-field input[type=text], .form-field select, .form-field textarea {
+    
+    border: 1px solid #000;
+}
+</style>

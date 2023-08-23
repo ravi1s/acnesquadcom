@@ -1,0 +1,58 @@
+.btn, .btn:hover{
+  background-color: #a99ef6;
+  color: #fff;
+}
+
+#continue_button[disabled="disabled"] {
+  background: #a99ef6d6;
+}
+
+.breadcrumb_count_4 .breadcrumb__item:first-child, .breadcrumb_count_4 .breadcrumb__item:nth-child(3){
+  display: none;
+}
+.checkout_error{
+  font-size: 14px;
+  color: #ff0000;
+}
+.disabled_checkout{
+  pointer-events: none;
+  opacity: 0.7;
+}
+.loaderChekout {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 99999999;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #a99ef6;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+.loaderChekout-overlay {
+    position: fixed;
+    background-color: #ccc;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    display: none;
+    z-index: 9999999;
+    opacity: 1;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

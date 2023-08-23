@@ -1,0 +1,34 @@
+<!-- =====================registerNow2 section ================================== -->
+<div class="mainregisterNow">
+
+  <div class="registerNowcontnt">
+    <p class="closeregiterBtn" id="closeregiterBtnId">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </p>
+    <p class="mainregisterNowDes">{{ section.settings.descrption }}</p>
+    <a href="{{ section.settings.btnTextUrl }}" class="registerNowUrl backBtnUrl">{{ section.settings.btnText }}</a>
+  </div>
+ 
+</div>
+{% schema %}
+  {
+    "name": "registerNow2 name",
+    "settings": [
+ 	{
+		"type":"text",
+		"id":"descrption",
+		"label":"description"
+	},
+	{
+		"type":"text",
+		"id":"btnText",
+		"label":"Button text"
+	},
+	{
+		"type":"url",
+		"id":"btnTextUrl",
+		"label":"Button Url"
+	}
+  ]
+}
+{% endschema %}

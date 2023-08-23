@@ -1,0 +1,134 @@
+<li class="wizzy-result-product wizzy-product-[[id]]
+    [[#groupId]]has-variations wizzy-group-product-[[groupId]][[/groupId]]"
+        title="[[& name ]]" data-id="[[id]]" [[#groupId]]data-groupId="[[groupId]]"[[/groupId]]  [[#singleVarientGroupId]]data-groupId="[[singleVarientGroupId]]"[[/singleVarientGroupId]]
+        [[#themeColor]]color-theme="[[themeColor]]"[[/themeColor]]
+                                                                                     >
+
+    <span class="wizzy-product-variation-loader-bg"></span>
+    <span class="wizzy-product-variation-loader"></span>
+
+    <a href="[[&url]]" class="wizzy-result-product-item">
+        <div class="result-product-item-image">
+            <img src="[[ mainImage ]]" class="product-item-image" width="300" height="300" loading="lazy" />
+        </div><!-- ending of result-product-item-image -->
+        <div class="result-product-item-image hover-image">
+            [[#hoverImage]]
+                <img src="[[ hoverImage ]]" class="product-item-image" width="300" height="300" loading="lazy"/>
+            [[/hoverImage]]
+            [[^hoverImage]]
+                <img src="[[ mainImage ]]" class="product-item-image" width="300" height="300" loading="lazy"/>
+            [[/hoverImage]]
+        </div><!-- ending of result-product-item-image -->
+        <div class="result-product-item-info">
+        <p class="product-item-title">[[& name ]]</p>
+      
+        [[#swatches]]
+            <div class="product-item-swatch-group
+            [[#isPrimary]]swatch-group-primary[[/isPrimary]] swatch-group-[[key]]"
+                data-swatchKey="[[key]]">
+            [[#values]]
+                <div data-variationId="[[variationId]]" title="[[#value]][[value]][[/value]]"
+                    class="product-item-swatch-item
+                    [[#isSelected]]swatch-selected[[/isSelected]]
+                    [[#inStock]]swatch-in-stock[[/inStock]]">
+
+[[#isSwatch]]
+<span class="wizzy-facet-item-swatch-wrapper [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+    [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]">
+    <span class="wizzy-facet-item-swatch [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+        [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]"
+            style="[[#isVisualSwatch]][[#isURLSwatch]]background-image:url([[swatchValue]]);[[/isURLSwatch]]
+            [[^isURLSwatch]]background-color:[[swatchValue]];[[/isURLSwatch]][[/isVisualSwatch]]">
+         [[^swatchValue]]
+                [[#value]]
+                    <span class="wizzy-facet-swatch-individual-value">[[value]]</span>
+                [[/value]]
+        [[/swatchValue]]
+        [[^isVisualSwatch]]
+            <span class="wizzy-facet-swatch-value">[[swatchValue]]</span>
+        [[/isVisualSwatch]]
+    </span>
+</span>
+[[/isSwatch]]
+
+            </div>
+            [[/values]]
+        </div><!-- ending of product-item-swatch-group -->
+        [[/swatches]]
+        <div class="wizzy-product-item-price-reviews-wrapper">
+
+       
+
+            <div class="wizzy-product-item-price [[#hasSwatches]]with-swatches[[/hasSwatches]]">
+                [[#priceWithCurrency]][[ sellingPrice ]][[/priceWithCurrency]]
+                 [[#discountPercentage]]
+                [[#price]]
+                <span class="product-item-original-price">
+                                [[#priceWithCurrency]][[ price ]][[/priceWithCurrency]]
+                            </span>
+                [[/price]]
+                  <span class="product-item-discount">
+                       [[discountPercentage]]% off
+                  </span>
+
+                [[/discountPercentage]]
+            </div>
+     <div class="wizzy-product-item-reviews [[^totalReviews]]no-ratting[[/totalReviews]]">
+                [[#totalReviews]]
+              <span class="spr-badge" data-rating="[[avgRatings]]">
+                  <span class="spr-starrating spr-badge-starrating">
+                  <i class="spr-icon spr-icon-star" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star" aria-hidden="true"></i>
+              </span>
+              <span class="spr-badge-caption">[[totalReviews]] reviews</span>
+              </span>
+                [[/totalReviews]]
+                  [[^totalReviews]]
+
+               <span class="spr-badge" data-rating="0">
+                  <span class="spr-starrating spr-badge-starrating">
+                  <i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>
+                  <i class="spr-icon spr-icon-star-empty" aria-hidden="true"></i>
+              </span>
+              <span class="spr-badge-caption">No reviews</span>
+</span>
+                  
+                  [[/totalReviews]]
+            </div>
+
+
+            [[#customDataOne]]<textarea data-wizzy-custom-data style="display:none;"> [[ &customDataOne ]]  </textarea>[[/customDataOne]]
+            <div class="wizzy-cutom-data" style="[[#themeColorHex]]border-color:[[themeColorHex]][[/themeColorHex]]"></div>
+                  
+            <div class="wizzy-product-actions">
+                <div class="product_item-actions actions">
+
+                    <div class="actions-primary">
+                            <div class="wizzy-product-add-to-cart">
+                                <form data-role="tocart-form"
+                                  class="wizzy-tocart-form" method="post" action="/cart/add">
+                                    <input type="hidden" name="id" value="[[variantId]]"/>
+                                    <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
+                                    <button type="submit" value="Add to Bag" class="wizzy-tocart-button btn button [[^inStock]]out-off-stock[[/inStock]]"
+                                  style="[[#themeColorHex]]background-color:[[themeColorHex]]!important[[/themeColorHex]]"
+                                  >
+                                  <span class="when-not-adding">ADD TO BAG</span>
+                                  <span class="when-adding">ADDED</span>
+                                  </button>
+                                </form>
+                            </div>
+                        </div>
+
+                </div>
+            </div><!-- ending of wizzy-product-actions -->
+
+        </div><!-- ending of wizzy-product-item-price-reviews-wrapper -->
+        </div><!-- ending of result-product-item-info -->
+    </a><!-- ending of wizzy-result-product-item -->
+</li><!-- ending of wizzy-result-product -->

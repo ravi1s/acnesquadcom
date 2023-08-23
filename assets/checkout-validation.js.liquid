@@ -1,0 +1,601 @@
+(function ($){
+  $(document).on("page:load page:change", function(e) {
+    if (Shopify.Checkout.step === "contact_information") {
+      var event = e.type;
+      var inpFields = document.querySelectorAll('.field__input-wrapper input');
+      var fields = document.querySelectorAll('.field');
+      fields.forEach((field) => {
+        let element = document.createElement('p');
+        element.classList.add('checkout_error');
+        field.append(element);
+      });
+      var address_change = document.querySelector('#checkout_shipping_address_id');
+      document.querySelector('#checkout_shipping_address_phone').setAttribute("maxLength", "10");
+      document.querySelector('#checkout_shipping_address_phone').setAttribute("minLength", "10");
+      document.querySelector("#checkout_shipping_address_zip").setAttribute("minlength","6");
+      document.querySelector("#checkout_shipping_address_zip").setAttribute("maxlength","6");
+      var checkoutButton = document.querySelector('#continue_button');
+      var phonefield = document.querySelector('.edit_checkout #checkout_shipping_address_phone');
+      var storepincode = localStorage.getItem('storepincode');
+       var form = document.querySelector('form.edit_checkout');
+      if(form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          checkoutButton.classList.add('btn--loading');
+          checkoutButton.setAttribute('disabled', 'true');
+          let eventName = e.type;
+          var email = emailValidation(eventName);
+          var pincode = pincodeValidation(eventName);
+          var name = nameValidation(eventName);
+          var address1 = address1Validation(eventName);
+          var address2 = address2Validation(eventName);
+          var city = cityValidation(eventName);
+          var phone = phoneValidation(eventName);
+          checkoutButton.addEventListener('transitionend', function(e) {
+            if(checkoutButton.classList.contains('btn--loading')) {
+              checkoutButton.classList.remove('btn--loading');
+              checkoutButton.removeAttribute('disabled');
+            }
+          });
+          // console.log('email', email,'pincode', pincode,'name', name,'address1', address1,'address2' ,address2,'city', city,'phone', phone);
+          if(email == true && pincode == true && name == true && address1 == true && address2 == true && city == true && phone == true) {
+            checkoutButton.addEventListener('transitionend', function(e) {
+              checkoutButton.classList.add('btn--loading');
+              checkoutButton.setAttribute('disabled', 'true');
+            });
+            form.submit();
+          }
+        });
+      }
+      if(checkoutButton) {
+        checkoutButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          checkoutButton.classList.add('btn--loading');
+          checkoutButton.setAttribute('disabled', 'true');
+          let eventName = e.type;
+          var email = emailValidation(eventName);
+          var pincode = pincodeValidation(eventName);
+          var name = nameValidation(eventName);
+          var address1 = address1Validation(eventName);
+          var address2 = address2Validation(eventName);
+          var city = cityValidation(eventName);
+          var phone = phoneValidation(eventName);
+          checkoutButton.addEventListener('transitionend', function(e) {
+            if(checkoutButton.classList.contains('btn--loading')) {
+              checkoutButton.classList.remove('btn--loading');
+              checkoutButton.removeAttribute('disabled');
+            }
+          });
+          // console.log('email', email,'pincode', pincode,'name', name,'address1', address1,'address2' ,address2,'city', city,'phone', phone);
+          if(email == true && pincode == true && name == true && address1 == true && address2 == true && city == true && phone == true) {
+            checkoutButton.addEventListener('transitionend', function(e) {
+              checkoutButton.classList.add('btn--loading');
+              checkoutButton.setAttribute('disabled', 'true');
+            });
+            form.submit();
+          }
+        });
+      }
+      if(storepincode != null){    
+        autofillCity(storepincode);
+      }
+      setTimeout(() => {
+        var email = emailValidation(event);
+        var pincode = pincodeValidation(event);
+        var name = nameValidation(event);
+        var address1 = address1Validation(event);
+        var address2 = address2Validation(event);
+        var city = cityValidation(event);
+        var phone = phoneValidation(event);
+        if(phonefield) {
+          phonefield.setAttribute('autocomplete', 'none');
+          let input = phonefield.value;
+          input = input.replace(/[^0-9]/g, '');
+          phonefield.value = input;
+        }
+      }, 1000);
+      inpFields.forEach((field) => {
+        field.addEventListener('input', function(e) {
+          setTimeout(() => {
+            let eventName = e.type;
+            var email = emailValidation(eventName);
+            var pincode = pincodeValidation(eventName);
+            var name = nameValidation(eventName);
+            var address1 = address1Validation(eventName);
+            var address2 = address2Validation(eventName);
+            var city = cityValidation(eventName);
+            var phone = phoneValidation(eventName);
+            // console.log('email', email,'pincode', pincode,'name', name,'address1', address1,'address2', address2,'city', city,'phone', phone);
+            // if(email == true && pincode == true && name == true && address1 == true && address2 == true && city == true && phone == true) {
+            //   checkoutButton.removeAttribute('disabled');
+            // }else {
+            //   checkoutButton.setAttribute('disabled', 'disabled');
+            // }
+          }, 1500);
+        });
+        field.addEventListener('keyup', function(e) {
+          let eventName = e.type;
+          var email = emailValidation(eventName);
+          var pincode = pincodeValidation(eventName);
+          var name = nameValidation(eventName);
+          var address1 = address1Validation(eventName);
+          var address2 = address2Validation(eventName);
+          var city = cityValidation(eventName);
+          var phone = phoneValidation(eventName);
+          // console.log('email', email,'pincode', pincode,'name', name,'address1', address1, 'address2', address1,'city', city,'phone', phone);
+          // if(email == true && pincode == true && name == true && address1 == true && address2 == true && city == true && phone == true) {
+          //   checkoutButton.removeAttribute('disabled');
+          // }else {
+          //   checkoutButton.setAttribute('disabled', 'disabled');
+          // }
+        });
+      });
+      if(address_change) {
+        address_change.addEventListener('change', function(e) {
+          setTimeout(() => {
+            let eventName = e.type;
+            var email = emailValidation(eventName);
+            var pincode = pincodeValidation(eventName);
+            var name = nameValidation(eventName);
+            var address1 = address1Validation(eventName);
+            var address2 = address2Validation(eventName);
+            var city = cityValidation(eventName);
+            var phone = phoneValidation(eventName);
+            // console.log('email', email,'pincode', pincode,'name', name,'address1', address1, 'address2', address1,'city', city,'phone', phone);
+            // if(email == true && pincode == true && name == true && address1 == true && address2 == true && city == true && phone == true) {
+            //   checkoutButton.removeAttribute('disabled');
+            // }else {
+            //   checkoutButton.setAttribute('disabled', 'disabled');
+            // }
+          }, 1500);
+        });
+      }
+      checkoutButton.addEventListener('click', function() {
+        fetch('/cart.json').then((response) => {
+          return response.json();
+        }).then((result) => {
+          var total__price = result.total_price;
+          var shipping_price = '';
+          var shippingOrigin = 'shopify-Standard-'
+          if(total__price >= 0 && total__price <= 0.99) {
+            shipping_price = `${shippingOrigin}0.00`;
+          }else if(total__price >= 100 && total__price <= 49900) {
+            shipping_price = `${shippingOrigin}49.00`;
+          }else if(total__price >= 50000) {
+            shipping_price = `${shippingOrigin}0.00`;
+          }
+          $('[data-step="contact_information"] [name="previous_step"]').val('shipping_method');
+          $('[data-step="contact_information"] [name="step"]').val('payment_method');
+          $('form[data-customer-information-form="true"]').append(`<input class="input-radio" type="hidden" value="${shipping_price}" checked="checked" name="checkout[shipping_rate][id]">`);
+        }).catch((err) => {
+          console.error('error: ', err);
+        });
+      });
+      $(".edit_checkout #checkout_shipping_address_last_name, .edit_checkout #checkout_shipping_address_city").keyup(function(e){
+        var inputtxt = $(this).val($(this).val().replace(/[^A-Za-z ]*$/, ''));
+      });
+       if(phonefield) {
+        phonefield.addEventListener('keyup', function(e) {
+          let input = phonefield.value;
+          let newinput = input.replace(/[^0-9]/g, '');
+          phonefield.value = newinput;
+        });
+        phonefield.addEventListener('input', function(e) {
+          let input = phonefieldvalue;
+          let newinput = input.replace(/[^0-9]/g, '');
+          phonefield.value = newinput;
+        });
+      }
+      // $('.edit_checkout #checkout_shipping_address_phone').keyup(function(e) {
+      //   let input = e.target.value;
+      //   input = input.replace(/[^0-9]/g, '');
+      //   input = input.substring(0, 10);
+      //   e.target.value = input;
+      // });
+      $('body').on('keyup input', '.edit_checkout #checkout_shipping_address_zip', function(e){
+        var t = $(this);
+        var new_t = $(t).val($(t).val().replace(/[^0-9]/g,''));
+        if(t.val().length == 6) {
+          autofillCity(t.val());
+        }
+      });
+      var add1field = document.querySelector('#checkout_shipping_address_address1');
+      if(add1field) {
+        add1field.addEventListener('keyup', function(e) {
+          let field = e.target.value;
+          field = field.replace(/[^a-zA-Z0-9\/#\-_,. ]+$/, '');
+          e.target.value = field;
+        });
+        add1field.addEventListener('input', function(e) {
+          let field = e.target.value;
+          field = field.replace(/[^a-zA-Z0-9\/#\-_,. ]+$/, '');
+          e.target.value = field;
+        });
+      }
+      var add2field = document.querySelector('#checkout_shipping_address_address2');
+      if(add2field) {
+        add2field.addEventListener('keyup', function(e) {
+          let field = e.target.value;
+          field = field.replace(/[^a-zA-Z0-9\/#\-_,. ]+$/, '');
+          e.target.value = field;
+        });
+        add2field.addEventListener('input', function(e) {
+          let field = e.target.value;
+          field = field.replace(/[^a-zA-Z0-9\/#\-_,. ]+$/, '');
+          e.target.value = field;
+        });
+      }
+      // Expand order summary on Mobile
+      Checkout.$('[data-drawer-toggle="[data-order-summary]"]').click();
+      $('#continue_button').click(function(){
+        var storepincode = $('#checkout_shipping_address_zip').val();
+        localStorage.setItem('storepincode',storepincode);
+        if($('#checkout_shipping_address_zip').val()){
+          setTimeout(function(){
+            $('#checkout_shipping_address_zip').val( $('#checkout_shipping_address_zip').val() );
+          }, 1500);
+        }
+      });
+    }else if(Shopify.Checkout.step === "shipping_method") {
+      var currenturl = window.location.href.split('?')[0];
+      window.location.href = `${currenturl}?step=contact_information`;
+    }
+  });
+})(Checkout.$)
+
+function emailValidation(eventName) {
+  var emailField = document.querySelector('#checkout_email').value;
+  var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,12}$/i;
+  var error_field = document.querySelector('#checkout_email')?.closest('.field')?.querySelector('.checkout_error');
+  if(email_regex.test(emailField) && emailField.length > 0) {
+    if(error_field) { error_field.innerHTML = ''; }
+    return true;
+  }else if(!email_regex.test(emailField) && emailField.length > 0) {
+    if(error_field) { error_field.innerHTML = ' Please enter your Email*'; }
+    return false;
+  }else if(emailField.length == 0) {
+    if(error_field) { error_field.innerHTML = ' Please enter your Email*'; }
+    return false;
+  }
+}
+
+function pincodeValidation(eventName) {
+  var pinField = document.querySelector('#checkout_shipping_address_zip').value;
+  let count = pinField.replace(/[, ]/g, "").length;
+  var pin_regex = /^[1-9][0-9]{5}$/;
+  if(pin_regex.test(pinField) && count == 6) {
+    document.querySelector('#checkout_shipping_address_zip').closest('.field').querySelector('.checkout_error').innerHTML = '';
+    return true;
+  }else if((!pin_regex.test(pinField) && count == 6) || (!pin_regex.test(pinField) && (count > 0 && count < 6))) {
+    document.querySelector('#checkout_shipping_address_zip').closest('.field').querySelector('.checkout_error').innerHTML = 'Please enter your Delivery Pincode';
+    return false;
+  }else if(count == 0) {
+    if(eventName == 'click' || eventName == 'submit') { document.querySelector('#checkout_shipping_address_zip').closest('.field').querySelector('.checkout_error').innerHTML = 'Please Enter Pincode'; }
+    return false;
+  }
+}
+
+function nameValidation(eventName) {
+  var nameField = document.querySelector('#checkout_shipping_address_last_name').value;
+  let count = nameField.replace(/[, ]/g, "").length;
+  var name_regex = /^[ A-Za-z ]*$/;
+  if(name_regex.test(nameField) && count >= 3) {
+    document.querySelector('#checkout_shipping_address_last_name').closest('.field').querySelector('.checkout_error').innerHTML = '';
+    return true;
+  }else if((!name_regex.test(nameField) && count >= 3) || (name_regex.test(nameField) && (count > 0 && count < 3))) {
+    document.querySelector('#checkout_shipping_address_last_name').closest('.field').querySelector('.checkout_error').innerHTML = 'Please enter your Full Name*';
+    return false;
+  }else if(count == 0) {
+    if(eventName == 'click' || eventName == 'submit') { document.querySelector('#checkout_shipping_address_last_name').closest('.field').querySelector('.checkout_error').innerHTML = 'Please Enter Name'; }
+    return false;
+  }
+}
+
+function address1Validation(eventName) {
+  var address1Field = document.querySelector('#checkout_shipping_address_address1').value;
+  let count = address1Field.replace(/[, ]/g, "").length;
+  var address_regex = /^[a-zA-Z0-9\/#\-_,. ]+$/;
+  if(address_regex.test(address1Field) && count >= 5) {
+    document.querySelector('#checkout_shipping_address_address1').closest('.field').querySelector('.checkout_error').innerHTML = '';
+    return true;
+  }else if((!address_regex.test(address1Field) && count >= 5) || (address_regex.test(address1Field) && (count > 0 && count < 5))) {
+    document.querySelector('#checkout_shipping_address_address1').closest('.field').querySelector('.checkout_error').innerHTML = 'Please enter your Flat, House no., Building, Company, Apartment*';
+    return false;
+  }else if(count == 0) {
+    if(eventName == 'click' || eventName == 'submit') { document.querySelector('#checkout_shipping_address_address1').closest('.field').querySelector('.checkout_error').innerHTML = 'Please Enter Address'; }
+    return false;
+  }
+}
+
+function address2Validation(eventName) {
+  var address2Field = document.querySelector('#checkout_shipping_address_address2').value;
+  // console.log('address2Field', address2Field);
+  let count = address2Field.replace(/[, ]/g, "").length;
+  var address_regex = /^[a-zA-Z0-9\/#\-_,. ]+$/;;
+  if(address_regex.test(address2Field) && count >= 4) {
+    document.querySelector('#checkout_shipping_address_address2').closest('.field').querySelector('.checkout_error').innerHTML = '';
+    return true;
+  }else if((!address_regex.test(address2Field) && count >= 4) || (address_regex.test(address2Field) && (count > 0 && count < 4))) {
+    document.querySelector('#checkout_shipping_address_address2').closest('.field').querySelector('.checkout_error').innerHTML = 'Please enter your Area, Street, Sector, Village*';
+    return false;
+  }else if(count == 0) {
+    if(eventName == 'click' || eventName == 'submit') { document.querySelector('#checkout_shipping_address_address2').closest('.field').querySelector('.checkout_error').innerHTML = 'Please Enter Address'; }
+    return false;
+  }
+}
+
+function cityValidation(eventName) {
+  var cityField = document.querySelector('#checkout_shipping_address_city').value;
+  let count = cityField.replace(/[, ]/g, "").length;
+  var city_regex = /^[a-zA-Z ]*$/;
+  if(city_regex.test(cityField) && count > 3) {
+    document.querySelector('#checkout_shipping_address_city').closest('.field').querySelector('.checkout_error').innerHTML = '';
+    return true;
+  }else if((!city_regex.test(cityField) && count > 3) || (city_regex.test(cityField) && (count > 0 && count <= 3))) {
+    document.querySelector('#checkout_shipping_address_city').closest('.field').querySelector('.checkout_error').innerHTML = ' Please enter your City*';
+    return false;
+  }else if(count == 0) {
+    if(eventName == 'click' || eventName == 'submit') { document.querySelector('#checkout_shipping_address_city').closest('.field').querySelector('.checkout_error').innerHTML = 'Please Enter City'; }
+    return false;
+  }
+}
+
+function phoneValidation(eventName) {
+  var phoneField = document.querySelector('#checkout_shipping_address_phone').value;
+  var phone_regex = /^[6789][0-9]{4}([ ]?)[0-9]{5}$/;
+  var newPhone = phoneField.replace(/[ ]/g, "");
+  phoneField = newPhone;
+  if(phone_regex.test(phoneField) && phoneField.length >= 10) {
+    document.querySelector('#checkout_shipping_address_phone').closest('.field').querySelector('.checkout_error').innerHTML = '';
+    return true;
+  }else if((!phone_regex.test(phoneField) && phoneField.length >= 10) || (!phone_regex.test(phoneField) && (phoneField.length > 0 && phoneField.length <= 10))) {
+    document.querySelector('#checkout_shipping_address_phone').closest('.field').querySelector('.checkout_error').innerHTML = 'Please enter your 10 digit Phone number';
+    return false;
+  }else if(phoneField.length == 0) {
+    if(eventName == 'click' || eventName == 'submit') { document.querySelector('#checkout_shipping_address_phone').closest('.field').querySelector('.checkout_error').innerHTML = 'Please Enter Phone Number'; }
+    return false;
+  }
+}
+
+function autofillCity(pincode){
+  $.getJSON(`https://api.postalpincode.in/pincode/${pincode}`, function(data) {
+    var data_pincodes = data[0].PostOffice[0].Pincode;
+    var data_pincodes_length = data_pincodes.length;
+    if(data[0].PostOffice[0].Block == 'NA') {var city_new = data[0].PostOffice[0].District;}else{var city_new = data[0].PostOffice[0].Block;}
+    var state_new = data[0].PostOffice[0].State;
+    var country_new = data[0].PostOffice[0].Country;
+    var match_state_new;
+    $("#checkout_shipping_address_province option").each(function(){
+      var select_val = $(this).text();  
+      if(select_val == state_new ) {
+        match_state_new = $(this).val();
+        return;
+      }
+    });
+    $('#checkout_shipping_address_province').val(match_state_new).change();            
+    $('#checkout_shipping_address_city').val(city_new);
+    $('#checkout_shipping_address_zip').val(pincode);
+  });
+}
+
+{% comment %}
+$('body').on('keyup', '#checkout_shipping_address_zip', function(){
+  $(".new_zip_error").remove();
+  var _t = $("#checkout_shipping_address_zip");
+  var new_t = $(_t).val($(_t).val().replace(/[^0-9]/g,''));
+  var _pincode = _t.val();
+  _t.parents('.field').find('.checkout_error').remove();
+  autofillCity(_pincode);
+  if(_pincode.length == '' || _pincode.length < 6 ){
+    $('#continue_button').addClass('disabled_checkout');
+    _t.parent().parent().prepend('<p class="new_zip_error" style="color:red;">Please enter your Delivery Pincode</p>');
+  }
+ else {
+    $('#continue_button').removeClass('disabled_checkout');
+   _t.parent().parent().find('.new_zip_error').html('');
+ }
+});
+$('.field').prepend('<p class="checkout_error"></p>'); 
+$('.step__sections .field__input-wrapper input').keyup(function(){
+  field_validate($(this));
+  validateContinue();
+});
+validateContinue();
+function validateContinue(){
+  var checkInputField = true;
+  $('.step__sections .field__input-wrapper input').each(function(){
+    var inputVal = $(this).val();
+    var inputPlace = $(this).attr('placeholder');
+      if(inputVal == '' ){
+        checkInputField = false;
+      }
+  });
+  if(checkInputField == false){
+    $('#continue_button').addClass('disabled_checkout');
+  }
+  if(checkInputField == true){
+    $('#continue_button').removeClass('disabled_checkout');
+  }
+  console.log(checkInputField);
+}
+
+$('.field__input').focusout(function(){
+  $('.field__message--error').hide();
+  $(this).attr('type', 'text');
+  field_validate($(this));
+});
+
+function field_validate(field){
+  // $('#checkout_shipping_address_id').parents('.field--show-floating-label').find('.checkout_error').css('display','none');
+
+  if(field.val() == ""){
+    var label = field.parent().find('label').text();
+    var add_2 = document.querySelector('[data-address-field="address2"]');
+    field.css({"border":"1px solid #fb1818"});
+    field.parent().parent().find('.checkout_error').html('<i class="fa fa-exclamation-circle"></i> Please enter your '+label);
+  }else{
+    /*-----------validate input fields--------*/
+    var email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    var phone_regex = /^[6789][0-9]{4}([ ]?)[0-9]{5}$/;
+    var pin_regex = /^[1-9][0-9]{5}$/;
+    var name_regex = /^[ A-Za-z0-9_@./#&+-,-]*$/;
+    var field_id = field.attr('id');
+    if(field_id == 'checkout_shipping_address_phone' && !phone_regex.test(field.val().replace(/\s/g,''))){
+     $('#continue_button').prop('disabled',true);
+      field.parent().parent().find('.checkout_error').html('<i class="fa fa-exclamation-circle"></i> Enter 10 digits valid phone number');
+    }else if(field_id == 'checkout_email_or_phone' && !phone_regex.test(field.val().replace(/\s/g,''))){
+      $('#continue_button').prop('disabled',true);
+    }else if(field_id == 'checkout_email' && !email_regex.test(field.val())){
+      $('#continue_button').prop('disabled',true);
+     
+    }else if(field_id == 'checkout_shipping_address_first_name' && !name_regex.test(field.val())){
+      field.val("");
+      field.parent().parent().find('.checkout_error').html('<i class="fa fa-exclamation-circle"></i> Please enter valid Alphabet');
+    } 
+    // else if(field_id == 'checkout_shipping_address_address1' && !name_regex.test(field.val())){
+    //   field.val("");
+    //   field.parent().parent().find('.checkout_error').html('<i class="fa fa-exclamation-circle"></i> Please enter valid Alphabet');
+    // }
+    else if(field_id == 'checkout_shipping_address_city' && !name_regex.test(field.val())){
+      field.val("");
+      field.parent().parent().find('.checkout_error').html('<i class="fa fa-exclamation-circle"></i> Please enter valid Alphabet');
+    }else{
+      $('#continue_button').prop('disabled',false);
+      field.css({"border-color":"#d9d9d9"});
+      var this_div_attr = ($(field.parent().parent()).attr('data-address-field'));
+      if(this_div_attr == 'zip'){
+      }else{
+        field.parent().parent().find('.checkout_error').html('');
+      }
+    }
+  }
+  $('#checkout_shipping_address_id').css({"border":"1px solid #d9d9d9"});
+}
+ /***********Mobile validation ****************/ 
+$('#checkout_shipping_address_phone').on('keyup', function(e) {
+  $(".new_phone_error").remove();
+  // var newphoney = $(this).setAttribute("maxlength","10");
+  var $this = $(this).val($(this).val().replace(/[^0-9]/g,''));
+  if($(this).val().length < 10){
+     
+    // field.parents('.field').prepend('<p class="checkout_error_address">Please enter complete address</p>');
+       $('#continue_button').prop('disabled',true);
+  }
+  else{
+    // field.parents('.field').find('.checkout_error_address').remove();
+    $('#continue_button').prop('disabled',false);
+  }   
+});  
+/***********End Mobile validation ****************/ 
+     /*****************address limit validation ****************/
+		$('#checkout_shipping_address_address1').keyup(function (){
+         $('.checkout_error_address').remove();
+ 
+        var address_text = $('#checkout_shipping_address_address1').val().replace(/\s+/g, '').length;
+        var field = $('#checkout_shipping_address_address1');
+        //   field.parent().parent().find('.checkout_error_address').html('');
+        if(address_text < 5){
+           field.parents('.field').prepend('<p class="checkout_error_address">Please enter your Flat, House no., Building, Company, Apartment</p>');
+           $('#continue_button').prop('disabled',true);
+        }
+        else{
+          field.parents('.field').find('.checkout_error_address').remove();
+          $('#continue_button').prop('disabled',false);
+        }   
+      });
+    
+       /*****************address limit validation 2 ****************/
+		$('#checkout_shipping_address_address2').keyup(function (){
+         $('.checkout_error_address2').remove();
+        var address_text2 = $('#checkout_shipping_address_address2').val().replace(/\s+/g, '').length;
+        var field2 = $('#checkout_shipping_address_address2');
+        if($(this).val().length < 10){
+          field2.parents('.field').prepend('<p class="checkout_error_address2">Please enter your Area, Street, Sector, Village</p>');
+         // $('#continue_button').addClass('disabled_checkout');
+          $('#continue_button').prop('disabled',true);
+        }
+        else{
+          // $('#continue_button').removeClass('disabled_checkout');
+          field2.parents('.field').find('.checkout_error_address2').remove();
+           $('#continue_button').prop('disabled',false);
+        }   
+      });
+
+    //// name validation 
+   		$('#checkout_shipping_address_last_name').keyup(function () {
+          $('.name_checkout_error').remove();
+       
+        var name_field = $('#checkout_shipping_address_last_name').val();
+        var custname_field = $('#checkout_shipping_address_last_name');
+        custname_field.parents('.field').find('.checkout_error').remove();
+        //   field.parent().parent().find('.checkout_error').html('')
+        if(name_field == '' || name_field.length < 3 ){
+           
+          custname_field.parents('.field').prepend('<p class="name_checkout_error" style="color:#ff0000;">Please enter your Full Name*</p>');
+             $('#continue_button').prop('disabled',true);
+        }
+        else{
+          custname_field.parents('.field').prepend('<p class="name_checkout_error" style="color:#ff0000;"></p>');
+          $('#continue_button').prop('disabled',false);
+        }   
+      });
+    
+//mail validation
+      $('#checkout_email').keyup(function () {
+        $('.new_email_checkout_error').remove();
+        var email_field = $('#checkout_email').val();
+        var custemail_field = $('#checkout_email');
+       custemail_field.parents('.field').find('.checkout_error').remove();
+        //   field.parent().parent().find('.checkout_error').html('');
+        if(email_field == ''){
+          custemail_field.parents('.field').prepend('<p class="new_email_checkout_error" style="color:#ff0000;font-size:14px;">Please enter your valid Email</p>');
+             $('#continue_button').prop('disabled',true);
+        }
+        else{
+          // custemail_field('.field').find('.checkout_error').remove();
+          $('#continue_button').prop('disabled',false);
+        }   
+});
+/*****************End address limit validation ****************/
+// pincode validation start
+var Validation = document.querySelector("#checkout_shipping_address_zip");
+var setAttr = Validation.setAttribute("maxlength","6");
+//alert("validation :", Validation);
+var Validation1= document.querySelector("#checkout_shipping_address_phone");
+var setAttr1 = Validation1.setAttribute("maxlength","10");
+// pincode validation end 
+{% endcomment %}
+{% comment %}
+  <script>
+    /* window.theme_1 = {
+      customer_id:"{{customer.id}}",
+      customer_id_checkout:"{{ checkout.customer.id }}",
+      checkout_email_or_phone_insert:"{{customer.phone | replace: '+91', ''}}"
+    }*/
+    var customer_id = "{{customer.id}}";
+    var customer_id_checkout = '{{ checkout.customer.id }}';
+    var checkout_email_or_phone_insert ='{{customer.phone | replace: "+91", ""}}';
+    if(checkout_email_or_phone_insert == ""){
+      checkout_email_or_phone_insert ='{{customer.email }}'; 
+    }
+  </script>
+  {{ 'email_L1.js' | asset_url | script_tag }}
+  {% if customer %}
+    <script>var customer_checkout = "true" ;</script>
+  {% else %}
+    <script>var customer_checkout = "false" ;</script>
+    <style>
+    .fieldset_custom #checkout_email_l1{
+      font-size: 13px;
+      padding-top: 1.3em;
+      padding-bottom: 0.3571428571em;
+    }
+    .field--show-floating-label .custom_email_l1{
+      font-size: 11px;
+    }
+    [data-address-field=phone] {
+      display: none;
+    }
+    </style>
+  {% endif %}
+{% endcomment %}

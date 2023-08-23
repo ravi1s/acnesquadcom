@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "main": {
+      "type": "list-collections",
+      "blocks": {
+        "e69c8a58-0d2a-43d2-ab58-34a240919301": {
+          "type": "collection",
+          "settings": {
+            "collection": "product4",
+            "collection_name": "",
+            "bg_position": "center-center"
+          }
+        }
+      },
+      "block_order": [
+        "e69c8a58-0d2a-43d2-ab58-34a240919301"
+      ],
+      "settings": {
+        "display_type": "selected",
+        "title": "Collections",
+        "grid": 4,
+        "rows": 1,
+        "enable_reviews": false,
+        "layout_mobile": "carousel"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,628 @@
+<!-- /snippets/product-form.liquid -->
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign unique = unique | default: '' -%}
+
+{% comment %}
+{% endcomment %}
+{%- assign buybutton_setting = block.settings.show_payment_button -%}
+{% comment %}
+{% endcomment %}
+{%- if buybutton_setting == null -%}
+  {% assign buybutton_setting = settings.quickview_buybutton_enable -%}
+{%- endif -%}
+{% comment %}
+{% endcomment %}
+{%- if product.selling_plan_groups.size > 0 -%}
+  {% assign buybutton_setting = false -%}
+{%- endif -%}
+
+{%- comment -%}
+  Size chart
+{%- endcomment -%}
+{%- assign show_size_chart = false -%}
+{%- assign tags_string = product.tags | join: ',' -%}
+{%- assign size_separator = '_size_' -%}
+{%- assign specific_pages = '' -%}
+{%- assign show_size_link_outside = false -%}
+
+{%- if block.settings.info_page != blank -%}
+  {%- assign size_translation = 'general.size_chart.size' | t -%}
+
+  {%- assign size_page = pages[block.settings.info_page] -%}
+{%- endif -%}
+
+{%- if tags_string contains size_separator -%}
+  {%- for tag in product.tags -%}
+    {%- if tag contains size_separator -%}
+      {%- assign page_handle = tag | split: size_separator | last | split: ',' | first -%}
+      {%- assign specific_pages = specific_pages | append: page_handle | append: ',' -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if block.settings.info_page != blank or specific_pages != '' -%}
+  {%- assign show_size_chart = true -%}
+  {%- assign specific_pages_arr = specific_pages | split: ',' -%}
+
+  {%- capture size_chart -%}
+<a href="{{ size_page.url }}" data-product-popup="size-{{ section.id }}" {% if product.has_only_default_variant %} class="size-popup-link" {% endif %}>
+
+  {%- if pages[specific_pages_arr[0]].title != blank -%}
+  {{ pages[specific_pages_arr[0]].title }}
+  {%- else -%}
+  {{ size_page.title }}
+  {%- endif -%}
+</a>
+{%- endcapture -%}
+
+  {%- capture size_chart_modal -%}
+<div class="product-modal" id="size-{{ section.id }}" aria-hidden="true" data-product-modal>
+  <div class="product-modal__inner" role="dialog" aria-modal="true">
+    <div class="product-modal__overlay" tabindex="-1" data-product-popup="size-{{ section.id }}"></div>
+
+    <div class="product-modal__content">
+      <button class="product-modal__close" data-product-popup="size-{{ section.id }}" aria-label="{{ 'general.accessibility.close' | t }}">
+        {% render 'icon-close' %}
+      </button>
+
+      <div class="rte product-tabs" data-tabs-holder>
+        {%- assign tabs_navigation = '' -%}
+        {%- assign tabs = '' -%}
+        {%- assign has_current = false -%}
+        {%- assign number_tabs = 0 -%}
+
+        {%- for page_handle in specific_pages_arr -%}
+        {%- assign _page = pages[page_handle] -%}
+
+        {%- if _page.title != blank -%}
+        {%- capture tabs_navigation -%}
+        {{ tabs_navigation }}
+
+        <li class="tab-link tab-link-{{ forloop.index0 }}" data-focus-element data-tab="{{ forloop.index0 }}" tabindex="0">{{ _page.title }}</li>
+        {%- endcapture -%}
+
+        {%- capture tabs -%}
+        {{ tabs }}
+
+        <div class="tab-content tab-content-{{ forloop.index0 }} {% unless has_current %} current {% endunless %}">
+          {{ _page.content }}
+        </div>
+        {%- endcapture -%}
+
+        {%- assign has_current = true -%}
+        {%- endif -%}
+        {%- endfor -%}
+
+        {%- if size_page -%}
+        {% assign number_tabs = specific_pages_arr.size %}
+
+        {%- capture tabs_navigation -%}
+        {{ tabs_navigation }}
+
+        <li class="tab-link tab-link-{{ number_tabs }}" data-focus-element data-tab="{{ number_tabs }}" data-lock-scroll tabindex="0">{{ size_page.title }}
+        </li>
+        {%- endcapture -%}
+
+        {%- capture tabs -%}
+        {{ tabs }}
+
+        <div class="tab-content tab-content-{{ number_tabs }} {% unless has_current %} current {% endunless %}">
+          {{ size_page.content }}
+        </div>
+        {%- endcapture -%}
+
+        {%- assign has_current = true -%}
+        {%- endif -%}
+
+        {%- if specific_pages_arr.size > 1 -%}
+        <div class="tabs__head product-tabs__head">
+          <ul class="tabs product-tabs-title" data-scrollbar data-scrollbar-slider>
+            {{ tabs_navigation }}
+          </ul>
+
+          <button type="button" class="tabs__arrow tabs__arrow--prev tabs-collections__arrow tabs-collections__arrow--prev is-hidden is-not-relative" data-scrollbar-arrow-prev>
+            <span class="visually-hidden">{{ 'products.general.see_all' | t }}</span>
+          </button>
+
+          <button type="button" class="tabs__arrow tabs__arrow--next tabs-collections__arrow tabs-collections__arrow--next is-hidden is-not-relative" data-scrollbar-arrow-next>
+            <span class="visually-hidden">{{ 'products.general.see_all' | t }}</span>
+          </button>
+        </div>
+        {%- endif -%}
+
+        {%- if tabs != '' -%}
+        {{ tabs }}
+        {%- endif -%}       
+      </div>
+    </div>
+  </div>
+</div>
+{%- endcapture -%}
+{%- endif -%}
+
+{% form 'product', product, class: 'product-form', data-product-form: '' %}
+  {% comment %} The input with name="id" submits to cart {% endcomment %}
+  <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+  {% unless block.settings.show_quantity %}
+    <input type="hidden" name="quantity" value="1">
+  {% endunless %}
+
+  {% comment %} Shop pay split payment terms {% endcomment %}
+  <div class="shop-pay-terms">{{ form | payment_terms }}</div>
+
+  {%- assign quantity_bottom_show = true -%}
+  {%- capture quantity_selector -%}
+<div class="select__fieldset">
+  <span class="select__label" id="{{ unique }}-select-quantity-label">{{ 'products.product.quantity' | t }}</span>
+
+  <div class="select-popout_hide select-popout--small" data-popout data-popout-prevent="true">
+{% comment %}
+    <button type="button" class="select-popout__toggle" aria-expanded="false" aria-controls="{{ unique }}-select-quantity" aria-labelledby="{{ unique }}-select-quantity-label" data-popout-toggle>
+      1
+    </button>
+
+    <ul id="{{ unique }}-select-quantity" class="select-popout__list" data-popout-list>
+      {% for idx in (1..10) %}
+      <li class="select-popout__item {% if forloop.index == 1 %}select-popout__item--current{% endif %}">
+        <a class="select-popout__option" href="#" {% if forloop.index == 1 %}aria-current="true"{% endif %} data-value="{{ forloop.index }}" data-popout-option>
+          <span>
+            {{ forloop.index }} {% if forloop.last %}+{% endif %}
+          </span>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <div class="quantity-selector" data-quantity-holder>
+      <label for="product-quantity-buttons-{{ section.id }}" class="label-hidden">{{ 'products.product.quantity' | t }}</label>
+
+      <button type="button" class="quantity__minus is-not-relative" data-quantity-minus data-quantity-button tabindex="0" 
+              title="{{ 'cart.general.decrease_quantity_label' | t }} - {{ product.title | strip_html -}}">{% render "icon-minus" %}</button>
+
+      <input id="product-quantity-buttons-{{ section.id }}" data-popout-input type="number" class="quantity__input" value="1" min="1" aria-label="quantity" autocomplete="off" name="quantity" data-quantity-field title="{{- 'cart.general.quantity_field_label' | t }} - {{ product.title | strip_html -}}" pattern="[0-9]*" />
+
+      <button type="button" class="quantity__plus is-not-relative" data-quantity-plus data-quantity-button tabindex="0" title="
+                                                                                                                               {{- 'cart.general.increase_quantity_label' | t }} - {{ product.title | strip_html -}}">{% render "icon-plus" %}</button>
+    </div>
+{% endcomment %}
+  </div>
+</div>
+{%- endcapture -%}
+
+  {%- capture form_fields -%}
+{% unless product.has_only_default_variant %}
+{%- assign selects_counter = 0 -%}
+<div class="product__selectors">
+  {% for option in product.options_with_values %}
+  {%- assign option_name_handle_separator = option.name | handle | prepend: ',' | append: ',' -%}
+
+  {%- if settings.color_swatches -%}
+  {% comment %} Determine if current option matches swatch handle translations {% endcomment %}
+  {%- assign is_swatch_option = false -%}
+  {%- assign swatch_translation = 'general.swatches.color' | t -%}
+  {%- assign translation_string = swatch_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ',' -%}
+
+  {%- if translation_string contains option_name_handle_separator -%}
+  {%- assign is_swatch_option = true -%}
+  {%- endif -%}
+  {%- endif -%}
+
+  {%- assign is_size_option = false -%}
+  {%- if show_size_chart and is_size_option == false -%}
+  {% comment %} Determine if current option matches size handle translations {% endcomment %}
+  {%- assign size_translation = 'general.swatches.size' | t -%}
+  {%- assign translation_string = size_translation | remove: '  ' | replace: ', ', ',' | replace: ' ,', ',' | replace: ',', '____' | handle | replace: '____', ',' | append: ',' | prepend: ',' -%}
+
+  {%- if translation_string contains option_name_handle_separator -%}
+  {%- assign is_size_option = true -%}
+  {%- assign show_size_link_outside = true -%}
+  {%- endif -%}
+  {%- endif -%}
+
+  <div class="selector-wrapper{% if settings.variant_lines or is_swatch_option %} selector-wrapper--fullwidth{% endif %}" data-select-position="{{ option.position }}">
+    {%- if settings.variant_lines or is_swatch_option -%}
+    {% assign current_value = current_variant.options[forloop.index0] %}
+    <fieldset class="radio__fieldset">
+      <legend class="radio__legend {% if is_size_option %} radio__legend--flex {% endif %}">
+        <span class="radio__legend__label">{{ option.name | escape_once }}</span>
+
+        {%- if is_size_option -%}
+        {% if block.settings.show_labels %}
+        <div class="radio__legend__dot">&nbsp;</div>
+        {% endif %}
+
+        {{ size_chart }}
+        {%- endif -%}
+      </legend>
+      {% for value in option.values %}
+      {% capture input_id %}{{product.id}}-{{ option.name | escape_once }}-{{ value | escape_once }}{% endcapture %}
+
+      {%- if is_swatch_option -%}
+      <span class="swatch__button" data-tooltip="{{ value | escape_once | capitalize }}">
+        <input type="radio"
+               data-single-option-selector
+               data-index="option{{ option.position }}"
+               name="options[{{ option.name | escape_once }}]"
+               value="{{ value | escape_once }}" 
+               id="{{ input_id }}"
+               {% if value == current_value %}checked{% endif %}>
+        <label for="{{ input_id }}" data-swatch="{{ value | escape_once }}">
+          <span class="visually-hidden">{{ value | escape_once }}</span>
+        </label>
+      </span>
+
+      {%- else -%}
+      {% comment %} radio button 
+      <span class="radio__button">
+        <input
+               type="radio"
+               data-single-option-selector
+               data-index="option{{ option.position }}"
+               name="options[{{ option.name | escape_once }}]"
+               value="{{ value | escape_once }}" id="{{ input_id }}"
+               {% if value == current_value %}checked{% endif %}>
+        <label for="{{ input_id }}">
+          <span>{{ value | escape_once }}</span>
+        </label>
+      </span>
+{% endcomment %}
+      {%- endif -%}
+
+      {% endfor %}
+    </fieldset>
+    {%- else -%}
+    {%- assign selects_counter = selects_counter | plus: 1 -%}
+    <div class="select__fieldset">               
+      {% capture input_id %}{{product.id}}-option-{{ option.position }}{% endcapture %}
+      <span class="radio__legend">
+        <span class="radio__legend__label" id="{{ unique }}-select-{{ option.name | handle }}-label">{{ option.name | escape_once }}</span>
+      </span>
+
+      <div class="select-popout" data-popout data-popout-prevent="true">
+        <button type="button" class="select-popout__toggle" aria-expanded="false" aria-controls="{{ unique }}-select-{{ option.name | handle }}" aria-labelledby="{{ unique }}-select-{{ option.name | handle }}-label" data-popout-toggle>
+          {{ option.selected_value }}
+        </button>
+
+        <ul id="{{ unique }}-select-{{ option.name | handle }}" class="select-popout__list" data-popout-list>
+          {% for value in option.values %}
+          <li class="select-popout__item {% if option.selected_value == value %}select-popout__item--current{% endif %}">
+            <a class="select-popout__option" href="#" {% if option.selected_value == value %}aria-current="true"{% endif %} data-value="{{ value | escape_once }}" data-popout-option>
+              <span>
+                {{ value | escape_once }}
+              </span>
+            </a>
+          </li>
+          {%- endfor -%}
+        </ul>
+        <input type="hidden" name="options[{{ option.name | escape_once }}]" id="{{ input_id }}" value="{{ option.selected_value }}" data-popout-input data-single-option-selector data-index="option{{ option.position }}"/>
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+  {% endfor %}
+
+  {%- assign check_selects_counter = selects_counter | modulo: 2 -%}
+  {%- if check_selects_counter != 0 -%}
+  {%- assign quantity_bottom_show = false -%}
+  {%- endif -%}
+
+  {%- if block.settings.show_quantity -%}  
+  {%- unless quantity_bottom_show -%}
+  <div class="selector-wrapper">
+    {{ quantity_selector }}
+  </div>
+  {%- endunless -%}
+  {%- endif -%}
+</div>
+{% endunless %}
+{%- endcapture -%}
+
+  {%- unless show_size_link_outside -%}
+    {{ size_chart }}
+  {%- endunless -%}
+
+  {{ form_fields }}
+
+  {{ size_chart_modal }}
+  <noscript>
+    <select
+      name="id"
+      class="product__form__select product__form__select--hidden no-js"
+      aria-label="{{ product.options_with_values | map: 'name' | uniq | join: ', ' }}"
+    >
+      {% for variant in product.variants %}
+        <option
+          {% if variant == current_variant %}
+            selected="selected"
+          {% endif %}
+          {% unless variant.available %}
+            disabled="disabled"
+          {% endunless %}
+          value="{{ variant.id }}"
+        >
+          {{ variant.title }}
+        </option>
+      {% endfor %}
+    </select>
+  </noscript>
+
+  {%- if product.selling_plan_groups.size > 0 -%}
+    {% if block.settings.subscriptions_enable_selectors %}
+      {% render 'subscription-form', product: product %}
+    {%- endif -%}
+    {% comment %} Delete the following line to block the theme from updating subscription prices {% endcomment %}
+    <span data-subscription-watch-price></span>
+  {%- endif -%}
+
+  {%- if quantity_bottom_show and block.settings.show_quantity -%}
+    {{ quantity_selector }}
+  {%- endif -%}
+  <div class="productPrice product__price__wrap">
+    <div class="product__price" data-price-wrapper>
+      <span
+        data-product-price
+        {% if current_variant.compare_at_price > current_variant.price %}
+          class="product__price--sale"
+        {% endif %}
+      >
+        {{ current_variant.price | money_without_trailing_zeros }}
+      </span>
+
+      {% if product.compare_at_price_max > product.price %}
+        <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+        <s class="product__price--strike" data-compare-price>
+          {% if current_variant.compare_at_price > current_variant.price %}
+            {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+          {% endif %}
+        </s>
+      {% endif %}
+
+      {% liquid
+        assign units = product.variants | map: 'unit_price'
+        if units[0]
+          assign has_units = true
+        else
+          assign has_units = false
+        endif
+      %}
+      {% if has_units %}
+        {% capture show_units %}
+      {%- unless current_variant.unit_price -%}style="display: none;"{%- endunless -%}
+      {% endcapture %}
+        {% capture unit_price_separator %}
+      <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'general.accessibility.unit_price_separator' | t }}&nbsp;</span>
+      {% endcapture %}
+        {% capture unit_price_base_unit %}
+      <span>
+        {% if current_variant.unit_price_measurement %}
+        {% if current_variant.unit_price_measurement.reference_value != 1 %}
+        {{ current_variant.unit_price_measurement.reference_value }}
+        {%- endif -%}
+        {{ current_variant.unit_price_measurement.reference_unit }}
+        {% endif %}
+      </span>
+      {% endcapture %}
+        <div class="product__price__meta">
+          <span data-product-unit {{ show_units }} class="product__price--unit">
+            <span class="visually-hidden visually-hidden--inline">{{ 'products.product.unit_price_label' | t }}</span>
+            <span data-product-unit-price id="unit-price-{{ section.id }}">
+              {{- current_variant.unit_price | money -}}
+            </span>
+            {{ unit_price_separator }}
+            <span data-product-base id="unit-price-base-{{ section.id }}">{{ unit_price_base_unit }}</span>
+          </span>
+          <span data-price-each class="product__price--unit hide">
+            {{ 'products.product.each' | t }}
+            <span data-price-each-amount></span>
+          </span>
+        </div>
+      {% endif %}
+    </div>
+    <span data-price-off class="product__price--off hide">
+      {{ 'products.product.subscription' | t }}
+      <em>•</em>
+      {{ 'products.product.save' | t }}
+      <span data-price-off-amount></span>
+    </span>
+  </div>
+  {% if product.price > 0 %}
+    <div class="stticcontnt">
+      <p class="stticcontntTxt">
+<!--    SALE ALERT: Buy any 2 products & get a Toner worth 599 free!  -->
+<!--     ⚡Flat discounts sitewide ⚡Extra 5% off on prepaid orders -->
+       ⚡Free Pouch on all orders Above ₹999
+       <!-- ⚡Get a Free Headband On Orders Above ₹600 & Free Pouch On Orders Above ₹1500 -->
+    <!-- ⚡UP TO 45% OFF + Free Headband On Orders Above ₹600 & Free Pouch On Orders Above ₹1500 -->
+      </p>
+    </div>
+
+    <!-- Pincode Validation -->
+    <div class="product_page_pin">
+      {% render 'pincode-validator' %}
+    </div>
+    <!-- Pincode Validation -->
+    
+    <div class="dflex proDctPricCartBtn">
+      <div class="proDctPricCartBtn_inner">
+        <div class="quantity-selector sss" data-quantity-holder>
+          <label for="product-quantity-buttons-{{ section.id }}" class="label-hidden">
+            {{- 'products.product.quantity' | t -}}
+          </label>
+
+          <button
+            type="button"
+            class="quantity__minus is-not-relative"
+            data-quantity-minus
+            data-quantity-button
+            tabindex="0"
+            title="{{ 'cart.general.decrease_quantity_label' | t }} - {{ product.title | strip_html -}}"
+          >
+            {% render 'icon-minus' %}
+          </button>
+
+          <input
+            id="product-quantity-buttons-{{ section.id }}"
+            readonly
+            data-popout-input
+            type="number"
+            class="quantity__input"
+            value="1"
+            min="1"
+            max="5"
+            aria-label="quantity"
+            autocomplete="off"
+            name="quantity"
+            data-quantity-field
+            title="{{- 'cart.general.quantity_field_label' | t }} - {{ product.title | strip_html -}}"
+            pattern="[0-9]*"
+          >
+
+          <button
+            type="button"
+            class="quantity__plus is-not-relative"
+            data-quantity-plus
+            data-quantity-button
+            tabindex="0"
+            title="        {{- 'cart.general.increase_quantity_label' | t }} - {{ product.title | strip_html -}}"
+          >
+            {% render 'icon-plus' %}
+          </button>
+        </div>
+
+        <div
+          class="productCartBtn product__submit{% if buybutton_setting %} product__submit--spb{% endif %}"
+          data-product-id="{{ product.id }}"
+        >
+          <div class="product__submit__buttons">
+            <div class="product__submit__item">
+              <button
+                type="submit"
+                name="add"
+                class="btn product__submit__add"
+                data-add-to-cart
+                data-focus-element
+                     product_id="{{ product.id }}"
+                variant_id="{{ current_variant.id }}"
+                product_price="{{ current_variant.price | money_without_trailing_zeros }}"
+                product_type="{{ product.type }}"
+                product_vendor="{{product.vendor }}"
+                product_title="{{product.title }}"
+                product_index="{{ index }}"
+                {% unless current_variant.available %}
+                  disabled="disabled"
+                {% endunless %}
+              >
+                <span data-add-to-cart-text>
+                  {%- if current_variant.available and product.tags contains '_preorder' -%}
+                    {{ 'products.product.pre_order' | t }}
+                  {%- elsif current_variant.available -%}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {%- else -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- endif -%}
+                </span>
+
+                <svg height="18" width="18" class="svg-loader">
+                  <circle r="7" cx="9" cy="9" />
+                  <circle stroke-dasharray="87.96459430051421 87.96459430051421" r="7" cx="9" cy="9" />
+                </svg>
+              </button>
+            </div>
+            {% if buybutton_setting %}
+              <div class="product__submit__item">
+                {{ form | payment_button }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if settings.enable_max_limit %}
+    <div class="dis_error-msg b" id="err_MaxLimit"></div>
+  {%- endif -%}
+  <div data-cart-errors-container class="product__form__errors"></div>
+
+  <script data-cart-popover-template type="text/x-template">
+    <a href="#" class="close">{% render 'icon-close-thin' %}</a>
+    <div class="product__add__notification">
+      <div class="product__add__success">
+        <div class="product__add__success__image">
+          <div class="product__add__success__image-bg"
+               style="background-image: url('{% raw %}{{ it.product_image }}{% endraw %}');">
+    </div>
+    </div>
+        <div class="product__add__success__content">
+          <h6>{{ 'products.product.added' | t }}</h6>
+          {% raw %}
+          <h3 class="product__title">{{ it.item_count }} {{ it.product_title }}</h3>
+          {{@if(it.variant)}}
+            <p class="product__variant">{{ it.variant }}</p>
+          {{/if}}
+          <p class="product__price">{{ it.price_formatted  | safe }}</p>
+          {{@if(it.unit_price)}}
+            {{ it.unit_price  | safe }}
+          {{/if}}
+          {% endraw %}
+          <div class="buttons-wrap">
+            <form action="{{ routes.cart_url }}" method="post" novalidate>
+              <button type="submit" name="checkout"class="btn btn--primary">{{ "cart_popover.checkout" | t }}</button>
+    </form>
+            <a href="{{ routes.cart_url }}" class="btn btn--outline">{{ "cart_popover.view_cart" | t }}</a>
+    </div>
+
+    </div>
+    </div>
+    </div>
+  </script>
+{% endform %}
+
+<style>
+  .stticcontnt {
+    text-align: center;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: #a79ff3;
+    font-weight:600;
+    position:relative;
+    margin-bottom:2rem;
+  }
+  .dis_error-msg{
+    color: #f2c010;
+      padding-top: 10px;
+  }
+  .stticcontnt p{
+    border:1px dotted #a79ff3;
+    padding:5px;
+  }
+  @media only screen and (max-width: 749px){
+    .stticcontnt:after{
+      position:absolute;
+/*       border-bottom:1px solid #707070; */
+      content:"";
+      width:100%;
+      bottom:-9rem;
+      left:0;
+    }
+  }
+</style>
+<script>
+  $(document).ready(function() {
+    $('.acc-container .acc:nth-child(1) .acc-head').addClass('active');
+    $('.acc-container .acc:nth-child(1) .acc-content').slideDown();
+    $('.acc-head').on('click', function() {
+      if($(this).hasClass('active')) {
+        $(this).siblings('.acc-content').slideUp();
+        $(this).removeClass('active');
+      }
+      else {
+        $('.acc-content').slideUp();
+        $('.acc-head').removeClass('active');
+        $(this).siblings('.acc-content').slideToggle();
+        $(this).toggleClass('active');
+      }
+    });
+  });
+</script>

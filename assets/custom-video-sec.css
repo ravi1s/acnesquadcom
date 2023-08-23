@@ -1,0 +1,38 @@
+.custom-html-section--padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.video-sec
+{
+  position:relative;
+}
+
+/* .playpause {
+    background-image:url(https://cdn.shopify.com/s/files/1/0647/2368/1517/files/Play.png?v=1673591866);
+    background-repeat:no-repeat;
+    width:80px;
+    height:80px;
+    position:absolute;
+    left:0%;
+    right:0%;
+    top:0%;
+    bottom:0%;
+    margin:auto;
+    background-size:contain;
+    background-position: center;
+    display: none;
+} */
+.home-video.wrapper.custom-html-section--padding {
+  padding-bottom: 32px;
+}
+.custom-html-section:after {
+    position: absolute;
+    left: 50%;
+    bottom: inherit;
+    content: "";
+    border-bottom: 1px solid #D5D5D5;
+    height: 30px;
+    max-width: 800px;
+    transform: translate(-50%);
+    width: calc(100% - 60px);
+}

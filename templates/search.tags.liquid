@@ -1,0 +1,35 @@
+{% layout none %}
+{% capture output %}
+{% assign q = search.terms %}
+{% assign page = current_page %}
+{% assign perPage = 30.0 %}
+{% assign perPageRaw = perPage |  ceil%}
+{% assign tags = collections.all.tags %}
+{% assign totalPage = tags.size | divided_by: perPage | floor  %}
+{% assign tagsChunks = null %}
+{% assign pageChunks = 0 %}
+{% for tag in tags %}
+{% assign tagLowered =  tag | downcase %}
+{% assign qLowered =  q | downcase %}
+{% if tagLowered contains qLowered  %}
+{% assign tagsChunks =tagsChunks  | append: tag | append: "," %}
+{% endif %}
+{% endfor %}
+{% assign tagsChunksArray =tagsChunks  | split: "," %}
+{% assign totalPage = tagsChunksArray.size | divided_by: perPage | ceil  %}
+{% assign startIndex = 1 %}
+{% if page  > 1 %}
+{% assign startIndex = page  | minus: 1 |  times: perPageRaw %}
+{% endif %}
+{% assign currentIndex = 1 %}
+{% assign lastIndex = startIndex | plus : perPageRaw  | minus : 2 %}
+{% for tag in tagsChunksArray %}
+{% if currentIndex >= startIndex  and  currentIndex <= lastIndex %}
+{{ tag }}
+{% if currentIndex < lastIndex and  currentIndex < tagsChunksArray.size  %}[-$-]{% endif %}
+{% endif %}
+{% assign currentIndex = currentIndex | plus : 1 %}
+{% endfor %}
+[-%-]{"startIndex":{{ startIndex}},"lastIndex":{{ lastIndex }},"totalPage":{{totalPage}},"perPage":{{perPageRaw}},"currentPage":{{ current_page }},"total":{{  tagsChunksArray.size }},"fromTotal":{{  tags.size }},"query":"{{ q }}"}
+{% endcapture %}
+{{ output  }}

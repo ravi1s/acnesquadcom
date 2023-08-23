@@ -1,0 +1,108 @@
+<!----------show-more-less.liquid----------->
+<div class="accorbelow_content">
+  <p>{{ section.settings.see_more_text }}</p>
+  <span class="more-content " onclick="onMoreClick()">Read More...</span>
+  <div class="morebtn_content">
+  <p class="more-collection-content">{{ section.settings.see_less_text}}</p>
+  </div>
+  <span class="less-content" onclick="onlessClick()" >Read Less...</span><br><br>
+</div>
+ 
+
+{% schema %}
+  {
+    "name": "See more and Less",
+    "settings": [
+
+            {
+              "type": "html",
+              "id": "see_more_text",
+              "label": "Video embed"
+            },
+          {
+            "type": "html",
+            "id": "see_less_text",
+            "label": "Video embed"
+          }
+      
+    ],
+     "presets":[
+      {
+        "name":"See more and Less"
+      }
+    ]
+  }
+{% endschema %}
+<script>
+	  function onMoreClick (){
+    	document.querySelector('.morebtn_content').style.display="block";
+      	document.querySelector('.more-content').style.display="none";
+      	document.querySelector('.less-content').style.display="block";
+        
+    }
+    function onlessClick (){
+    	document.querySelector('.morebtn_content').style.display="none";
+      	document.querySelector('.more-content').style.display="block";
+      	document.querySelector('.less-content').style.display="none";
+    }
+  
+      
+ 
+</script>
+
+  
+<style>   
+  
+  .more-content{
+  cursor: pointer;
+  padding: 6px 10px;
+    background-color: #a99ef6;
+    margin: auto;
+    display: block;
+    width: 18%;
+    color: #fff;
+    text-align: center;
+    border-radius:6px;
+ }
+  .less-content{
+    cursor: pointer;
+    background-color:#a99ef6;
+    color:#fff;
+    width:18%;
+    text-align:center;
+    padding:6px 10px;
+    margin:auto;
+    display: none;
+    border-radius:6px;
+    text-align: center;
+  }
+  
+  .morebtn_content{
+  	display:none;
+
+  }
+  .accorbelow_content{
+    width:90%;
+    margin:auto;
+  }
+  
+  .ques-and-ans{
+  	color: #efa3b1 !important;
+  }
+  .meta-containercs{
+    margin-top:20px;
+  }
+  .heading-accor{
+    margin-bottom:20px;
+  }
+  .cc-tabs.cc-tabs--accordion-mode {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: auto;
+    width: 90%;
+  }
+     .accorbelow_content .mois_para, .accorbelow_content .para_more,.accorbelow_content .more-content,.accorbelow_content .less-content  {
+    font-size: initial;
+}
+   
+  </style>

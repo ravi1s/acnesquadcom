@@ -1,0 +1,148 @@
+
+ <div class="{{ section.settings.text_color }} {{ section.settings.height }}" data-accordion-holder>   
+  {%- if section.blocks.size > 0 -%}
+    <div class="faq {{ section.settings.width }}" data-section-id="{{ section.id }}" data-section-type="faq">
+      
+{% if section.settings.check_tabs != blank %}          
+{% if page.handle == 'faqs' %}
+<div class="faq_page-tabs_outer">
+  <div class="faq_page-tabs_inner">
+    <button data-class="faqs_all" type="button" class="faq_tabs_button active">All</button>
+    <button data-class="product-queries" type="button" class="faq_tabs_button">Product Queries</button>
+    <button data-class="shipping-refund" type="button" class="faq_tabs_button">Shipping & Refund</button>
+    <a href="/pages/contact"><button type="button" class="faq_tabs_button_cstm">Contact us</button></a>
+  </div>
+</div>
+{% endif %}
+  {% endif %}
+      {%- for block in section.blocks -%}
+        {%- assign current_block = block.settings -%}
+    
+        {%- if block.type == 'heading' and current_block.title != blank -%}
+          <h3 class="faq__title {% if forloop.index == 1 %}heading_faq{% endif %}" {{ block.shopify_attributes }}>{{ current_block.title }}</h3>
+        {%- endif -%}
+
+        {%- if block.type == 'question' and current_block.title != blank and current_block.content != blank -%}
+          <div class="accordion faqs_all {{ block.settings.faqs_title | handleize }}" data-accordion {{ block.shopify_attributes }}>
+            <h4 class="accordion__title {% if forloop.index == 2 %}is-open{% endif %}" data-focus-element tabindex="0" data-accordion-toggle data-block-id="{{ block.id }}">{{ current_block.title }}</h4>
+
+            <div class="accordion__body" data-accordion-body {% if forloop.index == 2 %}style="display: block;"{% endif %}>
+              {{ current_block.content }}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+  {
+    "name": "Accordion group",
+    "settings": [
+      {
+        "type": "text",
+        "id": "check_tabs",
+        "label": "Tabs Active"
+      },
+      {
+        "type": "select",
+        "id": "width",
+        "label": "Width",
+        "default": "wrapper--narrow",
+        "options": [
+          {"value": "wrapper", "label": "Normal"},
+          {"value": "wrapper--narrow", "label": "Narrow"},
+          {"value": "wrapper--full", "label": "Wide"}
+        ]
+      },
+      {
+        "type": "select",
+        "id": "height",
+        "label": "Height",
+        "default": "margin--medium",
+        "options": [
+          {"value": "margin--small", "label": "Small"},
+          {"value": "margin--medium", "label": "Medium"},
+          {"value": "margin--large", "label": "Large"},
+          {"value": "margin--zero", "label": "Zero"}
+        ]
+      },
+      {
+        "type": "select",
+        "id": "text_color",
+        "label": "Text color",
+        "default": "text-dark",
+        "options": [
+          { "value": "text-light", "label": "White"},
+          { "value": "text-dark", "label": "Dark"}
+        ]
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background",
+        "default": "#ffffff"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Heading",
+        "type": "heading",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "FAQ"
+          }
+        ]
+      },
+      {
+        "name": "Question",
+        "type": "question",
+        "settings": [
+          {
+            "type": "text",
+            "id": "faqs_title",
+            "label": "Class For Tabs",
+            "default": "Product Queries"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Question",
+            "default": "Frequently asked question"
+          },
+          {
+            "type": "html",
+            "id": "content",
+            "label": "Answer",
+            "default": "<p>Share details about your shipping policies, item returns, or customer service.<\/p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Accordion group",
+        "category": "Text",
+        "blocks": [
+          {
+            "type": "heading"
+          },
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          },
+          {
+            "type": "question"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+

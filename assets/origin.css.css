@@ -1,0 +1,341 @@
+.mainBannerImg{
+  background:#A79FF3;
+  position:relative;
+  overflow:hidden;
+}
+.mobilBannrOriginImg{
+  display:none;
+  width:100%;
+}
+img.logoImg,img.origineSecSlidImg,.DesktopBannrOriginImg {
+  width: 100%;
+}
+video::-webkit-media-controls {
+  display: none;
+}
+.mainquizIntrosntnt1 .slick-slide {
+  margin: 0 30px;
+}
+/* ====================banner content ============================== */
+.mainBannerContent {
+  color: #fff;
+  position: absolute;
+  top: 40px;
+  padding-left:20px;
+}
+p.bannertoodes{
+  margin-bottom:12px;
+}
+p.bannertoodes,.botomDes {
+  font-size: 18px;
+  max-width: 190px;
+  font-family: "Europa-Bold";
+  margin-top:0;
+  line-height:20px;
+}
+p.mainBannerTTl {
+  font-size: 50px;
+  max-width: 170px;
+  font-family: BebasNeue;
+  line-height:45px;
+  margin:0 0 1.5rem;
+}
+.subTittle{
+  font-size:27px;
+  font-family: BebasNeue;
+  line-height:32px;
+  border-bottom:3px solid;
+  max-width:max-content;
+  margin-bottom:5px;
+}
+.botomDes{
+  max-width:170px;
+}
+/* ====================end banner content ============================== */
+
+.origHeadingContent{
+  margin:0;
+  padding-top:2rem;
+  font-size:50px;
+  color:#A79FF3;
+  font-family: BebasNeue;
+  line-height:45px;
+}
+.paddingGap{
+  padding:0 1rem;
+  max-width:1300px;
+  margin:auto;
+}
+.origHeadingDes{
+  font-size:13px;
+  line-height:20px;
+}
+.bottomgap{
+  padding-bottom:2rem;
+}
+.breaklineBorder {
+  position: relative;
+}
+.orginimgHeading{
+  font-size:50px;
+  line-height:45px;
+  font-family: "BebasNeue-Book";
+  color:#A79FF3;
+  margin:0;
+}
+.bottomgappad{
+  padding-bottom:2rem;
+}
+img.logoImg {
+  max-width: 250px;
+}
+.faqPointsContent,p.faqPointsHead{
+  line-height: 22px;
+  font-size: 15px;
+  margin: 0;
+  font-family: "Europa-Bold";
+}
+p.faqPointsContent {
+  padding-left: 10px;
+  position:relative;
+}
+p.faqPointsContent:before {
+  content: "";
+  height: 12.5px;
+  width: 7.5px;
+  background: url(https://cdn.shopify.com/s/files/1/0647/2368/1517/files/New_Project_31_9e0d0f6d-1a39-4081-80cf-4ba64c19fba1.png?v=1661570039) no-repeat;
+  background-size:cover;
+  left: 0;
+  top: 50%;
+  position: absolute;
+  transform: translate(0,-50%);
+}
+/* ==========================================slider ======================================== */
+.faq-list__item-description.origineSecSlid {
+  padding:2rem 1rem 1rem;
+}
+.sctmfaqoptionslid {
+  padding-bottom: 2rem;
+  margin-bottom:2rem;
+}
+img.origineSecSlidImg {
+  max-width: 240px;
+}
+h6.origineSecSlidTitle,p.origineSecSlidTTLDes {
+  font-size: 15px;
+   line-height: 21px;
+}
+p.origineSecSlidDes {
+  font-size: 13px;
+  line-height: 21px;
+}
+h6.origineSecSlidTitle {
+  font-family: "Europa-Bold";
+  margin:0;
+  padding-top:1rem;
+}
+.mainoriginStroySlidesec.paddingGap .mainquizIntrosntnt1 {
+  margin-bottom: 2rem;
+}
+.paddingGap.sctmfaqoptionslid ul.slick-dots,.mainquizIntrosntnt1 ul.slick-dots {
+  bottom: 2rem;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+.mainquizIntrosntnt1 ul.slick-dots{
+  bottom:-2rem;
+}
+.paddingGap.sctmfaqoptionslid .slick-dots li button,.mainquizIntrosntnt1 ul.slick-dots li button {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  border: 1px solid #ac9efd;
+}
+.paddingGap.sctmfaqoptionslid .slick-dots li.slick-active button,.mainquizIntrosntnt1 .slick-dots li.slick-active button {
+  background: #AC9EFD;
+}
+/* ==========================================end slider ======================================== */
+/* =======================================video section ======================================= */
+p.sectionTitle {
+  font-size: 50px;
+  line-height: 45px;
+  color: #ac9efd;
+  font-family: BebasNeue;
+  margin: 0;
+}
+p.sectionDes {
+  font-size: 13px;
+  line-height:20px;
+}
+p.sectionDes strong {
+  font-family:Europa-Bold;
+  font-weight:500;
+}
+.originStrymainImgTtlDes{
+  align-items: center;
+  padding-bottom:2rem;
+}
+.mainVideo video {
+  width: 100%;
+  height: 100%;
+}
+img.originStrymainImg {
+  max-width: 70px;
+}
+.originStrymainTtlDes {
+  padding-left: 1rem;
+}
+p.originStrymainttl {
+  font-size: 25px;
+  font-family: BebasNeue;
+  margin:0;
+}
+p.originStrymainDes {
+  margin: 0;
+  font-size:13px;
+  line-height:15px;
+}
+p.originStrymainttl span{
+  font-family: BebasNeue-Book;
+}
+.mainvideoImagetiltdes {
+  padding: 0 1rem 0 0;
+}
+p.originBottomVideodes {
+  line-height: 20px;
+  font-size: 15px;
+  font-family: "Europa-Bold";
+  margin-bottom:0;
+}
+a.originBottomVideobtn {
+  font-family: BebasNeue;
+  font-size: 25px;
+  padding: 12px 34px;
+  display: inline-block;
+  background: #AC9EFD;
+  color: #fff;
+  margin: 1rem 0 2rem;
+  max-width:540px;
+}
+@media(min-width:749px){
+  .mainoriginBottomVideoText {
+    text-align: -webkit-center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  p.bannertoodes, .botomDes {
+    max-width: 300px;
+  }
+  p.mainBannerTTl {
+    max-width: 277px;
+  }
+  .mainBannerContent[data-aos][data-aos][data-aos-delay="500"].aos-animate{
+    transform: translateX(60%);
+  }
+  .origin_story_panel{
+    display: flex;
+    align-items: center;
+    max-width: 935px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+  }
+  .origin_story_panel .origHeadingContent, .origin_story_panel .origHeadingDes{
+    width: 50%;
+    margin: 0;
+    padding: 0;
+  }
+  .origin_story_panel .origHeadingContent{  
+    text-align: -webkit-right;
+    text-align: right;
+    padding-right: 60px;
+  }
+}
+@media(min-width:991px){
+  .mainBannerContent {
+    top: 18%;
+    left: 50px;
+  }
+  p.bannertoodes, .botomDes {
+    font-size: 25px;
+    max-width: 350px;
+    line-height: 1.1;
+  }
+  p.mainBannerTTl {
+    font-size: 65px;
+    max-width: 400px;
+    line-height:60px;
+  }
+  .subTittle {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+  .botomDes {
+    max-width: 276px;
+  }
+}
+
+@media(max-width:749px){
+  .mobilBannrOriginImg{
+    display:block;
+  }
+  main#MainContent {
+    padding-top: 72px;
+  }
+  .DesktopBannrOriginImg{
+    display:none;
+  }
+  .origHeadingDes{
+    max-width:330px;
+  }
+  .mainoriginStroySlidesec.paddingGap .mainquizIntrosntnt1 {
+    margin-bottom: 4rem;
+  }
+  .origin_story_panel.paddingGap{
+    padding-left: 35px;
+    padding-top: 10px;
+  }
+  .mainoriginBottomVideoText{
+    padding: 0 2.5rem;
+    padding-top: 30px;
+  }
+}
+@media(max-width:480px){
+  .paddingGap.sctmfaqoptionslid .slick-list.draggable{
+    padding: 0 25% 0 0;
+  }
+  .mainquizIntrosntnt1 .slick-list.draggable{
+    padding:0 15% 0 0;
+  }
+  p.sectionDes {
+    max-width: 285px;
+  }
+  p.originBottomVideodes {
+    max-width:355px;
+    font-size:13px;
+  }
+  .subTittle{
+    margin-top:0;
+  }
+  .mainBannerContent{
+    top:55px;
+  }
+  .seprator_line{
+    background: #707070;
+    height: 1px;
+    max-width: 320px;
+    margin-left: 35px;
+  }
+}
+@media(max-width:400px){
+  .mainBannerContent{
+    top:30px;
+  }
+}
+@media(max-width: 360px){
+  p.originStrymainttl{
+    font-size:19px;
+  }
+}

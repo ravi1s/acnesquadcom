@@ -1,0 +1,219 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "show_title": true,
+        "show_content": true,
+        "text_size": 2,
+        "align_text": "text-left",
+        "height": "margin--medium",
+        "width": "wrapper",
+        "text_color": "text-dark",
+        "bg_color": "#ffffff"
+      }
+    },
+    "456ce328-cd26-403b-b7ac-87dc6ce1d089": {
+      "type": "section-hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Squad-Insider-Banner-Desktop_0ac5307e-fa9d-46d4-a576-4e4448a873c9.png",
+        "mobile_image": "shopify:\/\/shop_images\/TopBanner_mobile_720x_9eed3532-9e94-4598-9960-38281d2cc47a.png",
+        "bg_position": "center-center",
+        "height": "screen-height-three-quarters",
+        "overlay_opacity": 0,
+        "overlay_color": "#000000",
+        "title": "",
+        "description": "",
+        "flex_align": "align--middle-center",
+        "text_color": "text-light",
+        "transparent": true,
+        "link_text": "",
+        "link": "",
+        "button_color": "btn--white",
+        "button_style": "hero__btn btn btn--large btn--outline caps"
+      }
+    },
+    "73f88298-4af6-4d9e-943d-2bca10e4fd0c": {
+      "type": "squadinsider-dermo-videoslider",
+      "blocks": {
+        "72ed016d-84d6-42c0-954b-b360d8ba919b": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "1",
+            "dermo_text": "Acne Expert Squad tips",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/d643d86fed9544a594227f8119673c2e.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img1_3_fdef108b-5140-4b86-8565-cb5b8ea6abc7.jpg"
+          }
+        },
+        "f8f4183c-db5a-4364-9ea5-a7d7fafc2b09": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "2",
+            "dermo_text": "A-Z of Acne",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/dd733f84f3b742baa48657704ed4469a.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img2_4_e3d5876a-1ef9-4841-b643-b83d8a812a38.jpg"
+          }
+        },
+        "14450b1e-2d06-4227-9ec6-296bc93b07f7": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "3",
+            "dermo_text": "Acne Myths vs Facts",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/e3ea0f0097fc444ab2090bb1544b2360.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img3_3_2b34b151-3be2-4cd0-b8b6-53f11459b0a4.jpg"
+          }
+        },
+        "72273640-d2d5-42aa-8346-a8196b84dad3": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "4",
+            "dermo_text": "Acne Care Technologies",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8e60471de828470cb2f362a99ed4956a.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img4_2_a3dd12ee-d2a3-4a90-99f5-44cee26e526c.jpg"
+          }
+        },
+        "52aaee1c-acc0-4a8d-9582-97868e49a5ec": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "5",
+            "dermo_text": "Most searched questions",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/17dba7689abb4fa299199539ffa2e162.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img5_1_ad2752e3-f6c3-4358-b3be-9b5cf1bbb85a.jpg"
+          }
+        },
+        "56ae5e11-d0d2-4a22-9e2d-f2e8ec5d9402": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "6",
+            "dermo_text": "Acne Red flags",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/fae384ae81ff4e4096aefe20a8fea797.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img6_1_41462ae9-96ae-4b99-a07e-45e6eaa89a43.jpg"
+          }
+        },
+        "48602f77-55af-47c2-876d-28f5d644ce6d": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "7",
+            "dermo_text": "Acne Myths vs Facts",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/0d4b43a642224664ba35378cca303293.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img7_1_f20e5f2a-fa56-4318-9def-6d084861f04a.jpg"
+          }
+        },
+        "a3856ad1-6ebd-48a7-9f58-8a55d9313040": {
+          "type": "gallery",
+          "settings": {
+            "dermo_number_count": "8",
+            "dermo_text": "Boost your acne regime",
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8f1d31ba52944f9fbbc2083244197e90.mp4",
+            "image_poster": "shopify:\/\/shop_images\/img8_1_afc9557f-32bb-402c-a8d1-1f89734954b5.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "72ed016d-84d6-42c0-954b-b360d8ba919b",
+        "f8f4183c-db5a-4364-9ea5-a7d7fafc2b09",
+        "14450b1e-2d06-4227-9ec6-296bc93b07f7",
+        "72273640-d2d5-42aa-8346-a8196b84dad3",
+        "52aaee1c-acc0-4a8d-9582-97868e49a5ec",
+        "56ae5e11-d0d2-4a22-9e2d-f2e8ec5d9402",
+        "48602f77-55af-47c2-876d-28f5d644ce6d",
+        "a3856ad1-6ebd-48a7-9f58-8a55d9313040"
+      ],
+      "settings": {
+        "review-title": "The breakout Breakdown",
+        "url_1": ""
+      }
+    },
+    "f1645998-b9aa-4c8d-ac97-fafe7b6abf60": {
+      "type": "squad-insider-video-slider",
+      "blocks": {
+        "8b6a0e82-61c8-4c9a-92b3-2c23beb657fd": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a586496455e843969b6596080e8c8fb3.mp4",
+            "image_poster": "shopify:\/\/shop_images\/1_-_Copy.jpg"
+          }
+        },
+        "279992a4-ccce-4fe8-9f08-05871720fd67": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/a75f5a6be28649e09b40da50ab2c5f54.mp4",
+            "image_poster": "shopify:\/\/shop_images\/2_aa1d9e0d-9490-4142-ad74-2b936da1e1df.jpg"
+          }
+        },
+        "789abf20-c486-43de-a7ec-45db90fa381c": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/de0c29c5885448488ef5dc704a23e5b7.mp4",
+            "image_poster": "shopify:\/\/shop_images\/3_6da20246-7f72-4837-9cc4-2f866dc0e82a.jpg"
+          }
+        },
+        "2e04744e-49af-4424-ba36-c6eda1ddaa71": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/dd31132a4fa3444497978d8a0e7cae2a.mp4",
+            "image_poster": "shopify:\/\/shop_images\/4_474da53a-96d0-42b7-96c1-edb6127c51f7.jpg"
+          }
+        },
+        "aa96bab9-5a7c-4f43-bf04-ce3208d0eea6": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/eb687dae850748f6915bfbb8a603dafc.mp4",
+            "image_poster": "shopify:\/\/shop_images\/5_edcda013-4a29-4c44-ac55-18f68eb62ad9.jpg"
+          }
+        },
+        "ff566c00-d9cb-40f2-8c6c-6db214124929": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/19fea4cd6b3345108ee796188525081e.mp4",
+            "image_poster": "shopify:\/\/shop_images\/6_dc81eccf-325a-4796-b589-aa5d4709ac22.jpg"
+          }
+        },
+        "a5717a44-1f1b-401b-bd2b-5236ac57203f": {
+          "type": "gallery",
+          "settings": {
+            "url_1": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/1256ef7923e345f288c3ef76a977483b.mp4",
+            "image_poster": "shopify:\/\/shop_images\/7_23e5fb28-7bcc-4a8a-88cb-2894fd35b2d2.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "8b6a0e82-61c8-4c9a-92b3-2c23beb657fd",
+        "279992a4-ccce-4fe8-9f08-05871720fd67",
+        "789abf20-c486-43de-a7ec-45db90fa381c",
+        "2e04744e-49af-4424-ba36-c6eda1ddaa71",
+        "aa96bab9-5a7c-4f43-bf04-ce3208d0eea6",
+        "ff566c00-d9cb-40f2-8c6c-6db214124929",
+        "a5717a44-1f1b-401b-bd2b-5236ac57203f"
+      ],
+      "settings": {
+        "review-title": "Meet The A-Squad",
+        "url_1": ""
+      }
+    },
+    "216f2ab9-3e42-4d1d-85e3-77ec9abdcaa8": {
+      "type": "section-blog",
+      "settings": {
+        "blog_name": "blog-tips",
+        "title": "Acne Knowledge",
+        "grid": 8,
+        "rows": 1,
+        "aspect_ratio": 0.9,
+        "show_tags": false,
+        "show_author": false,
+        "show_date": false,
+        "show_button": true,
+        "show_comments": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "456ce328-cd26-403b-b7ac-87dc6ce1d089",
+    "73f88298-4af6-4d9e-943d-2bca10e4fd0c",
+    "f1645998-b9aa-4c8d-ac97-fafe7b6abf60",
+    "216f2ab9-3e42-4d1d-85e3-77ec9abdcaa8"
+  ]
+}

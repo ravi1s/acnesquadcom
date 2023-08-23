@@ -1,0 +1,463 @@
+<script>
+$(document).ready(function(){   
+  $('body').on('click', '.homepage-slideshow .slideshow__slide a', function(){
+    var url = $(this).attr('href');
+    var link_name = $(this).text().trim();
+    if(link_name == ''){
+      var link_name = 'null';
+    }
+    else {
+      var link_name = $(this).text().trim();
+    }
+    Moengage.track_event("banner_clicked", {
+      "banner_url": url,
+      "banner_name": link_name,
+      "page_url": 'https://www.acnesquad.com/',
+      "page_name":'Home Page'
+    });
+  });
+  
+  $('body').delegate('.st-search-bar input','keyup',function() { 
+    var keyword = $(this).val();
+    if(keyword.length >= 5){
+      Moengage.track_event("Product Searched", {
+        "Search String": keyword,
+        "brand": 'Acne Squad'
+      });
+    }
+  });
+
+  $('body').on('click','.header__menu .header__menu__inner .menu__item a, .subMenu_header a', function(){
+    var this_text = $(this).text();
+    var this_href = $(this).attr('href');
+    Moengage.track_event("category_clicked", {
+      "category_name": this_text,
+      "category_url": this_href,
+      "brand":'Acne Squad'
+    }); 
+  });
+  
+  $('body').on('click', '.cart__quantity button.cart__quantity-minus', function(){ 
+    var variant_id = $(this).attr('data-variant-id');
+    var product_id = $(this).attr('product_id');
+    var product_name = $(this).attr('title');
+    var product_price = $(this).attr('data-product-price');
+    var prodcutQty = $(this).attr('data-product-quantity');
+    var product_category = $(this).attr('data-product-type');
+    Moengage.track_event("remove_from_cart", {
+      "category": product_category,
+      "product_name": product_name,
+      "product_id": product_id,
+      "product_variant_id": variant_id,
+      "product_price": product_price,
+      "brand": 'Acne Squad',
+      "quantity": prodcutQty
+    });
+  });
+  
+  $('body').on('click', 'a.cart-item__remove', function(){
+    var variant_id = $(this).attr('data-variant-id');
+    var product_id = $(this).attr('product_id');
+    var product_name = $(this).attr('title');
+    var product_price = $(this).attr('data-product-price');
+    var prodcutQty = $(this).attr('data-product-quantity');
+    var product_category = $(this).attr('data-product-type');
+    
+    Moengage.track_event("remove_from_cart", {
+      "category":product_category,
+      "product_name":product_name,
+      "product_id": product_id,
+      "product_variant_id": variant_id,
+      "product_price": product_price,
+      "brand": 'Acne Squad',
+      "quantity": prodcutQty
+    });
+  });
+   $('body').on('click', '.cart__foot-inner button', function(){
+        let total_savings = $('.cart__total__money[cartsavingprepaid]').text().trim().replace("₹" , "");
+        var shipping_charge = $('.cart__total__money[data-charge]').text().trim().replace("₹" , "");
+        var totalItemPrice_arr =[];
+        var prodcutName_arr =[];
+        var prodcutPrice_arr =[];
+        var prodcutID_arr = [];
+        var variantID_arr = [];
+        var prodcutType_arr = [];
+        var prodcutQty_arr  =[]
+        var variantTitle_arr = []
+        var cart_total;
+        $.getJSON('/cart', function(cartItem){
+             cart_total = cartItem.total_price/100;
+            cartItem.items.forEach(function(item){
+         let =  totalItemPrice = item.line_price/100;
+              totalItemPrice_arr.push(totalItemPrice);
+         let =  prodcutName = item.product_title;
+              prodcutName_arr.push(prodcutName)
+         let =  prodcutPrice = item.price/100;
+              prodcutPrice_arr.push(prodcutPrice)
+         let =  prodcutID = item.product_id;
+              prodcutID_arr.push(prodcutID);
+         let =  variantID = item.id;
+              variantID_arr.push(variantID)
+         let =  prodcutType = item.product_type;
+              prodcutType_arr.push(prodcutType)
+         let =  prodcutQty = item.quantity;
+              prodcutQty_arr.push(prodcutQty);
+         let =  variantTitle = item.variant_title;  
+              variantTitle_arr.push(variantTitle);
+          });
+      Moengage.track_event("begin_checkout", {
+              "category":prodcutType_arr,
+              "product_name":prodcutName_arr,
+              "product_id":prodcutID_arr ,
+              "variant_title":variantTitle_arr,
+              "variant_id": variantID_arr,
+              "product_price":prodcutPrice_arr,
+              "comparison_price":total_savings,
+              "quantity": prodcutQty_arr,
+              "total_item_price":totalItemPrice_arr,
+              "total_bag_value":cart_total,
+              "total_savings":total_savings,
+              "shipping_charge":shipping_charge,
+              "brand": 'acnesquad'
+            });
+        });
+    
+      }); 
+  
+//    $(".cart__foot-inner .cart__checkout").click(function(){
+//      var product_type = new Array() , product_name = new Array(), product_id = new Array(), var_title = new Array(), var_id = new Array(), 
+//        product_price = new Array(), total_savings, total_qty, total_price, product_cmp = new Array(),shipping_charge;
+//     alert("hii");
+//      $.ajax({
+//         type: 'GET',
+//         url: '/cart.js',
+//         cache: false,
+//         dataType: 'json',
+//         success: function(cart) {
+//           console.log("cart>>>",cart.items);
+//        cart.items.forEach(function(item){
+//         product_type.push(item.product_type);
+//         product_name.push(item.title);
+//         product_id.push(item.product_id);
+//        var_title.push(item.variant_title);
+//         var_id.push(item.variant_id);
+//         product_price.push(item.price);
+//         product_cmp.push(item.original_price);
+         
+//       });
+//           total_savings = 22;
+//           total_qty = cart.item_count;
+//           total_price = cart.items_subtotal_price;
+//           shipping_charge = 'Free';
+//           carttotal = cart.total_price;
+//         },
+//      MoengageCheckout(product_type,product_name,product_id,var_title,var_id,product_price,product_cmp,total_savings,total_qty,total_price,carttotal,shipping_charge);
+
+//      });
+//   });
+});
+//   function MoengageCheckout(prodcutType_arr,prodcutName_arr,prodcutID_arr,variantTitle_arr,variantID_arr,prodcutPrice_arr,product_cmp,prodcutQty_arr,totalItemPrice_arr,cart_total,total_savings,shipping_charge){
+//     Moengage.track_event("begin_checkout", {
+//               "category":prodcutType_arr,
+//               "product_name":prodcutName_arr,
+//               "product_id":prodcutID_arr ,
+//               "variant_title":variantTitle_arr,
+//               "variant_id": variantID_arr,
+//               "product_price":prodcutPrice_arr,
+//               "comparison_price":product_cmp,
+//               "quantity": prodcutQty_arr,
+//               "total_item_price":totalItemPrice_arr,
+//               "total_bag_value":cart_total,
+//               "total_savings":parseInt(total_savings),
+//               "shipping_charge":shipping_charge,
+//               "brand": 'Find your happy place'
+//             });
+//   }
+ 
+{% if template contains 'index' %}  
+  $(document).ready(function(){    
+    $(window).on('load',function(){
+      Moengage.track_event("page_view", {
+        "page_type": 'Home Page',
+        "page_name": 'Home Page'
+      });
+
+      var productId = [];
+      var productName = [];
+      var productCategory = [];
+      var productSP = [];
+      var productCP = [];
+      var variantId = [];
+      $('.product-item').each(function(){
+        var product_id = $(this).attr('data-product-id'); 
+        var product_variant_id = $(this).attr('data-variant-id');  
+        var product_selling_price = $(this).attr('data-product-price');
+        var product_CP = $(this).find('.price.sale .old-price').text();
+        if(product_CP == '' || product_CP == undefined){
+          var product_cost_price = 'null';
+        }else{
+          var product_cost_price = parseFloat(product_CP.replace( /[^\d\.]*/g, ''));
+        }
+        var category = $(this).attr('data-product-type');
+        var product_name = $(this).find('.product__grid__title').text(); 
+        if(product_id != undefined){
+          productId.push(product_id);
+          productName.push(product_name);
+          productCategory.push(category);
+          productSP.push(product_selling_price);
+          productCP.push(product_cost_price);
+          variantId.push(product_variant_id);
+        }
+      });
+     
+      Moengage.track_event("view_list_item", {
+        "page_name": 'Home Page',
+        "list_name": 'BESTSELLERS/REGIME KITS',
+        "product_id": productId,
+        "product_name": productName,
+        "product_category": productCategory,
+        "product_selling_price": productSP,
+        "product_cost_price": productCP,
+        "product_variant_id": variantId
+      });
+    });
+  });
+{% endif %}
+
+{% if template contains 'collection' %}
+  $(document).ready(function(){
+    $(window).on('load',function(){
+      var page_name = '{{ collection.title }}';
+      Moengage.track_event("page_view", {
+        "page_type": 'Collection Page',
+        "page_name": page_name
+      });
+      
+      var productId = [];
+      var productName = [];
+      var productCategory = [];
+      var productSP = [];
+      var productCP = [];
+      var variantId = [];
+      $('.product-item').each(function(){
+        var product_id = $(this).attr('data-product-id'); 
+        var product_variant_id = $(this).attr('data-variant-id');  
+        var product_selling_price = $(this).attr('data-product-price');
+        var product_CP = $(this).find('.price.sale .old-price').text();
+        if(product_CP == '' || product_CP == undefined){
+          var product_cost_price = 'null';
+        }else{
+          var product_cost_price = parseFloat(product_CP.replace( /[^\d\.]*/g, ''));
+        }
+        var category = $(this).attr('data-product-type');
+        var product_name = $(this).find('.product__grid__title').text(); 
+        if(product_id != undefined){
+          productId.push(product_id);
+          productName.push(product_name);
+          productCategory.push(category);
+          productSP.push(product_selling_price);
+          productCP.push(product_cost_price);
+          variantId.push(product_variant_id);
+        }
+      });
+      Moengage.track_event("view_list_item", {
+        "page_name": 'Collection Page',
+        "list_name": 'Collection',
+        "product_id": productId,
+        "product_name": productName,
+        "product_category": productCategory,
+        "product_selling_price": productSP,
+        "product_cost_price": productCP,
+        "product_variant_id": variantId
+      });
+    });
+  });
+{% endif %}
+
+{% if template contains 'product' %}
+  $(document).ready(function(){
+    $(window).on('load',function(){
+      var page_name = '{{ product.title }}';
+      Moengage.track_event("page_view", {
+        "page_type": 'Product Page',
+        "page_name": page_name
+      });
+    });
+  });
+{% endif %}
+
+{% if template contains 'register' %}
+  $(document).ready(function(){
+    $(window).on('load',function(){
+      Moengage.track_event("page_view", {
+        "page_type": 'Register',
+        "page_name": 'Register Page'
+      });
+    });
+  });
+{% endif %}
+
+{% if template contains 'login' %}
+  $(document).ready(function(){
+    $(window).on('load',function(){
+      Moengage.track_event("page_view", {
+        "page_type": 'Login',
+        "page_name": 'Login Page'
+      });
+    });
+  });
+{% endif %}
+
+{% if template contains 'address' %}
+  $(document).ready(function(){
+    $(window).on('load',function(){
+      Moengage.track_event("page_view", {
+        "page_type": 'Address',
+        "page_name": 'Address Page'
+      });
+    });
+
+    $('form#address_form_new').submit(function(e){     
+      var first_name = $("input[name='address[first_name]']").val();
+      var last_name = $("input[name='address[last_name]']").val();
+      var address1 = $("input[name='address[address1]']").val();
+      var address2 = $("input[name='address[address2]']").val();
+      var city = $("input[name='address[city]']").val();
+      var zip = $("input[name='address[zip]']").val();
+      Moengage.track_event("add_address", {
+        "first_name": first_name,
+        "last_name": last_name,
+        "address1": address1,
+        "address2": address2,
+        "zip": zip,
+        "city": city
+      });
+    });
+  });
+{% endif %}
+
+{% if template contains 'account' %}
+  $(document).ready(function(){
+    $(window).on('load',function(){
+      Moengage.track_event("page_view", {
+        "page_type": 'Account',
+        "page_name": 'Account Page'
+      });
+
+      var firstName = "{{ customer.first_name }}";
+      var lastName = "{{ customer.last_name }}";
+      var email = "{{ customer.email }}";
+      Moengage.track_event("my_account", {
+        "first_name": firstName,
+        "last_name": lastName,
+        "email": email
+      });
+      Moengage.add_first_name(firstName);
+      Moengage.add_last_name(lastName);
+      Moengage.add_email(email);
+      Moengage.add_unique_user_id(email); 
+  
+      Moengage.track_event("email_subscription", {
+        "email": email,
+        "page_name":'Account Page'
+      });
+      if(social_platform == "null"){
+        Moengage.add_user_attribute("moe_unsubscribe", true);
+      }else{
+        Moengage.add_user_attribute("moe_unsubscribe", false);
+      }
+    });
+  });
+{% endif %}
+
+</script>
+<script>
+  $(document).ready(function () {
+const d = new Date();
+      const options = { hour12: false };
+      const dateAndTime = d.toLocaleString('en-US', options);
+    $('body').on('click', '.quiz_btn', function () {
+        Moengage.track_event("Popup-Quiz Click", {
+            "page_name": 'Home Page',
+             "Date":dateAndTime
+
+        });
+      gtag('event', 'Popup-Quiz Click', {
+            'send_to': 'G-C1KL70NW4X',
+            "page_name": 'Home Page',
+             "Date":dateAndTime
+          });
+    })
+    let tgt_quiz_start = document.querySelector(".QuizstartBtn");
+    if (tgt_quiz_start) {
+      
+        tgt_quiz_start.addEventListener('click', function () {
+                let input_val_arr = []
+            let tgt_input = document.querySelectorAll(".quizIntroInput")
+            tgt_input.forEach((item) => {
+                let item_value = item.value;
+                if (item_value) {
+                    input_val_arr.push(item_value);
+                }
+
+            })
+              localStorage.setItem("QuizEmail", input_val_arr[1]);
+              if (input_val_arr.length !=0)
+              {
+                  
+                 Moengage.track_event("Quiz-Start", {
+                "Name": input_val_arr[0],
+                "Email": input_val_arr[1],
+                "Date":dateAndTime
+            });
+
+          gtag('event', 'Quiz-Start', {
+                "Name": input_val_arr[0],
+                "Email": input_val_arr[1],
+                "Date":dateAndTime
+          });
+              }
+          
+        })
+    }
+  let submit_quiz = document.querySelector(".mainQuesQuizBtnSubMitBtn");
+if (submit_quiz) {
+  submit_quiz.addEventListener('click', function () {
+    let quiz_submit_arr = [];
+     var name = localStorage.getItem("name");
+    var email = localStorage.getItem("QuizEmail");
+    var text1 = localStorage.getItem("tipHeading_1");
+    quiz_submit_arr.push(text1)
+    var text2 = localStorage.getItem("tipHeading_2");
+    quiz_submit_arr.push(text2)
+    var text3 = localStorage.getItem("tipHeading_3");
+    quiz_submit_arr.push(text3)
+    var text4 = localStorage.getItem("tipHeading_4");
+    quiz_submit_arr.push(text4)
+    let tgt_quiz_question = document.querySelectorAll(".mainQuesDesTTL h3");
+    let quiz_question_arr = []
+    tgt_quiz_question.forEach((item, index) => {
+      let quiz_question_text = item.innerText;
+      quiz_question_arr.push(quiz_question_text);
+    })
+    let result = quiz_submit_arr.map((submit, index) => ({
+      question: quiz_question_arr[index],
+      Answer: submit   
+    }));
+       Moengage.track_event("Quiz-Submit", {
+                "Name":name,
+                "Email":email,
+                "Quiz-Data":JSON.stringify(result),
+                "Date":dateAndTime
+            });
+    gtag('event', 'Quiz-Submit', {
+                "Name":name,
+                "Email":email,
+                "Quiz-Data":JSON.stringify(result),
+                "Date":dateAndTime
+          });
+  })
+}
+
+});
+</script>

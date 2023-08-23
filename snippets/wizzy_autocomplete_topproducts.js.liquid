@@ -1,0 +1,45 @@
+<div class="wizzy-autocomplete-top-products">
+    <p class="top-products-title">[[topProductsTitle]]</p>
+    <ul class="autocomplete-top-products">
+        [[#products]]
+
+        <li class="topproduct-item" title="[[& name ]]" data-id="[[id]]"
+        [[#groupId]]data-groupId="[[groupId]]"[[/groupId]]  [[#singleVarientGroupId]]data-groupId="[[singleVarientGroupId]]"[[/singleVarientGroupId]]>
+        <a href="[[&url]]" class="topproduct-item-link">
+        <div class="topproduct-item-image">
+            <img src="[[ mainImage ]]" class="topproduct-image" width="300" height="300" loading="lazy" />
+        </div><!-- ending of topproduct-item-image -->
+        <div class="topproduct-item-image hover-image">
+            [[#hoverImage]]
+                <img src="[[ hoverImage ]]" class="topproduct-image" width="300" height="300" loading="lazy" />
+            [[/hoverImage]]
+            [[^hoverImage]]
+                <img src="[[ mainImage ]]" class="topproduct-image" width="300" height="300" loading="lazy" />
+            [[/hoverImage]]
+        </div><!-- ending of topproduct-item-image -->
+        <div class="topproduct-item-info">
+            <p class="topproduct-title">[[& name ]]</p>
+            <p class="topproduct-price">
+                [[#priceWithCurrency]][[ sellingPrice ]][[/priceWithCurrency]]
+                [[#discountPercentage]]
+                                                          [[#price]]
+                <span class="topproduct-original-price">
+                                    [[#priceWithCurrency]][[ price ]][[/priceWithCurrency]]
+                </span>
+                [[/price]]  
+                 
+                <span class="topproduct-item-discount">
+                                 
+                                       [[discountPercentage]]% off
+                                   
+                               </span>
+                  [[/discountPercentage]]
+                  </p>
+        </div><!-- ending of topproduct-item-info -->
+    </a><!-- ending of topproduct-item-link -->
+</li><!-- ending of topproduct-item -->
+
+[[/products]]
+</ul><!-- ending of autocomplete-top-products -->
+  <div class="wizzy-view-more"> Show More Products</div>
+</div><!-- ending of top-products -->

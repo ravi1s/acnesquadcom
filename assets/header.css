@@ -1,0 +1,169 @@
+/* Announcement bar */
+.announcement__text p {
+    font-size: 16px;
+}
+/* Announcement bar */
+a.navlink {
+  font-size: 15px;
+  text-transform: uppercase;
+  color:#707070;
+  font-weight:600;
+}
+.header__desktop__buttons--icons .header__cart__status:not([data-cart-count="0"]), .header__mobile__button .header__cart__status:not([data-cart-count="0"]) {
+  left: 51%;
+  top: 55%;
+  transform: translate(-50%,-50%);
+  padding: 0;
+  font-size: 12px;
+  font-weight:500;
+  height: auto;
+  min-width: unset;
+  right: auto;
+  background: transparent;
+  border: 0;
+}
+div#dropdown-360e00347aff23d98ae3ebf6061135ed {
+    max-width: 800px;
+    transform: translate(-50%,0%);
+    left: 50%;
+}
+@media(min-width: 768px){
+  .dropdown__family .navlink--child .navtext{
+    border-bottom: 2px solid;
+    padding-bottom:5px;
+  }
+  .dropdown__family.shop-by-stage-of-acne{
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .shop-by-stage-of-acne .navlink--grandchild{
+    width: calc(50% - 15px);
+    height: 70px;
+    padding: 8px;
+    text-transform: initial;
+  }
+  .shop-by-stage-of-acne .navlink--grandchild .navtext{
+    color: #fff;
+  }
+  .shop-by-stage-of-acne .navlink--grandchild.navlink_1{
+    background: #6ACBDF;
+    border-color: #6acbdf;
+  }
+  .shop-by-stage-of-acne .navlink--grandchild.navlink_2{
+    background: #FF767D;
+    border-color: #ff767d;
+  }
+  .shop-by-stage-of-acne .navlink--grandchild.navlink_3{
+    background: #26DEA6;
+    border-color: #26dea6;
+  }
+  .shop-by-stage-of-acne .navlink--grandchild.navlink_4{
+    background: #FFB25B;
+    border-color: #ffb25b;
+  }
+}
+@media(max-width: 767px){
+    nav#header-menu .sliderow__links.sliderow__links_parent-2x2 .sliderule__wrapper{
+    padding: 10px 5px 20px 5px;
+    margin: 5px;
+  }
+  nav#header-menu .sliderow__links.sliderow__links_parent-2x2 .sliderule__wrapper.stage-1{
+    background: #6ACBDF;
+    border-color: #6ACBDF;
+  }
+  nav#header-menu .sliderow__links.sliderow__links_parent-2x2 .sliderule__wrapper.stage-2{
+    background: #FF767D;
+    border-color: #FF767D;
+  }
+  nav#header-menu .sliderow__links.sliderow__links_parent-2x2 .sliderule__wrapper.stage-3{
+    background: #26DEA6;
+    border-color: #26DEA6;
+  }
+  nav#header-menu .sliderow__links.sliderow__links_parent-2x2 .sliderule__wrapper.stage-4{
+    background: #FFB25B;
+    border-color: #FFB25B;
+  }
+   nav#header-menu .sliderow__links.sliderow__links_parent-2x2 .sliderule__wrapper .sliderow__title{
+     color: #fff;
+   }
+  .header__mobile,.js__show__mobile .header__mobile{
+    display:flex;
+  }
+  span.sliderow__title.sliderow__title_cstm, .acne-care-quiz .sliderow__title.sub-menu-nav,
+  .origin-story .sliderow__title.sub-menu-nav, .a-squad .sliderow__title.sub-menu-nav{
+    font-size: 20px;
+    font-family: BebasNeue;
+    font-weight: 500 !important;
+    color: #707070;
+    margin: 0;
+    padding: 20px 0 16px;
+  }
+  .sliderow__links_parent-2x2{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+@media(max-width:749px){
+/*   .sub-content .sliderow__title.sub-menu-nav{
+    font-size: 15px;
+    line-height: 23px;
+    font-family: Europa_Regular;
+    text-transform: capitalize;
+    margin: 0;
+  } */
+  .header__wrapper .sliderow{
+    background: transparent;
+  }
+  .drawer__bottom{
+    display: none;
+  }
+  .drawer__menu[data-sliderule-pane="0"]{
+    overflow-x: initial;
+  }
+  .header__mobile__left {
+    width: 25%;
+  }
+  .header__logo.header__logo--image {
+    width: 25%;
+  }
+  .header__mobile__right {
+    width: 50%;
+    align-items: flex-end;
+  }
+  .header__mobile__button .navlink {
+    margin-right: 15px;
+  }
+  .header__mobile__right .header__mobile__button {
+    width:auto;
+  }
+  .sliderow__links{
+    padding-bottom: 0;
+  }
+  .acne-care-quiz .sub-menu-nav, .origin-story .sub-menu-nav{
+    border-bottom: 1px solid rgb(112 112 112 / 50%);
+  }
+  .origin-story .sub-menu-nav{
+    border-top: 1px solid rgb(112 112 112 / 50%);
+  }
+  .sliderow__title_cstm .sliderule__chevron--right{
+    bottom: 2px;
+  }
+  .span-shop-now-span{
+    margin-bottom: 30px;
+  }
+  #header-menu .drawer__content {
+    padding-top: 120px;
+  }
+  .slideshow__slide img, main#MainContent{
+    padding-top:0 !important;
+  }
+/*   .slideshow__slide img {
+    object-fit: inherit;
+  } */
+}
+@media(max-width:480px){
+  .slideshow__slide img{
+    height:100%;
+    width:100%;
+  }
+}
